@@ -35,14 +35,16 @@ scripts/
 
 ## Деплой
 
-Cloudflare Pages, статика из `dist`.
+Cloudflare Workers, статические ассеты из `dist`.
 
 ```bash
 npm run build
-npx wrangler pages deploy dist --project-name english-app
+npx wrangler deploy
 ```
 
-Файл `public/_redirects` уже содержит правило для SPA-роутинга.
+Живой адрес: https://english-app.registerakm.workers.dev
+
+Конфиг — `wrangler.jsonc`. SPA-роутинг включён через `not_found_handling: single-page-application`, отдельный `_redirects` не нужен.
 
 ## Ограничения
 
