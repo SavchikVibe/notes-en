@@ -47,7 +47,7 @@ export default function VocabularyScreen() {
                 >
                   <div className="min-w-0 flex-1">
                     <p className="font-serif text-[20px] leading-tight text-ink">{word.term}</p>
-                    <p className="font-mono text-[13px] text-ink-3">[{word.ipa}]</p>
+                    <p className="font-ipa text-[14px] leading-snug text-ink-3">[{word.ipa}]</p>
                   </div>
                   <span className="max-w-[48%] text-right text-[15px] leading-snug text-ink-2">
                     {word.translation}

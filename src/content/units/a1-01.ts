@@ -6,7 +6,7 @@ export const a101: Unit = {
   order: 1,
   title: 'Глагол to be',
   subtitle: 'I am · you are · he is',
-  goal: 'Рассказать, кто ты, откуда ты и сколько тебе лет',
+  goal: 'Кто ты, откуда и сколько тебе лет',
   formulas: [
     { label: 'Я', pattern: 'I + am', note: "I am = I'm" },
     { label: 'Ты, мы, они', pattern: 'You / We / They + are', note: "You are = You're" },

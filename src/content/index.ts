@@ -1,7 +1,18 @@
 import type { Unit, Word } from './types'
 import { a101 } from './units/a1-01'
+import { a102 } from './units/a1-02'
+import { a103 } from './units/a1-03'
+import { a104 } from './units/a1-04'
+import { a105 } from './units/a1-05'
+import { a106 } from './units/a1-06'
+import { a107 } from './units/a1-07'
+import { a108 } from './units/a1-08'
+import { a109 } from './units/a1-09'
+import { a110 } from './units/a1-10'
 
-export const units: Unit[] = [a101].sort((a, b) => a.order - b.order)
+export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a109, a110].sort(
+  (a, b) => a.order - b.order,
+)
 
 export function getUnit(id: string): Unit | undefined {
   return units.find((unit) => unit.id === id)

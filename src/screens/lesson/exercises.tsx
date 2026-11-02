@@ -57,6 +57,29 @@ function Stem({ children }: { children: ReactNode }) {
   return <p className="font-serif text-[22px] leading-snug text-ink">{children}</p>
 }
 
+function Blank() {
+  return (
+    <span
+      aria-label="пропуск"
+      className="mx-1 inline-block w-14 border-b-2 border-ink-2/60 align-baseline"
+    />
+  )
+}
+
+function QuestionText({ text }: { text: string }) {
+  const parts = text.split('___')
+  return (
+    <>
+      {parts.map((part, index) => (
+        <span key={index}>
+          {part}
+          {index < parts.length - 1 && <Blank />}
+        </span>
+      ))}
+    </>
+  )
+}
+
 /* ---------------------------------- choice --------------------------------- */
 
 export const ChoiceView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
@@ -78,7 +101,9 @@ export const ChoiceView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 
     return (
       <div className="space-y-4">
-        <Stem>{ex.question}</Stem>
+        <Stem>
+          <QuestionText text={ex.question} />
+        </Stem>
         <div className="space-y-2.5">
           {ex.options.map((option, index) => {
             const state: OptionState = locked

@@ -3,7 +3,7 @@ import { units } from '@/content'
 import { getAllDays, getAllLessonProgress, type DayLog, type LessonProgress } from '@/db/db'
 import { formatDuration, lastNDays, streakFromDays } from '@/lib/date'
 import { AppBar } from '@/components/AppBar'
-import { ProgressBar } from '@/components/ProgressBar'
+import { Ring } from '@/components/Ring'
 
 export default function ProgressScreen() {
   const [progress, setProgress] = useState<Record<string, LessonProgress> | null>(null)
@@ -49,9 +49,21 @@ export default function ProgressScreen() {
       <AppBar title="Прогресс" subtitle="Курс, серия, слова" />
 
       <main className="px-5 pb-10 pt-6">
-        <h1 className="text-[34px] leading-none">{Math.round(percent * 100)}%</h1>
-        <p className="mt-2 text-[15px] text-ink-2">курса пройдено</p>
-        <ProgressBar value={percent} className="mt-3" />
+        <div className="flex items-center gap-6">
+          <Ring value={percent}>
+            <span className="num font-serif text-[30px] leading-none">
+              {Math.round(percent * 100)}%
+            </span>
+            <span className="mt-1 text-[11px] text-ink-3">курса</span>
+          </Ring>
+          <div className="min-w-0">
+            <p className="font-serif text-[22px] leading-tight">A1</p>
+            <p className="mt-1 text-[15px] text-ink-2">
+              {done} из {units.length} уроков
+            </p>
+            <p className="mt-1 text-[13px] text-ink-3">Первый уровень пути</p>
+          </div>
+        </div>
 
         <div className="mt-8 grid grid-cols-2 gap-px overflow-hidden border border-line bg-line">
           <div className="bg-paper p-4">

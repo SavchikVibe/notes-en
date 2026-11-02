@@ -4,6 +4,7 @@ import type { Exercise, ReadQuestion, Unit, Word } from '../src/content/types.ts
 const errors: string[] = []
 const unitIds = new Set<string>()
 const wordIds = new Set<string>()
+const unitOrders = new Set<number>()
 
 function fail(message: string) {
   errors.push(message)
@@ -107,6 +108,10 @@ function checkWord(unit: Unit, word: Word) {
   wordIds.add(word.id)
   if (!word.term.trim()) fail(`${path}: пустой term`)
   if (!word.ipa.trim()) fail(`${path}: пустая транскрипция`)
+  if (/[[\]]/.test(word.ipa)) fail(`${path}: транскрипция должна быть без квадратных скобок`)
+  if (word.level !== unit.level) {
+    fail(`${path}: уровень ${word.level} не совпадает с уровнем юнита ${unit.level}`)
+  }
   if (!word.translation.trim()) fail(`${path}: пустой перевод`)
   if (word.examples.length < 2) fail(`${path}: нужно минимум 2 примера`)
   if (word.examples.length > 4) fail(`${path}: больше 4 примеров`)
@@ -122,6 +127,8 @@ function checkWord(unit: Unit, word: Word) {
 for (const unit of units) {
   if (unitIds.has(unit.id)) fail(`Юнит ${unit.id}: id повторяется`)
   unitIds.add(unit.id)
+  if (unitOrders.has(unit.order)) fail(`Юнит ${unit.id}: order ${unit.order} повторяется`)
+  unitOrders.add(unit.order)
   if (!/^[a-z]\d-\d{2}$/.test(unit.id)) fail(`Юнит ${unit.id}: id должен быть вида a1-01`)
   if (!unit.title.trim()) fail(`Юнит ${unit.id}: нет заголовка`)
   if (!unit.goal.trim()) fail(`Юнит ${unit.id}: нет цели`)

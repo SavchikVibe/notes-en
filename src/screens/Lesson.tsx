@@ -199,7 +199,7 @@ export default function LessonScreen() {
                   <p className="font-serif text-[19px] leading-snug">{formula.pattern}</p>
                   <p className="text-[13px] text-ink-3">
                     {formula.label}
-                    {formula.note ? ` · ${formula.note}` : ''}
+                    {formula.note ? ` — ${formula.note}` : ''}
                   </p>
                 </div>
               ))}

@@ -3,6 +3,8 @@
 @import "@fontsource/golos-text/600.css";
 @import "@fontsource/lora/500.css";
 @import "@fontsource/lora/600.css";
+@import "@fontsource/charis-sil/latin-400.css";
+@import "@fontsource/charis-sil/latin-ext-400.css";
 @import "tailwindcss";
 
 @theme inline {
@@ -21,6 +23,7 @@
 
   --font-sans: "Golos Text", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Lora", Georgia, "Times New Roman", serif;
+  --font-ipa: "Charis SIL", "Golos Text", Georgia, serif;
   --font-mono: ui-monospace, "Roboto Mono", "Droid Sans Mono", "Cascadia Mono", monospace;
 }
 
