@@ -1,6 +1,7 @@
 import type { Exercise, Unit, Word } from './types'
 import { extraExamples } from './extra-examples'
 import { extraExercises } from './extra-exercises'
+import { photos } from './photo-map'
 import { a101 } from './units/a1-01'
 import { a102 } from './units/a1-02'
 import { a103 } from './units/a1-03'
@@ -92,7 +93,11 @@ export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a1
       ...unit,
       words: unit.words.map((word) => {
         const extra = extraExamples[word.id]
-        return extra ? { ...word, examples: [...word.examples, extra] } : word
+        return {
+          ...word,
+          examples: extra ? [...word.examples, extra] : word.examples,
+          photo: photos[word.id] ?? word.photo,
+        }
       }),
     }),
   )

@@ -72,6 +72,14 @@ function WordRow({ word, open, onToggle }: { word: Word; open: boolean; onToggle
 
       {open && (
         <div className="space-y-2 pb-4 pl-10">
+          {word.photo && (
+            <img
+              src={word.photo}
+              alt={word.term}
+              loading="lazy"
+              className="aspect-[16/9] w-full rounded-[10px] object-cover"
+            />
+          )}
           {word.examples.map((example, index) => (
             <div key={index} className="flex items-start gap-1">
               <SpeakButton text={example.en} size={14} compact />
