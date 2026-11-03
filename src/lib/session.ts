@@ -22,6 +22,14 @@ function round5(value: number): number {
   return Math.max(5, Math.round(value / 5) * 5)
 }
 
+function wordsLabel(count: number): string {
+  const mod10 = count % 10
+  const mod100 = count % 100
+  if (mod10 === 1 && mod100 !== 11) return 'слово'
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'слова'
+  return 'слов'
+}
+
 const SPLITS: Record<
   number,
   { course: number; listening: number; reading: number; speaking: number; srs: number }
@@ -55,6 +63,7 @@ export function buildSession(
   progress: Record<string, LessonProgress>,
   settings: Settings,
   now = new Date(),
+  dueCount = 0,
 ): Session {
   const total = targetMinutes(settings, now)
   const split = splitFor(total)
@@ -70,7 +79,7 @@ export function buildSession(
       .map((item) => item.lessonId),
   )
 
-  const lessonsCount = Math.min(4, Math.max(1, Math.round(courseMinutes / 15)))
+  const lessonsCount = Math.min(5, Math.max(1, Math.round(courseMinutes / 12)))
   const nextLessons = units.filter((unit) => !doneIds.has(unit.id)).slice(0, lessonsCount)
 
   const blocks: SessionBlock[] = [
@@ -79,7 +88,7 @@ export function buildSession(
       title: 'Курс',
       minutes: courseMinutes,
       status: nextLessons.length > 0 ? 'ready' : 'soon',
-      note: nextLessons.length > 0 ? `${nextLessons.length} урока по 12–15 мин` : 'Все уроки этого этапа пройдены',
+      note: nextLessons.length > 0 ? '10–12 минут на урок' : 'Все уроки этого этапа пройдены',
       units: nextLessons,
     },
     {
@@ -110,8 +119,8 @@ export function buildSession(
       key: 'srs',
       title: 'Повторение',
       minutes: srsMinutes,
-      status: 'soon',
-      note: 'Слова по интервалам — этап 2',
+      status: dueCount > 0 ? 'ready' : 'soon',
+      note: dueCount > 0 ? `${dueCount} ${wordsLabel(dueCount)} к повторению` : 'Пока нечего повторять',
       units: [],
     },
   ]

@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Settings as SettingsIcon } from 'lucide-react'
 import { units } from '@/content'
-import { getAllLessonProgress, getSettings, type LessonProgress, type Settings } from '@/db/db'
+import {
+  addWordsToSrs,
+  countDue,
+  getAllLessonProgress,
+  getSettings,
+  type LessonProgress,
+  type Settings,
+} from '@/db/db'
 import { buildSession } from '@/lib/session'
 import { formatDuration, formatTodayRu } from '@/lib/date'
 import { AppBar } from '@/components/AppBar'
@@ -13,12 +20,25 @@ export default function TodayScreen() {
   const [state, setState] = useState<{
     progress: Record<string, LessonProgress>
     settings: Settings
+    due: number
   } | null>(null)
 
   useEffect(() => {
-    void Promise.all([getAllLessonProgress(), getSettings()]).then(([progress, settings]) => {
-      setState({ progress, settings })
-    })
+    void (async () => {
+      const [progress, settings] = await Promise.all([getAllLessonProgress(), getSettings()])
+      const done = new Set(
+        Object.values(progress)
+          .filter((item) => item.status === 'done')
+          .map((item) => item.lessonId),
+      )
+      await addWordsToSrs(
+        units
+          .filter((unit) => done.has(unit.id))
+          .flatMap((unit) => unit.words.map((word) => word.id)),
+      )
+      const due = await countDue()
+      setState({ progress, settings, due })
+    })()
   }, [])
 
   if (!state) {
@@ -32,7 +52,7 @@ export default function TodayScreen() {
     )
   }
 
-  const session = buildSession(units, state.progress, state.settings)
+  const session = buildSession(units, state.progress, state.settings, new Date(), state.due)
   const course = session.blocks[0]
   const others = session.blocks.slice(1)
   const hasResume = course.units.some((unit) => state.progress[unit.id]?.status === 'in_progress')
@@ -104,25 +124,49 @@ export default function TodayScreen() {
         <section className="mt-9">
           <h2 className="text-[20px]">Ещё сегодня</h2>
           <div className="mt-2">
-            {others.map((block) => (
-              <div
-                key={block.key}
-                className="flex min-h-[60px] items-start justify-between gap-4 border-b border-line py-3.5"
-              >
-                <div className="min-w-0">
-                  <p className="text-[17px] text-ink-2">{block.title}</p>
-                  <p className="text-[13px] text-ink-3">{block.note}</p>
+            {others.map((block) => {
+              const ready = block.status === 'ready'
+              const body = (
+                <>
+                  <div className="min-w-0">
+                    <p className={`text-[17px] ${ready ? 'text-ink' : 'text-ink-2'}`}>
+                      {block.title}
+                    </p>
+                    <p className="text-[13px] text-ink-3">{block.note}</p>
+                  </div>
+                  <div className="shrink-0 text-right">
+                    <p className={`num text-[15px] ${ready ? 'text-ink-2' : 'text-ink-3'}`}>
+                      {block.minutes} мин
+                    </p>
+                    <p className={`text-[11px] ${ready ? 'text-accent' : 'text-ink-3'}`}>
+                      {ready ? 'Повторить' : 'скоро'}
+                    </p>
+                  </div>
+                </>
+              )
+
+              return ready ? (
+                <button
+                  key={block.key}
+                  type="button"
+                  onClick={() => navigate('/review')}
+                  className="flex min-h-[60px] w-full items-start justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
+                >
+                  {body}
+                </button>
+              ) : (
+                <div
+                  key={block.key}
+                  className="flex min-h-[60px] items-start justify-between gap-4 border-b border-line py-3.5"
+                >
+                  {body}
                 </div>
-                <div className="shrink-0 text-right">
-                  <p className="num text-[15px] text-ink-3">{block.minutes} мин</p>
-                  <p className="text-[11px] text-ink-3">скоро</p>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
           <p className="mt-4 text-[13px] leading-relaxed text-ink-3">
-            Слушание, чтение, речь и повторение подключатся на следующих этапах. Тогда «Сегодня»
-            будет собирать полное занятие на два часа.
+            Слушание, чтение и речь подключатся на следующих этапах. Повторение слов уже работает по
+            интервалам.
           </p>
         </section>
       </main>

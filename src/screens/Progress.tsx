@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { units } from '@/content'
-import { getAllDays, getAllLessonProgress, type DayLog, type LessonProgress } from '@/db/db'
+import { getAllDays, getAllLessonProgress, getAllSrs, addWordsToSrs, type DayLog, type LessonProgress } from '@/db/db'
 import { formatDuration, lastNDays, streakFromDays, todayKey } from '@/lib/date'
 import { AppBar } from '@/components/AppBar'
 import { Ring } from '@/components/Ring'
@@ -8,15 +8,32 @@ import { Ring } from '@/components/Ring'
 export default function ProgressScreen() {
   const [progress, setProgress] = useState<Record<string, LessonProgress> | null>(null)
   const [days, setDays] = useState<DayLog[] | null>(null)
+  const [srsCount, setSrsCount] = useState<number | null>(null)
 
   useEffect(() => {
-    void Promise.all([getAllLessonProgress(), getAllDays()]).then(([lessonProgress, dayLogs]) => {
+    void (async () => {
+      const [lessonProgress, dayLogs] = await Promise.all([
+        getAllLessonProgress(),
+        getAllDays(),
+      ])
+      const done = new Set(
+        Object.values(lessonProgress)
+          .filter((item) => item.status === 'done')
+          .map((item) => item.lessonId),
+      )
+      await addWordsToSrs(
+        units
+          .filter((unit) => done.has(unit.id))
+          .flatMap((unit) => unit.words.map((word) => word.id)),
+      )
+      const cards = await getAllSrs()
       setProgress(lessonProgress)
       setDays(dayLogs)
-    })
+      setSrsCount(cards.length)
+    })()
   }, [])
 
-  if (!progress || !days) {
+  if (!progress || !days || srsCount === null) {
     return (
       <>
         <AppBar title="Прогресс" />
@@ -34,9 +51,6 @@ export default function ProgressScreen() {
   )
   const done = units.filter((unit) => doneIds.has(unit.id)).length
   const percent = units.length > 0 ? done / units.length : 0
-  const words = units
-    .filter((unit) => doneIds.has(unit.id))
-    .reduce((sum, unit) => sum + unit.words.length, 0)
   const streak = streakFromDays(days)
 
   const week = lastNDays(7)
@@ -74,7 +88,7 @@ export default function ProgressScreen() {
           </div>
           <div className="bg-paper p-4">
             <p className="text-[13px] text-ink-3">Слов в обороте</p>
-            <p className="num mt-1 font-serif text-[24px] leading-none">{words}</p>
+            <p className="num mt-1 font-serif text-[24px] leading-none">{srsCount}</p>
           </div>
           <div className="bg-paper p-4">
             <p className="text-[13px] text-ink-3">Серия дней</p>

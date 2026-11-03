@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Check, ChevronDown, X } from 'lucide-react'
 import { getUnit } from '@/content'
-import { finishLesson, getLessonProgress, saveAnswer, saveResume, addStudyTime } from '@/db/db'
+import { finishLesson, getLessonProgress, saveAnswer, saveResume, addStudyTime, addWordsToSrs } from '@/db/db'
 import { Button } from '@/components/Button'
 import { SpeakButton } from '@/components/SpeakButton'
 import { renderExercise, type ExerciseViewHandle } from './lesson/exercises'
@@ -105,6 +105,7 @@ export default function LessonScreen() {
       flushTime()
       activeSince.current = null
       await finishLesson(unit.id, score, total)
+      await addWordsToSrs(unit.words.map((word) => word.id))
       setResult({ correct, total, score })
       return
     }

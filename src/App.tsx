@@ -6,6 +6,7 @@ import VocabularyScreen from '@/screens/Vocabulary'
 import ProgressScreen from '@/screens/Progress'
 import SettingsScreen from '@/screens/Settings'
 import LessonScreen from '@/screens/Lesson'
+import ReviewScreen from '@/screens/Review'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="progress" element={<ProgressScreen />} />
       </Route>
       <Route path="lesson/:id" element={<LessonScreen />} />
+      <Route path="review" element={<ReviewScreen />} />
       <Route path="settings" element={<SettingsScreen />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -20,6 +20,16 @@ export interface DayLog {
   lessons: string[]
 }
 
+export interface SrsCard {
+  wordId: string
+  box: number
+  dueAt: number
+  reviews: number
+  correct: number
+  wrong: number
+  lastAt: number
+}
+
 export interface Settings {
   /** Целевые минуты по дню недели. 0 — воскресенье. */
   minutes: Record<number, number>
@@ -46,17 +56,31 @@ interface EnglishDB extends DBSchema {
   progress: { key: string; value: LessonProgress }
   days: { key: string; value: DayLog }
   kv: { key: string; value: unknown }
+  srs: { key: string; value: SrsCard }
 }
 
 let dbPromise: Promise<IDBPDatabase<EnglishDB>> | null = null
 
 function db() {
   if (!dbPromise) {
-    dbPromise = openDB<EnglishDB>('english', 1, {
-      upgrade(database) {
-        database.createObjectStore('progress', { keyPath: 'lessonId' })
-        database.createObjectStore('days', { keyPath: 'date' })
-        database.createObjectStore('kv')
+    dbPromise = openDB<EnglishDB>('english', 2, {
+      upgrade(database, oldVersion) {
+        if (oldVersion < 1) {
+          database.createObjectStore('progress', { keyPath: 'lessonId' })
+          database.createObjectStore('days', { keyPath: 'date' })
+          database.createObjectStore('kv')
+        }
+        if (oldVersion < 2) {
+          database.createObjectStore('srs', { keyPath: 'wordId' })
+        }
+      },
+      blocking() {
+        // Другая вкладка обновляет базу — отпускаем соединение, чтобы миграция прошла.
+        void dbPromise?.then((database) => database.close())
+        dbPromise = null
+      },
+      blocked() {
+        console.warn('Обновление базы ждёт: закройте приложение на других вкладках')
       },
     })
   }
@@ -162,6 +186,56 @@ export async function addStudyTime(seconds: number): Promise<void> {
   await touchDay(whole, 0)
 }
 
+const SRS_DAYS = [0, 1, 3, 7, 16, 35]
+
+export async function addWordsToSrs(wordIds: string[]): Promise<void> {
+  const database = await db()
+  const existing = new Set((await database.getAll('srs')).map((card) => card.wordId))
+  const now = Date.now()
+  const tx = database.transaction('srs', 'readwrite')
+  for (const wordId of wordIds) {
+    if (existing.has(wordId)) continue
+    tx.store.put({ wordId, box: 0, dueAt: now, reviews: 0, correct: 0, wrong: 0, lastAt: 0 })
+  }
+  await tx.done
+}
+
+export async function getAllSrs(): Promise<SrsCard[]> {
+  return (await db()).getAll('srs')
+}
+
+export async function getDueCards(limit = 20): Promise<SrsCard[]> {
+  const now = Date.now()
+  const all = await (await db()).getAll('srs')
+  return all
+    .filter((card) => card.dueAt <= now)
+    .sort((a, b) => a.dueAt - b.dueAt)
+    .slice(0, limit)
+}
+
+export async function countDue(): Promise<number> {
+  const now = Date.now()
+  return (await (await db()).getAll('srs')).filter((card) => card.dueAt <= now).length
+}
+
+export async function reviewCard(wordId: string, correct: boolean): Promise<void> {
+  const database = await db()
+  const card = await database.get('srs', wordId)
+  if (!card) return
+  const nextBox = correct ? Math.min(card.box + 1, SRS_DAYS.length - 1) : 0
+  const days = correct ? SRS_DAYS[nextBox] : 1
+  const now = Date.now()
+  await database.put('srs', {
+    ...card,
+    box: nextBox,
+    dueAt: now + days * 86_400_000,
+    reviews: card.reviews + 1,
+    correct: card.correct + (correct ? 1 : 0),
+    wrong: card.wrong + (correct ? 0 : 1),
+    lastAt: now,
+  })
+}
+
 export async function getSettings(): Promise<Settings> {
   const stored = (await (await db()).get('kv', 'settings')) as Partial<Settings> | undefined
   if (!stored) return { ...defaultSettings, minutes: { ...DEFAULT_MINUTES } }
@@ -181,6 +255,7 @@ export interface Backup {
   settings: Settings
   progress: LessonProgress[]
   days: DayLog[]
+  srs?: SrsCard[]
 }
 
 export async function exportBackup(): Promise<Backup> {
@@ -191,6 +266,7 @@ export async function exportBackup(): Promise<Backup> {
     settings: await getSettings(),
     progress: await database.getAll('progress'),
     days: await database.getAll('days'),
+    srs: await database.getAll('srs'),
   }
 }
 
@@ -199,21 +275,24 @@ export async function importBackup(data: unknown): Promise<void> {
   const backup = data as Partial<Backup>
   if (backup.version !== 1) throw new Error('Неизвестная версия бэкапа')
   const database = await db()
-  const tx = database.transaction(['progress', 'days', 'kv'], 'readwrite')
+  const tx = database.transaction(['progress', 'days', 'kv', 'srs'], 'readwrite')
   await tx.objectStore('progress').clear()
   await tx.objectStore('days').clear()
+  await tx.objectStore('srs').clear()
   for (const item of backup.progress ?? []) await tx.objectStore('progress').put(item)
   for (const item of backup.days ?? []) await tx.objectStore('days').put(item)
+  for (const item of backup.srs ?? []) await tx.objectStore('srs').put(item)
   if (backup.settings) await tx.objectStore('kv').put(backup.settings, 'settings')
   await tx.done
 }
 
 export async function resetAll(): Promise<void> {
   const database = await db()
-  const tx = database.transaction(['progress', 'days', 'kv'], 'readwrite')
+  const tx = database.transaction(['progress', 'days', 'kv', 'srs'], 'readwrite')
   await tx.objectStore('progress').clear()
   await tx.objectStore('days').clear()
   await tx.objectStore('kv').clear()
+  await tx.objectStore('srs').clear()
   await tx.done
 }
 

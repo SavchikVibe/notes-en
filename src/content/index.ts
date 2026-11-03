@@ -1,5 +1,6 @@
-import type { Unit, Word } from './types'
+import type { Exercise, Unit, Word } from './types'
 import { extraExamples } from './extra-examples'
+import { extraExercises } from './extra-exercises'
 import { a101 } from './units/a1-01'
 import { a102 } from './units/a1-02'
 import { a103 } from './units/a1-03'
@@ -11,14 +12,58 @@ import { a108 } from './units/a1-08'
 import { a109 } from './units/a1-09'
 import { a110 } from './units/a1-10'
 
+function pickDictation(unit: Unit) {
+  return unit.words
+    .flatMap((word) => word.examples)
+    .filter((example) => {
+      const count = example.en.split(/\s+/).length
+      return count >= 3 && count <= 6
+    })
+    .sort((a, b) => a.en.length - b.en.length)[0]
+}
+
+function withContent(unit: Unit): Unit {
+  const read = unit.exercises.filter((exercise) => exercise.kind === 'read')
+  const base = unit.exercises.filter((exercise) => exercise.kind !== 'read')
+  const extra = extraExercises[unit.id] ?? []
+  const derived: Exercise[] = []
+
+  const dictation = pickDictation(unit)
+  if (dictation) {
+    derived.push({
+      kind: 'listen',
+      id: `${unit.id}-gen-listen`,
+      audio: dictation.en,
+      question: 'Напиши, что услышал',
+      mode: 'type',
+      answer: dictation.en,
+      translation: dictation.ru,
+    })
+  }
+
+  const translate = extra.find((exercise) => exercise.kind === 'translate')
+  if (translate && translate.kind === 'translate') {
+    derived.push({
+      kind: 'speak',
+      id: `${unit.id}-gen-speak`,
+      phrase: translate.sample,
+      translation: translate.source,
+    })
+  }
+
+  return { ...unit, exercises: [...base, ...extra, ...derived, ...read] }
+}
+
 export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a109, a110]
-  .map((unit) => ({
-    ...unit,
-    words: unit.words.map((word) => {
-      const extra = extraExamples[word.id]
-      return extra ? { ...word, examples: [...word.examples, extra] } : word
+  .map((unit) =>
+    withContent({
+      ...unit,
+      words: unit.words.map((word) => {
+        const extra = extraExamples[word.id]
+        return extra ? { ...word, examples: [...word.examples, extra] } : word
+      }),
     }),
-  }))
+  )
   .sort((a, b) => a.order - b.order)
 
 export function getUnit(id: string): Unit | undefined {
