@@ -217,8 +217,8 @@ export const a220: Unit = {
       ],
       questions: [
         { question: 'What language did Anna start?', options: ['Spanish', 'English', 'French'], answer: 0 },
-        { question: 'When does she practise?', options: ['In the morning', 'At night', 'At noon'], answer: 0 },
-        { question: 'What did the writer suggest?', options: ['Taking a course', 'Travelling', 'Reading a book'], answer: 0 },
+        { question: 'When does she practice?', options: ['In the morning', 'At night', 'At noon'], answer: 0 },
+        { question: 'What did the writer suggest?', options: ['Taking a course', 'Traveling', 'Reading a book'], answer: 0 },
       ],
     },
   ],

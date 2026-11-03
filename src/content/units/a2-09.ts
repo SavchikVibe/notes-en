@@ -95,7 +95,7 @@ export const a209: Unit = {
       examples: [
         { en: 'The living room is spacious.', ru: 'Гостиная просторная.' },
         { en: 'We want a spacious kitchen.', ru: 'Мы хотим просторную кухню.' },
-        { en: 'Their new flat is bright and spacious.', ru: 'Их новая квартира светлая и просторная.' },
+        { en: 'Their new apartment is bright and spacious.', ru: 'Их новая квартира светлая и просторная.' },
       ],
     },
     {
@@ -203,16 +203,16 @@ export const a209: Unit = {
     {
       kind: 'speak',
       id: 'a2-09-ex-09',
-      phrase: 'We rent a cozy flat, but the heating is broken.',
+      phrase: 'We rent a cozy apartment, but the heating is broken.',
       translation: 'Мы снимаем уютную квартиру, но отопление сломано.',
     },
     {
       kind: 'read',
       id: 'a2-09-ex-10',
-      title: 'A New Flat',
+      title: 'A New Apartment',
       paragraphs: [
-        'Last month we moved to a new flat. We rent it from a friendly landlord, and the rent is not too high.',
-        'The flat is small but cozy. The living room is spacious, and there is new furniture in the bedroom.',
+        'Last month we moved to a new apartment. We rent it from a friendly landlord, and the rent is not too high.',
+        'The apartment is small but cozy. The living room is spacious, and there is new furniture in the bedroom.',
         'The neighborhood is quiet, and there is a park near the house. One problem: the heating was broken, so we called the landlord. He repaired it the same day.',
       ],
       questions: [

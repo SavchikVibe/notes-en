@@ -228,7 +228,7 @@ export const b128: Unit = {
       id: 'b1-28-ex-12',
       title: 'At the Border',
       paragraphs: [
-        'Last summer we travelled to a country that required a visa. I applied three months early, but the process was still stressful.',
+        'Last summer we traveled to a country that required a visa. I applied three months early, but the process was still stressful.',
         'At the airport, we showed our passports and boarding passes. The officer asked why we were visiting and how long we planned to stay.',
         'At customs, they checked one bag. We had nothing to declare, so it was quick. I kept copies of all documents in case something was lost.',
         'Our visa was valid for thirty days. Before the trip, I had to renew my passport, so I was happy that everything worked.',

@@ -234,7 +234,7 @@ export const b101: Unit = {
         'Since then I have grown a lot. I have found a job I enjoy, and I have made real friends. Looking back, moving was the best chapter of my life so far.',
       ],
       questions: [
-        { question: 'What had the writer never done before?', options: ['Lived alone', 'Travelled', 'Worked'], answer: 0 },
+        { question: 'What had the writer never done before?', options: ['Lived alone', 'Traveled', 'Worked'], answer: 0 },
         { question: 'What was the turning point?', options: ['A language club evening', 'A new job', 'A phone call'], answer: 0 },
         { question: 'How does the writer feel now?', options: ['Positive about the move', 'Sorry about it', 'Neutral'], answer: 0 },
       ],

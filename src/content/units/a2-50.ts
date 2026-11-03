@@ -11,7 +11,7 @@ export const a250: Unit = {
     { label: 'План', pattern: 'My goal is to + verb', note: 'My goal is to speak fluently.' },
     { label: 'Прогресс', pattern: 'improve + noun', note: 'Reading improves your vocabulary.' },
     { label: 'Уверенность', pattern: 'feel confident about', note: 'I feel confident about my English.' },
-    { label: 'Совет', pattern: 'Try to + verb every day', note: 'Try to practise every day.' },
+    { label: 'Совет', pattern: 'Try to + verb every day', note: 'Try to practice every day.' },
   ],
   words: [
     {
@@ -203,7 +203,7 @@ export const a250: Unit = {
     {
       kind: 'speak',
       id: 'a2-50-ex-09',
-      phrase: 'My goal is to speak fluently, so I practise grammar, vocabulary, and pronunciation every day.',
+      phrase: 'My goal is to speak fluently, so I practice grammar, vocabulary, and pronunciation every day.',
       translation: 'Моя цель — говорить бегло, поэтому я каждый день тренирую грамматику, слова и произношение.',
     },
     {

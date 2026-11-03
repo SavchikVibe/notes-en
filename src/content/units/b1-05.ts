@@ -201,7 +201,7 @@ export const b105: Unit = {
       source: 'Она практикует осознанность каждое утро.',
       accept: ['She practises mindfulness every morning.', 'She practices mindfulness every morning.'],
       sample: 'She practises mindfulness every morning.',
-      explanation: 'Practise mindfulness — практиковать осознанность.',
+      explanation: 'Practice mindfulness — практиковать осознанность.',
     },
     {
       kind: 'listen',

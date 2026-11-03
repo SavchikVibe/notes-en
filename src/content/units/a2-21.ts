@@ -9,7 +9,7 @@ export const a221: Unit = {
   goal: 'Сравнивать предметы и людей точнее',
   formulas: [
     { label: 'Сравнение', pattern: 'adjective + -er + than', note: 'She is taller than me.' },
-    { label: 'Меньше', pattern: 'less + adjective', note: 'This flat is less expensive.' },
+    { label: 'Меньше', pattern: 'less + adjective', note: 'This apartment is less expensive.' },
     { label: 'Немного', pattern: 'slightly / almost', note: 'The room is slightly bigger.' },
     { label: 'Одинаково', pattern: 'the same as', note: 'My bag is the same as yours.' },
   ],
@@ -37,7 +37,7 @@ export const a221: Unit = {
       level: 'A2',
       tags: ['grammar'],
       examples: [
-        { en: 'This flat is less expensive.', ru: 'Эта квартира менее дорогая.' },
+        { en: 'This apartment is less expensive.', ru: 'Эта квартира менее дорогая.' },
         { en: 'I have less time today.', ru: 'Сегодня у меня меньше времени.' },
         { en: 'He works less than before.', ru: 'Он работает меньше, чем раньше.' },
       ],
@@ -139,7 +139,7 @@ export const a221: Unit = {
     {
       kind: 'choice',
       id: 'a2-21-ex-02',
-      question: 'This flat is ___ expensive.',
+      question: 'This apartment is ___ expensive.',
       options: ['less', 'least', 'fewer'],
       answer: 0,
       explanation: 'Less expensive — менее дорогой.',
@@ -203,7 +203,7 @@ export const a221: Unit = {
     {
       kind: 'speak',
       id: 'a2-21-ex-09',
-      phrase: 'My new flat is slightly smaller, but it is far cheaper than the old one.',
+      phrase: 'My new apartment is slightly smaller, but it is far cheaper than the old one.',
       translation: 'Моя новая квартира немного меньше, но намного дешевле старой.',
     },
     {
@@ -212,12 +212,12 @@ export const a221: Unit = {
       title: 'Two Apartments',
       paragraphs: [
         'We looked at two apartments yesterday. The first one is bigger than the second, but it is also far more expensive.',
-        'The second flat is slightly smaller, but the rooms are almost equal in size. The difference in price is big.',
-        'Both flats are the same as each other in one way: they are close to the metro. We have less time this week, so we will decide on Friday.',
+        'The second apartment is slightly smaller, but the rooms are almost equal in size. The difference in price is big.',
+        'Both apartments are the same as each other in one way: they are close to the metro. We have less time this week, so we will decide on Friday.',
       ],
       questions: [
-        { question: 'Which flat is bigger?', options: ['The first one', 'The second one', 'They are equal'], answer: 0 },
-        { question: 'What is the difference between the flats?', options: ['The price', 'The metro', 'The street'], answer: 0 },
+        { question: 'Which apartment is bigger?', options: ['The first one', 'The second one', 'They are equal'], answer: 0 },
+        { question: 'What is the difference between the apartments?', options: ['The price', 'The metro', 'The street'], answer: 0 },
         { question: 'When will they decide?', options: ['On Friday', 'Today', 'Next month'], answer: 0 },
       ],
     },

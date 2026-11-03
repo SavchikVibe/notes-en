@@ -211,14 +211,14 @@ export const a226: Unit = {
       id: 'a2-26-ex-10',
       title: 'Two Trips',
       paragraphs: [
-        'I have travelled a lot in recent years. I have visited Canada, Mexico, and Japan.',
+        'I have traveled a lot in recent years. I have visited Canada, Mexico, and Japan.',
         'I went to Canada in 2018 with my family. We stayed for a short period, only ten days, but it was a great trip.',
         'Last year I visited Japan for the first time. I have never seen anything like it. At present, I am saving money for my next trip.',
       ],
       questions: [
         { question: 'When did the writer go to Canada?', options: ['In 2018', 'In 2019', 'Last year'], answer: 0 },
         { question: 'How long did the writer stay in Canada?', options: ['Ten days', 'Two weeks', 'One month'], answer: 0 },
-        { question: 'What is the writer doing now?', options: ['Saving money', 'Travelling', 'Working in Japan'], answer: 0 },
+        { question: 'What is the writer doing now?', options: ['Saving money', 'Traveling', 'Working in Japan'], answer: 0 },
       ],
     },
   ],

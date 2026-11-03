@@ -25,7 +25,7 @@ export const a212: Unit = {
       examples: [
         { en: 'I made a reservation for two.', ru: 'Я забронировал столик на двоих.' },
         { en: 'Do you have a reservation?', ru: 'У вас есть бронь?' },
-        { en: 'We cancelled our hotel reservation.', ru: 'Мы отменили бронь в отеле.' },
+        { en: 'We canceled our hotel reservation.', ru: 'Мы отменили бронь в отеле.' },
       ],
     },
     {
@@ -211,7 +211,7 @@ export const a212: Unit = {
       id: 'a2-12-ex-10',
       title: 'A Trip Abroad',
       paragraphs: [
-        'Last summer we travelled abroad. I made a reservation at a small hotel and bought a travel guide.',
+        'Last summer we traveled abroad. I made a reservation at a small hotel and bought a travel guide.',
         'Our departure was at seven in the morning. At the airport, we learned about a two-hour delay because of the weather.',
         'We finally arrived at our destination in the afternoon. A local guide met us and showed us the old city. It was a long day, but a good start.',
       ],
