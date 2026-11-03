@@ -19,6 +19,7 @@ import type {
 } from '@/content'
 import { matchesAny, normalizeAnswer, normalizeToken } from '@/lib/text'
 import { speak, speechSupported } from '@/lib/speech'
+import { SpeakButton } from '@/components/SpeakButton'
 
 export interface ExerciseViewHandle {
   check: () => void
@@ -278,7 +279,10 @@ export const TranslateView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 
         {locked && (
           <div className="border-l-2 border-accent pl-3">
-            <p className="text-[13px] font-medium text-ink-3">Образец</p>
+            <div className="flex items-center gap-1">
+              <p className="text-[13px] font-medium text-ink-3">Образец</p>
+              <SpeakButton text={ex.sample} size={14} compact />
+            </div>
             <p className="text-[17px] text-ink">{ex.sample}</p>
           </div>
         )}
@@ -324,6 +328,13 @@ export const ListenView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
           >
             <Volume2 size={19} strokeWidth={1.5} />
             Прослушать
+          </button>
+          <button
+            type="button"
+            onClick={() => speak(ex.audio, 0.7)}
+            className="flex min-h-12 items-center rounded-[10px] border border-line px-3 text-[14px] text-ink-2"
+          >
+            0.7×
           </button>
           {!speechSupported() && <span className="text-[13px] text-ink-3">Озвучка недоступна</span>}
         </div>
@@ -433,7 +444,6 @@ export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
         recorderRef.current = recorder
         recorder.start()
         setRecording(true)
-        speak(ex.phrase)
       } catch {
         setError('Микрофон недоступен. Нужен HTTPS или localhost и разрешение браузера.')
       }
@@ -459,6 +469,14 @@ export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
           >
             <Volume2 size={19} strokeWidth={1.5} />
             Эталон
+          </button>
+
+          <button
+            type="button"
+            onClick={() => speak(ex.phrase, 0.7)}
+            className="flex min-h-12 items-center rounded-[10px] border border-line px-3 text-[14px] text-ink-2"
+          >
+            0.7×
           </button>
 
           {recording ? (
@@ -543,11 +561,15 @@ export const ReadView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
     return (
       <div className="space-y-6">
         <div className="space-y-3">
-          <h3 className="text-[20px] text-ink">{ex.title}</h3>
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="text-[20px] text-ink">{ex.title}</h3>
+            <SpeakButton text={ex.paragraphs.join(' ')} size={16} compact />
+          </div>
           {ex.paragraphs.map((paragraph, index) => (
-            <p key={index} className="text-[17px] leading-relaxed text-ink-2">
-              {paragraph}
-            </p>
+            <div key={index} className="flex items-start gap-1">
+              <SpeakButton text={paragraph} size={14} compact />
+              <p className="text-[17px] leading-relaxed text-ink-2">{paragraph}</p>
+            </div>
           ))}
         </div>
 

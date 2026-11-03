@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { units } from '@/content'
 import { getAllDays, getAllLessonProgress, type DayLog, type LessonProgress } from '@/db/db'
-import { formatDuration, lastNDays, streakFromDays } from '@/lib/date'
+import { formatDuration, lastNDays, streakFromDays, todayKey } from '@/lib/date'
 import { AppBar } from '@/components/AppBar'
 import { Ring } from '@/components/Ring'
 
@@ -89,24 +89,30 @@ export default function ProgressScreen() {
         </div>
 
         <section className="mt-8 border-t border-line pt-5">
-          <div className="flex items-baseline justify-between">
-            <h2 className="text-[20px]">Последние 7 дней</h2>
-            <span className="num text-[13px] text-ink-3">минуты</span>
-          </div>
+          <h2 className="text-[20px]">Последние 7 дней</h2>
+          <p className="mt-1 text-[13px] text-ink-3">Сколько минут занятий было в каждый день</p>
 
-          <div className="mt-4 flex h-32 items-end gap-2">
+          <div className="mt-5 flex h-40 items-end gap-2">
             {week.map((day) => {
               const minutes = minutesByDate.get(day.date) ?? 0
-              const height = minutes > 0 ? Math.max(6, (minutes / maxMinutes) * 100) : 2
+              const height = minutes > 0 ? Math.max(8, (minutes / maxMinutes) * 100) : 2
+              const isToday = day.date === todayKey()
               return (
-                <div key={day.date} className="flex h-full flex-1 flex-col items-center gap-2">
+                <div key={day.date} className="flex h-full flex-1 flex-col items-center gap-1.5">
+                  <span className={`num text-[11px] ${minutes > 0 ? 'text-ink-2' : 'text-ink-3'}`}>
+                    {minutes > 0 ? minutes : '—'}
+                  </span>
                   <div className="flex w-full flex-1 items-end">
                     <div
                       className={`w-full rounded-t-[2px] ${minutes > 0 ? 'bg-accent' : 'bg-line'}`}
                       style={{ height: `${height}%` }}
                     />
                   </div>
-                  <span className="text-[11px] text-ink-3">{day.weekday}</span>
+                  <span
+                    className={`text-[11px] ${isToday ? 'font-medium text-ink' : 'text-ink-3'}`}
+                  >
+                    {day.weekday}
+                  </span>
                 </div>
               )
             })}

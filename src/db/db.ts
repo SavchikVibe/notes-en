@@ -122,7 +122,6 @@ export async function finishLesson(
   lessonId: string,
   score: number,
   exerciseCount: number,
-  seconds: number,
 ): Promise<void> {
   const database = await db()
   const existing = await database.get('progress', lessonId)
@@ -136,7 +135,7 @@ export async function finishLesson(
     updatedAt: Date.now(),
     completedAt: existing?.completedAt ?? Date.now(),
   })
-  await touchDay(seconds, exerciseCount, lessonId)
+  await touchDay(0, exerciseCount, lessonId)
 }
 
 export async function getDay(date: string): Promise<DayLog | undefined> {
@@ -155,6 +154,12 @@ export async function touchDay(seconds: number, exercises: number, lessonId?: st
   existing.exercises += exercises
   if (lessonId && !existing.lessons.includes(lessonId)) existing.lessons.push(lessonId)
   await database.put('days', existing)
+}
+
+export async function addStudyTime(seconds: number): Promise<void> {
+  const whole = Math.round(seconds)
+  if (whole <= 0) return
+  await touchDay(whole, 0)
 }
 
 export async function getSettings(): Promise<Settings> {

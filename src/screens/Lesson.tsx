@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Check, X } from 'lucide-react'
+import { Check, ChevronDown, X } from 'lucide-react'
 import { getUnit } from '@/content'
-import { finishLesson, getLessonProgress, saveAnswer, saveResume } from '@/db/db'
+import { finishLesson, getLessonProgress, saveAnswer, saveResume, addStudyTime } from '@/db/db'
 import { Button } from '@/components/Button'
+import { SpeakButton } from '@/components/SpeakButton'
 import { renderExercise, type ExerciseViewHandle } from './lesson/exercises'
 
 interface Result {
@@ -24,8 +25,38 @@ export default function LessonScreen() {
   const [answers, setAnswers] = useState<Record<string, boolean>>({})
   const [lastCorrect, setLastCorrect] = useState(false)
   const [result, setResult] = useState<Result | null>(null)
+  const [formulasOpen, setFormulasOpen] = useState(true)
   const viewRef = useRef<ExerciseViewHandle | null>(null)
-  const startedAt = useRef(Date.now())
+  const activeSince = useRef<number | null>(Date.now())
+  const pendingSeconds = useRef(0)
+
+  const flushTime = useCallback(() => {
+    if (activeSince.current !== null) {
+      pendingSeconds.current += (Date.now() - activeSince.current) / 1000
+      activeSince.current = Date.now()
+    }
+    const whole = Math.floor(pendingSeconds.current)
+    if (whole > 0) {
+      pendingSeconds.current -= whole
+      void addStudyTime(whole)
+    }
+  }, [])
+
+  useEffect(() => {
+    function onVisibility() {
+      if (document.visibilityState === 'hidden') {
+        flushTime()
+        activeSince.current = null
+      } else if (activeSince.current === null) {
+        activeSince.current = Date.now()
+      }
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      flushTime()
+    }
+  }, [flushTime])
 
   useEffect(() => {
     if (!unit) return
@@ -71,14 +102,16 @@ export default function LessonScreen() {
     if (index >= total - 1) {
       const correct = Object.values(answers).filter(Boolean).length
       const score = total > 0 ? correct / total : 0
-      const seconds = (Date.now() - startedAt.current) / 1000
-      await finishLesson(unit.id, score, total, seconds)
+      flushTime()
+      activeSince.current = null
+      await finishLesson(unit.id, score, total)
       setResult({ correct, total, score })
       return
     }
     setIndex((currentIndex) => currentIndex + 1)
     setPhase('answer')
     setCanCheck(false)
+    setFormulasOpen(false)
   }
 
   function restart() {
@@ -87,7 +120,9 @@ export default function LessonScreen() {
     setAnswers({})
     setPhase('answer')
     setCanCheck(false)
-    startedAt.current = Date.now()
+    setFormulasOpen(true)
+    pendingSeconds.current = 0
+    activeSince.current = Date.now()
   }
 
   if (!unit) {
@@ -132,9 +167,15 @@ export default function LessonScreen() {
           <p className="text-[13px] font-medium text-ink-3">Слова урока</p>
           <ul className="mt-2 divide-y divide-line">
             {unit.words.map((word) => (
-              <li key={word.id} className="flex items-baseline justify-between gap-4 py-2.5">
-                <span className="text-[17px]">{word.term}</span>
-                <span className="text-right text-[15px] text-ink-2">{word.translation}</span>
+              <li key={word.id} className="flex items-center gap-1 py-2">
+                <SpeakButton text={word.term} size={15} />
+                <div className="min-w-0 flex-1">
+                  <p className="text-[17px]">{word.term}</p>
+                  <p className="font-ipa text-[13px] leading-snug text-ink-3">[{word.ipa}]</p>
+                </div>
+                <span className="max-w-[48%] text-right text-[15px] text-ink-2">
+                  {word.translation}
+                </span>
               </li>
             ))}
           </ul>
@@ -190,10 +231,22 @@ export default function LessonScreen() {
       </header>
 
       <main className="flex-1 px-5 pb-8 pt-6">
-        {index === 0 && (
-          <section className="mb-7 border-l-2 border-accent pl-4">
-            <p className="text-[13px] font-medium text-ink-3">Формула</p>
-            <div className="mt-2 space-y-3">
+        <section className="mb-6">
+          <button
+            type="button"
+            onClick={() => setFormulasOpen((open) => !open)}
+            className="flex w-full items-center justify-between border-b border-line pb-2 text-[13px] font-medium text-ink-3"
+          >
+            <span>Формула</span>
+            <ChevronDown
+              size={16}
+              strokeWidth={1.5}
+              className={`transition-transform ${formulasOpen ? 'rotate-180' : ''}`}
+            />
+          </button>
+
+          {formulasOpen && (
+            <div className="mt-3 space-y-3 border-l-2 border-accent pl-4">
               {unit.formulas.map((formula) => (
                 <div key={formula.pattern}>
                   <p className="font-serif text-[19px] leading-snug">{formula.pattern}</p>
@@ -204,8 +257,8 @@ export default function LessonScreen() {
                 </div>
               ))}
             </div>
-          </section>
-        )}
+          )}
+        </section>
 
         {renderExercise(current, {
           exercise: current,
