@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "postbuild": "node scripts/postbuild-pages.mjs",
     "preview": "vite preview",
+    "deploy:pages": "node scripts/deploy-pages.mjs",
     "validate:content": "tsx scripts/validate-content.ts",
     "icons": "node scripts/make-icons.mjs"
   },
