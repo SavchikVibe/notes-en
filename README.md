@@ -36,16 +36,18 @@ scripts/
 
 ## Деплой
 
-Cloudflare Workers, статические ассеты из `dist`.
+Netlify, статика из `dist`.
 
 ```bash
 npm run build
-npx wrangler deploy
+npx netlify deploy --prod --dir=dist
 ```
 
-Живой адрес: https://english-app-2.registerakm.workers.dev
+Живой адрес: https://english-app-saveliy.netlify.app
 
-Старый `english-app.registerakm.workers.dev` оставлен только для экспорта бэкапа: его service worker застрял на 0.5.0 и не обновляется.
+Конфиг — `netlify.toml`: сборка, публикация `dist` и SPA-редирект на `index.html`.
+
+Cloudflare Workers остаётся запасным вариантом, но `*.workers.dev` в России без VPN не открывается.
 
 Конфиг — `wrangler.jsonc`. SPA-роутинг включён через `not_found_handling: single-page-application`, отдельный `_redirects` не нужен.
 
