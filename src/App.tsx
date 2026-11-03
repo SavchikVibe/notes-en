@@ -8,6 +8,7 @@ import SettingsScreen from '@/screens/Settings'
 import LessonScreen from '@/screens/Lesson'
 import ReviewScreen from '@/screens/Review'
 import ReadingScreen from '@/screens/Reading'
+import ListeningScreen from '@/screens/Listening'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       <Route path="lesson/:id" element={<LessonScreen />} />
       <Route path="review" element={<ReviewScreen />} />
       <Route path="reading" element={<ReadingScreen />} />
+      <Route path="listening" element={<ListeningScreen />} />
       <Route path="settings" element={<SettingsScreen />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

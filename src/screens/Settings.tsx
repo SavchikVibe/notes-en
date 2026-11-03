@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Download, RotateCcw, Upload } from 'lucide-react'
+import { Download, RefreshCw, RotateCcw, Upload } from 'lucide-react'
 import {
   exportBackup,
   getSettings,
@@ -69,6 +69,15 @@ export default function SettingsScreen() {
     await resetAll()
     setSettings(await getSettings())
     setMessage('Прогресс удалён.')
+  }
+
+  async function checkUpdate() {
+    try {
+      const registration = await navigator.serviceWorker.getRegistration()
+      await registration?.update()
+    } finally {
+      window.location.reload()
+    }
   }
 
   if (!settings) {
@@ -185,8 +194,12 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">О приложении</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-            English — личный курс. Версия 0.6.0. Работает офлайн после установки на главный экран.
+            English — личный курс. Версия 0.7.0. Работает офлайн после установки на главный экран.
           </p>
+          <Button variant="secondary" className="mt-4 w-full" onClick={() => void checkUpdate()}>
+            <RefreshCw size={18} strokeWidth={1.5} />
+            Проверить обновление
+          </Button>
         </section>
       </main>
     </>

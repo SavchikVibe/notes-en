@@ -23,6 +23,7 @@ export default function TodayScreen() {
     settings: Settings
     due: number
     readingsLeft: number
+    listeningLeft: number
   } | null>(null)
 
   useEffect(() => {
@@ -45,7 +46,15 @@ export default function TodayScreen() {
           .map((item) => item.lessonId),
       )
       const readingsLeft = readings.filter((reading) => !doneReadings.has(reading.id)).length
-      setState({ progress, settings, due, readingsLeft })
+      const doneListening = new Set(
+        Object.values(progress)
+          .filter((item) => item.status === 'done' && item.lessonId.startsWith('listening-'))
+          .map((item) => item.lessonId),
+      )
+      const listeningLeft = readings.filter(
+        (reading) => !doneListening.has(`listening-${reading.id}`),
+      ).length
+      setState({ progress, settings, due, readingsLeft, listeningLeft })
     })()
   }, [])
 
@@ -67,6 +76,7 @@ export default function TodayScreen() {
     new Date(),
     state.due,
     state.readingsLeft,
+    state.listeningLeft,
   )
   const course = session.blocks[0]
   const others = session.blocks.slice(1)
@@ -141,8 +151,18 @@ export default function TodayScreen() {
           <div className="mt-2">
             {others.map((block) => {
               const ready = block.status === 'ready'
-              const target = block.key === 'reading' ? '/reading' : '/review'
-              const action = block.key === 'reading' ? 'Читать' : 'Повторить'
+              const target =
+                block.key === 'reading'
+                  ? '/reading'
+                  : block.key === 'listening'
+                    ? '/listening'
+                    : '/review'
+              const action =
+                block.key === 'reading'
+                  ? 'Читать'
+                  : block.key === 'listening'
+                    ? 'Слушать'
+                    : 'Повторить'
               const body = (
                 <>
                   <div className="min-w-0">
@@ -182,7 +202,8 @@ export default function TodayScreen() {
             })}
           </div>
           <p className="mt-4 text-[13px] leading-relaxed text-ink-3">
-            Слушание и речь подключатся на следующих этапах. Чтение и повторение слов уже работают.
+            Слушание, чтение и повторение уже работают. Речь — запись и сравнение без оценки
+            произношения.
           </p>
         </section>
       </main>

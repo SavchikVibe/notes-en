@@ -73,6 +73,7 @@ export function buildSession(
   now = new Date(),
   dueCount = 0,
   readingsLeft = 0,
+  listeningLeft = 0,
 ): Session {
   const total = targetMinutes(settings, now)
   const split = splitFor(total)
@@ -104,8 +105,11 @@ export function buildSession(
       key: 'listening',
       title: 'Слушание',
       minutes: listeningMinutes,
-      status: 'soon',
-      note: 'Разбор аудио — следующий этап',
+      status: listeningLeft > 0 ? 'ready' : 'soon',
+      note:
+        listeningLeft > 0
+          ? `${listeningLeft} ${textsLabel(listeningLeft)}`
+          : 'Все тексты разобраны',
       units: [],
     },
     {
