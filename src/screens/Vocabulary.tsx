@@ -76,7 +76,6 @@ function WordRow({ word, open, onToggle }: { word: Word; open: boolean; onToggle
             <img
               src={word.photo}
               alt={word.term}
-              loading="lazy"
               className="aspect-[16/9] w-full rounded-[10px] object-cover"
             />
           )}

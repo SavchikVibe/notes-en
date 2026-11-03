@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.12.1 — 2026-11-03
+
+- Фото в карточке слова загружается сразу при раскрытии, без ленивой задержки.
+
 ## 0.12.0 — 2026-11-03
 
 - Первые 12 фото в словаре: apple, bread, cheese, milk, egg, rice, coffee, tea, sandwich, salad, house, kitchen.
