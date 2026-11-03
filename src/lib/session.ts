@@ -30,6 +30,14 @@ function wordsLabel(count: number): string {
   return 'слов'
 }
 
+function textsLabel(count: number): string {
+  const mod10 = count % 10
+  const mod100 = count % 100
+  if (mod10 === 1 && mod100 !== 11) return 'текст'
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'текста'
+  return 'текстов'
+}
+
 const SPLITS: Record<
   number,
   { course: number; listening: number; reading: number; speaking: number; srs: number }
@@ -64,6 +72,7 @@ export function buildSession(
   settings: Settings,
   now = new Date(),
   dueCount = 0,
+  readingsLeft = 0,
 ): Session {
   const total = targetMinutes(settings, now)
   const split = splitFor(total)
@@ -103,8 +112,8 @@ export function buildSession(
       key: 'reading',
       title: 'Чтение',
       minutes: readingMinutes,
-      status: 'soon',
-      note: 'Короткие тексты A1 — этап 5',
+      status: readingsLeft > 0 ? 'ready' : 'soon',
+      note: readingsLeft > 0 ? `${readingsLeft} ${textsLabel(readingsLeft)}` : 'Все тексты прочитаны',
       units: [],
     },
     {

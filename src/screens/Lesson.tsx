@@ -19,7 +19,10 @@ export default function LessonScreen() {
   const navigate = useNavigate()
 
   const [ready, setReady] = useState(false)
-  const [index, setIndex] = useState(0)
+  const [queue, setQueue] = useState<number[]>(() =>
+    unit ? unit.exercises.map((_, index) => index) : [],
+  )
+  const [position, setPosition] = useState(0)
   const [phase, setPhase] = useState<'answer' | 'feedback' | 'skipped'>('answer')
   const [canCheck, setCanCheck] = useState(false)
   const [answers, setAnswers] = useState<Record<string, boolean>>({})
@@ -27,6 +30,7 @@ export default function LessonScreen() {
   const [result, setResult] = useState<Result | null>(null)
   const [formulasOpen, setFormulasOpen] = useState(true)
   const viewRef = useRef<ExerciseViewHandle | null>(null)
+  const requeued = useRef(new Set<number>())
   const activeSince = useRef<number | null>(Date.now())
   const pendingSeconds = useRef(0)
 
@@ -66,7 +70,9 @@ export default function LessonScreen() {
       if (progress) {
         setAnswers(progress.answers ?? {})
         if (progress.status === 'in_progress') {
-          setIndex(Math.min(progress.exerciseIndex, unit.exercises.length - 1))
+          const answered = new Set(Object.keys(progress.answers ?? {}))
+          const next = unit.exercises.findIndex((exercise) => !answered.has(exercise.id))
+          setPosition(next === -1 ? 0 : next)
         }
       }
       setReady(true)
@@ -76,30 +82,46 @@ export default function LessonScreen() {
     }
   }, [unit])
 
+  const exerciseIndex = queue[position] ?? 0
+  const total = unit?.exercises.length ?? 0
+  const current = unit?.exercises[exerciseIndex]
+
   const handleResult = useCallback(
     (correct: boolean) => {
       if (!unit) return
-      const exercise = unit.exercises[index]
-      setAnswers((current) => ({ ...current, [exercise.id]: correct }))
+      const exercise = unit.exercises[exerciseIndex]
+      const firstAttempt = answers[exercise.id] === undefined
+
+      if (firstAttempt) {
+        setAnswers((currentAnswers) => ({ ...currentAnswers, [exercise.id]: correct }))
+        void saveAnswer(
+          unit.id,
+          exercise.id,
+          correct,
+          Math.min(exerciseIndex + 1, unit.exercises.length - 1),
+        )
+
+        if (!correct && !requeued.current.has(exerciseIndex)) {
+          requeued.current.add(exerciseIndex)
+          setQueue((currentQueue) => [...currentQueue, exerciseIndex])
+        }
+      }
+
       setLastCorrect(correct)
       setPhase('feedback')
-      void saveAnswer(unit.id, exercise.id, correct, Math.min(index + 1, unit.exercises.length - 1))
     },
-    [unit, index],
+    [unit, exerciseIndex, answers],
   )
-
-  const total = unit?.exercises.length ?? 0
-  const current = unit?.exercises[index]
 
   const handleSkip = useCallback(() => {
     if (!unit) return
     setPhase('skipped')
-    void saveResume(unit.id, Math.min(index + 1, unit.exercises.length - 1))
-  }, [unit, index])
+    void saveResume(unit.id, Math.min(exerciseIndex + 1, unit.exercises.length - 1))
+  }, [unit, exerciseIndex])
 
   async function handleNext() {
     if (!unit) return
-    if (index >= total - 1) {
+    if (position >= queue.length - 1) {
       const correct = Object.values(answers).filter(Boolean).length
       const score = total > 0 ? correct / total : 0
       flushTime()
@@ -109,7 +131,7 @@ export default function LessonScreen() {
       setResult({ correct, total, score })
       return
     }
-    setIndex((currentIndex) => currentIndex + 1)
+    setPosition((value) => value + 1)
     setPhase('answer')
     setCanCheck(false)
     setFormulasOpen(false)
@@ -117,11 +139,13 @@ export default function LessonScreen() {
 
   function restart() {
     setResult(null)
-    setIndex(0)
+    setPosition(0)
+    setQueue(unit ? unit.exercises.map((_, index) => index) : [])
     setAnswers({})
     setPhase('answer')
     setCanCheck(false)
     setFormulasOpen(true)
+    requeued.current.clear()
     pendingSeconds.current = 0
     activeSince.current = Date.now()
   }
@@ -216,15 +240,15 @@ export default function LessonScreen() {
             <p className="truncate text-[13px] leading-tight text-ink-3">{unit.goal}</p>
           </div>
           <span className="num text-[13px] text-ink-3">
-            {index + 1} / {total}
+            {position + 1} / {queue.length}
           </span>
         </div>
         <div className="flex gap-1.5 pb-3">
-          {unit.exercises.map((exercise, step) => (
+          {queue.map((stepIndex, step) => (
             <span
-              key={exercise.id}
+              key={`${stepIndex}-${step}`}
               className={`h-1 flex-1 rounded-full transition-colors ${
-                step <= index ? 'bg-accent' : 'bg-line'
+                step <= position ? 'bg-accent' : 'bg-line'
               }`}
             />
           ))}
@@ -232,6 +256,10 @@ export default function LessonScreen() {
       </header>
 
       <main className="flex-1 px-5 pb-8 pt-6">
+        {position >= total && (
+          <p className="mb-4 text-[13px] font-medium text-ink-3">Повторение ошибки</p>
+        )}
+
         <section className="mb-6">
           <button
             type="button"
@@ -303,7 +331,7 @@ export default function LessonScreen() {
           </Button>
         ) : (
           <Button className="w-full" onClick={() => void handleNext()}>
-            {index === total - 1 ? 'Завершить' : 'Дальше'}
+            {position >= queue.length - 1 ? 'Завершить' : 'Дальше'}
           </Button>
         )}
       </div>

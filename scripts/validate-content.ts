@@ -1,4 +1,5 @@
 import { units } from '../src/content/index.ts'
+import { readings } from '../src/content/readings.ts'
 import type { Exercise, ReadQuestion, Unit, Word } from '../src/content/types.ts'
 
 const errors: string[] = []
@@ -145,12 +146,23 @@ for (const unit of units) {
 const exerciseCount = units.reduce((sum, unit) => sum + unit.exercises.length, 0)
 const wordCount = units.reduce((sum, unit) => sum + unit.words.length, 0)
 
+const readingIds = new Set<string>()
+for (const reading of readings) {
+  const path = `reading/${reading.id}`
+  if (readingIds.has(reading.id)) fail(`${path}: id повторяется`)
+  readingIds.add(reading.id)
+  if (!reading.title.trim()) fail(`${path}: нет заголовка`)
+  if (reading.paragraphs.length < 2) fail(`${path}: меньше 2 абзацев`)
+  if (reading.paragraphs.some((paragraph) => !paragraph.trim())) fail(`${path}: пустой абзац`)
+  checkQuestions(path, reading.questions)
+}
+
 if (errors.length > 0) {
   console.error(`Контент не прошёл проверку: ${errors.length} ошибок\n`)
   for (const message of errors) console.error(`  • ${message}`)
   process.exitCode = 1
 } else {
   console.log(
-    `Контент в порядке: ${units.length} юнитов, ${exerciseCount} упражнений, ${wordCount} слов.`,
+    `Контент в порядке: ${units.length} юнитов, ${exerciseCount} упражнений, ${wordCount} слов, ${readings.length} текстов.`,
   )
 }

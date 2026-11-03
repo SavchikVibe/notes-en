@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Settings as SettingsIcon } from 'lucide-react'
 import { units } from '@/content'
+import { readings } from '@/content/readings'
 import {
   addWordsToSrs,
   countDue,
@@ -21,6 +22,7 @@ export default function TodayScreen() {
     progress: Record<string, LessonProgress>
     settings: Settings
     due: number
+    readingsLeft: number
   } | null>(null)
 
   useEffect(() => {
@@ -37,7 +39,13 @@ export default function TodayScreen() {
           .flatMap((unit) => unit.words.map((word) => word.id)),
       )
       const due = await countDue()
-      setState({ progress, settings, due })
+      const doneReadings = new Set(
+        Object.values(progress)
+          .filter((item) => item.status === 'done' && item.lessonId.startsWith('reading-'))
+          .map((item) => item.lessonId),
+      )
+      const readingsLeft = readings.filter((reading) => !doneReadings.has(reading.id)).length
+      setState({ progress, settings, due, readingsLeft })
     })()
   }, [])
 
@@ -52,7 +60,14 @@ export default function TodayScreen() {
     )
   }
 
-  const session = buildSession(units, state.progress, state.settings, new Date(), state.due)
+  const session = buildSession(
+    units,
+    state.progress,
+    state.settings,
+    new Date(),
+    state.due,
+    state.readingsLeft,
+  )
   const course = session.blocks[0]
   const others = session.blocks.slice(1)
   const hasResume = course.units.some((unit) => state.progress[unit.id]?.status === 'in_progress')
@@ -126,6 +141,8 @@ export default function TodayScreen() {
           <div className="mt-2">
             {others.map((block) => {
               const ready = block.status === 'ready'
+              const target = block.key === 'reading' ? '/reading' : '/review'
+              const action = block.key === 'reading' ? 'Читать' : 'Повторить'
               const body = (
                 <>
                   <div className="min-w-0">
@@ -139,7 +156,7 @@ export default function TodayScreen() {
                       {block.minutes} мин
                     </p>
                     <p className={`text-[11px] ${ready ? 'text-accent' : 'text-ink-3'}`}>
-                      {ready ? 'Повторить' : 'скоро'}
+                      {ready ? action : 'скоро'}
                     </p>
                   </div>
                 </>
@@ -149,7 +166,7 @@ export default function TodayScreen() {
                 <button
                   key={block.key}
                   type="button"
-                  onClick={() => navigate('/review')}
+                  onClick={() => navigate(target)}
                   className="flex min-h-[60px] w-full items-start justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
                 >
                   {body}
@@ -165,8 +182,7 @@ export default function TodayScreen() {
             })}
           </div>
           <p className="mt-4 text-[13px] leading-relaxed text-ink-3">
-            Слушание, чтение и речь подключатся на следующих этапах. Повторение слов уже работает по
-            интервалам.
+            Слушание и речь подключатся на следующих этапах. Чтение и повторение слов уже работают.
           </p>
         </section>
       </main>
