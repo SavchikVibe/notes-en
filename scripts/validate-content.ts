@@ -113,7 +113,7 @@ function checkWord(unit: Unit, word: Word) {
     fail(`${path}: уровень ${word.level} не совпадает с уровнем юнита ${unit.level}`)
   }
   if (!word.translation.trim()) fail(`${path}: пустой перевод`)
-  if (word.examples.length < 2) fail(`${path}: нужно минимум 2 примера`)
+  if (word.examples.length < 3) fail(`${path}: нужно минимум 3 примера`)
   if (word.examples.length > 4) fail(`${path}: больше 4 примеров`)
   word.examples.forEach((example, index) => {
     if (!example.en.trim()) fail(`${path}: пустой английский пример ${index + 1}`)

@@ -17,7 +17,7 @@ export const a101: Unit = {
     {
       id: 'student',
       term: 'student',
-      ipa: 'ˈstjuːdənt',
+      ipa: 'ˈstuːdənt',
       translation: 'студент, студентка',
       pos: 'n',
       level: 'A1',
@@ -30,7 +30,7 @@ export const a101: Unit = {
     {
       id: 'teacher',
       term: 'teacher',
-      ipa: 'ˈtiːtʃə',
+      ipa: 'ˈtiːtʃɚ',
       translation: 'учитель, преподаватель',
       pos: 'n',
       level: 'A1',

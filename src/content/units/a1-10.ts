@@ -17,7 +17,7 @@ export const a110: Unit = {
     {
       id: 'parents',
       term: 'parents',
-      ipa: 'ˈpeərənts',
+      ipa: 'ˈperənts',
       translation: 'родители',
       pos: 'n',
       level: 'A1',
@@ -43,7 +43,7 @@ export const a110: Unit = {
     {
       id: 'daughter',
       term: 'daughter',
-      ipa: 'ˈdɔːtə',
+      ipa: 'ˈdɔːtɚ',
       translation: 'дочь',
       pos: 'n',
       level: 'A1',
@@ -89,7 +89,7 @@ export const a110: Unit = {
       tags: ['family'],
       examples: [
         { en: 'They have two children.', ru: 'У них двое детей.' },
-        { en: 'The children play football every day.', ru: 'Дети каждый день играют в футбол.' },
+        { en: 'The children play soccer every day.', ru: 'Дети каждый день играют в футбол.' },
       ],
     },
   ],

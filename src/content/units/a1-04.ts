@@ -56,7 +56,7 @@ export const a104: Unit = {
     {
       id: 'chair',
       term: 'chair',
-      ipa: 'tʃeə',
+      ipa: 'tʃer',
       translation: 'стул',
       pos: 'n',
       level: 'A1',
@@ -69,7 +69,7 @@ export const a104: Unit = {
     {
       id: 'phone',
       term: 'phone',
-      ipa: 'fəʊn',
+      ipa: 'foʊn',
       translation: 'телефон',
       pos: 'n',
       level: 'A1',
@@ -155,7 +155,7 @@ export const a104: Unit = {
       questions: [
         { question: 'What is new?', options: ['The table', 'The chair', 'The phone'], answer: 0 },
         { question: 'Where is the bag?', options: ['On the table', 'On the chair', 'On the bed'], answer: 1 },
-        { question: 'What colour is the phone?', options: ['Brown', 'White', 'Black'], answer: 2 },
+        { question: 'What color is the phone?', options: ['Brown', 'White', 'Black'], answer: 2 },
       ],
     },
   ],

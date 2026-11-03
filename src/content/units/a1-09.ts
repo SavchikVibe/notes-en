@@ -17,7 +17,7 @@ export const a109: Unit = {
     {
       id: 'morning',
       term: 'morning',
-      ipa: 'ˈmɔːnɪŋ',
+      ipa: 'ˈmɔːrnɪŋ',
       translation: 'утро',
       pos: 'n',
       level: 'A1',
@@ -30,7 +30,7 @@ export const a109: Unit = {
     {
       id: 'afternoon',
       term: 'afternoon',
-      ipa: 'ˌɑːftəˈnuːn',
+      ipa: 'ˌæftɚˈnuːn',
       translation: 'день, время после полудня',
       pos: 'n',
       level: 'A1',
@@ -82,7 +82,7 @@ export const a109: Unit = {
     {
       id: 'tomorrow',
       term: 'tomorrow',
-      ipa: 'təˈmɒrəʊ',
+      ipa: 'təˈmɑːroʊ',
       translation: 'завтра',
       pos: 'adv',
       level: 'A1',

@@ -27,7 +27,7 @@ export function primeVoices(): void {
   })
 }
 
-export function speak(text: string, rate = 0.92): void {
+export function speak(text: string, rate = 0.92, onEnd?: () => void): void {
   if (!speechSupported()) return
   window.speechSynthesis.cancel()
   const utterance = new SpeechSynthesisUtterance(text)
@@ -35,6 +35,7 @@ export function speak(text: string, rate = 0.92): void {
   utterance.rate = rate
   const voice = pickVoice()
   if (voice) utterance.voice = voice
+  if (onEnd) utterance.onend = () => onEnd()
   window.speechSynthesis.speak(utterance)
 }
 

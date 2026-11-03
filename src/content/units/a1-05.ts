@@ -9,7 +9,7 @@ export const a105: Unit = {
   goal: 'Рассказать, что ты делаешь вообще: живёшь, работаешь, учишься',
   formulas: [
     { label: 'Я, ты, мы, они', pattern: 'I / You / We / They + verb', note: 'I live in Moscow.' },
-    { label: 'Глагол без изменений', pattern: 'We play football.', note: 'После we и they нет -s' },
+    { label: 'Глагол без изменений', pattern: 'We play soccer.', note: 'После we и they нет -s' },
     { label: 'Начальная форма', pattern: 'to live · to study', note: 'В предложении to не нужно: I live.' },
     { label: 'Нравится делать', pattern: 'I like to play.', note: 'like + to + verb' },
   ],
@@ -30,7 +30,7 @@ export const a105: Unit = {
     {
       id: 'work',
       term: 'work',
-      ipa: 'wɜːk',
+      ipa: 'wɝːk',
       translation: 'работать',
       pos: 'v',
       level: 'A1',
@@ -50,7 +50,7 @@ export const a105: Unit = {
       tags: ['actions', 'study'],
       examples: [
         { en: 'I study English.', ru: 'Я учу английский.' },
-        { en: 'They study at university.', ru: 'Они учатся в университете.' },
+        { en: 'They study in college.', ru: 'Они учатся в университете.' },
       ],
     },
     {
@@ -62,7 +62,7 @@ export const a105: Unit = {
       level: 'A1',
       tags: ['actions'],
       examples: [
-        { en: 'I play football with my brother.', ru: 'Я играю в футбол с братом.' },
+        { en: 'I play soccer with my brother.', ru: 'Я играю в футбол с братом.' },
         { en: 'We like to play games.', ru: 'Мы любим играть в игры.' },
       ],
     },
@@ -105,7 +105,7 @@ export const a105: Unit = {
     {
       kind: 'choice',
       id: 'a1-05-ex-02',
-      question: 'We ___ football every day.',
+      question: 'We ___ soccer every day.',
       options: ['plays', 'play', 'playing'],
       answer: 1,
       explanation: 'После we, they, you глагол без -s: we play.',
@@ -149,13 +149,13 @@ export const a105: Unit = {
       title: 'Anna and Tom',
       paragraphs: [
         'Anna and Tom are friends. They are from Russia. They live in Moscow. Moscow is a very big city.',
-        'They study English at university. They speak English and Russian. They like English very much.',
-        'They play football every day. Anna and Tom like music and films. They are good friends.',
+        'They study English in college. They speak English and Russian. They like English very much.',
+        'They play soccer every day. Anna and Tom like music and movies. They are good friends.',
       ],
       questions: [
         { question: 'Anna and Tom are from ...', options: ['Canada', 'Spain', 'Russia'], answer: 2 },
         { question: 'Anna and Tom live in ...', options: ['Moscow', 'Madrid', 'London'], answer: 0 },
-        { question: 'Anna and Tom study ... at university.', options: ['music', 'English', 'films'], answer: 1 },
+        { question: 'Anna and Tom study ... in college.', options: ['music', 'English', 'movies'], answer: 1 },
       ],
     },
   ],

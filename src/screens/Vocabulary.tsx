@@ -52,7 +52,12 @@ function WordRow({ word, open, onToggle }: { word: Word; open: boolean; onToggle
         >
           <div className="min-w-0 flex-1">
             <p className="font-serif text-[20px] leading-tight text-ink">{word.term}</p>
-            <p className="font-ipa text-[14px] leading-snug text-ink-3">[{word.ipa}]</p>
+            <div className="flex items-center gap-2">
+              <p className="font-ipa text-[14px] leading-snug text-ink-3">[{word.ipa}]</p>
+              <span className="rounded-[3px] border border-line px-1 text-[10px] leading-4 text-ink-3">
+                {word.level}
+              </span>
+            </div>
           </div>
           <span className="max-w-[45%] text-right text-[15px] leading-snug text-ink-2">
             {word.translation}

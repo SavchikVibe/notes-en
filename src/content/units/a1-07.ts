@@ -30,20 +30,20 @@ export const a107: Unit = {
     {
       id: 'want',
       term: 'want',
-      ipa: 'wɒnt',
+      ipa: 'wɑːnt',
       translation: 'хотеть',
       pos: 'v',
       level: 'A1',
       tags: ['actions'],
       examples: [
-        { en: 'I want to play football.', ru: 'Я хочу играть в футбол.' },
+        { en: 'I want to play soccer.', ru: 'Я хочу играть в футбол.' },
         { en: 'She wants a new bag.', ru: 'Она хочет новую сумку.' },
       ],
     },
     {
       id: 'understand',
       term: 'understand',
-      ipa: 'ˌʌndəˈstænd',
+      ipa: 'ˌʌndɚˈstænd',
       translation: 'понимать',
       pos: 'v',
       level: 'A1',
@@ -56,7 +56,7 @@ export const a107: Unit = {
     {
       id: 'know',
       term: 'know',
-      ipa: 'nəʊ',
+      ipa: 'noʊ',
       translation: 'знать',
       pos: 'v',
       level: 'A1',
@@ -155,7 +155,7 @@ export const a107: Unit = {
       questions: [
         { question: 'Where is Sam from?', options: ['England', 'Russia', 'Spain'], answer: 0 },
         { question: "Sam doesn't drink ...", options: ['tea', 'coffee', 'water'], answer: 1 },
-        { question: 'Sam reads ...', options: ['films', 'phones', 'books'], answer: 2 },
+        { question: 'Sam reads ...', options: ['movies', 'phones', 'books'], answer: 2 },
       ],
     },
   ],

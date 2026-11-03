@@ -30,15 +30,17 @@ interface Unit {
 interface Word {
   id: string;          // 'student' — уникален во всём курсе
   term: string;        // 'student'
-  ipa: string;         // 'ˈstjuːdənt' — без скобок
+  ipa: string;         // 'ˈstuːdənt' — General American, без скобок
   translation: string; // 'студент, студентка'
   pos?: 'n' | 'v' | 'adj' | 'adv' | 'prep' | 'pron' | 'conj' | 'phr';
   level: Level;
-  examples: Example[]; // 2–4, английский + русский
+  examples: Example[]; // 3, английский + русский
   photo?: string;      // '/photos/student.webp' — только для конкретных слов
   tags?: string[];     // 'people', 'food', 'travel'
 }
 ```
+
+Курс — американский английский: IPA General American, орфография и лексика США. Третий пример хранится в `src/content/extra-examples.ts` и подмешивается при сборке контента.
 
 Правило фото: конкретные слова (предметы, еда, места, люди, действия) — с фото; абстрактные (`likely`, `except`, `although`) — без фото, карточка держится на типографике.
 
@@ -137,7 +139,7 @@ interface Word {
 5. `translate`: `accept` не пуст, `sample` не пуст.
 6. `speak`: `phrase` не пуст.
 7. `read`: есть хотя бы один абзац и один вопрос.
-8. Слова: `id` уникален во всём курсе, `term`, `ipa`, `translation` не пусты, 2–4 примера.
+8. Слова: `id` уникален во всём курсе, `term`, `ipa`, `translation` не пусты, 3 примера.
 9. Нет пустых упражнений и юнитов.
 
 ## Как добавлять партию

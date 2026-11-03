@@ -509,6 +509,16 @@ export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
             <Play size={18} strokeWidth={1.5} />
             Моя запись
           </button>
+
+          <button
+            type="button"
+            disabled={!audioUrl}
+            onClick={() => speak(ex.phrase, 0.92, () => audioRef.current?.play())}
+            className="flex min-h-12 items-center gap-2 rounded-[10px] border border-line-strong bg-surface px-4 text-[16px] disabled:opacity-40"
+          >
+            <Play size={18} strokeWidth={1.5} />
+            Сравнить
+          </button>
         </div>
 
         {audioUrl && <audio ref={audioRef} src={audioUrl} className="hidden" />}

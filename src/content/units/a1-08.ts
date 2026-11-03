@@ -17,7 +17,7 @@ export const a108: Unit = {
     {
       id: 'what',
       term: 'what',
-      ipa: 'wɒt',
+      ipa: 'wʌt',
       translation: 'что, какой',
       pos: 'pron',
       level: 'A1',
@@ -30,7 +30,7 @@ export const a108: Unit = {
     {
       id: 'where',
       term: 'where',
-      ipa: 'weə',
+      ipa: 'wer',
       translation: 'где, куда',
       pos: 'adv',
       level: 'A1',

@@ -17,7 +17,7 @@ export const a103: Unit = {
     {
       id: 'doctor',
       term: 'doctor',
-      ipa: 'ˈdɒktə',
+      ipa: 'ˈdɑːktɚ',
       translation: 'врач, доктор',
       pos: 'n',
       level: 'A1',
@@ -30,7 +30,7 @@ export const a103: Unit = {
     {
       id: 'engineer',
       term: 'engineer',
-      ipa: 'ˌendʒɪˈnɪə',
+      ipa: 'ˌendʒɪˈnɪr',
       translation: 'инженер',
       pos: 'n',
       level: 'A1',
@@ -43,7 +43,7 @@ export const a103: Unit = {
     {
       id: 'driver',
       term: 'driver',
-      ipa: 'ˈdraɪvə',
+      ipa: 'ˈdraɪvɚ',
       translation: 'водитель, шофёр',
       pos: 'n',
       level: 'A1',
@@ -69,7 +69,7 @@ export const a103: Unit = {
     {
       id: 'nurse',
       term: 'nurse',
-      ipa: 'nɜːs',
+      ipa: 'nɝːs',
       translation: 'медсестра, медбрат',
       pos: 'n',
       level: 'A1',
@@ -82,7 +82,7 @@ export const a103: Unit = {
     {
       id: 'job',
       term: 'job',
-      ipa: 'dʒɒb',
+      ipa: 'dʒɑːb',
       translation: 'работа, профессия',
       pos: 'n',
       level: 'A1',

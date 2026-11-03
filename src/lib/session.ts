@@ -1,7 +1,7 @@
 import type { Unit } from '@/content'
 import type { LessonProgress, Settings } from '@/db/db'
 
-export type BlockKey = 'course' | 'listening' | 'speaking' | 'srs'
+export type BlockKey = 'course' | 'listening' | 'reading' | 'speaking' | 'srs'
 
 export interface SessionBlock {
   key: BlockKey
@@ -22,6 +22,28 @@ function round5(value: number): number {
   return Math.max(5, Math.round(value / 5) * 5)
 }
 
+const SPLITS: Record<
+  number,
+  { course: number; listening: number; reading: number; speaking: number; srs: number }
+> = {
+  90: { course: 30, listening: 20, reading: 20, speaking: 10, srs: 10 },
+  120: { course: 45, listening: 25, reading: 25, speaking: 15, srs: 10 },
+  150: { course: 55, listening: 30, reading: 30, speaking: 20, srs: 15 },
+  180: { course: 70, listening: 35, reading: 40, speaking: 20, srs: 15 },
+}
+
+function splitFor(total: number) {
+  const known = SPLITS[total]
+  if (known) return known
+  const srs = Math.max(5, Math.round(total * 0.08))
+  const rest = total - srs
+  const course = round5(rest * 0.44)
+  const listening = round5(rest * 0.24)
+  const reading = round5(rest * 0.24)
+  const speaking = Math.max(5, total - srs - course - listening - reading)
+  return { course, listening, reading, speaking, srs }
+}
+
 export function targetMinutes(settings: Settings, now = new Date()): number {
   const day = now.getDay()
   if (settings.tutorDay === day) return 90
@@ -35,10 +57,12 @@ export function buildSession(
   now = new Date(),
 ): Session {
   const total = targetMinutes(settings, now)
-  const courseMinutes = round5(total * 0.5)
-  const listeningMinutes = round5(total * 0.25)
-  const speakingMinutes = round5(total * 0.17)
-  const srsMinutes = Math.max(5, total - courseMinutes - listeningMinutes - speakingMinutes)
+  const split = splitFor(total)
+  const courseMinutes = split.course
+  const listeningMinutes = split.listening
+  const readingMinutes = split.reading
+  const speakingMinutes = split.speaking
+  const srsMinutes = split.srs
 
   const doneIds = new Set(
     Object.values(progress)
@@ -64,6 +88,14 @@ export function buildSession(
       minutes: listeningMinutes,
       status: 'soon',
       note: 'Разбор аудио — следующий этап',
+      units: [],
+    },
+    {
+      key: 'reading',
+      title: 'Чтение',
+      minutes: readingMinutes,
+      status: 'soon',
+      note: 'Короткие тексты A1 — этап 5',
       units: [],
     },
     {

@@ -18,7 +18,7 @@ export const a102: Unit = {
     {
       id: 'mother',
       term: 'mother',
-      ipa: 'ˈmʌðə',
+      ipa: 'ˈmʌðɚ',
       translation: 'мама, мать',
       pos: 'n',
       level: 'A1',
@@ -31,7 +31,7 @@ export const a102: Unit = {
     {
       id: 'father',
       term: 'father',
-      ipa: 'ˈfɑːðə',
+      ipa: 'ˈfɑːðɚ',
       translation: 'папа, отец',
       pos: 'n',
       level: 'A1',
@@ -44,7 +44,7 @@ export const a102: Unit = {
     {
       id: 'brother',
       term: 'brother',
-      ipa: 'ˈbrʌðə',
+      ipa: 'ˈbrʌðɚ',
       translation: 'брат',
       pos: 'n',
       level: 'A1',
@@ -57,7 +57,7 @@ export const a102: Unit = {
     {
       id: 'sister',
       term: 'sister',
-      ipa: 'ˈsɪstə',
+      ipa: 'ˈsɪstɚ',
       translation: 'сестра',
       pos: 'n',
       level: 'A1',

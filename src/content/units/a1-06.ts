@@ -30,7 +30,7 @@ export const a106: Unit = {
     {
       id: 'go',
       term: 'go',
-      ipa: 'ɡəʊ',
+      ipa: 'ɡoʊ',
       translation: 'идти, ехать',
       pos: 'v',
       level: 'A1',
@@ -56,14 +56,14 @@ export const a106: Unit = {
     {
       id: 'watch',
       term: 'watch',
-      ipa: 'wɒtʃ',
+      ipa: 'wɑːtʃ',
       translation: 'смотреть',
       pos: 'v',
       level: 'A1',
       tags: ['actions'],
       examples: [
         { en: 'I watch TV every day.', ru: 'Я смотрю телевизор каждый день.' },
-        { en: 'She watches films with her mother.', ru: 'Она смотрит фильмы с мамой.' },
+        { en: 'She watches movies with her mother.', ru: 'Она смотрит фильмы с мамой.' },
       ],
     },
     {
@@ -149,13 +149,13 @@ export const a106: Unit = {
       title: 'My Sister Rita',
       paragraphs: [
         'This is my sister Rita. She is a student. She lives in Moscow with our family. Our family is big.',
-        'Rita gets up at seven every day. She eats breakfast and goes to university.',
+        'Rita gets up at seven every day. She eats breakfast and goes to college.',
         'In the evening she reads books and watches TV. She has a cat. She likes her cat very much.',
       ],
       questions: [
         { question: 'Who is Rita?', options: ['A student', 'A teacher', 'A doctor'], answer: 0 },
         { question: 'Rita gets up at ...', options: ['six', 'seven', 'eight'], answer: 1 },
-        { question: 'In the evening Rita watches ...', options: ['films', 'books', 'TV'], answer: 2 },
+        { question: 'In the evening Rita watches ...', options: ['movies', 'books', 'TV'], answer: 2 },
       ],
     },
   ],
