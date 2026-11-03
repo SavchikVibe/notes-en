@@ -77,6 +77,16 @@ import { a232 } from './units/a2-32'
 import { a233 } from './units/a2-33'
 import { a234 } from './units/a2-34'
 import { a235 } from './units/a2-35'
+import { a236 } from './units/a2-36'
+import { a237 } from './units/a2-37'
+import { a238 } from './units/a2-38'
+import { a239 } from './units/a2-39'
+import { a240 } from './units/a2-40'
+import { a241 } from './units/a2-41'
+import { a242 } from './units/a2-42'
+import { a243 } from './units/a2-43'
+import { a244 } from './units/a2-44'
+import { a245 } from './units/a2-45'
 
 function pickDictation(unit: Unit) {
   return unit.words
@@ -122,7 +132,7 @@ function withContent(unit: Unit): Unit {
   return { ...unit, exercises: [...base, ...extra, ...derived, ...read] }
 }
 
-export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a109, a110, a111, a112, a113, a114, a115, a116, a117, a118, a119, a120, a121, a122, a123, a124, a125, a126, a127, a128, a129, a130, a131, a132, a133, a134, a135, a136, a137, a138, a139, a140, a201, a202, a203, a204, a205, a206, a207, a208, a209, a210, a211, a212, a213, a214, a215, a216, a217, a218, a219, a220, a221, a222, a223, a224, a225, a226, a227, a228, a229, a230, a231, a232, a233, a234, a235]
+export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a109, a110, a111, a112, a113, a114, a115, a116, a117, a118, a119, a120, a121, a122, a123, a124, a125, a126, a127, a128, a129, a130, a131, a132, a133, a134, a135, a136, a137, a138, a139, a140, a201, a202, a203, a204, a205, a206, a207, a208, a209, a210, a211, a212, a213, a214, a215, a216, a217, a218, a219, a220, a221, a222, a223, a224, a225, a226, a227, a228, a229, a230, a231, a232, a233, a234, a235, a236, a237, a238, a239, a240, a241, a242, a243, a244, a245]
   .map((unit) =>
     withContent({
       ...unit,
