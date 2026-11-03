@@ -42,6 +42,11 @@ import { a137 } from './units/a1-37'
 import { a138 } from './units/a1-38'
 import { a139 } from './units/a1-39'
 import { a140 } from './units/a1-40'
+import { a201 } from './units/a2-01'
+import { a202 } from './units/a2-02'
+import { a203 } from './units/a2-03'
+import { a204 } from './units/a2-04'
+import { a205 } from './units/a2-05'
 
 function pickDictation(unit: Unit) {
   return unit.words
@@ -87,7 +92,7 @@ function withContent(unit: Unit): Unit {
   return { ...unit, exercises: [...base, ...extra, ...derived, ...read] }
 }
 
-export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a109, a110, a111, a112, a113, a114, a115, a116, a117, a118, a119, a120, a121, a122, a123, a124, a125, a126, a127, a128, a129, a130, a131, a132, a133, a134, a135, a136, a137, a138, a139, a140]
+export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a109, a110, a111, a112, a113, a114, a115, a116, a117, a118, a119, a120, a121, a122, a123, a124, a125, a126, a127, a128, a129, a130, a131, a132, a133, a134, a135, a136, a137, a138, a139, a140, a201, a202, a203, a204, a205]
   .map((unit) =>
     withContent({
       ...unit,
@@ -105,6 +110,11 @@ export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a1
 
 export function getUnit(id: string): Unit | undefined {
   return units.find((unit) => unit.id === id)
+}
+
+export function levelNumber(unit: Unit): number {
+  const levelUnits = units.filter((item) => item.level === unit.level)
+  return levelUnits.findIndex((item) => item.id === unit.id) + 1
 }
 
 export function nextUnits(doneIds: Set<string>, count: number): Unit[] {

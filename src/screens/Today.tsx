@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Settings as SettingsIcon } from 'lucide-react'
-import { units } from '@/content'
+import { units, levelNumber } from '@/content'
 import { readings } from '@/content/readings'
 import {
   addWordsToSrs,
@@ -119,7 +119,7 @@ export default function TodayScreen() {
                       className="flex min-h-[60px] items-center gap-3 border-b border-line py-2.5"
                     >
                       <span className="num w-6 text-[13px] text-ink-3">
-                        {String(unit.order).padStart(2, '0')}
+                        {String(levelNumber(unit)).padStart(2, '0')}
                       </span>
                       <div className="min-w-0 flex-1">
                         <p className="truncate text-[17px] text-ink">{unit.title}</p>

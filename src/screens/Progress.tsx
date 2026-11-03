@@ -71,11 +71,13 @@ export default function ProgressScreen() {
             <span className="mt-1 text-[11px] text-ink-3">курса</span>
           </Ring>
           <div className="min-w-0">
-            <p className="font-serif text-[22px] leading-tight">A1</p>
+            <p className="font-serif text-[22px] leading-tight">
+              {[...new Set(units.map((unit) => unit.level))].join(' · ')}
+            </p>
             <p className="mt-1 text-[15px] text-ink-2">
               {done} из {units.length} уроков
             </p>
-            <p className="mt-1 text-[13px] text-ink-3">Первый уровень пути</p>
+            <p className="mt-1 text-[13px] text-ink-3">Путь к B2</p>
           </div>
         </div>
 
