@@ -194,7 +194,19 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">О приложении</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-            English — личный курс. Версия 0.12.1. Работает офлайн после установки на главный экран.
+            English — личный курс. Версия 0.13.0. Работает офлайн после установки на главный экран.
+          </p>
+          <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
+            Фото в словаре —{' '}
+            <a
+              href="https://unsplash.com"
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-4"
+            >
+              Unsplash
+            </a>
+            .
           </p>
           <Button variant="secondary" className="mt-4 w-full" onClick={() => void checkUpdate()}>
             <RefreshCw size={18} strokeWidth={1.5} />

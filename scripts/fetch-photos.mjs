@@ -20,6 +20,8 @@ if (!key) {
 }
 
 const BAD = ['candle', 'soap', 'perfume', 'lotion', 'cosmetic']
+const WHITE = ['white background', 'isolated on white', 'white surface', 'plain background']
+const CONTEXT = ['table', 'wooden', 'board', 'plate', 'bowl', 'basket', 'kitchen', 'garden', 'room', 'street', 'park']
 
 function score(photo, query) {
   const text = `${photo.alt_description ?? ''} ${photo.description ?? ''}`.toLowerCase()
@@ -28,23 +30,50 @@ function score(photo, query) {
   for (const word of query.toLowerCase().split(/\s+/)) {
     if (text.includes(word)) result += 1
   }
+  if (WHITE.some((word) => text.includes(word))) result -= 3
+  if (CONTEXT.some((word) => text.includes(word))) result += 1
   return result
 }
 
 // Первая партия для проверки качества. Потом расширим на все конкретные слова.
 const QUERIES = {
-  apple: 'red apple fruit',
-  bread: 'loaf of bread',
-  cheese: 'cheese slices',
-  milk: 'glass of milk',
-  egg: 'brown eggs',
-  rice: 'bowl of rice',
-  coffee: 'cup of coffee',
-  tea: 'cup of tea',
-  sandwich: 'sandwich',
-  salad: 'fresh green salad',
-  house: 'suburban house',
-  kitchen: 'modern kitchen',
+  apple: 'apples in a basket',
+  bread: 'loaf of bread on wooden table',
+  cheese: 'cheese board',
+  milk: 'milk bottle and glass on table',
+  egg: 'brown eggs in carton',
+  rice: 'bowl of rice on table',
+  coffee: 'coffee cup on wooden table',
+  tea: 'tea cup on table',
+  sandwich: 'sandwich on wooden board',
+  salad: 'fresh green salad bowl',
+  house: 'suburban house garden',
+  kitchen: 'modern kitchen interior',
+  room: 'cozy living room',
+  bathroom: 'bathroom interior',
+  bedroom: 'bedroom interior',
+  yard: 'backyard garden',
+  key: 'keys on wooden table',
+  wallet: 'leather wallet on table',
+  umbrella: 'umbrella in rain',
+  jacket: 'jacket on hanger',
+  hat: 'hat on table',
+  glasses: 'eyeglasses on table',
+  book: 'open book on table',
+  pen: 'pen on notebook',
+  table: 'empty wooden dining table',
+  chair: 'wooden chair in room',
+  phone: 'smartphone on table',
+  bag: 'leather handbag on table',
+  park: 'city park trees',
+  store: 'grocery store aisle',
+  bank: 'bank building',
+  hospital: 'hospital building',
+  school: 'school building',
+  restaurant: 'restaurant interior',
+  bus: 'city bus',
+  train: 'train at station',
+  stop: 'bus stop',
 }
 
 await mkdir('public/photos', { recursive: true })
