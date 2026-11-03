@@ -23,33 +23,62 @@ export default function PathScreen() {
 
   const data = progress ?? {}
   const levels = [...new Set(units.map((unit) => unit.level))]
+  const currentLevel =
+    levels.find((level) => {
+      const levelUnits = units.filter((unit) => unit.level === level)
+      return levelUnits.some((unit) => data[unit.id]?.status !== 'done')
+    }) ?? levels[levels.length - 1]
+  const currentUnits = units.filter((unit) => unit.level === currentLevel)
+  const currentDone = currentUnits.filter((unit) => data[unit.id]?.status === 'done').length
+  const currentPercent =
+    currentUnits.length > 0 ? Math.round((currentDone / currentUnits.length) * 100) : 0
 
   return (
     <>
-      <AppBar title="Путь" subtitle="Курс английского" />
+      <AppBar
+        title="Путь"
+        subtitle="Курс английского"
+        right={
+          <span className="num text-[13px] text-ink-3">
+            {currentLevel} · {currentPercent}%
+          </span>
+        }
+      />
 
       <main className="pb-10">
         {levels.map((level) => {
           const levelUnits = units.filter((unit) => unit.level === level)
           const levelDone = levelUnits.filter((unit) => data[unit.id]?.status === 'done').length
+          const levelPercent =
+            levelUnits.length > 0 ? Math.round((levelDone / levelUnits.length) * 100) : 0
 
           return (
             <section key={level}>
-              <div className="px-5 pt-6">
-                <div className="flex items-end justify-between">
-                  <h2 className="text-[28px] leading-none">{level}</h2>
-                  <span className="num text-[13px] text-ink-3">
-                    {levelDone} / {levelUnits.length}
+              <Link
+                to={`/level/${level}`}
+                className="block px-5 pt-6 active:bg-surface"
+              >
+                <div className="flex items-end justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-[28px] leading-none">{level}</h2>
+                    {level === currentLevel && (
+                      <span className="rounded-[3px] border border-accent/40 bg-accent-soft px-1.5 py-0.5 text-[10px] font-medium text-accent">
+                        сейчас
+                      </span>
+                    )}
+                  </div>
+                  <span className="flex items-center gap-2">
+                    <span className="num text-[13px] text-ink-3">
+                      {levelDone} / {levelUnits.length} · {levelPercent}%
+                    </span>
+                    <ChevronRight size={16} strokeWidth={1.5} className="text-ink-3" />
                   </span>
                 </div>
-                <ProgressBar
-                  value={levelUnits.length > 0 ? levelDone / levelUnits.length : 0}
-                  className="mt-3"
-                />
+                <ProgressBar value={levelUnits.length > 0 ? levelDone / levelUnits.length : 0} className="mt-3" />
                 {LEVEL_NOTES[level] && (
                   <p className="mt-2 text-[15px] text-ink-2">{LEVEL_NOTES[level]}</p>
                 )}
-              </div>
+              </Link>
 
               <ul className="mt-4">
                 {levelUnits.map((unit) => {

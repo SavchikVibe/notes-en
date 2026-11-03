@@ -130,3 +130,4 @@ export function wordsOfUnit(unit: Unit): Word[] {
 }
 
 export * from './types'
+export * from './levels'
