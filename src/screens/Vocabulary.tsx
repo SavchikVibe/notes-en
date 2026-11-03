@@ -36,6 +36,24 @@ const TAG_LABELS: Record<string, string> = {
   routine: 'Распорядок',
   things: 'Предметы',
   home: 'Дом',
+  art: 'Творчество',
+  city: 'Город',
+  clothes: 'Одежда',
+  description: 'Описание',
+  directions: 'Направления',
+  feelings: 'Чувства',
+  'free time': 'Свободное время',
+  games: 'Игры',
+  health: 'Здоровье',
+  life: 'Жизнь',
+  money: 'Деньги',
+  music: 'Музыка',
+  school: 'Школа',
+  shopping: 'Покупки',
+  sport: 'Спорт',
+  transport: 'Транспорт',
+  weather: 'Погода',
+  prepositions: 'Предлоги',
   other: 'Другое',
 }
 
@@ -144,14 +162,15 @@ export default function VocabularyScreen() {
     }
 
     for (const entry of filtered) {
-      const tag = entry.word.tags?.[0] ?? 'other'
-      const group = map.get(tag) ?? {
-        key: tag,
-        title: TAG_LABELS[tag] ?? 'Другое',
+      const tag = entry.word.tags?.[0]
+      const key = tag && TAG_LABELS[tag] ? tag : 'other'
+      const group = map.get(key) ?? {
+        key,
+        title: key === 'other' ? 'Другое' : TAG_LABELS[key],
         items: [],
       }
       group.items.push(entry)
-      map.set(tag, group)
+      map.set(key, group)
     }
     return [...map.values()].sort((a, b) => a.title.localeCompare(b.title, 'ru'))
   }, [filtered, sort])

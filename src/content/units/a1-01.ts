@@ -47,6 +47,7 @@ export const a101: Unit = {
       translation: 'из, от',
       pos: 'prep',
       level: 'A1',
+      tags: ['prepositions'],
       examples: [
         { en: 'I am from Russia.', ru: 'Я из России.' },
         { en: 'Where are you from?', ru: 'Откуда ты?' },
