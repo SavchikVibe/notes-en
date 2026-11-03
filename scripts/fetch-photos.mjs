@@ -19,9 +19,9 @@ if (!key) {
   process.exit(1)
 }
 
-const BAD = ['candle', 'soap', 'perfume', 'lotion', 'cosmetic']
+const BAD = ['sign', 'logo', 'drawing', 'illustration', 'collage', 'packaging', 'label', 'diagram', 'cartoon', 'doll', 'stamp', 'coin', 'magazine', 'newspaper', 'screenshot', 'meme', 'chart', 'graph', 'archive', 'advertisement', 'advertising', 'bandit', 'sausage', 'hot dog', 'candle', 'soap', 'perfume', 'lotion', 'cosmetic']
 const WHITE = ['white background', 'isolated on white', 'white surface', 'plain background']
-const CONTEXT = ['table', 'wooden', 'board', 'plate', 'bowl', 'basket', 'kitchen', 'garden', 'room', 'street', 'park']
+const CONTEXT = ['table', 'wooden', 'board', 'plate', 'bowl', 'basket', 'kitchen', 'garden', 'room', 'street', 'park', 'classroom', 'hospital', 'office', 'mountain', 'beach', 'stage', 'party', 'campus', 'playground', 'station', 'airport', 'sky']
 
 function score(photo, query) {
   const text = `${photo.alt_description ?? ''} ${photo.description ?? ''}`.toLowerCase()
@@ -74,6 +74,55 @@ const QUERIES = {
   bus: 'city bus',
   train: 'train at station',
   stop: 'bus stop',
+  student: 'student with books in library',
+  teacher: 'teacher in classroom',
+  mother: 'mother and child',
+  father: 'father and child',
+  brother: 'two brothers',
+  sister: 'two sisters together',
+  family: 'family together outdoors',
+  doctor: 'doctor with stethoscope',
+  engineer: 'engineer at work',
+  driver: 'driver in car',
+  cook: 'chef cooking in kitchen',
+  nurse: 'nurse with patient',
+  friend: 'friends together',
+  parents: 'parents with children',
+  son: 'boy playing with mother',
+  daughter: 'mother and daughter',
+  husband: 'married couple walking',
+  wife: 'couple at home',
+  children: 'children playing in park',
+  menu: 'restaurant menu card',
+  check: 'restaurant receipt on table',
+  grocery: 'grocery store shelves',
+  ticket: 'train ticket on table',
+  map: 'city map on table',
+  passport: 'passport on table',
+  suitcase: 'suitcase travel',
+  charger: 'phone charger on table',
+  flight: 'airplane in sky',
+  coat: 'winter coat',
+  boots: 'brown leather boots',
+  shirt: 'white shirt on hanger',
+  shoes: 'pair of leather shoes',
+  guitar: 'acoustic guitar',
+  chess: 'chess board',
+  yoga: 'yoga mat',
+  cycling: 'bicycle ride',
+  hiking: 'hiking in mountains',
+  beach: 'sandy beach ocean',
+  hotel: 'hotel room',
+  photo: 'camera and photos',
+  movie: 'cinema screen',
+  concert: 'concert stage',
+  party: 'friends at a party',
+  birthday: 'birthday cake with candles',
+  medicine: 'medicine pills on table',
+  dishes: 'dishes in sink',
+  laundry: 'laundry basket',
+  trash: 'trash bin',
+  vacuum: 'vacuum cleaner',
 }
 
 await mkdir('public/photos', { recursive: true })
