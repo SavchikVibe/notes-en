@@ -117,7 +117,7 @@ const QUERIES = {
   movie: 'cinema screen',
   concert: 'concert stage',
   party: 'friends at a party',
-  birthday: 'birthday cake with candles',
+  birthday: 'birthday cake on table',
   medicine: 'medicine pills on table',
   dishes: 'dishes in sink',
   laundry: 'laundry basket',
