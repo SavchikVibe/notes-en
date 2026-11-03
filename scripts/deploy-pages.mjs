@@ -66,25 +66,27 @@ const headers = {
   'Content-Type': 'application/json',
 }
 
+const pagesUrl = `https://api.github.com/repos/${repo}/pages`
 const body = JSON.stringify({ source: { branch: 'gh-pages', path: '/' } })
-let response = await fetch(`https://api.github.com/repos/${repo}/pages`, {
-  method: 'POST',
-  headers,
-  body,
-})
+const existing = await fetch(pagesUrl, { headers })
 
-if (response.status === 409) {
-  response = await fetch(`https://api.github.com/repos/${repo}/pages`, {
-    method: 'PUT',
-    headers,
-    body,
-  })
-}
-
-if (!response.ok) {
-  console.error(`GitHub Pages API: ${response.status}`)
-  console.error(await response.text())
-  process.exit(1)
+if (existing.ok) {
+  const data = await existing.json()
+  if (data.source?.branch !== 'gh-pages') {
+    const updated = await fetch(pagesUrl, { method: 'PUT', headers, body })
+    if (!updated.ok) {
+      console.error(`GitHub Pages API: ${updated.status}`)
+      console.error(await updated.text())
+      process.exit(1)
+    }
+  }
+} else {
+  const created = await fetch(pagesUrl, { method: 'POST', headers, body })
+  if (!created.ok) {
+    console.error(`GitHub Pages API: ${created.status}`)
+    console.error(await created.text())
+    process.exit(1)
+  }
 }
 
 console.log(`Готово: https://${repo.split('/')[0]}.github.io/${name}/`)

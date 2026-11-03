@@ -25,6 +25,8 @@ src/
 scripts/
   validate-content.ts
   make-icons.mjs
+  deploy-pages.mjs
+  postbuild-pages.mjs
 ```
 
 ## Документы
@@ -36,20 +38,21 @@ scripts/
 
 ## Деплой
 
-Netlify, статика из `dist`.
+Основной хостинг — GitHub Pages: https://savchikvibe.github.io/notes-en/
+
+```bash
+npm run deploy:pages -- SavchikVibe/notes-en
+```
+
+Скрипт собирает проект с base `/notes-en/`, пушит ветку `gh-pages` и включает Pages.
+Токен `GH_TOKEN` хранится в `.env` и в репозиторий не попадает.
+
+Netlify остаётся запасным вариантом: сборка та же, публикация `dist`, SPA-редирект в `netlify.toml`.
 
 ```bash
 npm run build
 npx netlify deploy --prod --dir=dist
 ```
-
-Живой адрес: https://english-app-saveliy.netlify.app
-
-Конфиг — `netlify.toml`: сборка, публикация `dist` и SPA-редирект на `index.html`.
-
-Cloudflare Workers остаётся запасным вариантом, но `*.workers.dev` в России без VPN не открывается.
-
-Конфиг — `wrangler.jsonc`. SPA-роутинг включён через `not_found_handling: single-page-application`, отдельный `_redirects` не нужен.
 
 ## Ограничения
 
