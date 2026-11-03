@@ -43,7 +43,9 @@ npm run build
 npx wrangler deploy
 ```
 
-Живой адрес: https://english-app.registerakm.workers.dev
+Живой адрес: https://english-app-2.registerakm.workers.dev
+
+Старый `english-app.registerakm.workers.dev` оставлен только для экспорта бэкапа: его service worker застрял на 0.5.0 и не обновляется.
 
 Конфиг — `wrangler.jsonc`. SPA-роутинг включён через `not_found_handling: single-page-application`, отдельный `_redirects` не нужен.
 

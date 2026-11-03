@@ -11,6 +11,21 @@ primeVoices()
 void requestPersist()
 registerSW({ immediate: true })
 
+if ('serviceWorker' in navigator) {
+  const checkForUpdate = () => {
+    if (document.visibilityState !== 'visible') return
+    void navigator.serviceWorker
+      .getRegistration()
+      .then((registration) => registration?.update())
+      .catch(() => undefined)
+  }
+  document.addEventListener('visibilitychange', checkForUpdate)
+  window.addEventListener('focus', checkForUpdate)
+  void navigator.serviceWorker.ready
+    .then((registration) => registration.update())
+    .catch(() => undefined)
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
