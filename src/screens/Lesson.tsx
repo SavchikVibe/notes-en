@@ -11,6 +11,7 @@ interface Result {
   correct: number
   total: number
   score: number
+  mistakes: number
 }
 
 export default function LessonScreen() {
@@ -128,7 +129,7 @@ export default function LessonScreen() {
       activeSince.current = null
       await finishLesson(unit.id, score, total)
       await addWordsToSrs(unit.words.map((word) => word.id))
-      setResult({ correct, total, score })
+      setResult({ correct, total, score, mistakes: total - correct })
       return
     }
     setPosition((value) => value + 1)
@@ -187,6 +188,12 @@ export default function LessonScreen() {
             {result.correct} из {result.total} упражнений
           </span>
         </div>
+
+        {result.mistakes > 0 && (
+          <p className="mt-3 text-[15px] leading-snug text-warn">
+            Ошибок: {result.mistakes}. Они были возвращены в конец урока.
+          </p>
+        )}
 
         <div className="mt-6">
           <p className="text-[13px] font-medium text-ink-3">Слова урока</p>
@@ -248,7 +255,11 @@ export default function LessonScreen() {
             <span
               key={`${stepIndex}-${step}`}
               className={`h-1 flex-1 rounded-full transition-colors ${
-                step <= position ? 'bg-accent' : 'bg-line'
+                step <= position
+                  ? 'bg-accent'
+                  : requeued.current.has(stepIndex)
+                    ? 'bg-warn'
+                    : 'bg-line'
               }`}
             />
           ))}
@@ -257,7 +268,7 @@ export default function LessonScreen() {
 
       <main className="flex-1 px-5 pb-8 pt-6">
         {position >= total && (
-          <p className="mb-4 text-[13px] font-medium text-ink-3">Повторение ошибки</p>
+          <p className="mb-4 text-[13px] font-medium text-warn">Повторение ошибки</p>
         )}
 
         <section className="mb-6">

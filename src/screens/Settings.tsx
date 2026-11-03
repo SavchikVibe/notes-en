@@ -194,7 +194,7 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">О приложении</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-            English — личный курс. Версия 0.7.0. Работает офлайн после установки на главный экран.
+            English — личный курс. Версия 0.7.1. Работает офлайн после установки на главный экран.
           </p>
           <Button variant="secondary" className="mt-4 w-full" onClick={() => void checkUpdate()}>
             <RefreshCw size={18} strokeWidth={1.5} />

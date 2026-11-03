@@ -1,5 +1,7 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { AppLayout } from '@/components/AppLayout'
+import { stopSpeaking } from '@/lib/speech'
 import TodayScreen from '@/screens/Today'
 import PathScreen from '@/screens/Path'
 import VocabularyScreen from '@/screens/Vocabulary'
@@ -11,6 +13,12 @@ import ReadingScreen from '@/screens/Reading'
 import ListeningScreen from '@/screens/Listening'
 
 export default function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    stopSpeaking()
+  }, [location.pathname])
+
   return (
     <Routes>
       <Route element={<AppLayout />}>
