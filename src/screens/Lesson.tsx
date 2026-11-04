@@ -197,7 +197,7 @@ export default function LessonScreen() {
 
         {result.mistakes > 0 && (
           <p className="mt-3 text-[15px] leading-snug text-warn">
-            Ошибок: {result.mistakes}. Они были возвращены в конец урока.
+            Ошибок с первой попытки: {result.mistakes}. Они были возвращены в конец урока.
           </p>
         )}
 
