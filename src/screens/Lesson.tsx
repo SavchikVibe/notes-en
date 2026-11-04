@@ -27,6 +27,7 @@ export default function LessonScreen() {
   const [phase, setPhase] = useState<'answer' | 'feedback' | 'skipped'>('answer')
   const [canCheck, setCanCheck] = useState(false)
   const [answers, setAnswers] = useState<Record<string, boolean>>({})
+  const [mistakes, setMistakes] = useState(0)
   const [lastCorrect, setLastCorrect] = useState(false)
   const [result, setResult] = useState<Result | null>(null)
   const [formulasOpen, setFormulasOpen] = useState(true)
@@ -93,8 +94,9 @@ export default function LessonScreen() {
       const exercise = unit.exercises[exerciseIndex]
       const firstAttempt = answers[exercise.id] === undefined
 
+      setAnswers((currentAnswers) => ({ ...currentAnswers, [exercise.id]: correct }))
+
       if (firstAttempt) {
-        setAnswers((currentAnswers) => ({ ...currentAnswers, [exercise.id]: correct }))
         void saveAnswer(
           unit.id,
           exercise.id,
@@ -102,9 +104,12 @@ export default function LessonScreen() {
           Math.min(exerciseIndex + 1, unit.exercises.length - 1),
         )
 
-        if (!correct && !requeued.current.has(exerciseIndex)) {
-          requeued.current.add(exerciseIndex)
-          setQueue((currentQueue) => [...currentQueue, exerciseIndex])
+        if (!correct) {
+          setMistakes((value) => value + 1)
+          if (!requeued.current.has(exerciseIndex)) {
+            requeued.current.add(exerciseIndex)
+            setQueue((currentQueue) => [...currentQueue, exerciseIndex])
+          }
         }
       }
 
@@ -129,7 +134,7 @@ export default function LessonScreen() {
       activeSince.current = null
       await finishLesson(unit.id, score, total)
       await addWordsToSrs(unit.words.map((word) => word.id))
-      setResult({ correct, total, score, mistakes: total - correct })
+      setResult({ correct, total, score, mistakes })
       return
     }
     setPosition((value) => value + 1)
@@ -143,6 +148,7 @@ export default function LessonScreen() {
     setPosition(0)
     setQueue(unit ? unit.exercises.map((_, index) => index) : [])
     setAnswers({})
+    setMistakes(0)
     setPhase('answer')
     setCanCheck(false)
     setFormulasOpen(true)
@@ -300,13 +306,15 @@ export default function LessonScreen() {
           )}
         </section>
 
-        {renderExercise(current, {
-          exercise: current,
-          locked: phase !== 'answer',
-          onResult: handleResult,
-          onCanCheck: setCanCheck,
-          onSkip: handleSkip,
-        }, viewRef)}
+        <div key={`${current.id}-${position}`}>
+          {renderExercise(current, {
+            exercise: current,
+            locked: phase !== 'answer',
+            onResult: handleResult,
+            onCanCheck: setCanCheck,
+            onSkip: handleSkip,
+          }, viewRef)}
+        </div>
 
         {phase !== 'answer' && (
           <div

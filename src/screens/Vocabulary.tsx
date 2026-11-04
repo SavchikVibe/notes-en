@@ -92,7 +92,7 @@ function WordRow({ word, open, onToggle }: { word: Word; open: boolean; onToggle
         <div className="space-y-2 pb-4 pl-10">
           {word.photo && (
             <img
-              src={word.photo}
+              src={`${import.meta.env.BASE_URL}${word.photo.replace(/^\//, '')}`}
               alt={word.term}
               className="aspect-[16/9] w-full rounded-[10px] object-cover"
             />

@@ -137,11 +137,36 @@ export const ChoiceView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 
 /* --------------------------------- assemble -------------------------------- */
 
+function hash(value: string) {
+  let result = 0
+  for (const char of value) result = (result * 31 + char.charCodeAt(0)) % 100000
+  return result
+}
+
+function shuffle<T>(items: T[], seedText: string): T[] {
+  let seed = hash(seedText) || 1
+  const result = [...items]
+  for (let index = result.length - 1; index > 0; index--) {
+    seed = (seed * 1664525 + 1013904223) % 4294967296
+    const swap = seed % (index + 1)
+    const temp = result[index]
+    result[index] = result[swap]
+    result[swap] = temp
+  }
+  return result
+}
+
 export const AssembleView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
   function AssembleView({ exercise, locked, onResult, onCanCheck }, ref) {
     const ex = exercise as AssembleExercise
     const [picked, setPicked] = useState<number[]>([])
     const [verdict, setVerdict] = useState<boolean | null>(null)
+    const [bank] = useState(() =>
+      shuffle(
+        ex.words.map((word, index) => ({ word, index })),
+        ex.id,
+      ),
+    )
 
     useEffect(() => {
       onCanCheck(picked.length > 0)
@@ -171,6 +196,9 @@ export const AssembleView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
         <div>
           <p className="text-[13px] font-medium text-ink-3">{ex.task ?? 'Собери предложение'}</p>
           <p className="mt-1 text-[17px] text-ink-2">{ex.translation}</p>
+          <p className="mt-2 text-[13px] text-ink-3">
+            Не все слова нужны — выбери только слова предложения.
+          </p>
         </div>
 
         <div
@@ -199,7 +227,7 @@ export const AssembleView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {ex.words.map((word, index) => {
+          {bank.map(({ word, index }) => {
             const used = picked.includes(index)
             return (
               <button
