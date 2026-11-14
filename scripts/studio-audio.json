@@ -333,6 +333,68 @@
     ]
   },
   {
+    "id": "studio-c1-01",
+    "rate": "-2%",
+    "lines": [
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Today we are discussing the purpose of a university. Is it to produce knowledge, or to prepare students for work?" },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "I think knowledge comes first. If students understand a subject deeply, they can adapt to any job." },
+      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "But most students need to earn a living. Employers want practical skills." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Are knowledge and skills really separate?" },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Not completely. But the emphasis matters. A course that focuses only on skills may become outdated." },
+      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "A course that focuses only on theory may leave students unprepared." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "What does the evidence suggest?" },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Graduates who can think critically tend to adapt better over time." },
+      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "But they also need internships and real projects." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "So the question is not either/or?" },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Maybe the question is how to integrate them." },
+      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "And how to assess them. If we only test memory, we reward memory." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Good point. Assessment shapes behavior." },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Then we need tasks that require both knowledge and judgment." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "For next week, find one example of a course that does this." }
+    ]
+  },
+  {
+    "id": "studio-c1-02",
+    "rate": "-2%",
+    "lines": [
+      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "Come in. You wanted to discuss your research proposal on remote work." },
+      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "Yes. I want to know whether remote work increases or decreases productivity." },
+      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "That is broad. Can you narrow it?" },
+      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "I could focus on software teams in one company over six months." },
+      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "Good. What data will you use?" },
+      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "I will use project completion times and a survey of eighty employees." },
+      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "How will you measure productivity?" },
+      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "I will combine output data with self-reported focus time." },
+      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "What are the limitations?" },
+      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "The sample is small, and self-reports may be biased." },
+      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "And ethics?" },
+      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "I will anonymize the data and ask for consent." },
+      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "Good. What is your expected contribution?" },
+      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "A clearer picture of when remote work helps and when it does not." },
+      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "That is realistic. Send me a two-page draft by Friday." }
+    ]
+  },
+  {
+    "id": "studio-c1-03",
+    "rate": "-2%",
+    "lines": [
+      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "I have to give a speech about why our school should reduce plastic waste. I don't know where to start." },
+      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Start with a concrete image, not a general statement. Instead of 'plastic is bad', describe one object." },
+      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "Like a plastic bottle in the ocean?" },
+      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Yes. Then give your argument. What do you want the audience to do?" },
+      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "I want them to support a ban on single-use bottles." },
+      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Then make the ask specific. 'Support the ban' is clearer than 'care about the environment'." },
+      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "Should I use statistics?" },
+      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "One or two, not ten. A number is powerful when it supports a story." },
+      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "What about opposing views?" },
+      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Acknowledge the strongest objection. If you ignore it, the audience will distrust you." },
+      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "How do I sound confident without sounding aggressive?" },
+      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Use pauses, short sentences, and concession. 'I understand the concern, but...' is stronger than shouting." },
+      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "And the ending?" },
+      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Return to the image from the beginning. Close the circle." }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [
