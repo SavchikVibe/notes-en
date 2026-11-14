@@ -69,6 +69,67 @@
     ]
   },
   {
+    "id": "studio-a2-02",
+    "rate": "-5%",
+    "lines": [
+      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "Good morning, Leo. What seems to be the problem?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "I have a headache and a sore throat. I feel very tired." },
+      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "How long have you felt like this?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Since Sunday evening. I also have a cough." },
+      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "Do you have a temperature?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Yes, I think so." },
+      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "You have a bad cold. Stay home for two days and drink a lot of water." },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Should I take any medicine?" },
+      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "Yes, take this for your headache. And no football this week." },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "OK. Thank you, Doctor." }
+    ]
+  },
+  {
+    "id": "studio-a2-03",
+    "rate": "-5%",
+    "lines": [
+      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "Good morning. How can I help you?" },
+      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "Hello. I ordered a pair of running shoes last week, but I received the wrong size." },
+      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "I'm sorry about that. What is your order number?" },
+      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "It's four seven two nine." },
+      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "Thank you. I see the order: blue shoes, size thirty-eight. What did you receive?" },
+      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "Black shoes, size thirty-six." },
+      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "We will send the correct shoes today. The return is free. Please use the same box." },
+      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "Thank you. How long will the delivery take?" },
+      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "Two or three days." },
+      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "Great. Thank you for your help." }
+    ]
+  },
+  {
+    "id": "studio-a2-04",
+    "rate": "-5%",
+    "lines": [
+      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "Hello, Mr. Brown speaking." },
+      { "speaker": "Anna", "voice": "en-US-AvaNeural", "text": "Hello. This is Anna Miller. We moved into apartment three B last week." },
+      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "Yes, of course. Is everything OK?" },
+      { "speaker": "Anna", "voice": "en-US-AvaNeural", "text": "Almost. The kitchen window does not close, and the hot water is not working." },
+      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "I'm sorry about that. I can send a repair person tomorrow morning." },
+      { "speaker": "Anna", "voice": "en-US-AvaNeural", "text": "Thank you. What time will he come?" },
+      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "Between nine and eleven. Will someone be at home?" },
+      { "speaker": "Anna", "voice": "en-US-AvaNeural", "text": "Yes, I will be at home." },
+      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "Good. I will call you when he is on his way." }
+    ]
+  },
+  {
+    "id": "studio-a2-05",
+    "rate": "-5%",
+    "lines": [
+      { "speaker": "Mother", "voice": "en-US-AriaNeural", "text": "Hello? Mia, are you on the train?" },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "Not yet. The train is late. It will leave at six fifteen." },
+      { "speaker": "Mother", "voice": "en-US-AriaNeural", "text": "Oh no. What about the show?" },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "We have tickets for eight o'clock. If we arrive at seven thirty, we can still go." },
+      { "speaker": "Mother", "voice": "en-US-AriaNeural", "text": "I hope so. Are you OK?" },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "Yes, we are fine. We are drinking coffee and waiting." },
+      { "speaker": "Mother", "voice": "en-US-AriaNeural", "text": "Call me when you arrive in London." },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "I will. Bye, Mom." }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [
