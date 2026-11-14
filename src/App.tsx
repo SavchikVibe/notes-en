@@ -12,6 +12,8 @@ import ReviewScreen from '@/screens/Review'
 import ReadingScreen from '@/screens/Reading'
 import ListeningScreen from '@/screens/Listening'
 import LevelScreen from '@/screens/Level'
+import StudioScreen from '@/screens/Studio'
+import StudioTaskScreen from '@/screens/StudioTask'
 
 export default function App() {
   const location = useLocation()
@@ -32,6 +34,8 @@ export default function App() {
       <Route path="review" element={<ReviewScreen />} />
       <Route path="reading" element={<ReadingScreen />} />
       <Route path="listening" element={<ListeningScreen />} />
+      <Route path="studio" element={<StudioScreen />} />
+      <Route path="studio/:id" element={<StudioTaskScreen />} />
       <Route path="level/:code" element={<LevelScreen />} />
       <Route path="settings" element={<SettingsScreen />} />
       <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,0 +1,197 @@
+import type { StudioTask } from './types'
+
+export const b1Studio01: StudioTask = {
+  id: 'studio-b1-01',
+  level: 'B1',
+  title: 'Город для людей',
+  subtitle: 'Reading · Listening · Writing · Speaking',
+  goal: 'Прочитать длинный текст, разобрать разговор, написать письмо и рассказать о месте, которое хочется изменить',
+  reading: {
+    title: 'The City That Slowed Down',
+    paragraphs: [
+      'A. In the 1990s, Barcelona had a familiar problem. Cars filled the streets, the air was dirty, and children had few places to play. The city tried the usual solutions: more roads, more parking, and better traffic lights. Nothing changed much. The number of cars kept rising, and the problem moved from one street to another. Then planners tried something different. They asked a simple question: what would happen if a neighborhood were designed for people, not cars? The idea sounded expensive and unrealistic, but the city decided to test it in one area.',
+      'B. The answer became the “superblock.” A group of nine city blocks is closed to through traffic. Cars can still enter for deliveries, emergencies, and residents who need access, but they cannot use the streets as a shortcut. The space that used to belong to cars is turned into small parks, playgrounds, and places to sit. The first superblock opened in the Poblenou neighborhood in 2016. It began as a traffic experiment, but it quickly became a public space. People who had never met before started talking in the new squares.',
+      'C. The first results were encouraging. Traffic on the main roads around the superblock fell, and the streets inside became quieter. Air pollution dropped in the area, and more people started walking and cycling. Early data also showed that local shops did not lose as many customers as some owners had feared. Not everyone was happy, however. Some drivers complained about longer trips, and some residents worried that the new spaces would attract too many tourists. The city listened to these concerns and adjusted the plan.',
+      'D. The project is not a perfect solution. A superblock works only if public transportation is good, if delivery trucks can still reach shops, and if residents are involved in the plan. The city now has several superblocks, and other cities are watching closely. The lesson is not that cars are always bad. The lesson is that streets can be redesigned around people, and that a small change in one neighborhood can change the way a whole city thinks about public space. For Barcelona, the experiment is still running.',
+    ],
+    questions: [
+      {
+        question: 'The first superblock opened in the 1990s.',
+        options: ['True', 'False', 'Not Given'],
+        answer: 1,
+        type: 'tfng',
+        evidence: 'The first superblock opened in the Poblenou neighborhood in 2016.',
+      },
+      {
+        question: 'Some shop owners were worried about losing customers.',
+        options: ['True', 'False', 'Not Given'],
+        answer: 0,
+        type: 'tfng',
+        evidence: 'Local shops did not lose as many customers as some owners had feared.',
+      },
+      {
+        question: 'The article says superblocks have solved traffic problems in every city.',
+        options: ['True', 'False', 'Not Given'],
+        answer: 2,
+        type: 'tfng',
+        evidence:
+          'The article describes Barcelona and says other cities are watching, but it does not claim that every city has solved its traffic problems.',
+      },
+      {
+        question: 'Which heading fits paragraph C?',
+        options: [
+          'The first results',
+          'How a superblock works',
+          'A plan for other cities',
+          'The cost of change',
+        ],
+        answer: 0,
+        type: 'heading',
+        evidence: 'The first results were encouraging.',
+      },
+      {
+        question: 'What is the main idea of the text?',
+        options: [
+          'Streets can be redesigned around people',
+          'Cars should be banned everywhere',
+          'Public transportation is always expensive',
+        ],
+        answer: 0,
+        type: 'mcq',
+        evidence: 'The lesson is that streets can be redesigned around people.',
+      },
+    ],
+  },
+  listening: {
+    title: 'Office Hours',
+    lines: [
+      { speaker: 'Professor Grant', text: 'Come in, Maya. You wanted to talk about your project.', pitch: 0.86 },
+      { speaker: 'Maya', text: 'Yes. I am studying how people use the new public space near the station.', pitch: 1.1 },
+      { speaker: 'Professor Grant', text: 'That is a good topic. What is your research question?', pitch: 0.86 },
+      { speaker: 'Maya', text: 'I want to know if the space changed how often people talk to their neighbors.', pitch: 1.1 },
+      { speaker: 'Professor Grant', text: 'Interesting. How will you collect data?', pitch: 0.86 },
+      { speaker: 'Maya', text: 'I plan to interview twenty residents and count how many people use the space at different times.', pitch: 1.1 },
+      { speaker: 'Professor Grant', text: 'Good. You should also observe the space on a weekend. The pattern may be different.', pitch: 0.86 },
+      { speaker: 'Maya', text: 'I will. When should I send you the first draft?', pitch: 1.1 },
+      { speaker: 'Professor Grant', text: 'By Friday, please. Then we can meet on March 12.', pitch: 0.86 },
+      { speaker: 'Maya', text: 'How long should the report be?', pitch: 1.1 },
+      { speaker: 'Professor Grant', text: 'About five pages, not more. Focus on the evidence, not on background.', pitch: 0.86 },
+      { speaker: 'Maya', text: 'Should I include photos?', pitch: 1.1 },
+      { speaker: 'Professor Grant', text: 'One or two, if they help. But do not use photos of people without permission.', pitch: 0.86 },
+      { speaker: 'Maya', text: 'Understood. I will send the questions to you before I start the interviews.', pitch: 1.1 },
+      { speaker: 'Professor Grant', text: 'Perfect. And Maya, remember to keep a research diary. It will help you explain your choices later.', pitch: 0.86 },
+      { speaker: 'Maya', text: 'I will. Thank you, Professor Grant.', pitch: 1.1 },
+    ],
+    notes: [
+      {
+        before: 'Maya is studying how people use the new',
+        after: 'near the station.',
+        answer: 'public space',
+        accept: ['public space', 'space'],
+      },
+      {
+        before: 'She plans to interview',
+        after: 'residents.',
+        answer: 'twenty',
+        accept: ['twenty', '20'],
+      },
+      {
+        before: 'The first draft is due by',
+        after: '.',
+        answer: 'Friday',
+        accept: ['friday'],
+      },
+      {
+        before: 'They will meet on',
+        after: '.',
+        answer: 'March 12',
+        accept: ['march 12', 'march 12th', '12 march'],
+      },
+      {
+        before: 'The report should be about',
+        after: 'pages.',
+        answer: 'five',
+        accept: ['five', '5'],
+      },
+      {
+        before: 'Maya should keep a research',
+        after: '.',
+        answer: 'diary',
+        accept: ['diary', 'research diary'],
+      },
+    ],
+    questions: [
+      {
+        question: 'What is Maya’s project about?',
+        options: [
+          'How people use a public space',
+          'How to build a new station',
+          'How to interview a professor',
+        ],
+        answer: 0,
+      },
+      {
+        question: 'What does Professor Grant ask Maya to do?',
+        options: [
+          'Observe the space on a weekend',
+          'Write a ten-page report',
+          'Take photos of people',
+        ],
+        answer: 0,
+      },
+    ],
+    transcript: [
+      'Professor Grant: Come in, Maya. You wanted to talk about your project.',
+      'Maya: Yes. I am studying how people use the new public space near the station.',
+      'Professor Grant: That is a good topic. What is your research question?',
+      'Maya: I want to know if the space changed how often people talk to their neighbors.',
+      'Professor Grant: Interesting. How will you collect data?',
+      'Maya: I plan to interview twenty residents and count how many people use the space at different times.',
+      'Professor Grant: Good. You should also observe the space on a weekend. The pattern may be different.',
+      'Maya: I will. When should I send you the first draft?',
+      'Professor Grant: By Friday, please. Then we can meet on March 12.',
+      'Maya: How long should the report be?',
+      'Professor Grant: About five pages, not more. Focus on the evidence, not on background.',
+      'Maya: Should I include photos?',
+      'Professor Grant: One or two, if they help. But do not use photos of people without permission.',
+      'Maya: Understood. I will send the questions to you before I start the interviews.',
+      'Professor Grant: Perfect. And Maya, remember to keep a research diary. It will help you explain your choices later.',
+      'Maya: I will. Thank you, Professor Grant.',
+    ],
+  },
+  writing: {
+    prompt:
+      'You are Maya. Write an email to Professor Grant after your meeting. Thank her for the meeting, confirm the deadline for the first draft, and ask one specific question about the report. Write 150–180 words.',
+    minWords: 150,
+    maxWords: 180,
+    checklist: [
+      'Есть вежливое обращение и подпись.',
+      'Ясно, зачем ты пишешь: после встречи, по проекту.',
+      'Подтверждён дедлайн первого черновика.',
+      'Задан один конкретный вопрос о структуре или объёме отчёта.',
+      'Есть вежливое завершение и благодарность.',
+    ],
+    modelAnswer:
+      'Subject: Thank you for the meeting\n\nDear Professor Grant,\n\nThank you for meeting with me today. I found your suggestions about my project very helpful, especially the idea to observe the public space on a weekend. I will start the observations this Saturday and begin the interviews next week.\n\nI would like to confirm that the first draft of my report is due by Friday, March 7. Please let me know if that date is still correct.\n\nI also have one question about the structure. You said the report should be about five pages. Should I include a separate section on my research diary, or can I use the diary only to explain my choices in the conclusion? I want to make sure the report is clear and not too long.\n\nThank you again for your time. I look forward to your reply.\n\nBest regards,\nMaya',
+    usefulLanguage: [
+      'Thank you for meeting with me',
+      'I would like to confirm',
+      'I also have one question about',
+      'I look forward to your reply',
+      'Best regards',
+    ],
+  },
+  speaking: {
+    prompt:
+      'Describe a public place in your city that you would like to change. Say what it is like now, what you would change, and why. Speak for 60–90 seconds.',
+    preparationSeconds: 60,
+    speakingSeconds: 90,
+    checklist: [
+      'Я сказал(а), где находится место и как оно выглядит сейчас.',
+      'Назвал(а) одно конкретное изменение.',
+      'Объяснил(а), почему это изменение важно.',
+      'Использовал(а) минимум две связки: because, however, for example.',
+      'Говорил(а) без пауз длиннее 5 секунд.',
+    ],
+  },
+}

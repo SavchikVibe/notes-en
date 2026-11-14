@@ -17,6 +17,7 @@ import type {
   ReadExercise,
   SpeakExercise,
   TranslateExercise,
+  WriteExercise,
 } from '@/content'
 import { matchesAny, normalizeAnswer, normalizeToken } from '@/lib/text'
 import { shuffle, shuffleOptions } from '@/lib/options'
@@ -575,7 +576,9 @@ export const ReadView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
     const prepared = useMemo(
       () =>
         ex.questions.map((question, index) =>
-          shuffleOptions(question.options, question.answer, `${ex.id}-q${index}`),
+          question.type === 'tfng'
+            ? { options: question.options, answer: question.answer }
+            : shuffleOptions(question.options, question.answer, `${ex.id}-q${index}`),
         ),
       [ex],
     )
@@ -647,10 +650,136 @@ export const ReadView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
                     )
                   })}
                 </div>
+                {locked && question.evidence && (
+                  <p className="border-l-2 border-accent pl-3 text-[14px] leading-snug text-ink-2">
+                    Доказательство: «{question.evidence}»
+                  </p>
+                )}
               </div>
             )
           })}
         </div>
+      </div>
+    )
+  },
+)
+
+/* ----------------------------------- write --------------------------------- */
+
+export const WriteView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
+  function WriteView({ exercise, onResult, onCanCheck }, ref) {
+    const ex = exercise as WriteExercise
+    const storageKey = `write:${ex.id}`
+    const [value, setValue] = useState(() => {
+      try {
+        return localStorage.getItem(storageKey) ?? ''
+      } catch {
+        return ''
+      }
+    })
+    const [checked, setChecked] = useState(false)
+    const [checks, setChecks] = useState<boolean[]>(() => ex.checklist.map(() => false))
+
+    const words = value.trim() ? value.trim().split(/\s+/).length : 0
+    const enough = words >= ex.minWords
+
+    useEffect(() => {
+      onCanCheck(enough)
+    }, [enough, onCanCheck])
+
+    useEffect(() => {
+      try {
+        localStorage.setItem(storageKey, value)
+      } catch {
+        // Приватный режим или переполнение — черновик просто не сохранится.
+      }
+    }, [value, storageKey])
+
+    useImperativeHandle(
+      ref,
+      () => ({
+        check: () => {
+          setChecked(true)
+          onResult(true)
+        },
+      }),
+      [onResult],
+    )
+
+    return (
+      <div className="space-y-5">
+        <div>
+          <p className="text-[13px] font-medium text-ink-3">Письмо</p>
+          <Stem>{ex.prompt}</Stem>
+          {ex.sourceText && (
+            <p className="mt-3 border-l-2 border-line-strong pl-3 text-[15px] leading-relaxed text-ink-2">
+              {ex.sourceText}
+            </p>
+          )}
+        </div>
+
+        <textarea
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+          rows={10}
+          placeholder="Напиши черновик здесь"
+          className="w-full resize-y rounded-[10px] border border-line bg-surface px-4 py-3.5 text-[17px] leading-relaxed outline-none placeholder:text-ink-3 focus:border-line-strong"
+        />
+
+        <div className="flex items-baseline justify-between gap-3">
+          <p className={`text-[13px] ${enough ? 'text-ink-3' : 'text-warn'}`}>
+            {words} / {ex.minWords}
+            {ex.maxWords ? `–${ex.maxWords}` : ''} слов
+          </p>
+          {!enough && (
+            <p className="text-[13px] text-ink-3">Проверка станет доступна после минимума</p>
+          )}
+        </div>
+
+        {checked && (
+          <div className="space-y-5 border-t border-line pt-5">
+            <div>
+              <p className="text-[13px] font-medium text-ink-3">Самопроверка</p>
+              <ul className="mt-2 space-y-2">
+                {ex.checklist.map((item, index) => (
+                  <li key={item}>
+                    <label className="flex items-start gap-2 text-[15px] leading-snug text-ink">
+                      <input
+                        type="checkbox"
+                        checked={checks[index] ?? false}
+                        onChange={() =>
+                          setChecks((current) =>
+                            current.map((checkedItem, itemIndex) =>
+                              itemIndex === index ? !checkedItem : checkedItem,
+                            ),
+                          )
+                        }
+                        className="mt-0.5 size-4 accent-[var(--color-accent)]"
+                      />
+                      <span>{item}</span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {ex.usefulLanguage && ex.usefulLanguage.length > 0 && (
+              <div>
+                <p className="text-[13px] font-medium text-ink-3">Полезные фразы</p>
+                <p className="mt-1 text-[15px] leading-relaxed text-ink-2">
+                  {ex.usefulLanguage.join(' · ')}
+                </p>
+              </div>
+            )}
+
+            <div>
+              <p className="text-[13px] font-medium text-ink-3">Образец</p>
+              <p className="mt-2 whitespace-pre-line border-l-2 border-accent pl-3 text-[15px] leading-relaxed text-ink">
+                {ex.modelAnswer}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     )
   },
@@ -676,6 +805,8 @@ export function renderExercise(
       return <SpeakView key={exercise.id} ref={ref} {...props} exercise={exercise} />
     case 'read':
       return <ReadView key={exercise.id} ref={ref} {...props} exercise={exercise} />
+    case 'write':
+      return <WriteView key={exercise.id} ref={ref} {...props} exercise={exercise} />
     default:
       return null
   }

@@ -73,6 +73,10 @@ export interface ReadQuestion {
   question: string
   options: string[]
   answer: number
+  /** mcq — обычный выбор; tfng — True/False/Not Given; heading — подбор заголовка. */
+  type?: 'mcq' | 'tfng' | 'heading'
+  /** Цитата из текста, которая доказывает ответ. Показывается после проверки. */
+  evidence?: string
 }
 
 export interface ReadExercise extends ExerciseBase {
@@ -82,6 +86,18 @@ export interface ReadExercise extends ExerciseBase {
   questions: ReadQuestion[]
 }
 
+export interface WriteExercise extends ExerciseBase {
+  kind: 'write'
+  prompt: string
+  minWords: number
+  maxWords?: number
+  /** Конкретные критерии самопроверки, а не общие слова. */
+  checklist: string[]
+  modelAnswer: string
+  usefulLanguage?: string[]
+  sourceText?: string
+}
+
 export type Exercise =
   | ChoiceExercise
   | AssembleExercise
@@ -89,6 +105,7 @@ export type Exercise =
   | ListenExercise
   | SpeakExercise
   | ReadExercise
+  | WriteExercise
 
 export interface Unit {
   id: string

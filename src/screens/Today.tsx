@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Settings as SettingsIcon } from 'lucide-react'
 import { units, levelNumber } from '@/content'
 import { readings } from '@/content/readings'
+import { studioTasks } from '@/content/studio'
 import {
   addWordsToSrs,
   countDue,
@@ -205,6 +206,37 @@ export default function TodayScreen() {
             Слушание, чтение и повторение уже работают. Речь — запись и сравнение без оценки
             произношения.
           </p>
+        </section>
+
+        <section className="mt-9">
+          <h2 className="text-[20px]">Студия</h2>
+          <p className="mt-1 text-[13px] text-ink-3">
+            Длинная задача: чтение, слушание, письмо и речь за один заход
+          </p>
+          {studioTasks.map((task) => {
+            const done = state.progress[task.id]?.status === 'done'
+            return (
+              <button
+                key={task.id}
+                type="button"
+                onClick={() => navigate('/studio')}
+                className="mt-2 flex min-h-[60px] w-full items-start justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
+              >
+                <div className="min-w-0">
+                  <p className="text-[17px] text-ink">{task.title}</p>
+                  <p className="truncate text-[13px] text-ink-3">
+                    {done ? 'Пройдено · можно повторить' : `${task.level} · 30–40 минут`}
+                  </p>
+                </div>
+                <div className="shrink-0 text-right">
+                  <p className="num text-[15px] text-ink-2">30–40 мин</p>
+                  <p className={`text-[11px] ${done ? 'text-accent' : 'text-ink-3'}`}>
+                    {done ? 'повторить' : 'начать'}
+                  </p>
+                </div>
+              </button>
+            )
+          })}
         </section>
       </main>
     </>

@@ -39,6 +39,43 @@ export function speak(text: string, rate = 0.92, onEnd?: () => void): void {
   window.speechSynthesis.speak(utterance)
 }
 
+export interface SpeechLine {
+  text: string
+  /** 0.85–0.95 — ниже голос, 1.05–1.15 — выше. */
+  pitch?: number
+  rate?: number
+}
+
+/** Читает реплики подряд, не обрывая предыдущую. Для диалогов в студии. */
+export function speakSequence(lines: SpeechLine[], onEnd?: () => void): void {
+  if (!speechSupported()) return
+  window.speechSynthesis.cancel()
+  let index = 0
+
+  const next = () => {
+    if (index >= lines.length) {
+      onEnd?.()
+      return
+    }
+    const line = lines[index]
+    index += 1
+    if (!line.text.trim()) {
+      next()
+      return
+    }
+    const utterance = new SpeechSynthesisUtterance(line.text)
+    utterance.lang = 'en-US'
+    utterance.rate = line.rate ?? 0.92
+    utterance.pitch = line.pitch ?? 1
+    const voice = pickVoice()
+    if (voice) utterance.voice = voice
+    utterance.onend = next
+    window.speechSynthesis.speak(utterance)
+  }
+
+  next()
+}
+
 export function stopSpeaking(): void {
   if (speechSupported()) window.speechSynthesis.cancel()
 }

@@ -1,5 +1,6 @@
 import { units } from '../src/content/index.ts'
 import { readings } from '../src/content/readings.ts'
+import { studioTasks } from '../src/content/studio/index.ts'
 import { normalizeAnswer } from '../src/lib/text.ts'
 import type { Exercise, ReadQuestion, Unit, Word } from '../src/content/types.ts'
 
@@ -84,6 +85,11 @@ function americanIssues(unit: Unit): string[] {
       exercise.options?.forEach(check)
     }
     if (exercise.kind === 'speak') check(exercise.phrase)
+    if (exercise.kind === 'write') {
+      check(exercise.prompt)
+      check(exercise.modelAnswer)
+      exercise.usefulLanguage?.forEach(check)
+    }
     if (exercise.kind === 'read') {
       check(exercise.title)
       exercise.paragraphs.forEach(check)
@@ -191,6 +197,15 @@ function checkExercise(unit: Unit, exercise: Exercise, seen: Set<string>) {
       if (!exercise.phrase.trim()) fail(`${path}: пустая фраза`)
       if (!exercise.translation.trim()) fail(`${path}: нет перевода`)
       break
+    case 'write':
+      if (!exercise.prompt.trim()) fail(`${path}: нет задания`)
+      if (exercise.minWords <= 0) fail(`${path}: minWords должен быть больше нуля`)
+      if (exercise.maxWords !== undefined && exercise.maxWords < exercise.minWords) {
+        fail(`${path}: maxWords меньше minWords`)
+      }
+      if (exercise.checklist.length === 0) fail(`${path}: пустой чек-лист`)
+      if (!exercise.modelAnswer.trim()) fail(`${path}: нет образца`)
+      break
     case 'read':
       if (!exercise.title.trim()) fail(`${path}: нет заголовка текста`)
       if (exercise.paragraphs.length === 0) fail(`${path}: нет абзацев`)
@@ -281,13 +296,46 @@ for (const reading of readings) {
   checkQuestions(path, reading.questions)
 }
 
+const studioIds = new Set<string>()
+for (const task of studioTasks) {
+  const path = `studio/${task.id}`
+  if (studioIds.has(task.id)) fail(`${path}: id повторяется`)
+  studioIds.add(task.id)
+  if (!task.title.trim()) fail(`${path}: нет заголовка`)
+  if (!task.goal.trim()) fail(`${path}: нет цели`)
+
+  if (task.reading.paragraphs.length < 2) fail(`${path}/reading: меньше 2 абзацев`)
+  if (task.reading.paragraphs.some((paragraph) => !paragraph.trim())) {
+    fail(`${path}/reading: пустой абзац`)
+  }
+  checkQuestions(`${path}/reading`, task.reading.questions)
+
+  if (task.listening.lines.length === 0) fail(`${path}/listening: нет реплик`)
+  if (task.listening.notes.length === 0) fail(`${path}/listening: нет заметок`)
+  for (const [index, note] of task.listening.notes.entries()) {
+    if (!note.before.trim() || !note.after.trim() || !note.answer.trim()) {
+      fail(`${path}/listening: пустая заметка ${index + 1}`)
+    }
+  }
+  checkQuestions(`${path}/listening`, task.listening.questions)
+
+  if (!task.writing.prompt.trim()) fail(`${path}/writing: нет задания`)
+  if (task.writing.minWords <= 0) fail(`${path}/writing: minWords должен быть больше нуля`)
+  if (task.writing.checklist.length === 0) fail(`${path}/writing: пустой чек-лист`)
+  if (!task.writing.modelAnswer.trim()) fail(`${path}/writing: нет образца`)
+
+  if (!task.speaking.prompt.trim()) fail(`${path}/speaking: нет задания`)
+  if (task.speaking.checklist.length === 0) fail(`${path}/speaking: пустой чек-лист`)
+}
+
 if (errors.length > 0) {
   console.error(`Контент не прошёл проверку: ${errors.length} ошибок\n`)
   for (const message of errors) console.error(`  • ${message}`)
   process.exitCode = 1
 } else {
+  const studioLabel = studioTasks.length === 1 ? 'студия' : 'студий'
   console.log(
-    `Контент в порядке: ${units.length} юнитов, ${exerciseCount} упражнений, ${wordCount} слов, ${readings.length} текстов.`,
+    `Контент в порядке: ${units.length} юнитов, ${exerciseCount} упражнений, ${wordCount} слов, ${readings.length} текстов, ${studioTasks.length} ${studioLabel}.`,
   )
 }
 
