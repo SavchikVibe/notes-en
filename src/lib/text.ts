@@ -2,7 +2,13 @@ export function normalizeAnswer(value: string): string {
   return value
     .toLowerCase()
     .replace(/[’‘`´]/g, "'")
-    .replace(/[.!?,;:]+$/g, '')
+    .replace(/[.,!?;:]/g, (match, offset, source) => {
+      // Десятичная точка между цифрами значима, остальная пунктуация — нет.
+      if (match === '.' && /\d/.test(source[offset - 1] ?? '') && /\d/.test(source[offset + 1] ?? '')) {
+        return match
+      }
+      return ''
+    })
     .replace(/\s+/g, ' ')
     .trim()
 }
