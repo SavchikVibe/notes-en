@@ -1,0 +1,162 @@
+import type { StudioTask } from './types'
+
+export const b1Studio06: StudioTask = {
+  id: 'studio-b1-06',
+  level: 'B1',
+  title: 'Школьный фестиваль',
+  subtitle: 'Reading · Listening · Writing · Speaking',
+  goal: 'Прочитать план фестиваля, понять встречу организаторов, написать письмо классу и представить свой план события',
+  estimatedMinutes: 25,
+  reading: {
+    title: 'The School Festival',
+    hint: 'Выбери правильный вариант. В вопросах True / False выбери True или False.',
+    paragraphs: [
+      'Every year, the students at Green Hill School organize a festival. This year, the festival will take place on the last Saturday of May. The students have already chosen the theme: “Food from Around the World.” They have also chosen a slogan: “Taste the world, meet your neighbors.”',
+      'The planning group has made a list of tasks. They have booked the school hall and have asked local shops for support. They have not finished the poster yet, but they have chosen the colors and the design. The poster will be ready next week.',
+      'There will be food stands, music, and games. Each class will prepare one dish. The students will also collect money for a local charity. Last year, they raised $800 for a children’s hospital. This year, they hope to raise more.',
+      'The group has a few problems. The music teacher is away, so they need someone to organize the performances. They also need more tables. At the next meeting, they will decide who will do these tasks. They will also decide what to do if it rains.',
+      'The festival will start at eleven and will finish at four. If it rains, the festival will move into the school hall. The students have invited their families and the local community. Everyone is welcome.',
+    ],
+    questions: [
+      {
+        question: 'When will the festival take place?',
+        options: ['On the last Saturday of May', 'In April', 'On Monday'],
+        answer: 0,
+        evidence: 'This year, the festival will take place on the last Saturday of May.',
+      },
+      {
+        question: 'What is the theme?',
+        options: ['Food from Around the World', 'Music and Dance', 'Sports Day'],
+        answer: 0,
+        evidence: 'The students have already chosen the theme: “Food from Around the World.”',
+      },
+      {
+        question: 'What will the students collect money for?',
+        options: ['A local charity', 'A new school bus', 'A trip to London'],
+        answer: 0,
+        evidence: 'The students will also collect money for a local charity.',
+      },
+      {
+        question: 'The students have finished the poster.',
+        options: ['True', 'False'],
+        answer: 1,
+        type: 'tfng',
+        evidence: 'They have not finished the poster yet.',
+      },
+      {
+        question: 'If it rains, the festival will move into the school hall.',
+        options: ['True', 'False'],
+        answer: 0,
+        type: 'tfng',
+        evidence: 'If it rains, the festival will move into the school hall.',
+      },
+    ],
+  },
+  listening: {
+    title: 'A Planning Meeting',
+    intro: 'Организаторы фестиваля обсуждают задачи. Сначала слушай целиком, потом заполни пропуски.',
+    audio: 'audio/studio-b1-06.mp3',
+    lines: [
+      { speaker: 'Chair', text: 'OK, let’s start. The festival is in three weeks. What do we need to finish?', pitch: 1.06 },
+      { speaker: 'Leo', text: 'The poster. We have the design, but we have not printed it yet.', pitch: 0.94 },
+      { speaker: 'Chair', text: 'Can you print it this week?', pitch: 1.06 },
+      { speaker: 'Leo', text: 'Yes, I can. I will ask the art teacher for help.', pitch: 0.94 },
+      { speaker: 'Mia', text: 'We also need more tables. The shop said they can lend us ten.', pitch: 1.06 },
+      { speaker: 'Chair', text: 'Great. Who will collect them?', pitch: 1.06 },
+      { speaker: 'Mia', text: 'I will. I can take my father’s car on Saturday.', pitch: 1.06 },
+      { speaker: 'Chair', text: 'Good. What about the music?', pitch: 1.06 },
+      { speaker: 'Leo', text: 'The music teacher is away. Maybe we can ask the older students to play.', pitch: 0.94 },
+      { speaker: 'Chair', text: 'Good idea. I will ask them tomorrow. Anything else?', pitch: 1.06 },
+      { speaker: 'Mia', text: 'We need to decide what to do if it rains.', pitch: 1.06 },
+      { speaker: 'Chair', text: 'We will move everything into the hall. OK, let’s meet again on Friday.', pitch: 1.06 },
+    ],
+    notes: [
+      {
+        before: 'The poster has not been',
+        after: 'yet.',
+        answer: 'printed',
+        accept: ['printed'],
+      },
+      {
+        before: 'The shop can lend them',
+        after: 'tables.',
+        answer: 'ten',
+        accept: ['ten', '10'],
+      },
+      {
+        before: 'Mia will collect the tables on',
+        after: '.',
+        answer: 'Saturday',
+        accept: ['saturday'],
+      },
+      {
+        before: 'The music teacher is',
+        after: '.',
+        answer: 'away',
+        accept: ['away'],
+      },
+      {
+        before: 'If it rains, everything will move into the',
+        after: '.',
+        answer: 'hall',
+        accept: ['hall', 'school hall'],
+      },
+    ],
+    questions: [
+      {
+        question: 'What are they planning?',
+        options: ['A school festival', 'A sports competition', 'A school trip'],
+        answer: 0,
+      },
+      {
+        question: 'What will they do if it rains?',
+        options: ['Move into the hall', 'Cancel the festival', 'Go home'],
+        answer: 0,
+      },
+    ],
+    transcript: [
+      'Chair: OK, let’s start. The festival is in three weeks. What do we need to finish?',
+      'Leo: The poster. We have the design, but we have not printed it yet.',
+      'Chair: Can you print it this week?',
+      'Leo: Yes, I can. I will ask the art teacher for help.',
+      'Mia: We also need more tables. The shop said they can lend us ten.',
+      'Chair: Great. Who will collect them?',
+      'Mia: I will. I can take my father’s car on Saturday.',
+      'Chair: Good. What about the music?',
+      'Leo: The music teacher is away. Maybe we can ask the older students to play.',
+      'Chair: Good idea. I will ask them tomorrow. Anything else?',
+      'Mia: We need to decide what to do if it rains.',
+      'Chair: We will move everything into the hall. OK, let’s meet again on Friday.',
+    ],
+  },
+  writing: {
+    title: 'Напиши письмо классу о фестивале',
+    prompt:
+      'Write an email to your class about the school festival. Say what will happen, what you need help with, and when the next meeting is. Write 120–150 words.',
+    minWords: 120,
+    maxWords: 150,
+    checklist: [
+      'Есть приветствие и подпись.',
+      'Сказано, что будет на фестивале.',
+      'Сказано, какая помощь нужна.',
+      'Названо время следующей встречи.',
+      'Использованы will и present perfect.',
+    ],
+    modelAnswer:
+      'Hi everyone,\n\nThe school festival will take place on the last Saturday of May, from eleven to four. This year’s theme is “Food from Around the World.” Each class will prepare one dish, and we will collect money for a local charity.\n\nWe still need help with two things. First, the music teacher is away, so we need someone to organize the performances. Second, we need more tables. If you can help, please write to me.\n\nThe next meeting is on Friday at four in the school hall. We will decide who will do these tasks and what to do if it rains.\n\nThank you,\nMia',
+    usefulLanguage: ['The festival will take place...', 'We still need help with...', 'If you can help...', 'The next meeting is...'],
+  },
+  speaking: {
+    title: 'Представь план события',
+    prompt:
+      'Present your plan for a school event. Say what the event is, what will happen, and what you need. Speak for 90–120 seconds.',
+    preparationSeconds: 60,
+    speakingSeconds: 120,
+    checklist: [
+      'Назвал(а), что за событие.',
+      'Сказал(а), что будет происходить.',
+      'Сказал(а), какая помощь нужна.',
+      'Использовал(а) will и связки.',
+    ],
+  },
+}

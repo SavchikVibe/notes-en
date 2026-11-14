@@ -181,6 +181,41 @@
     ]
   },
   {
+    "id": "studio-b1-05",
+    "rate": "-4%",
+    "lines": [
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Welcome. Today we are talking about rumors and social media." },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Thank you. It is a very important topic." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "A story about a local school spread last week. What happened?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Someone posted that the school was going to close. It was not true." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "How did you check it?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "I called the school, the city office, and the parents' group." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What did you find?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "The post was written by a person who did not work at the school." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What should people do before sharing a story?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Ask three questions: Who wrote it? What is the evidence? Who else reports it?" },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Thank you. That is good advice." }
+    ]
+  },
+  {
+    "id": "studio-b1-06",
+    "rate": "-4%",
+    "lines": [
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "OK, let's start. The festival is in three weeks. What do we need to finish?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "The poster. We have the design, but we have not printed it yet." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Can you print it this week?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Yes, I can. I will ask the art teacher for help." },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "We also need more tables. The shop said they can lend us ten." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Great. Who will collect them?" },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "I will. I can take my father's car on Saturday." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Good. What about the music?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "The music teacher is away. Maybe we can ask the older students to play." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Good idea. I will ask them tomorrow. Anything else?" },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "We need to decide what to do if it rains." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "We will move everything into the hall. OK, let's meet again on Friday." }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [

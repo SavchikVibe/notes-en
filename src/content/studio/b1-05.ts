@@ -1,0 +1,160 @@
+import type { StudioTask } from './types'
+
+export const b1Studio05: StudioTask = {
+  id: 'studio-b1-05',
+  level: 'B1',
+  title: 'Новости или слухи?',
+  subtitle: 'Reading · Listening · Writing · Speaking',
+  goal: 'Прочитать историю о ложной новости, понять интервью с журналистом, написать заметку о проверке информации и рассказать о новостях',
+  estimatedMinutes: 25,
+  reading: {
+    title: 'News or Rumors?',
+    hint: 'Выбери правильный вариант. В вопросах True / False выбери True или False.',
+    paragraphs: [
+      'Last week, a story about a local school spread quickly on social media. Someone wrote that the school was going to close because of a budget problem. The post was shared hundreds of times. Parents were worried, and some of them called the school. Some students even asked if they should look for another school.',
+      'The next day, the school director published a short statement. She said the story was not true. The school had a small budget problem, but it was not going to close. The director explained that the money for repairs had been delayed, but the classes would continue as usual. She also said that the school had enough teachers for the next year.',
+      'A local journalist checked the story. She called the school, the city office, and the parents’ group. She found that the original post had been written by a person who did not work at the school. The person had heard a conversation and had misunderstood it. The journalist also found that no official report mentioned a closure.',
+      'The journalist wrote an article about the importance of checking information. She said, “A rumor can travel faster than a fact. Before you share a story, ask three questions: Who wrote it? What is the evidence? Who else reports it?”',
+      'The school now has a page on its website for official news. The director says, “We want parents to have a reliable place to check information.”',
+    ],
+    questions: [
+      {
+        question: 'What did the post say?',
+        options: ['The school was going to close', 'The school had a new director', 'The school was opening a new building'],
+        answer: 0,
+        evidence: 'Someone wrote that the school was going to close because of a budget problem.',
+      },
+      {
+        question: 'What did the director say?',
+        options: ['The story was not true', 'The school would close', 'The parents were right'],
+        answer: 0,
+        evidence: 'She said the story was not true.',
+      },
+      {
+        question: 'What did the journalist do?',
+        options: ['Checked the story', 'Shared the post', 'Called the police'],
+        answer: 0,
+        evidence: 'A local journalist checked the story.',
+      },
+      {
+        question: 'The school had no budget problem at all.',
+        options: ['True', 'False'],
+        answer: 1,
+        type: 'tfng',
+        evidence: 'The school had a small budget problem, but it was not going to close.',
+      },
+      {
+        question: 'The original post was written by a person who worked at the school.',
+        options: ['True', 'False'],
+        answer: 1,
+        type: 'tfng',
+        evidence: 'The original post had been written by a person who did not work at the school.',
+      },
+    ],
+  },
+  listening: {
+    title: 'A Radio Interview',
+    intro: 'Ведущий говорит с журналисткой о слухах в соцсетях. Сначала слушай целиком, потом заполни пропуски.',
+    audio: 'audio/studio-b1-05.mp3',
+    lines: [
+      { speaker: 'Host', text: 'Welcome. Today we are talking about rumors and social media.', pitch: 0.94 },
+      { speaker: 'Journalist', text: 'Thank you. It is a very important topic.', pitch: 1.06 },
+      { speaker: 'Host', text: 'A story about a local school spread last week. What happened?', pitch: 0.94 },
+      { speaker: 'Journalist', text: 'Someone posted that the school was going to close. It was not true.', pitch: 1.06 },
+      { speaker: 'Host', text: 'How did you check it?', pitch: 0.94 },
+      { speaker: 'Journalist', text: 'I called the school, the city office, and the parents’ group.', pitch: 1.06 },
+      { speaker: 'Host', text: 'What did you find?', pitch: 0.94 },
+      { speaker: 'Journalist', text: 'The post was written by a person who did not work at the school.', pitch: 1.06 },
+      { speaker: 'Host', text: 'What should people do before sharing a story?', pitch: 0.94 },
+      { speaker: 'Journalist', text: 'Ask three questions: Who wrote it? What is the evidence? Who else reports it?', pitch: 1.06 },
+      { speaker: 'Host', text: 'Thank you. That is good advice.', pitch: 0.94 },
+    ],
+    notes: [
+      {
+        before: 'The story said the school was going to',
+        after: '.',
+        answer: 'close',
+        accept: ['close'],
+      },
+      {
+        before: 'The journalist called the school, the city office, and the',
+        after: 'group.',
+        answer: 'parents’',
+        accept: ['parents', 'parents’', "parents'"],
+      },
+      {
+        before: 'The post was written by a person who did not',
+        after: 'at the school.',
+        answer: 'work',
+        accept: ['work'],
+      },
+      {
+        before: 'Before sharing, ask: Who wrote it? What is the',
+        after: '? Who else reports it?',
+        answer: 'evidence',
+        accept: ['evidence'],
+      },
+      {
+        before: 'The journalist says a rumor can travel faster than a',
+        after: '.',
+        answer: 'fact',
+        accept: ['fact'],
+      },
+    ],
+    questions: [
+      {
+        question: 'What is the interview about?',
+        options: ['Checking news and rumors', 'School exams', 'A new building'],
+        answer: 0,
+      },
+      {
+        question: 'What is the journalist’s advice?',
+        options: ['Ask three questions before sharing', 'Share news quickly', 'Never read news'],
+        answer: 0,
+      },
+    ],
+    transcript: [
+      'Host: Welcome. Today we are talking about rumors and social media.',
+      'Journalist: Thank you. It is a very important topic.',
+      'Host: A story about a local school spread last week. What happened?',
+      'Journalist: Someone posted that the school was going to close. It was not true.',
+      'Host: How did you check it?',
+      'Journalist: I called the school, the city office, and the parents’ group.',
+      'Host: What did you find?',
+      'Journalist: The post was written by a person who did not work at the school.',
+      'Host: What should people do before sharing a story?',
+      'Journalist: Ask three questions: Who wrote it? What is the evidence? Who else reports it?',
+      'Host: Thank you. That is good advice.',
+    ],
+  },
+  writing: {
+    title: 'Напиши заметку о проверке новостей',
+    prompt:
+      'Write a short article for a school blog about checking news before sharing it. Give two reasons and one example. Write 120–150 words.',
+    minWords: 120,
+    maxWords: 150,
+    checklist: [
+      'Есть заголовок или чёткое первое предложение.',
+      'Приведены два довода.',
+      'Есть один конкретный пример.',
+      'Использованы связки because, for example, however.',
+      'Есть вывод.',
+    ],
+    modelAnswer:
+      'Why We Should Check News Before Sharing It\n\nChecking news before sharing it is important for two reasons. First, a rumor can spread faster than a fact. For example, last week a post said our school was going to close. It was not true, but hundreds of people shared it. Parents were worried, and the school had to publish a statement. Second, sharing false information can hurt people and organizations. It can damage trust and create unnecessary fear. Before you share a story, ask three questions: Who wrote it? What is the evidence? Who else reports it? If you cannot answer these questions, wait. A few minutes of checking can save a lot of trouble.',
+    usefulLanguage: ['First,...', 'For example,...', 'Second,...', 'Before you share...', 'If you cannot...'],
+  },
+  speaking: {
+    title: 'Расскажи о новости',
+    prompt:
+      'Talk about a news story you remember. Say what happened, how you checked it, and why it matters. Speak for 90–120 seconds.',
+    preparationSeconds: 60,
+    speakingSeconds: 120,
+    checklist: [
+      'Назвал(а), что случилось.',
+      'Сказал(а), как проверял(а) информацию.',
+      'Объяснил(а), почему это важно.',
+      'Использовал(а) past simple и связки.',
+    ],
+  },
+}
