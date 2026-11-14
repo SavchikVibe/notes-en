@@ -18,8 +18,15 @@ def run(*args: str) -> None:
 
 
 async def synthesize(text: str, voice: str, rate: str, path: Path) -> None:
-    communicate = edge_tts.Communicate(text, voice, rate=rate)
-    await communicate.save(str(path))
+    for attempt in range(3):
+        try:
+            communicate = edge_tts.Communicate(text, voice, rate=rate)
+            await communicate.save(str(path))
+            return
+        except Exception:
+            if attempt == 2:
+                raise
+            await asyncio.sleep(1.5)
 
 
 async def build_track(track: dict) -> None:
@@ -43,6 +50,7 @@ async def build_track(track: dict) -> None:
 
         parts: list[Path] = [silence]
         for index, line in enumerate(track["lines"]):
+            print(f"  {track['id']} line {index + 1}: {line['voice']}")
             mp3 = temp / f"{index:02d}.mp3"
             wav = temp / f"{index:02d}.wav"
             await synthesize(line["text"], line["voice"], track.get("rate", "+0%"), mp3)

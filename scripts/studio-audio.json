@@ -27,6 +27,34 @@
     ]
   },
   {
+    "id": "studio-a1-03",
+    "rate": "-8%",
+    "lines": [
+      { "speaker": "Emma", "voice": "en-US-AvaNeural", "text": "Hi, Nina! How was the beach?" },
+      { "speaker": "Nina", "voice": "en-US-JennyNeural", "text": "It was great! The weather was sunny and warm." },
+      { "speaker": "Emma", "voice": "en-US-AvaNeural", "text": "What did you do there?" },
+      { "speaker": "Nina", "voice": "en-US-JennyNeural", "text": "I swam in the sea and found a small shell." },
+      { "speaker": "Emma", "voice": "en-US-AvaNeural", "text": "Nice! Did you take photos?" },
+      { "speaker": "Nina", "voice": "en-US-JennyNeural", "text": "Yes, I did. I can show you on Monday." },
+      { "speaker": "Emma", "voice": "en-US-AvaNeural", "text": "Great. What time did you go home?" },
+      { "speaker": "Nina", "voice": "en-US-JennyNeural", "text": "We went home at five o'clock." }
+    ]
+  },
+  {
+    "id": "studio-a1-04",
+    "rate": "-8%",
+    "lines": [
+      { "speaker": "Sam", "voice": "en-US-BrianNeural", "text": "Hi, Alex. Are you free next weekend?" },
+      { "speaker": "Alex", "voice": "en-US-GuyNeural", "text": "No, I'm not. I'm going to visit my grandparents." },
+      { "speaker": "Sam", "voice": "en-US-BrianNeural", "text": "Oh, nice. What are you going to do there?" },
+      { "speaker": "Alex", "voice": "en-US-GuyNeural", "text": "I'm going to work in the garden and walk to the lake." },
+      { "speaker": "Sam", "voice": "en-US-BrianNeural", "text": "When are you going to come home?" },
+      { "speaker": "Alex", "voice": "en-US-GuyNeural", "text": "On Sunday evening. Do you want to play football on Monday?" },
+      { "speaker": "Sam", "voice": "en-US-BrianNeural", "text": "Sure! Let's meet at the park at four." },
+      { "speaker": "Alex", "voice": "en-US-GuyNeural", "text": "Great. See you on Monday!" }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [
