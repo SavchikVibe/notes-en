@@ -12,6 +12,13 @@ void requestPersist()
 registerSW({ immediate: true })
 
 if ('serviceWorker' in navigator) {
+  let refreshing = false
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshing) return
+    refreshing = true
+    window.location.reload()
+  })
+
   const checkForUpdate = () => {
     if (document.visibilityState !== 'visible') return
     void navigator.serviceWorker
