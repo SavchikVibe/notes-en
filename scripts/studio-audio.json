@@ -216,6 +216,63 @@
     ]
   },
   {
+    "id": "studio-b2-01",
+    "rate": "-3%",
+    "lines": [
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Today we are discussing the cost of university. Does a degree still justify the price?" },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "I think it does, but only for some careers. Medicine or law requires a degree." },
+      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "But many graduates work in jobs that do not require a degree. They still have debt." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "What does the evidence say?" },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Graduates earn more on average, but the gap is smaller in some fields." },
+      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "And online courses and apprenticeships are cheaper. They may be better for practical skills." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "So the value depends on the field and the person?" },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Yes. A degree is an investment, but not a guarantee." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "What about the social side? University is also about meeting people and learning to think." },
+      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "That is true, but students can get that in other ways too." },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Good point. For next week, find one piece of data on graduate earnings and one on alternative routes." },
+      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Should we focus on the US or compare countries?" },
+      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Compare at least two countries. That will make your argument stronger." },
+      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "OK. See you next week." }
+    ]
+  },
+  {
+    "id": "studio-b2-02",
+    "rate": "-3%",
+    "lines": [
+      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "Thank you for coming. We are thinking about a four-day week trial." },
+      { "speaker": "Employee A", "voice": "en-US-AvaNeural", "text": "How would the work be organized? We already have too many meetings." },
+      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "We would cut meetings by half and protect two hours of quiet work each day." },
+      { "speaker": "Employee B", "voice": "en-US-JennyNeural", "text": "Would we work longer days from Monday to Thursday?" },
+      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "Yes, eight and a half hours instead of eight. Friday would be free." },
+      { "speaker": "Employee A", "voice": "en-US-AvaNeural", "text": "I like the idea, but some clients need support on Friday." },
+      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "We would keep a small Friday team and rotate it." },
+      { "speaker": "Employee B", "voice": "en-US-JennyNeural", "text": "What about pay? Would it stay the same?" },
+      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "Yes. The trial would last three months, and pay would not change." },
+      { "speaker": "Employee A", "voice": "en-US-AvaNeural", "text": "How will we measure success?" },
+      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "We will track output, sick days, and how people feel. If output falls, we will change the plan." },
+      { "speaker": "Employee B", "voice": "en-US-JennyNeural", "text": "That sounds fair. I would join the trial." },
+      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "Good. I will send the details on Monday." }
+    ]
+  },
+  {
+    "id": "studio-b2-03",
+    "rate": "-3%",
+    "lines": [
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Today we are talking about rewilding cities. What does that mean?" },
+      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "It means giving nature more space in urban areas: green roofs, wild gardens, and corridors for animals." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Why is it important?" },
+      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "Cities are getting hotter. Trees and plants cool the air and absorb rainwater. They also support insects and birds." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Is it expensive?" },
+      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "It can be, but not always. A wild garden is cheaper than a parking lot. The challenge is maintenance and public support." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Some people worry about safety or allergies. What do you say?" },
+      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "Those concerns are real. A good plan includes paths, clear information, and areas for different uses." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What would you do first in a city?" },
+      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "Start with small spaces: school grounds, rooftops, and empty corners. If people see the results, they will support bigger projects." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "So rewilding is as much about people as about nature?" },
+      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "Exactly. If the community is involved, the project lasts." }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [

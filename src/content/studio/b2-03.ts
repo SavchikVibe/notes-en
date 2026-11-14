@@ -1,0 +1,163 @@
+import type { StudioTask } from './types'
+
+export const b2Studio03: StudioTask = {
+  id: 'studio-b2-03',
+  level: 'B2',
+  title: 'Природа возвращается в город',
+  subtitle: 'Reading · Listening · Writing · Speaking',
+  goal: 'Прочитать текст об урбанистическом ревайлдинге, понять подкаст, написать предложение для школы и обсудить расходы',
+  estimatedMinutes: 35,
+  reading: {
+    title: 'Rewilding the City',
+    hint: 'Выбери правильный вариант. В вопросах True / False / Not Given выбери точный ответ.',
+    paragraphs: [
+      'Urban rewilding is the idea of bringing nature back into cities. It can take many forms: green roofs, wild gardens, trees along streets, and corridors that allow animals to move between parks. The goal is not to turn cities into forests, but to make them more hospitable to plants, insects, birds, and people.',
+      'Supporters argue that rewilding has practical benefits. Trees and plants cool the air during heatwaves, absorb rainwater, and reduce flooding. Green spaces can improve mental health and provide places for children to play. They can also support biodiversity, which is declining in many parts of the world. In some cities, small changes have produced surprising results: a wild verge beside a road can become a home for bees and butterflies. Singapore has turned concrete roofs into gardens, and Rotterdam has created water plazas that hold rain during storms.',
+      'However, rewilding is not without costs and conflicts. Green spaces require maintenance, at least at the beginning. Some residents worry about safety, allergies, or pests. Others may prefer tidy parks with clear paths and short grass. There can also be tension between different uses: a wild area for insects may not be suitable for football or picnics. Planners must balance these needs rather than assume that nature is always welcome.',
+      'The most successful projects involve local communities. When residents help to design and care for a space, they are more likely to protect it. Schools can use wild areas for science lessons, and local groups can monitor plants and animals. This participation can turn a small project into a long-term habit. It can also reduce the cost of maintenance, because people notice problems earlier.',
+      'Rewilding is therefore not a simple solution to urban problems. It is a way of thinking about cities as living systems. It requires patience, maintenance, and compromise. But if it is done carefully, it can make cities cooler, greener, and more resilient. The question is not whether nature belongs in the city, but how much space we are willing to share with it.',
+    ],
+    questions: [
+      {
+        question: 'Rewilding aims to turn cities into forests.',
+        options: ['True', 'False', 'Not Given'],
+        answer: 1,
+        type: 'tfng',
+        evidence: 'The goal is not to turn cities into forests, but to make them more hospitable to plants, insects, birds, and people.',
+      },
+      {
+        question: 'Green spaces can reduce flooding.',
+        options: ['True', 'False', 'Not Given'],
+        answer: 0,
+        type: 'tfng',
+        evidence: 'Trees and plants cool the air during heatwaves, absorb rainwater, and reduce flooding.',
+      },
+      {
+        question: 'What is a common concern about rewilding?',
+        options: ['Safety, allergies, and pests', 'Too many cars', 'Higher rents'],
+        answer: 0,
+        evidence: 'Some residents worry about safety, allergies, or pests.',
+      },
+      {
+        question: 'What makes projects more successful?',
+        options: ['Involving local communities', 'Banning all visitors', 'Using only foreign plants'],
+        answer: 0,
+        evidence: 'The most successful projects involve local communities.',
+      },
+      {
+        question: 'Which heading fits paragraph 3?',
+        options: ['Costs and conflicts', 'The history of parks', 'How to build roads'],
+        answer: 0,
+        type: 'heading',
+        evidence: 'However, rewilding is not without costs and conflicts.',
+      },
+    ],
+  },
+  listening: {
+    title: 'Podcast: Rewilding the City',
+    intro: 'Ведущий подкаста говорит с городским экологом. Сначала слушай целиком, потом заполни заметки.',
+    audio: 'audio/studio-b2-03.mp3',
+    lines: [
+      { speaker: 'Host', text: 'Today we are talking about rewilding cities. What does that mean?', pitch: 0.94 },
+      { speaker: 'Ecologist', text: 'It means giving nature more space in urban areas: green roofs, wild gardens, and corridors for animals.', pitch: 1.06 },
+      { speaker: 'Host', text: 'Why is it important?', pitch: 0.94 },
+      { speaker: 'Ecologist', text: 'Cities are getting hotter. Trees and plants cool the air and absorb rainwater. They also support insects and birds.', pitch: 1.06 },
+      { speaker: 'Host', text: 'Is it expensive?', pitch: 0.94 },
+      { speaker: 'Ecologist', text: 'It can be, but not always. A wild garden is cheaper than a parking lot. The challenge is maintenance and public support.', pitch: 1.06 },
+      { speaker: 'Host', text: 'Some people worry about safety or allergies. What do you say?', pitch: 0.94 },
+      { speaker: 'Ecologist', text: 'Those concerns are real. A good plan includes paths, clear information, and areas for different uses.', pitch: 1.06 },
+      { speaker: 'Host', text: 'What would you do first in a city?', pitch: 0.94 },
+      { speaker: 'Ecologist', text: 'Start with small spaces: school grounds, rooftops, and empty corners. If people see the results, they will support bigger projects.', pitch: 1.06 },
+      { speaker: 'Host', text: 'So rewilding is as much about people as about nature?', pitch: 0.94 },
+      { speaker: 'Ecologist', text: 'Exactly. If the community is involved, the project lasts.', pitch: 1.06 },
+    ],
+    notes: [
+      {
+        before: 'Rewilding means giving more space to',
+        after: 'in cities.',
+        answer: 'nature',
+        accept: ['nature'],
+      },
+      {
+        before: 'Trees and plants cool the air and absorb',
+        after: '.',
+        answer: 'rainwater',
+        accept: ['rainwater', 'rain water'],
+      },
+      {
+        before: 'A wild garden can be cheaper than a',
+        after: 'lot.',
+        answer: 'parking',
+        accept: ['parking'],
+      },
+      {
+        before: 'The ecologist says a good plan includes paths and clear',
+        after: '.',
+        answer: 'information',
+        accept: ['information'],
+      },
+      {
+        before: 'Start with small spaces: school grounds, rooftops, and empty',
+        after: '.',
+        answer: 'corners',
+        accept: ['corners'],
+      },
+    ],
+    questions: [
+      {
+        question: 'What is the podcast about?',
+        options: ['Rewilding cities', 'Building new roads', 'City taxes'],
+        answer: 0,
+      },
+      {
+        question: 'What does the ecologist recommend first?',
+        options: ['Start with small spaces', 'Ban all cars', 'Build a large park'],
+        answer: 0,
+      },
+    ],
+    transcript: [
+      'Host: Today we are talking about rewilding cities. What does that mean?',
+      'Ecologist: It means giving nature more space in urban areas: green roofs, wild gardens, and corridors for animals.',
+      'Host: Why is it important?',
+      'Ecologist: Cities are getting hotter. Trees and plants cool the air and absorb rainwater. They also support insects and birds.',
+      'Host: Is it expensive?',
+      'Ecologist: It can be, but not always. A wild garden is cheaper than a parking lot. The challenge is maintenance and public support.',
+      'Host: Some people worry about safety or allergies. What do you say?',
+      'Ecologist: Those concerns are real. A good plan includes paths, clear information, and areas for different uses.',
+      'Host: What would you do first in a city?',
+      'Ecologist: Start with small spaces: school grounds, rooftops, and empty corners. If people see the results, they will support bigger projects.',
+      'Host: So rewilding is as much about people as about nature?',
+      'Ecologist: Exactly. If the community is involved, the project lasts.',
+    ],
+  },
+  writing: {
+    title: 'Напиши предложение для школы',
+    prompt:
+      'Write a proposal for your school: How can the school make its grounds more friendly to wildlife? Write 200–250 words.',
+    minWords: 200,
+    maxWords: 250,
+    checklist: [
+      'Есть заголовок и цель предложения.',
+      'Предложены два конкретных изменения.',
+      'Объяснена польза для природы и учеников.',
+      'Учтены расходы или ограничения.',
+      'Есть призыв к действию.',
+    ],
+    modelAnswer:
+      'A Wilder School Grounds\n\nOur school grounds are mostly concrete and short grass. They are easy to clean, but they offer little space for insects, birds, or outdoor learning. I propose a small rewilding project that would make the grounds more interesting and more friendly to wildlife.\n\nFirst, we could create a wild garden in the corner behind the gym. This area is not used for sport, and it could be planted with local flowers and herbs. A small log pile and a shallow water dish would give insects and birds a place to live. Second, we could put two green roofs on the bike shelter and the art room. These roofs would cool the buildings and absorb rainwater.\n\nThe project would cost money, but not much. Students could grow plants from seed, and local garden centers might donate materials. The main challenge is maintenance, so a group of volunteers would need to care for the space once a month.\n\nA wild garden would give science classes a real place to study, and it would make the school more attractive. I believe it is a small change with a big effect.',
+    usefulLanguage: ['I propose...', 'First,...', 'Second,...', 'The main challenge is...', 'I believe...'],
+  },
+  speaking: {
+    title: 'Обсуди расходы на ревайлдинг',
+    prompt:
+      'Should cities spend money on rewilding? Discuss the benefits, the costs, and your opinion. Speak for 2 minutes.',
+    preparationSeconds: 60,
+    speakingSeconds: 120,
+    checklist: [
+      'Сформулировал(а) позицию.',
+      'Назвал(а) две выгоды.',
+      'Назвал(а) одну проблему или расход.',
+      'Дал(а) пример города или места.',
+    ],
+  },
+}
