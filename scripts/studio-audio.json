@@ -55,6 +55,20 @@
     ]
   },
   {
+    "id": "studio-a2-01",
+    "rate": "-5%",
+    "lines": [
+      { "speaker": "Receptionist", "voice": "en-US-BrianNeural", "text": "Good afternoon. Welcome to the Park Hotel." },
+      { "speaker": "Sofia", "voice": "en-US-AvaNeural", "text": "Hello. I have a reservation for two people. My name is Sofia Ramos." },
+      { "speaker": "Receptionist", "voice": "en-US-BrianNeural", "text": "Let me check. Yes, a room for two nights. Is that correct?" },
+      { "speaker": "Sofia", "voice": "en-US-AvaNeural", "text": "Yes, that's right. Is breakfast included?" },
+      { "speaker": "Receptionist", "voice": "en-US-BrianNeural", "text": "Yes, breakfast is from seven to ten in the café on the first floor." },
+      { "speaker": "Sofia", "voice": "en-US-AvaNeural", "text": "Great. What time is check-out?" },
+      { "speaker": "Receptionist", "voice": "en-US-BrianNeural", "text": "Check-out is at eleven. Here are your keys. Your room is on the fifth floor." },
+      { "speaker": "Sofia", "voice": "en-US-AvaNeural", "text": "Thank you very much." }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [
