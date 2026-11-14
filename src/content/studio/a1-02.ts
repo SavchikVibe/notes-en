@@ -6,7 +6,7 @@ export const a1Studio02: StudioTask = {
   title: 'Обычный понедельник',
   subtitle: 'Reading · Listening · Writing · Speaking',
   goal: 'Прочитать текст о дне школьницы, понять короткий звонок, написать сообщение о своём дне и рассказать о распорядке',
-  estimatedMinutes: 20,
+  estimatedMinutes: 15,
   reading: {
     title: 'A Busy Monday',
     hint: 'Выбери правильный вариант. В вопросах True / False выбери True или False.',

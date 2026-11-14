@@ -94,7 +94,7 @@ export default function StudioTaskScreen() {
         <div className="mt-8 border-t border-line pt-5">
           <p className="text-[15px] leading-relaxed text-ink-2">
             Ты прошёл полный цикл: прочитал текст, разобрал разговор на слух, написал текст и
-            записал устный ответ.
+            завершил устный шаг.
           </p>
           <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
             Черновик сохранён на этом устройстве. Вернись к нему через неделю и перепиши одну

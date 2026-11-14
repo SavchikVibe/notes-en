@@ -6,7 +6,7 @@ export const a1Studio01: StudioTask = {
   title: 'Субботний рынок',
   subtitle: 'Reading · Listening · Writing · Speaking',
   goal: 'Прочитать короткий текст, понять диалог в кафе, написать сообщение другу и рассказать о семье',
-  estimatedMinutes: 20,
+  estimatedMinutes: 15,
   reading: {
     title: 'A Saturday Market',
     hint: 'Выбери правильный вариант. В вопросах True / False выбери True или False.',
