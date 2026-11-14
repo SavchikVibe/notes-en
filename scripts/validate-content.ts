@@ -303,6 +303,7 @@ for (const task of studioTasks) {
   studioIds.add(task.id)
   if (!task.title.trim()) fail(`${path}: нет заголовка`)
   if (!task.goal.trim()) fail(`${path}: нет цели`)
+  if (task.estimatedMinutes <= 0) fail(`${path}: estimatedMinutes должен быть больше нуля`)
 
   if (task.reading.paragraphs.length < 2) fail(`${path}/reading: меньше 2 абзацев`)
   if (task.reading.paragraphs.some((paragraph) => !paragraph.trim())) {
@@ -333,9 +334,17 @@ if (errors.length > 0) {
   for (const message of errors) console.error(`  • ${message}`)
   process.exitCode = 1
 } else {
-  const studioLabel = studioTasks.length === 1 ? 'студия' : 'студий'
+  const studioCount = studioTasks.length
+  const studioLabel =
+    studioCount % 10 === 1 && studioCount % 100 !== 11
+      ? 'студия'
+      : studioCount % 10 >= 2 &&
+          studioCount % 10 <= 4 &&
+          (studioCount % 100 < 12 || studioCount % 100 > 14)
+        ? 'студии'
+        : 'студий'
   console.log(
-    `Контент в порядке: ${units.length} юнитов, ${exerciseCount} упражнений, ${wordCount} слов, ${readings.length} текстов, ${studioTasks.length} ${studioLabel}.`,
+    `Контент в порядке: ${units.length} юнитов, ${exerciseCount} упражнений, ${wordCount} слов, ${readings.length} текстов, ${studioCount} ${studioLabel}.`,
   )
 }
 

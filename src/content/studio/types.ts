@@ -2,6 +2,8 @@ import type { Level, ReadQuestion } from '../types'
 
 export interface StudioReading {
   title: string
+  /** Подсказка перед вопросами; для A1 не нужно объяснять Not Given. */
+  hint?: string
   paragraphs: string[]
   questions: ReadQuestion[]
 }
@@ -24,6 +26,8 @@ export interface StudioNote {
 
 export interface StudioListening {
   title: string
+  /** Короткое описание ситуации; для A1 — кафе, для B1 — office hours. */
+  intro?: string
   lines: StudioListeningLine[]
   notes: StudioNote[]
   questions: ReadQuestion[]
@@ -31,6 +35,7 @@ export interface StudioListening {
 }
 
 export interface StudioWriting {
+  title?: string
   prompt: string
   minWords: number
   maxWords: number
@@ -40,6 +45,7 @@ export interface StudioWriting {
 }
 
 export interface StudioSpeaking {
+  title?: string
   prompt: string
   preparationSeconds: number
   speakingSeconds: number
@@ -52,6 +58,7 @@ export interface StudioTask {
   title: string
   subtitle: string
   goal: string
+  estimatedMinutes: number
   reading: StudioReading
   listening: StudioListening
   writing: StudioWriting

@@ -57,8 +57,8 @@ export function ListeningStep({
       <p className="text-[13px] font-medium text-ink-3">Шаг 2 · Слушание</p>
       <h1 className="mt-1 text-[26px] leading-tight">Послушай разговор и заполни заметки</h1>
       <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-        Это разговор студентки и профессора. Сначала слушай целиком, потом заполни пропуски.
-        Транскрипт появится после проверки.
+        {task.listening.intro ??
+          'Сначала слушай целиком, потом заполни пропуски. Транскрипт появится после проверки.'}
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2.5">

@@ -105,7 +105,9 @@ export function SpeakingStep({
   return (
     <div>
       <p className="text-[13px] font-medium text-ink-3">Шаг 4 · Речь</p>
-      <h1 className="mt-1 text-[26px] leading-tight">Расскажи о месте, которое хочешь изменить</h1>
+      <h1 className="mt-1 text-[26px] leading-tight">
+        {task.speaking.title ?? 'Расскажи о месте, которое хочешь изменить'}
+      </h1>
       <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{task.speaking.prompt}</p>
 
       <div className="mt-5 flex flex-wrap gap-2.5">

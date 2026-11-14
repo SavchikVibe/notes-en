@@ -225,11 +225,11 @@ export default function TodayScreen() {
                 <div className="min-w-0">
                   <p className="text-[17px] text-ink">{task.title}</p>
                   <p className="truncate text-[13px] text-ink-3">
-                    {done ? 'Пройдено · можно повторить' : `${task.level} · 30–40 минут`}
+                    {done ? 'Пройдено · можно повторить' : `${task.level} · ${task.estimatedMinutes} минут`}
                   </p>
                 </div>
                 <div className="shrink-0 text-right">
-                  <p className="num text-[15px] text-ink-2">30–40 мин</p>
+                  <p className="num text-[15px] text-ink-2">{task.estimatedMinutes} мин</p>
                   <p className={`text-[11px] ${done ? 'text-accent' : 'text-ink-3'}`}>
                     {done ? 'повторить' : 'начать'}
                   </p>

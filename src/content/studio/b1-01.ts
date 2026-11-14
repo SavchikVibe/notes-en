@@ -6,6 +6,7 @@ export const b1Studio01: StudioTask = {
   title: 'Город для людей',
   subtitle: 'Reading · Listening · Writing · Speaking',
   goal: 'Прочитать длинный текст, разобрать разговор, написать письмо и рассказать о месте, которое хочется изменить',
+  estimatedMinutes: 35,
   reading: {
     title: 'The City That Slowed Down',
     paragraphs: [
@@ -64,6 +65,8 @@ export const b1Studio01: StudioTask = {
   },
   listening: {
     title: 'Office Hours',
+    intro:
+      'Это разговор студентки и профессора. Сначала слушай целиком, потом заполни пропуски.',
     lines: [
       { speaker: 'Professor Grant', text: 'Come in, Maya. You wanted to talk about your project.', pitch: 0.86 },
       { speaker: 'Maya', text: 'Yes. I am studying how people use the new public space near the station.', pitch: 1.1 },
@@ -160,6 +163,7 @@ export const b1Studio01: StudioTask = {
     ],
   },
   writing: {
+    title: 'Напиши письмо',
     prompt:
       'You are Maya. Write an email to Professor Grant after your meeting. Thank her for the meeting, confirm the deadline for the first draft, and ask one specific question about the report. Write 150–180 words.',
     minWords: 150,
@@ -182,6 +186,7 @@ export const b1Studio01: StudioTask = {
     ],
   },
   speaking: {
+    title: 'Расскажи о месте, которое хочешь изменить',
     prompt:
       'Describe a public place in your city that you would like to change. Say what it is like now, what you would change, and why. Speak for 60–90 seconds.',
     preparationSeconds: 60,

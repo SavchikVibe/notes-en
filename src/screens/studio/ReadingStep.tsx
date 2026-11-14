@@ -28,8 +28,8 @@ export function ReadingStep({
       <p className="text-[13px] font-medium text-ink-3">Шаг 1 · Чтение</p>
       <h1 className="mt-1 text-[26px] leading-tight">Прочитай текст и ответь на вопросы</h1>
       <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-        В вопросах True / False / Not Given выбирай Not Given, если текст не даёт ответа.
-        После проверки под вопросами появится цитата-доказательство.
+        {task.reading.hint ??
+          'В вопросах True / False / Not Given выбирай Not Given, если текст не даёт ответа. После проверки под вопросами появится цитата-доказательство.'}
       </p>
 
       <div className="mt-6">

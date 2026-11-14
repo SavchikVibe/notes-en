@@ -29,7 +29,7 @@ export function WritingStep({
   return (
     <div>
       <p className="text-[13px] font-medium text-ink-3">Шаг 3 · Письмо</p>
-      <h1 className="mt-1 text-[26px] leading-tight">Напиши письмо</h1>
+      <h1 className="mt-1 text-[26px] leading-tight">{task.writing.title ?? 'Напиши письмо'}</h1>
       <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
         Сначала черновик. После проверки откроются чек-лист и образец; сравни и перепиши
         хотя бы одну часть.
