@@ -151,6 +151,11 @@ export default function StudioTaskScreen() {
         className="sticky bottom-0 z-10 border-t border-line bg-paper px-5 pt-3"
         style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}
       >
+        {!stepDone && step === 3 && (
+          <p className="mb-2 text-center text-[13px] text-ink-3">
+            Запиши ответ или пропусти речь, чтобы завершить.
+          </p>
+        )}
         <Button className="w-full" disabled={!stepDone} onClick={() => void next()}>
           {step === 3 ? 'Завершить студию' : 'Дальше'}
         </Button>

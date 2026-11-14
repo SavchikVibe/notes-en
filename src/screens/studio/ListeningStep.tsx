@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Play, Square } from 'lucide-react'
 import type { StudioTask } from '@/content/studio'
 import { normalizeAnswer } from '@/lib/text'
@@ -87,6 +88,13 @@ export function ListeningStep({
         </button>
         {!speechSupported() && <span className="self-center text-[13px] text-ink-3">Озвучка недоступна</span>}
       </div>
+
+      <p className="mt-2 text-[13px] text-ink-3">
+        Голос звучит плохо?{' '}
+        <Link to="/settings" className="underline underline-offset-4">
+          Сменить голос
+        </Link>
+      </p>
 
       <section className="mt-7">
         <h2 className="text-[20px]">Заметки</h2>

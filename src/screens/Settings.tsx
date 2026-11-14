@@ -10,6 +10,13 @@ import {
   type Settings,
 } from '@/db/db'
 import { todayKey, WEEKDAYS, WEEKDAYS_FULL } from '@/lib/date'
+import {
+  getSelectedVoiceName,
+  getUsVoices,
+  setSelectedVoiceName,
+  speak,
+  speechSupported,
+} from '@/lib/speech'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
 
@@ -19,10 +26,23 @@ export default function SettingsScreen() {
   const navigate = useNavigate()
   const [settings, setSettings] = useState<Settings | null>(null)
   const [message, setMessage] = useState<string | null>(null)
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
+  const [selectedVoice, setSelectedVoice] = useState('')
   const fileRef = useRef<HTMLInputElement | null>(null)
 
   useEffect(() => {
     void getSettings().then(setSettings)
+  }, [])
+
+  useEffect(() => {
+    if (!speechSupported()) return
+    const update = () => {
+      setVoices(getUsVoices())
+      setSelectedVoice(getSelectedVoiceName())
+    }
+    update()
+    window.speechSynthesis.addEventListener('voiceschanged', update)
+    return () => window.speechSynthesis.removeEventListener('voiceschanged', update)
   }, [])
 
   function update(next: Settings) {
@@ -153,6 +173,55 @@ export default function SettingsScreen() {
         </section>
 
         <section className="mt-9 border-t border-line pt-6">
+          <h2 className="text-[20px]">Голос</h2>
+          <p className="mt-1 text-[15px] text-ink-2">
+            Американский голос для слов, диалогов и студии.
+          </p>
+
+          {!speechSupported() ? (
+            <p className="mt-3 text-[15px] text-ink-2">Озвучка недоступна в этом браузере.</p>
+          ) : voices.length === 0 ? (
+            <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
+              В системе нет американского голоса. Установи английский (США) в настройках Android:
+              Система → Языки → Синтез речи.
+            </p>
+          ) : (
+            <>
+              <label className="mt-4 block text-[13px] font-medium text-ink-3">
+                Голос озвучки
+              </label>
+              <select
+                value={selectedVoice}
+                onChange={(event) => {
+                  setSelectedVoice(event.target.value)
+                  setSelectedVoiceName(event.target.value)
+                }}
+                className="mt-1 min-h-11 w-full rounded-[10px] border border-line bg-surface px-3 text-[15px]"
+              >
+                <option value="">Автоматически</option>
+                {voices.map((voice) => (
+                  <option key={voice.name} value={voice.name}>
+                    {voice.name} ({voice.lang})
+                  </option>
+                ))}
+              </select>
+              <Button
+                variant="secondary"
+                className="mt-3 w-full"
+                onClick={() => speak('Hello! This is how the voice sounds.')}
+              >
+                Прослушать
+              </Button>
+            </>
+          )}
+
+          <p className="mt-3 text-[13px] leading-relaxed text-ink-3">
+            Если голос в диалоге звучит плохо, выбери другой. В студии два персонажа различаются
+            высотой, но используют один выбранный голос.
+          </p>
+        </section>
+
+        <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">Бэкап</h2>
           <p className="mt-1 text-[15px] text-ink-2">
             Прогресс хранится только на этом устройстве. Раз в неделю — файл в облако.
@@ -194,7 +263,7 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">О приложении</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-            English — личный курс. Версия 0.39.1. Работает офлайн после установки на главный экран.
+            English — личный курс. Версия 0.39.2. Работает офлайн после установки на главный экран.
           </p>
           <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
             Фото в словаре —{' '}

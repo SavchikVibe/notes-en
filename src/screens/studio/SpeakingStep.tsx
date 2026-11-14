@@ -16,6 +16,7 @@ export function SpeakingStep({
   const [secondsLeft, setSecondsLeft] = useState(0)
   const [audioUrl, setAudioUrl] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [skipped, setSkipped] = useState(false)
   const [checks, setChecks] = useState<boolean[]>(() =>
     task.speaking.checklist.map(() => false),
   )
@@ -26,7 +27,7 @@ export function SpeakingStep({
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const doneCalled = useRef(false)
 
-  const done = audioUrl !== null && checks.every(Boolean)
+  const done = audioUrl !== null || skipped
 
   useEffect(() => {
     if (done && !doneCalled.current) {
@@ -99,7 +100,14 @@ export function SpeakingStep({
     })
     setPhase('idle')
     setChecks(task.speaking.checklist.map(() => false))
+    setSkipped(false)
     doneCalled.current = false
+  }
+
+  function skip() {
+    setSkipped(true)
+    doneCalled.current = true
+    onDone()
   }
 
   return (
@@ -174,10 +182,26 @@ export function SpeakingStep({
           ))}
         </ul>
         <p className="mt-3 text-[13px] leading-relaxed text-ink-3">
-          Это самооценка, а не оценка произношения. Сравни свою запись с задачей и отметь, что
-          получилось.
+          Чек-лист — для самопроверки. Он не блокирует завершение: достаточно записи или пропуска.
+          Это не оценка произношения.
         </p>
       </div>
+
+      {!audioUrl && !skipped && (
+        <button
+          type="button"
+          onClick={skip}
+          className="mt-4 text-[15px] text-ink-3 underline underline-offset-4"
+        >
+          Пропустить речь
+        </button>
+      )}
+
+      {skipped && (
+        <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
+          Речь пропущена. Можно завершить студию и вернуться к записи позже.
+        </p>
+      )}
 
       {audioUrl && (
         <button
