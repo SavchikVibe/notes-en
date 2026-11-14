@@ -5,11 +5,11 @@ function pickVoice(): SpeechSynthesisVoice | null {
   const voices = window.speechSynthesis.getVoices()
   if (!voices.length) return null
   if (cachedVoice && voices.includes(cachedVoice)) return cachedVoice
-  const english = voices.filter((voice) => voice.lang.toLowerCase().startsWith('en'))
+  // Курс американский: не подменяем en-US британским или другим английским молча.
+  const american = voices.filter((voice) => /^en[-_]us/i.test(voice.lang))
   cachedVoice =
-    english.find((voice) => /en-US/i.test(voice.lang) && /google|samantha|natural/i.test(voice.name)) ??
-    english.find((voice) => /en-US/i.test(voice.lang)) ??
-    english[0] ??
+    american.find((voice) => /google|samantha|natural/i.test(voice.name)) ??
+    american[0] ??
     null
   return cachedVoice
 }

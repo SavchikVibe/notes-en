@@ -1,14 +1,100 @@
 import { units } from '../src/content/index.ts'
 import { readings } from '../src/content/readings.ts'
+import { normalizeAnswer } from '../src/lib/text.ts'
 import type { Exercise, ReadQuestion, Unit, Word } from '../src/content/types.ts'
 
 const errors: string[] = []
+const warnings: string[] = []
 const unitIds = new Set<string>()
 const wordIds = new Set<string>()
 const unitOrders = new Set<number>()
 
 function fail(message: string) {
   errors.push(message)
+}
+
+function warn(message: string) {
+  warnings.push(message)
+}
+
+const MIN_READ_WORDS: Record<string, number> = {
+  A1: 100,
+  A2: 200,
+  B1: 400,
+  B2: 700,
+  C1: 450,
+}
+
+const BRITISH_SPELLING =
+  /\b(colour|flavour|centre|metre|organise|realise|recognise|analyse|travelling|travelled|traveller|cancelled|cancelling|labelled|modelling|programme|catalogue|dialogue|defence|offence|grey|tyre|cheque|aeroplane|aluminium)\b/i
+
+function collectSentences(unit: Unit): number {
+  const seen = new Map<string, string>()
+  const duplicates = new Set<string>()
+  const remember = (text: string, source: string) => {
+    const key = text.toLowerCase().replace(/\s+/g, ' ').trim()
+    if (!key) return
+    const previous = seen.get(key)
+    if (previous && previous !== source) duplicates.add(key)
+    else seen.set(key, source)
+  }
+
+  for (const word of unit.words) {
+    for (const example of word.examples) remember(example.en, `word:${word.id}`)
+  }
+  for (const exercise of unit.exercises) {
+    if (exercise.kind === 'assemble') remember(exercise.answer.join(' '), exercise.id)
+    if (exercise.kind === 'translate') remember(exercise.sample, exercise.id)
+    if (exercise.kind === 'listen') remember(exercise.audio, exercise.id)
+    if (exercise.kind === 'read') {
+      for (const paragraph of exercise.paragraphs) remember(paragraph, exercise.id)
+    }
+  }
+
+  return duplicates.size
+}
+
+function americanIssues(unit: Unit): string[] {
+  const issues = new Set<string>()
+  const check = (text: string) => {
+    const match = text.match(BRITISH_SPELLING)
+    if (match) issues.add(match[0].toLowerCase())
+  }
+
+  for (const word of unit.words) {
+    if (/ɒ|ɜː(?!r)|ɪə|eə|ʊə/.test(word.ipa)) issues.add(`IPA:${word.ipa}`)
+    for (const example of word.examples) check(example.en)
+  }
+
+  for (const exercise of unit.exercises) {
+    if (exercise.kind === 'choice') {
+      check(exercise.question)
+      exercise.options.forEach(check)
+    }
+    if (exercise.kind === 'assemble') {
+      exercise.words.forEach(check)
+    }
+    if (exercise.kind === 'translate') {
+      exercise.accept.forEach(check)
+      check(exercise.sample)
+    }
+    if (exercise.kind === 'listen') {
+      check(exercise.audio)
+      check(exercise.question)
+      exercise.options?.forEach(check)
+    }
+    if (exercise.kind === 'speak') check(exercise.phrase)
+    if (exercise.kind === 'read') {
+      check(exercise.title)
+      exercise.paragraphs.forEach(check)
+      exercise.questions.forEach((question) => {
+        check(question.question)
+        question.options.forEach(check)
+      })
+    }
+  }
+
+  return [...issues]
 }
 
 function checkChoice(
@@ -71,12 +157,26 @@ function checkExercise(unit: Unit, exercise: Exercise, seen: Set<string>) {
           }
         }
       }
+      if (exercise.words.length - exercise.answer.length < 2) {
+        warn(`${path}: меньше двух слов-ловушек в банке`)
+      }
       break
     case 'translate':
       if (!exercise.source.trim()) fail(`${path}: нет исходной фразы`)
       if (exercise.accept.length === 0) fail(`${path}: пустой список допустимых ответов`)
       if (exercise.accept.some((item) => !item.trim())) fail(`${path}: пустой вариант в accept`)
       if (!exercise.sample.trim()) fail(`${path}: нет образца`)
+      if (
+        exercise.sample.trim() &&
+        !exercise.accept.some(
+          (item) => normalizeAnswer(item) === normalizeAnswer(exercise.sample),
+        )
+      ) {
+        fail(`${path}: образец не входит в accept`)
+      }
+      if (exercise.accept.length < 2) {
+        warn(`${path}: только один допустимый вариант перевода`)
+      }
       break
     case 'listen':
       if (!exercise.audio.trim()) fail(`${path}: пустая фраза для озвучки`)
@@ -98,6 +198,13 @@ function checkExercise(unit: Unit, exercise: Exercise, seen: Set<string>) {
         fail(`${path}: пустой абзац`)
       }
       checkQuestions(path, exercise.questions)
+      {
+        const words = exercise.paragraphs.join(' ').split(/\s+/).filter(Boolean).length
+        const minimum = MIN_READ_WORDS[unit.level] ?? 0
+        if (words < minimum) {
+          warn(`${path}: текст ${words} слов, ориентир для ${unit.level} — ${minimum}+`)
+        }
+      }
       break
   }
 }
@@ -141,6 +248,23 @@ for (const unit of units) {
   const exerciseIds = new Set<string>()
   for (const exercise of unit.exercises) checkExercise(unit, exercise, exerciseIds)
   for (const word of unit.words) checkWord(unit, word)
+
+  const choiceAnswers = unit.exercises
+    .filter((exercise) => exercise.kind === 'choice')
+    .map((exercise) => exercise.answer)
+  if (choiceAnswers.length >= 3 && choiceAnswers.every((answer) => answer === 0)) {
+    warn(`${unit.id}: все choice-ответы — вариант A`)
+  }
+
+  const duplicateSentences = collectSentences(unit)
+  if (duplicateSentences > 0) {
+    warn(`${unit.id}: ${duplicateSentences} повторяющихся предложений внутри юнита`)
+  }
+
+  const issues = americanIssues(unit)
+  if (issues.length > 0) {
+    warn(`${unit.id}: американский английский — ${issues.slice(0, 5).join(', ')}${issues.length > 5 ? '…' : ''}`)
+  }
 }
 
 const exerciseCount = units.reduce((sum, unit) => sum + unit.exercises.length, 0)
@@ -165,4 +289,10 @@ if (errors.length > 0) {
   console.log(
     `Контент в порядке: ${units.length} юнитов, ${exerciseCount} упражнений, ${wordCount} слов, ${readings.length} текстов.`,
   )
+}
+
+if (warnings.length > 0) {
+  console.warn(`\nПредупреждения: ${warnings.length}`)
+  for (const message of warnings.slice(0, 30)) console.warn(`  • ${message}`)
+  if (warnings.length > 30) console.warn(`  … и ещё ${warnings.length - 30}`)
 }

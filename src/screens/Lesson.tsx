@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Check, ChevronDown, X } from 'lucide-react'
 import { getUnit } from '@/content'
-import { finishLesson, getLessonProgress, saveAnswer, saveResume, addStudyTime, addWordsToSrs } from '@/db/db'
+import { finishLesson, getLessonProgress, saveAnswer, saveSkip, restartLesson, addStudyTime, addWordsToSrs } from '@/db/db'
 import { Button } from '@/components/Button'
 import { SpeakButton } from '@/components/SpeakButton'
 import { renderExercise, type ExerciseViewHandle } from './lesson/exercises'
@@ -12,6 +12,7 @@ interface Result {
   total: number
   score: number
   mistakes: number
+  skipped: number
 }
 
 export default function LessonScreen() {
@@ -27,6 +28,7 @@ export default function LessonScreen() {
   const [phase, setPhase] = useState<'answer' | 'feedback' | 'skipped'>('answer')
   const [canCheck, setCanCheck] = useState(false)
   const [answers, setAnswers] = useState<Record<string, boolean>>({})
+  const [skipped, setSkipped] = useState<Record<string, boolean>>({})
   const [mistakes, setMistakes] = useState(0)
   const [lastCorrect, setLastCorrect] = useState(false)
   const [result, setResult] = useState<Result | null>(null)
@@ -70,11 +72,29 @@ export default function LessonScreen() {
     void getLessonProgress(unit.id).then((progress) => {
       if (!alive) return
       if (progress) {
-        setAnswers(progress.answers ?? {})
+        const savedAnswers = progress.answers ?? {}
+        const savedFirst = progress.firstAnswers ?? savedAnswers
+        const savedSkipped = progress.skipped ?? {}
+        setAnswers(savedAnswers)
+        setSkipped(savedSkipped)
+        setMistakes(Object.values(savedFirst).filter((value) => value === false).length)
+
         if (progress.status === 'in_progress') {
-          const answered = new Set(Object.keys(progress.answers ?? {}))
-          const next = unit.exercises.findIndex((exercise) => !answered.has(exercise.id))
-          setPosition(next === -1 ? 0 : next)
+          const answered = new Set(Object.keys(savedAnswers))
+          const wrongIndices = unit.exercises
+            .map((exercise, index) => (savedAnswers[exercise.id] === false ? index : -1))
+            .filter((index) => index >= 0)
+
+          if (wrongIndices.length > 0) {
+            requeued.current = new Set(wrongIndices)
+            setQueue([...unit.exercises.map((_, index) => index), ...wrongIndices])
+          }
+
+          const firstUnanswered = unit.exercises.findIndex(
+            (exercise) => !answered.has(exercise.id),
+          )
+          if (firstUnanswered !== -1) setPosition(firstUnanswered)
+          else if (wrongIndices.length > 0) setPosition(unit.exercises.length)
         }
       }
       setReady(true)
@@ -92,49 +112,53 @@ export default function LessonScreen() {
     (correct: boolean) => {
       if (!unit) return
       const exercise = unit.exercises[exerciseIndex]
-      const firstAttempt = answers[exercise.id] === undefined
+      const firstAttempt = answers[exercise.id] === undefined && skipped[exercise.id] !== true
 
       setAnswers((currentAnswers) => ({ ...currentAnswers, [exercise.id]: correct }))
+      void saveAnswer(
+        unit.id,
+        exercise.id,
+        correct,
+        Math.min(exerciseIndex + 1, unit.exercises.length - 1),
+        firstAttempt,
+      )
 
-      if (firstAttempt) {
-        void saveAnswer(
-          unit.id,
-          exercise.id,
-          correct,
-          Math.min(exerciseIndex + 1, unit.exercises.length - 1),
-        )
-
-        if (!correct) {
-          setMistakes((value) => value + 1)
-          if (!requeued.current.has(exerciseIndex)) {
-            requeued.current.add(exerciseIndex)
-            setQueue((currentQueue) => [...currentQueue, exerciseIndex])
-          }
+      if (firstAttempt && !correct) {
+        setMistakes((value) => value + 1)
+        if (!requeued.current.has(exerciseIndex)) {
+          requeued.current.add(exerciseIndex)
+          setQueue((currentQueue) => [...currentQueue, exerciseIndex])
         }
       }
 
       setLastCorrect(correct)
       setPhase('feedback')
     },
-    [unit, exerciseIndex, answers],
+    [unit, exerciseIndex, answers, skipped],
   )
 
   const handleSkip = useCallback(() => {
     if (!unit) return
+    const exercise = unit.exercises[exerciseIndex]
+    setSkipped((current) => ({ ...current, [exercise.id]: true }))
     setPhase('skipped')
-    void saveResume(unit.id, Math.min(exerciseIndex + 1, unit.exercises.length - 1))
+    void saveSkip(unit.id, exercise.id, Math.min(exerciseIndex + 1, unit.exercises.length - 1))
   }, [unit, exerciseIndex])
 
   async function handleNext() {
     if (!unit) return
     if (position >= queue.length - 1) {
-      const correct = Object.values(answers).filter(Boolean).length
-      const score = total > 0 ? correct / total : 0
+      const skippedIds = Object.keys(skipped)
+      const denominator = Math.max(0, total - skippedIds.length)
+      const correct = Object.entries(answers).filter(
+        ([exerciseId, ok]) => ok && !skipped[exerciseId],
+      ).length
+      const score = denominator > 0 ? correct / denominator : 0
       flushTime()
       activeSince.current = null
-      await finishLesson(unit.id, score, total)
+      await finishLesson(unit.id, score, denominator)
       await addWordsToSrs(unit.words.map((word) => word.id))
-      setResult({ correct, total, score, mistakes })
+      setResult({ correct, total: denominator, score, mistakes, skipped: skippedIds.length })
       return
     }
     setPosition((value) => value + 1)
@@ -148,6 +172,7 @@ export default function LessonScreen() {
     setPosition(0)
     setQueue(unit ? unit.exercises.map((_, index) => index) : [])
     setAnswers({})
+    setSkipped({})
     setMistakes(0)
     setPhase('answer')
     setCanCheck(false)
@@ -155,6 +180,7 @@ export default function LessonScreen() {
     requeued.current.clear()
     pendingSeconds.current = 0
     activeSince.current = Date.now()
+    if (unit) void restartLesson(unit.id)
   }
 
   if (!unit) {
@@ -186,14 +212,23 @@ export default function LessonScreen() {
         <h1 className="mt-6 text-[32px] leading-tight">Урок пройден</h1>
         <p className="mt-1 text-[17px] text-ink-2">{unit.title}</p>
 
-        <div className="mt-8 flex items-baseline gap-3 border-b border-line pb-6">
-          <span className="num font-serif text-[44px] leading-none">
-            {Math.round(result.score * 100)}%
-          </span>
-          <span className="text-[15px] text-ink-2">
-            {result.correct} из {result.total} упражнений
-          </span>
+        <div className="mt-8 border-b border-line pb-6">
+          <p className="text-[13px] font-medium text-ink-3">Итоговая точность</p>
+          <div className="mt-2 flex items-baseline gap-3">
+            <span className="num font-serif text-[44px] leading-none">
+              {Math.round(result.score * 100)}%
+            </span>
+            <span className="text-[15px] text-ink-2">
+              {result.correct} из {result.total} упражнений
+            </span>
+          </div>
         </div>
+
+        {result.skipped > 0 && (
+          <p className="mt-3 text-[15px] leading-snug text-ink-2">
+            Пропущено: {result.skipped}. Пропущенные задания не входят в итоговый процент.
+          </p>
+        )}
 
         {result.mistakes > 0 && (
           <p className="mt-3 text-[15px] leading-snug text-warn">

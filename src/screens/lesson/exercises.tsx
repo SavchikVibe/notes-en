@@ -2,6 +2,7 @@ import {
   forwardRef,
   useEffect,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
   type ReactNode,
@@ -18,6 +19,7 @@ import type {
   TranslateExercise,
 } from '@/content'
 import { matchesAny, normalizeAnswer, normalizeToken } from '@/lib/text'
+import { shuffle, shuffleOptions } from '@/lib/options'
 import { speak, speechSupported } from '@/lib/speech'
 import { SpeakButton } from '@/components/SpeakButton'
 
@@ -86,6 +88,10 @@ function QuestionText({ text }: { text: string }) {
 export const ChoiceView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
   function ChoiceView({ exercise, locked, onResult, onCanCheck }, ref) {
     const ex = exercise as ChoiceExercise
+    const prepared = useMemo(
+      () => shuffleOptions(ex.options, ex.answer, ex.id),
+      [ex.options, ex.answer, ex.id],
+    )
     const [picked, setPicked] = useState<number | null>(null)
 
     useEffect(() => {
@@ -95,9 +101,9 @@ export const ChoiceView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
     useImperativeHandle(
       ref,
       () => ({
-        check: () => onResult(picked === ex.answer),
+        check: () => onResult(picked === prepared.answer),
       }),
-      [picked, ex.answer, onResult],
+      [picked, prepared.answer, onResult],
     )
 
     return (
@@ -106,9 +112,9 @@ export const ChoiceView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
           <QuestionText text={ex.question} />
         </Stem>
         <div className="space-y-2.5">
-          {ex.options.map((option, index) => {
+          {prepared.options.map((option, index) => {
             const state: OptionState = locked
-              ? index === ex.answer
+              ? index === prepared.answer
                 ? 'correct'
                 : index === picked
                   ? 'wrong'
@@ -136,25 +142,6 @@ export const ChoiceView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 )
 
 /* --------------------------------- assemble -------------------------------- */
-
-function hash(value: string) {
-  let result = 0
-  for (const char of value) result = (result * 31 + char.charCodeAt(0)) % 100000
-  return result
-}
-
-function shuffle<T>(items: T[], seedText: string): T[] {
-  let seed = hash(seedText) || 1
-  const result = [...items]
-  for (let index = result.length - 1; index > 0; index--) {
-    seed = (seed * 1664525 + 1013904223) % 4294967296
-    const swap = seed % (index + 1)
-    const temp = result[index]
-    result[index] = result[swap]
-    result[swap] = temp
-  }
-  return result
-}
 
 export const AssembleView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
   function AssembleView({ exercise, locked, onResult, onCanCheck }, ref) {
@@ -324,11 +311,17 @@ export const TranslateView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 export const ListenView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
   function ListenView({ exercise, locked, onResult, onCanCheck }, ref) {
     const ex = exercise as ListenExercise
+    const prepared = useMemo(
+      () =>
+        ex.mode === 'choice' && Array.isArray(ex.options)
+          ? shuffleOptions(ex.options, Number(ex.answer), ex.id)
+          : null,
+      [ex.mode, ex.options, ex.answer, ex.id],
+    )
     const [picked, setPicked] = useState<number | null>(null)
     const [value, setValue] = useState('')
-    const isChoice = ex.mode === 'choice' && Array.isArray(ex.options)
 
-    const can = isChoice ? picked !== null : value.trim().length > 0
+    const can = prepared ? picked !== null : value.trim().length > 0
 
     useEffect(() => {
       onCanCheck(can)
@@ -338,12 +331,13 @@ export const ListenView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
       ref,
       () => ({
         check: () => {
-          const ok =
-            isChoice ? picked === ex.answer : normalizeAnswer(value) === normalizeAnswer(String(ex.answer))
+          const ok = prepared
+            ? picked === prepared.answer
+            : normalizeAnswer(value) === normalizeAnswer(String(ex.answer))
           onResult(ok)
         },
       }),
-      [isChoice, picked, value, ex.answer, onResult],
+      [prepared, picked, value, ex.answer, onResult],
     )
 
     return (
@@ -369,11 +363,11 @@ export const ListenView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 
         <Stem>{ex.question}</Stem>
 
-        {isChoice ? (
+        {prepared ? (
           <div className="space-y-2.5">
-            {ex.options!.map((option, index) => {
+            {prepared.options.map((option, index) => {
               const state: OptionState = locked
-                ? index === ex.answer
+                ? index === prepared.answer
                   ? 'correct'
                   : index === picked
                     ? 'wrong'
@@ -578,6 +572,13 @@ export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 export const ReadView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
   function ReadView({ exercise, locked, onResult, onCanCheck }, ref) {
     const ex = exercise as ReadExercise
+    const prepared = useMemo(
+      () =>
+        ex.questions.map((question, index) =>
+          shuffleOptions(question.options, question.answer, `${ex.id}-q${index}`),
+        ),
+      [ex],
+    )
     const [answers, setAnswers] = useState<Record<number, number>>({})
     const complete = ex.questions.every((_, index) => answers[index] !== undefined)
 
@@ -589,11 +590,11 @@ export const ReadView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
       ref,
       () => ({
         check: () => {
-          const ok = ex.questions.every((question, index) => answers[index] === question.answer)
+          const ok = prepared.every((question, index) => answers[index] === question.answer)
           onResult(ok)
         },
       }),
-      [answers, ex.questions, onResult],
+      [answers, prepared, onResult],
     )
 
     return (
@@ -612,40 +613,43 @@ export const ReadView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
         </div>
 
         <div className="space-y-6">
-          {ex.questions.map((question, questionIndex) => (
-            <div key={questionIndex} className="space-y-3">
-              <p className="text-[16px] font-medium text-ink">
-                {questionIndex + 1}. {question.question}
-              </p>
-              <div className="space-y-2">
-                {question.options.map((option, optionIndex) => {
-                  const selected = answers[questionIndex] === optionIndex
-                  const state: OptionState = locked
-                    ? optionIndex === question.answer
-                      ? 'correct'
+          {ex.questions.map((question, questionIndex) => {
+            const current = prepared[questionIndex]
+            return (
+              <div key={questionIndex} className="space-y-3">
+                <p className="text-[16px] font-medium text-ink">
+                  {questionIndex + 1}. {question.question}
+                </p>
+                <div className="space-y-2">
+                  {current.options.map((option, optionIndex) => {
+                    const selected = answers[questionIndex] === optionIndex
+                    const state: OptionState = locked
+                      ? optionIndex === current.answer
+                        ? 'correct'
+                        : selected
+                          ? 'wrong'
+                          : 'idle'
                       : selected
-                        ? 'wrong'
+                        ? 'picked'
                         : 'idle'
-                    : selected
-                      ? 'picked'
-                      : 'idle'
-                  return (
-                    <button
-                      key={optionIndex}
-                      type="button"
-                      disabled={locked}
-                      onClick={() =>
-                        setAnswers((current) => ({ ...current, [questionIndex]: optionIndex }))
-                      }
-                      className={optionClass(state)}
-                    >
-                      {option}
-                    </button>
-                  )
-                })}
+                    return (
+                      <button
+                        key={optionIndex}
+                        type="button"
+                        disabled={locked}
+                        onClick={() =>
+                          setAnswers((value) => ({ ...value, [questionIndex]: optionIndex }))
+                        }
+                        className={optionClass(state)}
+                      >
+                        {option}
+                      </button>
+                    )
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     )

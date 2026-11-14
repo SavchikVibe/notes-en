@@ -52,13 +52,17 @@ export default function ReviewScreen() {
     if (picked || !card || !word) return
     setPicked(option)
     const ok = option === word.term
-    if (ok) correct.current += 1
-    else wrong.current += 1
-    void reviewCard(card.wordId, ok)
+    const firstAttempt = !requeued.current.has(card.wordId)
 
-    if (!ok && !requeued.current.has(card.wordId)) {
-      requeued.current.add(card.wordId)
-      setQueue((current) => (current ? [...current, card] : current))
+    if (firstAttempt) {
+      if (ok) correct.current += 1
+      else wrong.current += 1
+      void reviewCard(card.wordId, ok)
+
+      if (!ok) {
+        requeued.current.add(card.wordId)
+        setQueue((current) => (current ? [...current, card] : current))
+      }
     }
   }
 

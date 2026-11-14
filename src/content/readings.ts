@@ -15,7 +15,7 @@ export const readings: Reading[] = [
     title: 'A Message from Alex',
     paragraphs: [
       'Hi! How are you? I am in Chicago with my family. We are at my aunt’s house.',
-      'Chicago is a big city, and the food is very good. Tomorrow we go to a baseball game.',
+      'Chicago is a big city, and the food is very good. Tomorrow we are going to a baseball game.',
       'Do you like baseball? Write me later! Alex.',
     ],
     questions: [
@@ -62,7 +62,7 @@ export const readings: Reading[] = [
     paragraphs: [
       'Dear Ben, I am in California for a week. The weather is warm and sunny.',
       'In the morning I swim in the ocean, and in the afternoon I walk in the city.',
-      'Today I see a famous bridge. The food here is great, but it is expensive. See you soon! Max.',    ],
+      'Today I saw a famous bridge. The food here is great, but it is expensive. See you soon! Max.',    ],
     questions: [
       { question: 'Where is Max?', options: ['In California', 'In Canada', 'In Chicago'], answer: 0 },
       { question: 'What does he do in the morning?', options: ['He walks', 'He swims', 'He reads'], answer: 1 },
@@ -131,8 +131,8 @@ export const readings: Reading[] = [
     level: 'A1',
     title: 'An Email about a Visit',
     paragraphs: [
-      'Hi Sam, I am happy because my cousin visits me next weekend. She lives in New York.',
-      'We see a movie and eat pizza on Saturday. On Sunday, we go to the beach.',
+      'Hi Sam, I am happy because my cousin is visiting me next weekend. She lives in New York.',
+      'We are going to see a movie and eat pizza on Saturday. On Sunday, we are going to the beach.',
       'The weather is sunny. Can you come with us? Write back! Leo.',
     ],
     questions: [
@@ -170,7 +170,7 @@ export const readings: Reading[] = [
     title: 'A Trip to the Mountains',
     paragraphs: [
       'Every summer, my family goes to the mountains. We stay in a small cabin for five days.',
-      'Every morning we walk in the forest. One day we see a lake.',
+      'Every morning we walk in the forest. One day we saw a lake.',
       'The water is cold, but my brother swims in it. In the evening, we cook dinner and play cards. It is a great trip.',
     ],
     questions: [
@@ -184,9 +184,9 @@ export const readings: Reading[] = [
     level: 'A1',
     title: 'A Class Project',
     paragraphs: [
-      'Next week, our class has a project about animals. I write about dolphins.',
+      'Next week, our class has a project about animals. I am writing about dolphins.',
       'Dolphins are smart and friendly. They live in the ocean and eat fish.',
-      'My friend Anna draws a picture of a dolphin. We present our project on Friday.',
+      'My friend Anna is drawing a picture of a dolphin. We are presenting our project on Friday.',
     ],
     questions: [
       { question: 'What is the project about?', options: ['Animals', 'Cities', 'Food'], answer: 0 },

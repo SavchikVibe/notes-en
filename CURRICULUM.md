@@ -224,6 +224,73 @@ CEFR не задаёт точного числа слов и единого об
 | 41–50 | Профессиональное и академическое общение | Hedging, stance, регистр, идиоматичность; переписывание для разных аудиторий. |
 | 51–60 | Самостоятельные проекты и C1-ревизия | Интеграция; исследовательское чтение, презентация, эссе и редактура без новой «коллекционной» грамматики. |
 
+#### Карта C1: 60 юнитов
+
+Формат юнита: 8 слов, 14 упражнений (12 авторских + 2 производных), текст для чтения на 4 абзаца и 3 вопроса. Партия — 10 юнитов.
+
+| № | Юнит | Грамматика и навыки |
+|---|---|---|
+| 01 | Семинар: вход в дискуссию | Turn-taking, hedges, backchannel; aspect в живой дискуссии |
+| 02 | Исследовательский вопрос и гипотеза | Сужение темы, scope, variable; future in the past (`was to`, `would`) |
+| 03 | Академическое несогласие | Уступка, квалификация, вежливый вызов; сдвиг времён в reporting |
+| 04 | Чтение abstract | Структура abstract: gap → aim → method → finding; сложные именные группы |
+| 05 | Лекция: структура и сигналы | Signposting, recaps, digressions; Perfect для последовательности |
+| 06 | Пересказ источника | Paraphrase, attribution, защита от искажения; reporting verbs |
+| 07 | Абзац: тезис — доказательство — комментарий | Claim/evidence/warrant; cohesion и reference words |
+| 08 | Нюансы вида и времени | States, tendencies, change; Perfect Continuous vs Simple |
+| 09 | Академические коллокации | Conduct/draw/raise; точность verb+noun и adj+noun |
+| 10 | Мини-семинар | Интеграция блока: обсуждение и устное резюме |
+| 11 | Reading: methods section | Пассив и номинализация; описание процедуры |
+| 12 | Данные в тексте | Approximation, proportion, comparison; adverbs of degree |
+| 13 | Distancing и осторожность | `is said to`, `appears to`, `may have`; оценка надёжности |
+| 14 | Оценка источника | Credibility, bias, currency; критическое чтение |
+| 15 | Аудирование: брифинг с данными | Числа, тренды, оговорки; заметки |
+| 16 | Синтез двух источников | Согласие/конфликт, атрибуция; compare/contrast |
+| 17 | Advanced Passive | Сложный пассив, пассив с модальными, `get` passive |
+| 18 | Номинализация | Clause → noun phrase; плотность и ясность |
+| 19 | Цитирование и ссылки | Quotation, paraphrase, plagiarism; referencing verbs |
+| 20 | Мини-отчёт по данным | Интеграция: письменное резюме на уровне предложений |
+| 21 | Начало выступления | Hook, thesis, roadmap; signposting |
+| 22 | Инверсия | `Not only...`, `Rarely...`, `Under no circumstances...` |
+| 23 | Fronting и cleft sentences | `What matters is...`, `It was X that...` |
+| 24 | Риторические приёмы | Question, triad, contrast; стиль и эффект |
+| 25 | Дебаты: построение кейса | Claim, warrant, impact; аргумент и доказательство |
+| 26 | Rebuttal | Уступка, поворот, контраргумент; работа с возражениями |
+| 27 | Речь под давлением | Repair, paraphrase, buy time; стратегии беглости |
+| 28 | Аудирование: дебаты | Stance, implication, irony |
+| 29 | Opinion journalism | Tone, slant, presupposition |
+| 30 | Речь на три минуты | Интеграция: структура и подача |
+| 31 | Рецензия на фильм | Evaluative lexis, nuance; структура review |
+| 32 | Reduced relative clauses | `the book published last year`; компактное описание |
+| 33 | Participle clauses | Cause, result, sequence; экономия предложения |
+| 34 | Ellipsis и substitution | `so do I`, `one`, `that of`; избегание повторов |
+| 35 | Медиафрейминг | Headlines, framing, presupposition; критическое чтение |
+| 36 | Искусство и цензура | Limits, harm, offence; дебаты о границах |
+| 37 | Литературный отрывок | Voice, ambiguity, implication |
+| 38 | Аудирование: подкаст-дискуссия | Inference, stance, agreement |
+| 39 | Стиль и импликация | Connotation, understatement, irony |
+| 40 | Культурный обзор | Интеграция: план эссе и отбор материала |
+| 41 | Email: регистр | Formal/neutral/informal; requests и follow-ups |
+| 42 | Встреча: ведение и итог | Chairing, summarizing, action items |
+| 43 | Переговоры | Conditionals, softeners, trade-offs |
+| 44 | Презентация данных | Narrative, emphasis, caveats |
+| 45 | Hedging и stance | `may`, `tends to`, `arguably`; академическая осторожность |
+| 46 | Переписывание под аудиторию | Register shift: тот же смысл, другой читатель |
+| 47 | Идиоматичность | Collocations, fixed phrases, естественный выбор |
+| 48 | Собеседование | STAR, follow-ups, разговор об условиях |
+| 49 | Academic job talk | Research narrative, contribution, future work |
+| 50 | Портфолио | Интеграция: язык CV и профиля |
+| 51 | Проект: выбор вопроса | Scope, feasibility, research question |
+| 52 | Annotated bibliography | Отбор источников, аннотация, оценка |
+| 53 | Заметки и синтез | Note-making, synthesis matrix |
+| 54 | Презентация проекта | Structure, slides, signposting |
+| 55 | Вопросы после доклада | Q&A, uncertainty, pushback |
+| 56 | Literature review | Reporting, grouping, gap; работа на уровне предложений |
+| 57 | Редактура: ясность | Concision, nominalization vs verbs, cohesion |
+| 58 | Стилевая правка | Register, voice, rhythm; финальная полировка |
+| 59 | Mock conference panel | Интеграция: обсуждение и защита позиции |
+| 60 | Итог C1 | Рефлексия, next steps, план поддержки |
+
 ## 7. IELTS и SAT
 
 ### Экзамены занимают разные места

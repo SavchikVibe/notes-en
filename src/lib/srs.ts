@@ -22,17 +22,36 @@ function shuffle<T>(items: T[]): T[] {
   return copy
 }
 
-/** Пропуск в последнем (третьем) примере слова: он всегда содержит точную форму. */
+/** Ищет пример, в котором можно спрятать слово, и подходящий шаблон. */
+function findPattern(word: Word): { example: Word['examples'][number]; pattern: RegExp } {
+  const exact = new RegExp(`\\b${escapeRegExp(word.term)}\\b`, 'i')
+  const exactExample = word.examples.find((example) => exact.test(example.en))
+  if (exactExample) return { example: exactExample, pattern: exact }
+
+  const stem = word.term.split(' ')[0].replace(/(e|y|ing|ed|s)$/i, '')
+  const stemPattern = new RegExp(`\\b${escapeRegExp(stem)}\\w*\\b`, 'i')
+  const stemExample = word.examples.find((example) => stemPattern.test(example.en))
+  if (stemExample) return { example: stemExample, pattern: stemPattern }
+
+  return {
+    example: word.examples[word.examples.length - 1] ?? word.examples[0],
+    pattern: exact,
+  }
+}
+
+/** Пропуск в примере слова: сначала точная форма, затем основа. */
 export function buildCloze(word: Word, pool: Word[]): Cloze {
-  const example = word.examples[word.examples.length - 1] ?? word.examples[0]
-  const pattern = new RegExp(`\\b${escapeRegExp(word.term)}\\b`, 'i')
+  const { example, pattern } = findPattern(word)
   const sentence = pattern.test(example.en)
     ? example.en.replace(pattern, '____')
     : `${example.en} — ____`
 
-  const distractors = shuffle(
-    pool.filter((item) => item.id !== word.id && item.term !== word.term),
-  )
+  const candidates = pool.filter((item) => item.id !== word.id && item.term !== word.term)
+  const samePos = candidates.filter((item) => item.pos === word.pos)
+  const sameLevel = samePos.filter((item) => item.level === word.level)
+  const preferred =
+    sameLevel.length >= 3 ? sameLevel : samePos.length >= 3 ? samePos : candidates
+  const distractors = shuffle(preferred)
     .slice(0, 3)
     .map((item) => item.term)
 

@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check, Play } from 'lucide-react'
 import { readings, type Reading } from '@/content/readings'
 import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
 import { normalizeAnswer } from '@/lib/text'
+import { shuffleOptions } from '@/lib/options'
 import { speak } from '@/lib/speech'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
@@ -69,6 +70,15 @@ export default function ListeningScreen() {
   }, [])
 
   const current = queue?.[index]
+  const preparedQuestions = useMemo(
+    () =>
+      current
+        ? current.questions.map((question, questionIndex) =>
+            shuffleOptions(question.options, question.answer, `${current.id}-q${questionIndex}`),
+          )
+        : [],
+    [current],
+  )
   const sentences = current ? sentencesOf(current) : []
   const sentence = sentences[dictationIndex]
   const fullText =
@@ -77,7 +87,9 @@ export default function ListeningScreen() {
 
   function checkGist() {
     if (!current) return
-    const correct = current.questions.filter((question, i) => answers[i] === question.answer).length
+    const correct = current.questions.filter(
+      (_, i) => answers[i] === preparedQuestions[i]?.answer,
+    ).length
     setGistCorrect(correct)
     setGistChecked(true)
   }
@@ -206,35 +218,39 @@ export default function ListeningScreen() {
             </p>
 
             <div className="mt-6 space-y-6">
-              {current.questions.map((question, questionIndex) => (
-                <div key={questionIndex} className="space-y-3">
-                  <p className="text-[16px] font-medium text-ink">
-                    {questionIndex + 1}. {question.question}
-                  </p>
-                  <div className="space-y-2">
-                    {question.options.map((option, optionIndex) => {
-                      const selected = answers[questionIndex] === optionIndex
-                      return (
-                        <button
-                          key={optionIndex}
-                          type="button"
-                          disabled={gistChecked}
-                          onClick={() =>
-                            setAnswers((value) => ({ ...value, [questionIndex]: optionIndex }))
-                          }
-                          className={optionClass(
-                            selected,
-                            optionIndex === question.answer,
-                            gistChecked,
-                          )}
-                        >
-                          {option}
-                        </button>
-                      )
-                    })}
+              {current.questions.map((question, questionIndex) => {
+                const prepared = preparedQuestions[questionIndex]
+                if (!prepared) return null
+                return (
+                  <div key={questionIndex} className="space-y-3">
+                    <p className="text-[16px] font-medium text-ink">
+                      {questionIndex + 1}. {question.question}
+                    </p>
+                    <div className="space-y-2">
+                      {prepared.options.map((option, optionIndex) => {
+                        const selected = answers[questionIndex] === optionIndex
+                        return (
+                          <button
+                            key={optionIndex}
+                            type="button"
+                            disabled={gistChecked}
+                            onClick={() =>
+                              setAnswers((value) => ({ ...value, [questionIndex]: optionIndex }))
+                            }
+                            className={optionClass(
+                              selected,
+                              optionIndex === prepared.answer,
+                              gistChecked,
+                            )}
+                          >
+                            {option}
+                          </button>
+                        )
+                      })}
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
             {gistChecked && (

@@ -9,8 +9,12 @@ export interface LessonProgress {
   attempts: number
   updatedAt: number
   completedAt?: number
-  /** Ответы по id упражнения: true — верно. Нужно, чтобы досчёт после возврата был честным. */
+  /** Последний ответ по id упражнения: true — верно. */
   answers?: Record<string, boolean>
+  /** Первый ответ по id упражнения: нужен для честного счёта ошибок. */
+  firstAnswers?: Record<string, boolean>
+  /** Пропущенные упражнения: не входят в знаменатель итогового счёта. */
+  skipped?: Record<string, boolean>
 }
 
 export interface DayLog {
@@ -111,6 +115,7 @@ export async function saveResume(lessonId: string, exerciseIndex: number): Promi
   const existing = await database.get('progress', lessonId)
   if (existing?.status === 'done') return
   await database.put('progress', {
+    ...existing,
     lessonId,
     status: 'in_progress',
     exerciseIndex,
@@ -126,11 +131,14 @@ export async function saveAnswer(
   exerciseId: string,
   correct: boolean,
   nextIndex: number,
+  firstAttempt: boolean,
 ): Promise<void> {
   const database = await db()
   const existing = await database.get('progress', lessonId)
   if (existing?.status === 'done') return
+  const firstAnswers = existing?.firstAnswers ?? existing?.answers ?? {}
   await database.put('progress', {
+    ...existing,
     lessonId,
     status: 'in_progress',
     exerciseIndex: nextIndex,
@@ -139,6 +147,30 @@ export async function saveAnswer(
     attempts: existing?.attempts ?? 0,
     updatedAt: Date.now(),
     answers: { ...(existing?.answers ?? {}), [exerciseId]: correct },
+    firstAnswers: firstAttempt
+      ? { ...firstAnswers, [exerciseId]: correct }
+      : firstAnswers,
+  })
+}
+
+export async function saveSkip(
+  lessonId: string,
+  exerciseId: string,
+  nextIndex: number,
+): Promise<void> {
+  const database = await db()
+  const existing = await database.get('progress', lessonId)
+  if (existing?.status === 'done') return
+  await database.put('progress', {
+    ...existing,
+    lessonId,
+    status: 'in_progress',
+    exerciseIndex: nextIndex,
+    bestScore: existing?.bestScore ?? 0,
+    lastScore: existing?.lastScore ?? 0,
+    attempts: existing?.attempts ?? 0,
+    updatedAt: Date.now(),
+    skipped: { ...(existing?.skipped ?? {}), [exerciseId]: true },
   })
 }
 
@@ -146,10 +178,10 @@ export async function finishLesson(
   lessonId: string,
   score: number,
   exerciseCount: number,
-): Promise<void> {
-  const database = await db()
+): Promise<void> {  const database = await db()
   const existing = await database.get('progress', lessonId)
   await database.put('progress', {
+    ...existing,
     lessonId,
     status: 'done',
     exerciseIndex: 0,
@@ -160,6 +192,22 @@ export async function finishLesson(
     completedAt: existing?.completedAt ?? Date.now(),
   })
   await touchDay(0, exerciseCount, lessonId)
+}
+
+export async function restartLesson(lessonId: string): Promise<void> {
+  const database = await db()
+  const existing = await database.get('progress', lessonId)
+  if (!existing) return
+  await database.put('progress', {
+    ...existing,
+    lessonId,
+    status: 'in_progress',
+    exerciseIndex: 0,
+    updatedAt: Date.now(),
+    answers: {},
+    firstAnswers: {},
+    skipped: {},
+  })
 }
 
 export async function getDay(date: string): Promise<DayLog | undefined> {
@@ -186,7 +234,7 @@ export async function addStudyTime(seconds: number): Promise<void> {
   await touchDay(whole, 0)
 }
 
-const SRS_DAYS = [0, 1, 3, 7, 16, 35]
+const SRS_DAYS = [0, 1, 3, 7, 16, 35, 75, 150]
 
 export async function addWordsToSrs(wordIds: string[]): Promise<void> {
   const database = await db()
@@ -207,23 +255,32 @@ export async function getAllSrs(): Promise<SrsCard[]> {
 export async function getDueCards(limit = 20): Promise<SrsCard[]> {
   const now = Date.now()
   const all = await (await db()).getAll('srs')
-  return all
-    .filter((card) => card.dueAt <= now)
+  const due = all.filter((card) => card.dueAt <= now)
+  const reviews = due.filter((card) => card.reviews > 0)
+  const fresh = due.filter((card) => card.reviews === 0)
+  // Новые карточки не должны вытеснять повторение и не должны приходить лавиной.
+  return [...reviews, ...fresh.slice(0, 8)]
     .sort((a, b) => a.dueAt - b.dueAt)
     .slice(0, limit)
 }
 
 export async function countDue(): Promise<number> {
   const now = Date.now()
-  return (await (await db()).getAll('srs')).filter((card) => card.dueAt <= now).length
+  const all = await (await db()).getAll('srs')
+  const due = all.filter((card) => card.dueAt <= now)
+  const reviews = due.filter((card) => card.reviews > 0).length
+  const fresh = due.filter((card) => card.reviews === 0).length
+  return reviews + Math.min(fresh, 8)
 }
 
 export async function reviewCard(wordId: string, correct: boolean): Promise<void> {
   const database = await db()
   const card = await database.get('srs', wordId)
   if (!card) return
-  const nextBox = correct ? Math.min(card.box + 1, SRS_DAYS.length - 1) : 0
-  const days = correct ? SRS_DAYS[nextBox] : 1
+  const nextBox = correct
+    ? Math.min(card.box + 1, SRS_DAYS.length - 1)
+    : Math.max(0, card.box - 2)
+  const days = correct ? SRS_DAYS[nextBox] : 0.25
   const now = Date.now()
   await database.put('srs', {
     ...card,
