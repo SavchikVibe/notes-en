@@ -175,7 +175,7 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">Голос</h2>
           <p className="mt-1 text-[15px] text-ink-2">
-            Американский голос для слов, диалогов и студии.
+            Американский голос для слов и запасной озвучки.
           </p>
 
           {!speechSupported() ? (
@@ -216,8 +216,8 @@ export default function SettingsScreen() {
           )}
 
           <p className="mt-3 text-[13px] leading-relaxed text-ink-3">
-            Если голос в диалоге звучит плохо, выбери другой. В студии два персонажа различаются
-            высотой, но используют один выбранный голос.
+            Диалоги студии идут с готовым аудио от нейроголосов. Этот выбор влияет на слова и на
+            случай, если аудио не загрузится.
           </p>
         </section>
 
@@ -263,7 +263,7 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">О приложении</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-            English — личный курс. Версия 0.40.0. Работает офлайн после установки на главный экран.
+            English — личный курс. Версия 0.40.1. Работает офлайн после установки на главный экран.
           </p>
           <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
             Фото в словаре —{' '}
