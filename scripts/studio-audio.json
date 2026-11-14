@@ -395,6 +395,72 @@
     ]
   },
   {
+    "id": "studio-c1-04",
+    "rate": "-2%",
+    "lines": [
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Can media support democracy, or does it undermine it?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Both. It can hold power accountable, but it can also amplify outrage." },
+      { "speaker": "Researcher", "voice": "en-US-AvaNeural", "text": "The problem is structural. Platforms reward engagement, not accuracy." },
+      { "speaker": "Critic", "voice": "en-US-BrianNeural", "text": "And ownership is concentrated. A few companies decide what is visible." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Is fragmentation new?" },
+      { "speaker": "Researcher", "voice": "en-US-AvaNeural", "text": "Not entirely. Partisan media existed before. But the scale is different." },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "We now have parallel realities. People disagree about basic facts." },
+      { "speaker": "Critic", "voice": "en-US-BrianNeural", "text": "Media literacy helps, but it puts the burden on individuals." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What about regulation?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Transparency is useful. But regulation can become censorship." },
+      { "speaker": "Researcher", "voice": "en-US-AvaNeural", "text": "We need independent public media and data access for researchers." },
+      { "speaker": "Critic", "voice": "en-US-BrianNeural", "text": "And strong protections for journalists." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What is the goal?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "A shared basis for disagreement, not agreement." },
+      { "speaker": "Researcher", "voice": "en-US-AvaNeural", "text": "Pluralism, transparency, and accountability." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Thank you all." }
+    ]
+  },
+  {
+    "id": "studio-c1-05",
+    "rate": "-2%",
+    "lines": [
+      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "We need to agree on the launch date. What are the constraints?" },
+      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "We have a campaign booked for October 15. If we move it, we lose visibility." },
+      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "We can finish the core feature by October 20, not October 15." },
+      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "So the date is the conflict. What would success look like for each team?" },
+      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "A launch with enough time to promote it." },
+      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "A release that does not break existing customers." },
+      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "What if we launch the core feature on October 20 and delay the campaign by one week?" },
+      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "We would need to rebook one event. That is possible but costly." },
+      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "We could deliver a beta on October 15 for a small group." },
+      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "That gives marketing content and engineering time. Is that acceptable?" },
+      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "Yes, if the beta is stable enough to demo." },
+      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "It will be stable. We will limit it to fifty users." },
+      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "Good. Who owns the decision?" },
+      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "I will confirm the event change by Friday." },
+      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "I will send the beta plan tomorrow." },
+      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "Then we have a decision. Let's write it down." }
+    ]
+  },
+  {
+    "id": "studio-c1-06",
+    "rate": "-2%",
+    "lines": [
+      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "Your data is several years old. How does that affect your conclusion?" },
+      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "It limits the claim. I can show a pattern, not a current measurement." },
+      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "Why did you choose three districts?" },
+      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "They have similar income levels but different tree cover. That makes the comparison more useful." },
+      { "speaker": "Official", "voice": "en-US-BrianNeural", "text": "Could the city afford a tree-planting programme?" },
+      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "It depends on the model. A targeted programme for the hottest streets would cost less than a city-wide plan." },
+      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "What would you do differently?" },
+      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "I would collect current temperature data and interview more residents." },
+      { "speaker": "Official", "voice": "en-US-BrianNeural", "text": "What would you recommend first?" },
+      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "Start with shade on walking routes to schools. It is visible and relatively cheap." },
+      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "How would you measure success?" },
+      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "Surface temperature, use of the routes, and resident feedback." },
+      { "speaker": "Official", "voice": "en-US-BrianNeural", "text": "Thank you. That is practical." },
+      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "One last question: what is the main limitation of your evidence?" },
+      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "The sample is small, and the data is old. I would not claim more than a pattern." },
+      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "Good. That is a fair conclusion." }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [
