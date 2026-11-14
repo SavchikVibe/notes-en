@@ -67,6 +67,7 @@ export const b1Studio01: StudioTask = {
     title: 'Office Hours',
     intro:
       'Это разговор студентки и профессора. Сначала слушай целиком, потом заполни пропуски.',
+    audio: 'audio/studio-b1-01.mp3',
     lines: [
       { speaker: 'Professor Grant', text: 'Come in, Maya. You wanted to talk about your project.', pitch: 0.86 },
       { speaker: 'Maya', text: 'Yes. I am studying how people use the new public space near the station.', pitch: 1.1 },

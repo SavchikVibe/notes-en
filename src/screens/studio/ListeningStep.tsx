@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Play, Square } from 'lucide-react'
 import type { StudioTask } from '@/content/studio'
@@ -26,6 +26,13 @@ export function ListeningStep({
   const [notes, setNotes] = useState<string[]>(() => task.listening.notes.map(() => ''))
   const [gist, setGist] = useState<Record<number, number>>({})
   const [checked, setChecked] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [audioFailed, setAudioFailed] = useState(false)
+
+  const audioSrc = task.listening.audio
+    ? `${import.meta.env.BASE_URL}${task.listening.audio}`
+    : null
+  const useAudio = Boolean(audioSrc) && !audioFailed
 
   const prepared = useMemo(
     () =>
@@ -40,12 +47,28 @@ export function ListeningStep({
     task.listening.questions.every((_, index) => gist[index] !== undefined)
 
   function play(multiplier = 1) {
+    if (useAudio && audioRef.current) {
+      const audio = audioRef.current
+      audio.playbackRate = multiplier
+      audio.currentTime = 0
+      void audio.play().catch(() => setAudioFailed(true))
+      return
+    }
     speakSequence(
       task.listening.lines.map((line) => ({
         ...line,
         rate: (line.rate ?? 0.92) * multiplier,
       })),
     )
+  }
+
+  function stop() {
+    if (useAudio && audioRef.current) {
+      audioRef.current.pause()
+      audioRef.current.currentTime = 0
+      return
+    }
+    stopSpeaking()
   }
 
   function check() {
@@ -80,17 +103,31 @@ export function ListeningStep({
         </button>
         <button
           type="button"
-          onClick={() => stopSpeaking()}
+          onClick={() => stop()}
           className="flex min-h-12 items-center gap-2 rounded-[10px] border border-line px-3 text-[14px] text-ink-2"
         >
           <Square size={15} strokeWidth={1.5} />
           Стоп
         </button>
-        {!speechSupported() && <span className="self-center text-[13px] text-ink-3">Озвучка недоступна</span>}
+        {!useAudio && !speechSupported() && (
+          <span className="self-center text-[13px] text-ink-3">Озвучка недоступна</span>
+        )}
       </div>
 
+      {audioSrc && (
+        <audio
+          ref={audioRef}
+          src={audioSrc}
+          preload="metadata"
+          onError={() => setAudioFailed(true)}
+          className="hidden"
+        />
+      )}
+
       <p className="mt-2 text-[13px] text-ink-3">
-        Голос звучит плохо?{' '}
+        {useAudio
+          ? 'Аудио записано нейроголосами. Если файл не загрузится, включится системный голос.'
+          : 'Голос звучит плохо?'}{' '}
         <Link to="/settings" className="underline underline-offset-4">
           Сменить голос
         </Link>

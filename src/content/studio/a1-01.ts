@@ -55,6 +55,7 @@ export const a1Studio01: StudioTask = {
     title: 'At the Café',
     intro:
       'Анна в кафе. Сначала слушай целиком, потом заполни пропуски.',
+    audio: 'audio/studio-a1-01.mp3',
     lines: [
       { speaker: 'Server', text: 'Good morning! What would you like?', pitch: 0.86 },
       { speaker: 'Anna', text: 'I would like a sandwich and a coffee, please.', pitch: 1.1 },

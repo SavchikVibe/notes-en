@@ -1,0 +1,51 @@
+[
+  {
+    "id": "studio-a1-01",
+    "rate": "-8%",
+    "lines": [
+      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "Good morning! What would you like?" },
+      { "speaker": "Anna", "voice": "en-US-JennyNeural", "text": "I would like a sandwich and a coffee, please." },
+      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "Would you like milk in your coffee?" },
+      { "speaker": "Anna", "voice": "en-US-JennyNeural", "text": "Yes, please. And a glass of water." },
+      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "Anything else?" },
+      { "speaker": "Anna", "voice": "en-US-JennyNeural", "text": "No, thank you. How much is it?" },
+      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "That is eight dollars." },
+      { "speaker": "Anna", "voice": "en-US-JennyNeural", "text": "Here you are." },
+      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "Thank you. Have a nice day!" }
+    ]
+  },
+  {
+    "id": "studio-a1-02",
+    "rate": "-8%",
+    "lines": [
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "Hi, Leo. It's Mia. Do you have the math homework?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Yes. We have to do page twelve, exercises one and two." },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "Thanks. Do you want to study together?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Sure. Let's meet at the library at five." },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "OK. See you at five. Bye!" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Bye!" }
+    ]
+  },
+  {
+    "id": "studio-b1-01",
+    "rate": "-4%",
+    "lines": [
+      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "Come in, Maya. You wanted to talk about your project." },
+      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "Yes. I am studying how people use the new public space near the station." },
+      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "That is a good topic. What is your research question?" },
+      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "I want to know if the space changed how often people talk to their neighbors." },
+      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "Interesting. How will you collect data?" },
+      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "I plan to interview twenty residents and count how many people use the space at different times." },
+      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "Good. You should also observe the space on a weekend. The pattern may be different." },
+      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "I will. When should I send you the first draft?" },
+      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "By Friday, please. Then we can meet on March 12." },
+      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "How long should the report be?" },
+      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "About five pages, not more. Focus on the evidence, not on background." },
+      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "Should I include photos?" },
+      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "One or two, if they help. But do not use photos of people without permission." },
+      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "Understood. I will send the questions to you before I start the interviews." },
+      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "Perfect. And Maya, remember to keep a research diary. It will help you explain your choices later." },
+      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "I will. Thank you, Professor Grant." }
+    ]
+  }
+]

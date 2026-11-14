@@ -54,6 +54,7 @@ export const a1Studio02: StudioTask = {
   listening: {
     title: 'A Phone Call',
     intro: 'Миа звонит другу, чтобы узнать домашнее задание. Сначала слушай целиком, потом заполни пропуски.',
+    audio: 'audio/studio-a1-02.mp3',
     lines: [
       { speaker: 'Mia', text: 'Hi, Leo. It’s Mia. Do you have the math homework?', pitch: 1.1 },
       { speaker: 'Leo', text: 'Yes. We have to do page twelve, exercises one and two.', pitch: 0.86 },

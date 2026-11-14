@@ -28,6 +28,8 @@ export interface StudioListening {
   title: string
   /** Короткое описание ситуации; для A1 — кафе, для B1 — office hours. */
   intro?: string
+  /** Путь относительно base, например 'audio/studio-a1-01.mp3'. */
+  audio?: string
   lines: StudioListeningLine[]
   notes: StudioNote[]
   questions: ReadQuestion[]
