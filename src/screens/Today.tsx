@@ -213,30 +213,46 @@ export default function TodayScreen() {
           <p className="mt-1 text-[13px] text-ink-3">
             Длинная задача: чтение, слушание, письмо и речь за один заход
           </p>
-          {studioTasks.map((task) => {
-            const done = state.progress[task.id]?.status === 'done'
+          {(() => {
+            const nextStudio = studioTasks.find(
+              (task) => state.progress[task.id]?.status !== 'done',
+            )
+            if (!nextStudio) {
+              return (
+                <div className="mt-3 border-l-2 border-accent pl-4">
+                  <p className="text-[17px]">Все студии пройдены.</p>
+                  <p className="mt-1 text-[13px] text-ink-3">
+                    Можно вернуться к любой задаче и перечитать текст.
+                  </p>
+                </div>
+              )
+            }
             return (
               <button
-                key={task.id}
                 type="button"
                 onClick={() => navigate('/studio')}
                 className="mt-2 flex min-h-[60px] w-full items-start justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
               >
                 <div className="min-w-0">
-                  <p className="text-[17px] text-ink">{task.title}</p>
+                  <p className="text-[17px] text-ink">{nextStudio.title}</p>
                   <p className="truncate text-[13px] text-ink-3">
-                    {done ? 'Пройдено · можно повторить' : `${task.level} · ${task.estimatedMinutes} минут`}
+                    {nextStudio.level} · {nextStudio.estimatedMinutes} минут
                   </p>
                 </div>
                 <div className="shrink-0 text-right">
-                  <p className="num text-[15px] text-ink-2">{task.estimatedMinutes} мин</p>
-                  <p className={`text-[11px] ${done ? 'text-accent' : 'text-ink-3'}`}>
-                    {done ? 'повторить' : 'начать'}
-                  </p>
+                  <p className="num text-[15px] text-ink-2">{nextStudio.estimatedMinutes} мин</p>
+                  <p className="text-[11px] text-ink-3">начать</p>
                 </div>
               </button>
             )
-          })}
+          })()}
+          <button
+            type="button"
+            onClick={() => navigate('/studio')}
+            className="mt-3 text-[15px] text-ink-3 underline underline-offset-4"
+          >
+            Все студии
+          </button>
         </section>
       </main>
     </>
