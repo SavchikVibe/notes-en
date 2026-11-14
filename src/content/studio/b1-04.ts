@@ -1,0 +1,160 @@
+import type { StudioTask } from './types'
+
+export const b1Studio04: StudioTask = {
+  id: 'studio-b1-04',
+  level: 'B1',
+  title: 'Месяц без пластика',
+  subtitle: 'Reading · Listening · Writing · Speaking',
+  goal: 'Прочитать историю об отказе от пластика, понять подкаст, написать мнение и рассказать об экологической проблеме',
+  estimatedMinutes: 25,
+  reading: {
+    title: 'A Month Without Plastic',
+    hint: 'Выбери правильный вариант. В вопросах True / False выбери True или False.',
+    paragraphs: [
+      'Last year, the Rossi family decided to try a month without plastic. They wanted to reduce the amount of waste they produced. Before they started, they collected all the plastic in their kitchen and counted it. There were bags, bottles, food packaging, and toys. The pile was bigger than they expected.',
+      'The first week was difficult. They could not buy some products because almost everything was wrapped in plastic. They started shopping at a local market, where they could use their own bags. They also bought glass bottles and a reusable coffee cup. At home, they cooked more food and repaired things instead of throwing them away.',
+      'The children were not happy at first. They missed their favorite snacks. But the family made a game of finding plastic-free alternatives. They learned which shops sold food without packaging, and they started making their own bread. The children even wrote a list of ideas for other families.',
+      'By the end of the month, the family had reduced its plastic waste by about half. They had not eliminated plastic completely, but they had changed their habits. They still use some plastic, but they think more carefully about what they buy.',
+      'Mrs. Rossi says, “We are not perfect. But if every family makes one small change, the result will be big.”',
+    ],
+    questions: [
+      {
+        question: 'What did the family try to do?',
+        options: ['Live without plastic for a month', 'Move to a new house', 'Open a shop'],
+        answer: 0,
+        evidence: 'Last year, the Rossi family decided to try a month without plastic.',
+      },
+      {
+        question: 'What was difficult in the first week?',
+        options: ['Buying products without plastic', 'Cooking dinner', 'Going to school'],
+        answer: 0,
+        evidence: 'They could not buy some products because almost everything was wrapped in plastic.',
+      },
+      {
+        question: 'What did the family do at the local market?',
+        options: ['Used their own bags', 'Bought plastic bottles', 'Stayed at home'],
+        answer: 0,
+        evidence: 'They started shopping at a local market, where they could use their own bags.',
+      },
+      {
+        question: 'The family eliminated plastic completely.',
+        options: ['True', 'False'],
+        answer: 1,
+        type: 'tfng',
+        evidence: 'They had not eliminated plastic completely.',
+      },
+      {
+        question: 'The family reduced its plastic waste by about half.',
+        options: ['True', 'False'],
+        answer: 0,
+        type: 'tfng',
+        evidence: 'By the end of the month, the family had reduced its plastic waste by about half.',
+      },
+    ],
+  },
+  listening: {
+    title: 'A Podcast Interview',
+    intro: 'Ведущий подкаста говорит с гостьей, которая месяц жила без пластика. Сначала слушай целиком, потом заполни пропуски.',
+    audio: 'audio/studio-b1-04.mp3',
+    lines: [
+      { speaker: 'Host', text: 'Welcome to the podcast. Today we are talking about plastic.', pitch: 0.94 },
+      { speaker: 'Guest', text: 'Thank you. I am happy to be here.', pitch: 1.06 },
+      { speaker: 'Host', text: 'You tried to live without plastic for a month. Was it difficult?', pitch: 0.94 },
+      { speaker: 'Guest', text: 'Yes, especially at the beginning. Plastic is everywhere.', pitch: 1.06 },
+      { speaker: 'Host', text: 'What was the hardest thing to avoid?', pitch: 0.94 },
+      { speaker: 'Guest', text: 'Food packaging. It is almost impossible to buy some products without plastic.', pitch: 1.06 },
+      { speaker: 'Host', text: 'What did you learn?', pitch: 0.94 },
+      { speaker: 'Guest', text: 'I learned that small changes matter. If we all use a reusable bag, we will reduce waste.', pitch: 1.06 },
+      { speaker: 'Host', text: 'What would you say to people who think one person cannot make a difference?', pitch: 0.94 },
+      { speaker: 'Guest', text: 'I would say: start with one product. Then try another. Change is easier when it is small.', pitch: 1.06 },
+      { speaker: 'Host', text: 'Thank you. That is a good place to stop.', pitch: 0.94 },
+    ],
+    notes: [
+      {
+        before: 'The guest tried to live without',
+        after: 'for a month.',
+        answer: 'plastic',
+        accept: ['plastic'],
+      },
+      {
+        before: 'The hardest thing to avoid was food',
+        after: '.',
+        answer: 'packaging',
+        accept: ['packaging'],
+      },
+      {
+        before: 'She says small',
+        after: 'matter.',
+        answer: 'changes',
+        accept: ['changes'],
+      },
+      {
+        before: 'If we all use a reusable bag, we will reduce',
+        after: '.',
+        answer: 'waste',
+        accept: ['waste'],
+      },
+      {
+        before: 'She says change is easier when it is',
+        after: '.',
+        answer: 'small',
+        accept: ['small'],
+      },
+    ],
+    questions: [
+      {
+        question: 'What is the podcast about?',
+        options: ['Plastic and waste', 'Food and cooking', 'Travel'],
+        answer: 0,
+      },
+      {
+        question: 'What is the guest’s advice?',
+        options: ['Start with one product', 'Wait for the government', 'Buy more plastic'],
+        answer: 0,
+      },
+    ],
+    transcript: [
+      'Host: Welcome to the podcast. Today we are talking about plastic.',
+      'Guest: Thank you. I am happy to be here.',
+      'Host: You tried to live without plastic for a month. Was it difficult?',
+      'Guest: Yes, especially at the beginning. Plastic is everywhere.',
+      'Host: What was the hardest thing to avoid?',
+      'Guest: Food packaging. It is almost impossible to buy some products without plastic.',
+      'Host: What did you learn?',
+      'Guest: I learned that small changes matter. If we all use a reusable bag, we will reduce waste.',
+      'Host: What would you say to people who think one person cannot make a difference?',
+      'Guest: I would say: start with one product. Then try another. Change is easier when it is small.',
+      'Host: Thank you. That is a good place to stop.',
+    ],
+  },
+  writing: {
+    title: 'Напиши мнение о пластике',
+    prompt:
+      'Write an opinion paragraph: Is it possible to live without plastic? Give two reasons and one example. Write 120–150 words.',
+    minWords: 120,
+    maxWords: 150,
+    checklist: [
+      'Есть чёткое мнение в первом предложении.',
+      'Приведены два довода.',
+      'Есть один конкретный пример.',
+      'Использованы связки because, however, for example.',
+      'Есть вывод.',
+    ],
+    modelAnswer:
+      'I think it is very difficult to live completely without plastic, but we can reduce it. First, plastic is useful in medicine and food safety, so some plastic is necessary. For example, hospitals use plastic equipment that is hard to replace. However, most everyday plastic is not necessary. We can use reusable bags, glass bottles, and paper packaging. Second, small changes are easier to keep than a perfect plan. If every family starts with one product, the result will be big. In my opinion, we should not try to be perfect. We should try to be better than last year. That is a realistic goal, and it can make a real difference.',
+    usefulLanguage: ['I think...', 'First,...', 'For example,...', 'However,...', 'In my opinion,...'],
+  },
+  speaking: {
+    title: 'Расскажи об экологической проблеме',
+    prompt:
+      'Talk about an environmental problem in your city. Say what the problem is, what causes it, and what people can do. Speak for 90–120 seconds.',
+    preparationSeconds: 60,
+    speakingSeconds: 120,
+    checklist: [
+      'Назвал(а) проблему.',
+      'Сказал(а), что её вызывает.',
+      'Предложил(а) два решения.',
+      'Использовал(а) because, so, if.',
+    ],
+  },
+}

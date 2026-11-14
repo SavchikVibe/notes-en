@@ -8,6 +8,9 @@ import { a2Studio03 } from './a2-03'
 import { a2Studio04 } from './a2-04'
 import { a2Studio05 } from './a2-05'
 import { b1Studio01 } from './b1-01'
+import { b1Studio02 } from './b1-02'
+import { b1Studio03 } from './b1-03'
+import { b1Studio04 } from './b1-04'
 import type { StudioTask } from './types'
 
 export const studioTasks: StudioTask[] = [
@@ -21,6 +24,9 @@ export const studioTasks: StudioTask[] = [
   a2Studio04,
   a2Studio05,
   b1Studio01,
+  b1Studio02,
+  b1Studio03,
+  b1Studio04,
 ]
 
 export function getStudioTask(id: string): StudioTask | undefined {

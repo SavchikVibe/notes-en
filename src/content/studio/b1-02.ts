@@ -1,0 +1,162 @@
+import type { StudioTask } from './types'
+
+export const b1Studio02: StudioTask = {
+  id: 'studio-b1-02',
+  level: 'B1',
+  title: 'Первая неделя на работе',
+  subtitle: 'Reading · Listening · Writing · Speaking',
+  goal: 'Прочитать историю о первой неделе, понять разговор с руководителем, написать письмо о работе и рассказать о новом начале',
+  estimatedMinutes: 25,
+  reading: {
+    title: 'The First Week',
+    hint: 'Выбери правильный вариант. В вопросах True / False выбери True или False.',
+    paragraphs: [
+      'Two weeks before her first day, Maya applied for a job at a company that designed digital projects for schools. She prepared for the interview for days. When she got the job, she was excited but also nervous. She bought a new notebook and planned her first week carefully.',
+      'On her first morning, she arrived early. The office was on the fifth floor of a modern building. Her manager, Mr. Chen, met her at reception and showed her around. The team had six people, and everyone was friendly. Maya’s desk was near a large window, and she could see the river.',
+      'At first, Maya felt lost. She did not know the software, and she was afraid to ask questions. On the second day, she made a mistake in a report. She told Mr. Chen immediately. He said, “Thank you for telling me. It is better to ask than to hide a problem.”',
+      'After that, Maya asked more questions. Her colleagues helped her, and she learned quickly. By Friday, she had learned the main software and had joined two meetings. She had not finished all her tasks, but she felt more confident.',
+      'On Friday evening, the team went for coffee. Mr. Chen said, “You had a good first week. Next week, you will lead the short meeting.” Maya was surprised, but she was ready. She spent the weekend preparing three questions and thinking about the team’s project. On Monday, she led the meeting for the first time. Her voice was quiet, but nobody laughed. When she finished, Mr. Chen smiled and said, “Good. Next time, it will be easier.”',
+    ],
+    questions: [
+      {
+        question: 'What did Maya do two weeks before her first day?',
+        options: ['Applied for a job', 'Started a course', 'Moved to a new city'],
+        answer: 0,
+        evidence: 'Two weeks before her first day, Maya applied for a job at a company that designed digital projects for schools.',
+      },
+      {
+        question: 'What was her first problem at work?',
+        options: ['She did not know the software', 'She lost her keys', 'She was late'],
+        answer: 0,
+        evidence: 'She did not know the software, and she was afraid to ask questions.',
+      },
+      {
+        question: 'What did Mr. Chen ask her to do next week?',
+        options: ['Lead a meeting', 'Write a report', 'Leave the team'],
+        answer: 0,
+        evidence: 'Next week, you will lead the short meeting.',
+      },
+      {
+        question: 'Maya hid her mistake.',
+        options: ['True', 'False'],
+        answer: 1,
+        type: 'tfng',
+        evidence: 'She told Mr. Chen immediately.',
+      },
+      {
+        question: 'Maya led the meeting on Monday.',
+        options: ['True', 'False'],
+        answer: 0,
+        type: 'tfng',
+        evidence: 'On Monday, she led the meeting for the first time.',
+      },
+    ],
+  },
+  listening: {
+    title: 'A Check-in with the Manager',
+    intro: 'Мистер Чен говорит с Майей после её первой недели. Сначала слушай целиком, потом заполни пропуски.',
+    audio: 'audio/studio-b1-02.mp3',
+    lines: [
+      { speaker: 'Mr. Chen', text: 'Come in, Maya. How was your first week?', pitch: 0.94 },
+      { speaker: 'Maya', text: 'It was busy, but I enjoyed it. I have learned a lot.', pitch: 1.06 },
+      { speaker: 'Mr. Chen', text: 'What was the most difficult part?', pitch: 0.94 },
+      { speaker: 'Maya', text: 'The software. I made a mistake in the report on Tuesday.', pitch: 1.06 },
+      { speaker: 'Mr. Chen', text: 'I saw that. You told me immediately, and that was the right thing to do.', pitch: 0.94 },
+      { speaker: 'Maya', text: 'I was worried, but my colleagues helped me.', pitch: 1.06 },
+      { speaker: 'Mr. Chen', text: 'Good. Next week, I would like you to lead the short meeting on Monday.', pitch: 0.94 },
+      { speaker: 'Maya', text: 'Me? I have never led a meeting before.', pitch: 1.06 },
+      { speaker: 'Mr. Chen', text: 'You do not need to be perfect. Prepare three questions and listen to the team.', pitch: 0.94 },
+      { speaker: 'Maya', text: 'OK. I will prepare on Friday.', pitch: 1.06 },
+      { speaker: 'Mr. Chen', text: 'Good. And Maya, ask for help when you need it. That is part of the job.', pitch: 0.94 },
+      { speaker: 'Maya', text: 'Thank you. I will.', pitch: 1.06 },
+    ],
+    notes: [
+      {
+        before: 'Maya made a mistake in the',
+        after: 'on Tuesday.',
+        answer: 'report',
+        accept: ['report'],
+      },
+      {
+        before: 'She told her',
+        after: 'immediately.',
+        answer: 'manager',
+        accept: ['manager', 'boss'],
+      },
+      {
+        before: 'Next week, Maya will lead the short',
+        after: 'on Monday.',
+        answer: 'meeting',
+        accept: ['meeting'],
+      },
+      {
+        before: 'She should prepare',
+        after: 'questions.',
+        answer: 'three',
+        accept: ['three', '3'],
+      },
+      {
+        before: 'Mr. Chen says she should ask for',
+        after: '.',
+        answer: 'help',
+        accept: ['help'],
+      },
+    ],
+    questions: [
+      {
+        question: 'How was Maya’s first week?',
+        options: ['Busy but good', 'Easy', 'Terrible'],
+        answer: 0,
+      },
+      {
+        question: 'What will Maya do next week?',
+        options: ['Lead a meeting', 'Leave the job', 'Write a report'],
+        answer: 0,
+      },
+    ],
+    transcript: [
+      'Mr. Chen: Come in, Maya. How was your first week?',
+      'Maya: It was busy, but I enjoyed it. I have learned a lot.',
+      'Mr. Chen: What was the most difficult part?',
+      'Maya: The software. I made a mistake in the report on Tuesday.',
+      'Mr. Chen: I saw that. You told me immediately, and that was the right thing to do.',
+      'Maya: I was worried, but my colleagues helped me.',
+      'Mr. Chen: Good. Next week, I would like you to lead the short meeting on Monday.',
+      'Maya: Me? I have never led a meeting before.',
+      'Mr. Chen: You do not need to be perfect. Prepare three questions and listen to the team.',
+      'Maya: OK. I will prepare on Friday.',
+      'Mr. Chen: Good. And Maya, ask for help when you need it. That is part of the job.',
+      'Maya: Thank you. I will.',
+    ],
+  },
+  writing: {
+    title: 'Напиши письмо о первой неделе',
+    prompt:
+      'Write an email to a friend about your first week at a new job. Say what you did, what was difficult, and what you learned. Write 120–150 words.',
+    minWords: 120,
+    maxWords: 150,
+    checklist: [
+      'Есть приветствие и подпись.',
+      'Сказано, чем ты занимался(ась).',
+      'Названа одна трудность.',
+      'Сказано, чему ты научился(ась).',
+      'Использованы past simple и present perfect.',
+    ],
+    modelAnswer:
+      'Hi Anna,\n\nI have just finished my first week at the new job, and I am tired but happy. On Monday, I met my team and learned about our projects. The office is on the fifth floor, and the people are friendly.\n\nThe most difficult part was the software. On Tuesday, I made a mistake in a report. I told my manager immediately, and he was very kind. He said it is better to ask than to hide a problem.\n\nBy Friday, I had learned the main program and joined two meetings. Next week, I am going to lead a short meeting. I am nervous, but I have prepared three questions.\n\nHow are you? Write soon!\n\nMaya',
+    usefulLanguage: ['I have just finished...', 'The most difficult part was...', 'By Friday, I had...', 'I am going to...'],
+  },
+  speaking: {
+    title: 'Расскажи о новом начале',
+    prompt:
+      'Talk about a time you started something new (a job, a course, a club). Say what it was, what was difficult, and what helped you. Speak for 90–120 seconds.',
+    preparationSeconds: 60,
+    speakingSeconds: 120,
+    checklist: [
+      'Назвал(а), что начал(а).',
+      'Сказал(а), что было трудно.',
+      'Сказал(а), что помогло.',
+      'Использовал(а) past simple и present perfect.',
+    ],
+  },
+}

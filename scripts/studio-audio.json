@@ -130,6 +130,57 @@
     ]
   },
   {
+    "id": "studio-b1-02",
+    "rate": "-4%",
+    "lines": [
+      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "Come in, Maya. How was your first week?" },
+      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "It was busy, but I enjoyed it. I have learned a lot." },
+      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "What was the most difficult part?" },
+      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "The software. I made a mistake in the report on Tuesday." },
+      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "I saw that. You told me immediately, and that was the right thing to do." },
+      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "I was worried, but my colleagues helped me." },
+      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "Good. Next week, I would like you to lead the short meeting on Monday." },
+      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "Me? I have never led a meeting before." },
+      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "You do not need to be perfect. Prepare three questions and listen to the team." },
+      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "OK. I will prepare on Friday." },
+      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "Good. And Maya, ask for help when you need it. That is part of the job." },
+      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "Thank you. I will." }
+    ]
+  },
+  {
+    "id": "studio-b1-03",
+    "rate": "-4%",
+    "lines": [
+      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "Hi, Lena! How is life in the city?" },
+      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "It is very different from our town. I am still getting used to it." },
+      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "What do you miss most?" },
+      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "I miss the quiet mornings and my old friends. The city is noisy, but there are more things to do." },
+      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "How is your new job?" },
+      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "It is interesting. I have met many people, and I have learned to use the subway." },
+      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "Do you like your apartment?" },
+      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "Yes, it is smaller than our old house, but it is close to a park." },
+      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "I am glad. Come and visit us when you can." },
+      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "I will. I am going to come back next month." }
+    ]
+  },
+  {
+    "id": "studio-b1-04",
+    "rate": "-4%",
+    "lines": [
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Welcome to the podcast. Today we are talking about plastic." },
+      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "Thank you. I am happy to be here." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "You tried to live without plastic for a month. Was it difficult?" },
+      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "Yes, especially at the beginning. Plastic is everywhere." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What was the hardest thing to avoid?" },
+      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "Food packaging. It is almost impossible to buy some products without plastic." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What did you learn?" },
+      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "I learned that small changes matter. If we all use a reusable bag, we will reduce waste." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What would you say to people who think one person cannot make a difference?" },
+      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "I would say: start with one product. Then try another. Change is easier when it is small." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Thank you. That is a good place to stop." }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [
