@@ -16,6 +16,9 @@ import { b1Studio06 } from './b1-06'
 import { b2Studio01 } from './b2-01'
 import { b2Studio02 } from './b2-02'
 import { b2Studio03 } from './b2-03'
+import { b2Studio04 } from './b2-04'
+import { b2Studio05 } from './b2-05'
+import { b2Studio06 } from './b2-06'
 import type { StudioTask } from './types'
 
 export const studioTasks: StudioTask[] = [
@@ -37,6 +40,9 @@ export const studioTasks: StudioTask[] = [
   b2Studio01,
   b2Studio02,
   b2Studio03,
+  b2Studio04,
+  b2Studio05,
+  b2Studio06,
 ]
 
 export function getStudioTask(id: string): StudioTask | undefined {

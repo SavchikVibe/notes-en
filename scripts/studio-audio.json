@@ -273,6 +273,66 @@
     ]
   },
   {
+    "id": "studio-b2-04",
+    "rate": "-3%",
+    "lines": [
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Welcome. Today: can we trust the news?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "We can trust good journalism, but we need to check who paid for the story." },
+      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "Platforms give people more sources than ever. That is a positive change." },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "More sources is not the same as more understanding. Algorithms reward attention." },
+      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "We label political ads and explain why we show content." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What should readers do?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Compare two sources, check the date, and look for evidence." },
+      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "And report false information. We can reduce its reach." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Is regulation the answer?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Transparency helps. But regulation must protect independent journalism too." },
+      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "We support clear rules if they are the same for everyone." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What is the biggest risk?" },
+      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "That people stop trusting everything, including reliable reporting." },
+      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "Or that they trust only the voices that make them angry." },
+      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Thank you both." }
+    ]
+  },
+  {
+    "id": "studio-b2-05",
+    "rate": "-3%",
+    "lines": [
+      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "Are algorithms making hiring fairer or less fair?" },
+      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "Both are possible. It depends on the data and the goal." },
+      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "What is the biggest risk?" },
+      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "A model learns from past decisions. If the past was unfair, the model can repeat it." },
+      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "How can companies reduce the risk?" },
+      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "Audit the model, test different groups, and keep human review." },
+      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "What about performance monitoring?" },
+      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "It can help, but workers need to know what is measured and why." },
+      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "Should governments regulate?" },
+      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "Yes, but rules should be clear and consistent. Companies need to know what is expected." },
+      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "What should workers do?" },
+      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "Ask questions. If a decision is automated, ask for an explanation and a human review." },
+      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "Thank you. That is a useful place to end." }
+    ]
+  },
+  {
+    "id": "studio-b2-06",
+    "rate": "-3%",
+    "lines": [
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Let's review the survey results. What did students ask for most?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Later library hours. Almost sixty percent mentioned it." },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "And more vegetarian food. The café has very few options." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "What about the bike shelter?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "It was popular, but the cost is higher than we thought." },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "The garden is cheaper. We could start with a small pilot." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "We need to present three options and a recommendation." },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "I can prepare the cost table." },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "I will write the section on student well-being." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Good. What about the presentation?" },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "We have ten minutes and five slides." },
+      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "I can design the slides, but someone else should speak." },
+      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "I will speak. We need to rehearse on Thursday." },
+      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Agreed. Let's meet at four." }
+    ]
+  },
+  {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [
