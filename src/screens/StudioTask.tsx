@@ -11,6 +11,12 @@ import { WritingStep } from './studio/WritingStep'
 import { SpeakingStep } from './studio/SpeakingStep'
 
 const STEP_LABELS = ['Чтение', 'Слушание', 'Письмо', 'Речь']
+const STEP_HINTS = [
+  'Ответь на вопросы и нажми «Проверить ответы».',
+  'Заполни заметки и ответь на вопросы, затем нажми «Проверить заметки».',
+  'Напиши текст и нажми «Проверить черновик».',
+  'Запиши ответ или пропусти речь.',
+]
 
 export default function StudioTaskScreen() {
   const { id = '' } = useParams()
@@ -151,10 +157,8 @@ export default function StudioTaskScreen() {
         className="sticky bottom-0 z-10 border-t border-line bg-paper px-5 pt-3"
         style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}
       >
-        {!stepDone && step === 3 && (
-          <p className="mb-2 text-center text-[13px] text-ink-3">
-            Запиши ответ или пропусти речь, чтобы завершить.
-          </p>
+        {!stepDone && (
+          <p className="mb-2 text-center text-[13px] text-ink-3">{STEP_HINTS[step]}</p>
         )}
         <Button className="w-full" disabled={!stepDone} onClick={() => void next()}>
           {step === 3 ? 'Завершить студию' : 'Дальше'}

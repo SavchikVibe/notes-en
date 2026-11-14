@@ -212,6 +212,12 @@ export default function SettingsScreen() {
               >
                 Прослушать
               </Button>
+              {voices.length <= 1 && (
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
+                  В системе установлен один американский голос. Диалоги студии озвучены отдельно
+                  и от этого выбора не зависят.
+                </p>
+              )}
             </>
           )}
 
@@ -263,7 +269,7 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">О приложении</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-            English — личный курс. Версия 0.40.1. Работает офлайн после установки на главный экран.
+            English — личный курс. Версия 0.40.2. Работает офлайн после установки на главный экран.
           </p>
           <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
             Фото в словаре —{' '}
