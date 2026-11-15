@@ -29,4 +29,7 @@ export const readingAudio: Record<string, string> = {
   'reading-27': 'audio/readings/reading-27.mp3',
   'reading-28': 'audio/readings/reading-28.mp3',
   'reading-29': 'audio/readings/reading-29.mp3',
+  'reading-30': 'audio/readings/reading-30.mp3',
+  'reading-31': 'audio/readings/reading-31.mp3',
+  'reading-32': 'audio/readings/reading-32.mp3',
 }
