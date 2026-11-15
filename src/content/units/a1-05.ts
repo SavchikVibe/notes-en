@@ -50,7 +50,7 @@ export const a105: Unit = {
       tags: ['actions', 'study'],
       examples: [
         { en: 'I study English.', ru: 'Я учу английский.' },
-        { en: 'They study in college.', ru: 'Они учатся в университете.' },
+        { en: 'They study in college.', ru: 'Они учатся в колледже.' },
       ],
     },
     {

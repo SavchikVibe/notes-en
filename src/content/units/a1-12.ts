@@ -38,7 +38,7 @@ export const a112: Unit = {
       tags: ['things'],
       examples: [
         { en: 'My wallet is in my bag.', ru: 'Мой бумажник в сумке.' },
-        { en: 'He lost his wallet at the park.', ru: 'Он потерял бумажник в парке.' },
+        { en: 'He keeps his wallet in his bag.', ru: 'Он держит бумажник в сумке.' },
         { en: 'Is this your wallet?', ru: 'Это твой бумажник?' },
       ],
     },
@@ -51,7 +51,7 @@ export const a112: Unit = {
       level: 'A1',
       tags: ['things', 'weather'],
       examples: [
-        { en: 'Take an umbrella. It is raining.', ru: 'Возьми зонт. Идёт дождь.' },
+        { en: 'Take an umbrella. It often rains here.', ru: 'Возьми зонт. Здесь часто идёт дождь.' },
         { en: 'Her umbrella is black.', ru: 'Её зонт чёрный.' },
         { en: 'Whose umbrella is this?', ru: 'Чей это зонт?' },
       ],

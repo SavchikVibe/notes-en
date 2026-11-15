@@ -88,7 +88,7 @@ export const a109: Unit = {
       level: 'A1',
       tags: ['time'],
       examples: [
-        { en: 'Tomorrow I am at home.', ru: 'Завтра я дома.' },
+        { en: 'I am at home tomorrow.', ru: 'Завтра я дома.' },
         { en: "She doesn't work tomorrow.", ru: 'Завтра она не работает.' },
       ],
     },
@@ -150,7 +150,7 @@ export const a109: Unit = {
       paragraphs: [
         'My name is Ivan. I am a driver. I get up at six in the morning.',
         "I work in the morning and in the afternoon. In the evening I eat dinner with my family and watch TV.",
-        "At night I sleep. Today I don't work. Tomorrow I am at home.",
+        "At night I sleep. Today I don't work. I am at home tomorrow.",
       ],
       questions: [
         { question: 'What time does Ivan get up?', options: ['At six in the morning', 'At six in the evening', 'At night'], answer: 0 },

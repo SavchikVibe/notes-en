@@ -271,7 +271,7 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">О приложении</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-            English — личный курс. Версия 0.69.0. Работает офлайн после установки на главный экран.
+            English — личный курс. Версия 0.70.0. Работает офлайн после установки на главный экран.
           </p>
           <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
             Фото в словаре —{' '}

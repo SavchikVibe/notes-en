@@ -94,7 +94,7 @@ export const a114: Unit = {
       tags: ['shopping'],
       examples: [
         { en: 'We have a grocery list.', ru: 'У нас есть список продуктов.' },
-        { en: 'Please write milk on the list.', ru: 'Пожалуйста, напиши молоко в список.' },
+        { en: 'Please write milk on the list.', ru: 'Пожалуйста, добавь молоко в список.' },
         { en: 'My list is on the table.', ru: 'Мой список на столе.' },
       ],
     },
