@@ -20,6 +20,7 @@ import type {
   WriteExercise,
 } from '@/content'
 import { matchesAny, normalizeAnswer, normalizeToken } from '@/lib/text'
+import { getWriting, markWritingChecked, saveWriting } from '@/db/db'
 import { shuffle, shuffleOptions } from '@/lib/options'
 import { speak, speechSupported } from '@/lib/speech'
 import { SpeakButton } from '@/components/SpeakButton'
@@ -675,15 +676,11 @@ export const WriteView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
   function WriteView({ exercise, onResult, onCanCheck }, ref) {
     const ex = exercise as WriteExercise
     const storageKey = `write:${ex.id}`
-    const [value, setValue] = useState(() => {
-      try {
-        return localStorage.getItem(storageKey) ?? ''
-      } catch {
-        return ''
-      }
-    })
+    const [value, setValue] = useState('')
+    const [loaded, setLoaded] = useState(false)
     const [checked, setChecked] = useState(false)
     const [checks, setChecks] = useState<boolean[]>(() => ex.checklist.map(() => false))
+    const dirty = useRef(false)
 
     const words = value.trim() ? value.trim().split(/\s+/).length : 0
     const enough = words >= ex.minWords
@@ -692,23 +689,47 @@ export const WriteView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
       onCanCheck(enough)
     }, [enough, onCanCheck])
 
+    // Черновик живёт в IndexedDB; старый localStorage переносим один раз.
     useEffect(() => {
-      try {
-        localStorage.setItem(storageKey, value)
-      } catch {
-        // Приватный режим или переполнение — черновик просто не сохранится.
+      let alive = true
+      void (async () => {
+        const saved = await getWriting(ex.id)
+        if (!alive) return
+        if (saved) {
+          if (!dirty.current) setValue(saved.text)
+        } else {
+          try {
+            const legacy = localStorage.getItem(storageKey)
+            if (legacy && !dirty.current) setValue(legacy)
+          } catch {
+            // localStorage может быть недоступен.
+          }
+        }
+        setLoaded(true)
+      })()
+      return () => {
+        alive = false
       }
-    }, [value, storageKey])
+    }, [ex.id, storageKey])
+
+    useEffect(() => {
+      if (!loaded) return
+      const timer = setTimeout(() => {
+        void saveWriting(ex.id, ex.prompt, value)
+      }, 500)
+      return () => clearTimeout(timer)
+    }, [value, loaded, ex.id, ex.prompt])
 
     useImperativeHandle(
       ref,
       () => ({
         check: () => {
           setChecked(true)
+          void markWritingChecked(ex.id, ex.prompt, value)
           onResult(true)
         },
       }),
-      [onResult],
+      [onResult, ex.id, ex.prompt, value],
     )
 
     return (
@@ -725,7 +746,10 @@ export const WriteView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 
         <textarea
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event) => {
+            dirty.current = true
+            setValue(event.target.value)
+          }}
           rows={10}
           placeholder="Напиши черновик здесь"
           className="w-full resize-y rounded-[10px] border border-line bg-surface px-4 py-3.5 text-[17px] leading-relaxed outline-none placeholder:text-ink-3 focus:border-line-strong"

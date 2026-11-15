@@ -46,6 +46,17 @@ export interface ErrorItem {
   lastAt: number
 }
 
+/** Письменная работа: первый вариант и текущая версия. */
+export interface Writing {
+  id: string
+  prompt: string
+  text: string
+  firstText?: string
+  createdAt: number
+  updatedAt: number
+  revisions: number
+}
+
 export interface Settings {
   /** Целевые минуты по дню недели. 0 — воскресенье. */
   minutes: Record<number, number>
@@ -74,13 +85,14 @@ interface EnglishDB extends DBSchema {
   kv: { key: string; value: unknown }
   srs: { key: string; value: SrsCard }
   errors: { key: string; value: ErrorItem }
+  writings: { key: string; value: Writing }
 }
 
 let dbPromise: Promise<IDBPDatabase<EnglishDB>> | null = null
 
 function db() {
   if (!dbPromise) {
-    dbPromise = openDB<EnglishDB>('english', 3, {
+    dbPromise = openDB<EnglishDB>('english', 4, {
       upgrade(database, oldVersion) {
         if (oldVersion < 1) {
           database.createObjectStore('progress', { keyPath: 'lessonId' })
@@ -92,6 +104,9 @@ function db() {
         }
         if (oldVersion < 3) {
           database.createObjectStore('errors', { keyPath: 'exerciseId' })
+        }
+        if (oldVersion < 4) {
+          database.createObjectStore('writings', { keyPath: 'id' })
         }
       },
       blocking() {
@@ -375,6 +390,52 @@ export async function countDueErrors(): Promise<number> {
   return all.filter((item) => item.dueAt <= now).length
 }
 
+/* -------------------------------- portfolio -------------------------------- */
+
+export async function getWriting(id: string): Promise<Writing | undefined> {
+  return (await db()).get('writings', id)
+}
+
+export async function saveWriting(
+  id: string,
+  prompt: string,
+  text: string,
+  markFirst = false,
+): Promise<void> {
+  const database = await db()
+  const existing = await database.get('writings', id)
+  const now = Date.now()
+  await database.put('writings', {
+    id,
+    prompt,
+    text,
+    firstText: existing?.firstText ?? (markFirst ? text : undefined),
+    createdAt: existing?.createdAt ?? now,
+    updatedAt: now,
+    revisions: existing?.revisions ?? 0,
+  })
+}
+
+export async function markWritingChecked(id: string, prompt: string, text: string): Promise<void> {
+  const database = await db()
+  const existing = await database.get('writings', id)
+  const now = Date.now()
+  await database.put('writings', {
+    id,
+    prompt,
+    text,
+    firstText: existing?.firstText ?? text,
+    createdAt: existing?.createdAt ?? now,
+    updatedAt: now,
+    revisions: (existing?.revisions ?? 0) + 1,
+  })
+}
+
+export async function listWritings(): Promise<Writing[]> {
+  const all = await (await db()).getAll('writings')
+  return all.sort((a, b) => b.updatedAt - a.updatedAt)
+}
+
 export async function getKv<T>(key: string): Promise<T | undefined> {
   return (await (await db()).get('kv', key)) as T | undefined
 }
@@ -403,6 +464,7 @@ export interface Backup {
   days: DayLog[]
   srs?: SrsCard[]
   errors?: ErrorItem[]
+  writings?: Writing[]
 }
 
 export async function exportBackup(): Promise<Backup> {
@@ -415,6 +477,7 @@ export async function exportBackup(): Promise<Backup> {
     days: await database.getAll('days'),
     srs: await database.getAll('srs'),
     errors: await database.getAll('errors'),
+    writings: await database.getAll('writings'),
   }
 }
 
@@ -423,27 +486,37 @@ export async function importBackup(data: unknown): Promise<void> {
   const backup = data as Partial<Backup>
   if (backup.version !== 1) throw new Error('Неизвестная версия бэкапа')
   const database = await db()
-  const tx = database.transaction(['progress', 'days', 'kv', 'srs', 'errors'], 'readwrite')
+  const tx = database.transaction(['progress', 'days', 'kv', 'srs', 'errors', 'writings'], 'readwrite')
   await tx.objectStore('progress').clear()
   await tx.objectStore('days').clear()
-  await tx.objectStore('srs').clear()
-  await tx.objectStore('errors').clear()
   for (const item of backup.progress ?? []) await tx.objectStore('progress').put(item)
   for (const item of backup.days ?? []) await tx.objectStore('days').put(item)
-  for (const item of backup.srs ?? []) await tx.objectStore('srs').put(item)
-  for (const item of backup.errors ?? []) await tx.objectStore('errors').put(item)
+  // Старые бэкапы не содержат этих разделов — тогда не стираем текущие данные.
+  if (Array.isArray(backup.srs)) {
+    await tx.objectStore('srs').clear()
+    for (const item of backup.srs) await tx.objectStore('srs').put(item)
+  }
+  if (Array.isArray(backup.errors)) {
+    await tx.objectStore('errors').clear()
+    for (const item of backup.errors) await tx.objectStore('errors').put(item)
+  }
+  if (Array.isArray(backup.writings)) {
+    await tx.objectStore('writings').clear()
+    for (const item of backup.writings) await tx.objectStore('writings').put(item)
+  }
   if (backup.settings) await tx.objectStore('kv').put(backup.settings, 'settings')
   await tx.done
 }
 
 export async function resetAll(): Promise<void> {
   const database = await db()
-  const tx = database.transaction(['progress', 'days', 'kv', 'srs', 'errors'], 'readwrite')
+  const tx = database.transaction(['progress', 'days', 'kv', 'srs', 'errors', 'writings'], 'readwrite')
   await tx.objectStore('progress').clear()
   await tx.objectStore('days').clear()
   await tx.objectStore('kv').clear()
   await tx.objectStore('srs').clear()
   await tx.objectStore('errors').clear()
+  await tx.objectStore('writings').clear()
   await tx.done
 }
 

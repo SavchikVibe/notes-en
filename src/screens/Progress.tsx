@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { units } from '@/content'
 import { getAllDays, getAllLessonProgress, getAllSrs, addWordsToSrs, type DayLog, type LessonProgress } from '@/db/db'
 import { formatDuration, lastNDays, streakFromDays, todayKey } from '@/lib/date'
@@ -6,6 +7,7 @@ import { AppBar } from '@/components/AppBar'
 import { Ring } from '@/components/Ring'
 
 export default function ProgressScreen() {
+  const navigate = useNavigate()
   const [progress, setProgress] = useState<Record<string, LessonProgress> | null>(null)
   const [days, setDays] = useState<DayLog[] | null>(null)
   const [srsCount, setSrsCount] = useState<number | null>(null)
@@ -139,6 +141,18 @@ export default function ProgressScreen() {
           «Слов в обороте» — слова из пройденных уроков. Повторение идёт по интервалам:
           от 6 часов после ошибки до 150 дней для зрелых карточек.
         </p>
+
+        <button
+          type="button"
+          onClick={() => navigate('/portfolio')}
+          className="mt-6 flex min-h-[60px] w-full items-center justify-between gap-4 border-t border-line pt-4 text-left active:bg-surface"
+        >
+          <div className="min-w-0">
+            <p className="text-[17px] text-ink">Портфолио</p>
+            <p className="text-[13px] text-ink-3">Письменные работы: первый вариант и правки</p>
+          </div>
+          <span className="shrink-0 text-[13px] text-accent">открыть</span>
+        </button>
       </main>
     </>
   )

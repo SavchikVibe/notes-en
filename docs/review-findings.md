@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.62.0.
+Last updated: 2026-11-15, version 0.63.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.62.0)
+## 8. Current state (0.63.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
@@ -108,6 +108,7 @@ These are still the backbone of the roadmap.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
 - Error bank: IndexedDB store `errors` (DB version 3), due errors on Today, practice screen `/errors`. Backup includes errors.
 - Speaking block: 30 tasks in `src/content/speaking.ts`, screen `/speaking`, 2 per session, progress in `kv`.
+- Writing portfolio: drafts live in the IndexedDB `writings` store (DB version 4), with the first checked version and the current text; screen `/portfolio`, linked from Progress. Old localStorage drafts migrate on first open. Backup includes writings and does not erase them when an older backup lacks that section.
 - Translation matching expands common contractions, so «I'm» and «I am» are both accepted.
 - Reading has a level filter with unread counts and defaults to the learner’s current level; Listening still has no filter.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
@@ -127,7 +128,7 @@ Priority order unless the user changes it:
 3. **Standalone speaking block.** Done: 30 tasks (6 per level) in `src/content/speaking.ts`, screen `/speaking`, 2 tasks per session, prep timer, recording, playback, checklist, progress in `kv` (`speaking-done`). Still open: shadowing with model audio, fluency cycle, IELTS Part 2 timing, and minimal pairs.
 4. **Content revision.** Done: assemble banks always have every answer token plus two distractors, dictation avoids duplicate sentences, validator is clean. Widening `accept` lists continues only where a real synonym exists.
 5. **American English audit.** Done for what the validator can see: US spelling (`dialog`), GA IPA false positives fixed. Re-check when new content is added.
-6. **Writing portfolio.** Move Studio drafts from localStorage to IndexedDB, keep first and final versions, add a revision view.
+6. **Writing portfolio.** Done: IndexedDB `writings` store, first checked version and current text, `/portfolio` screen linked from Progress, backup support. Still open: a revision prompt after the sample, and exporting a single work as text.
 7. **C1 60-unit map revision.** Apply the merge/move/replace/add recommendations from section 6; the 6 C1 Studios are built, but the full 60-unit C1 map still needs the review edits.
 8. **Tests.** Add regression tests for first-attempt scoring, skip/resume, SRS intervals, session building and cloze.
 9. **Backup reminder.** Remind the user to export JSON after a number of lessons or days.
