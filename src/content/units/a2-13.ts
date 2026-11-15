@@ -213,7 +213,7 @@ export const a213: Unit = {
       paragraphs: [
         'Yesterday my phone stopped working. The screen was black, and the battery was empty.',
         'I connected it to the charger and waited. Then I turned the device on and entered my password.',
-        'The phone worked again. I downloaded a new app and uploaded my photos to the cloud. Now I charge it every evening.',
+        'The phone worked again. I downloaded a new app and uploaded my photos to the cloud. Now I charge it every evening before bed.',
       ],
       questions: [
         { question: 'What was wrong with the phone?', options: ['The battery was empty', 'The screen was broken', 'It was lost'], answer: 0 },

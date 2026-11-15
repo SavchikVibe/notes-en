@@ -199,7 +199,7 @@ export const b106: Unit = {
       kind: 'translate',
       id: 'b1-06-ex-09',
       source: 'Местная еда отличная.',
-      accept: ['The local food is excellent.'],
+      accept: ['The local food is excellent.', 'Local food is excellent.'],
       sample: 'The local food is excellent.',
       explanation: 'Local food — местная еда.',
     },

@@ -109,7 +109,7 @@ export const b156: Unit = {
       examples: [
         { en: 'London is a multicultural city.', ru: 'Лондон — мультикультурный город.' },
         { en: 'The school has a multicultural community.', ru: 'В школе мультикультурное сообщество.' },
-        { en: 'Multicultural societies need dialogue.', ru: 'Мультикультурным обществам нужен диалог.' },
+        { en: 'Multicultural societies need dialog.', ru: 'Мультикультурным обществам нужен диалог.' },
       ],
     },
     {

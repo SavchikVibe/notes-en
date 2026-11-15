@@ -199,7 +199,7 @@ export const b108: Unit = {
       kind: 'translate',
       id: 'b1-08-ex-09',
       source: 'Мы должны сократить выбросы.',
-      accept: ['We must cut emissions.'],
+      accept: ['We must cut emissions.', 'We have to cut emissions.', 'We must reduce emissions.'],
       sample: 'We must cut emissions.',
       explanation: 'Cut emissions — сократить выбросы.',
     },

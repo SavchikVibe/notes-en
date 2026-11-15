@@ -166,7 +166,7 @@ export const a246: Unit = {
       id: 'a2-46-ex-05',
       task: 'Собери предложение',
       translation: 'Мы встретились в лобби.',
-      words: ['We', 'met', 'in', 'the', 'lobby'],
+      words: ['We', 'met', 'in', 'the', 'lobby', 'at', 'on'],
       answer: ['We', 'met', 'in', 'the', 'lobby'],
       explanation: 'In the lobby — в лобби.',
     },

@@ -213,14 +213,76 @@ import { b258 } from './units/b2-58'
 import { b259 } from './units/b2-59'
 import { b260 } from './units/b2-60'
 
-function pickDictation(unit: Unit) {
-  return unit.words
+function sentenceKey(text: string): string {
+  return text.toLowerCase().replace(/\s+/g, ' ').trim()
+}
+
+function pickDictation(unit: Unit, used: Set<string>) {
+  const candidates = unit.words
     .flatMap((word) => word.examples)
     .filter((example) => {
       const count = example.en.split(/\s+/).length
       return count >= 3 && count <= 6
     })
-    .sort((a, b) => a.en.length - b.en.length)[0]
+  const fresh = candidates.filter((example) => !used.has(sentenceKey(example.en)))
+  return (fresh.length > 0 ? fresh : candidates).sort((a, b) => a.en.length - b.en.length)[0]
+}
+
+/**
+ * Банк слов для assemble: сохраняем все слова, нужные ответу (включая повторы
+ * вроде двух «the»), убираем лишние дубликаты-ловушки и добираем ловушки
+ * из слов юнита, чтобы в банке было хотя бы два лишних слова.
+ */
+function withDistractors(unit: Unit, exercise: Exercise): Exercise {
+  if (exercise.kind !== 'assemble') return exercise
+
+  const answerCounts = new Map<string, number>()
+  for (const word of exercise.answer) {
+    const key = word.toLowerCase()
+    answerCounts.set(key, (answerCounts.get(key) ?? 0) + 1)
+  }
+
+  const usedAnswer = new Map<string, number>()
+  const seenDistractors = new Set<string>()
+  const words: string[] = []
+
+  for (const word of exercise.words) {
+    const key = word.toLowerCase()
+    const needed = answerCounts.get(key) ?? 0
+    const used = usedAnswer.get(key) ?? 0
+    if (needed > used) {
+      words.push(word)
+      usedAnswer.set(key, used + 1)
+      continue
+    }
+    if (seenDistractors.has(key)) continue
+    seenDistractors.add(key)
+    words.push(word)
+  }
+
+  // Если в банке не хватило копий слова из ответа, добавляем их.
+  for (const [key, needed] of answerCounts) {
+    let used = usedAnswer.get(key) ?? 0
+    while (used < needed) {
+      const sample = exercise.answer.find((word) => word.toLowerCase() === key) ?? key
+      words.push(sample)
+      used += 1
+    }
+    usedAnswer.set(key, used)
+  }
+
+  const countDistractors = () =>
+    words.filter((word) => !answerCounts.has(word.toLowerCase())).length
+
+  for (const term of unit.words.map((word) => word.term)) {
+    if (countDistractors() >= 2) break
+    const key = term.toLowerCase()
+    if (seenDistractors.has(key) || answerCounts.has(key) || term.includes(' ')) continue
+    seenDistractors.add(key)
+    words.push(term)
+  }
+
+  return { ...exercise, words }
 }
 
 function withContent(unit: Unit): Unit {
@@ -229,7 +291,14 @@ function withContent(unit: Unit): Unit {
   const extra = extraExercises[unit.id] ?? []
   const derived: Exercise[] = []
 
-  const dictation = pickDictation(unit)
+  const usedSentences = new Set<string>()
+  for (const exercise of [...base, ...extra]) {
+    if (exercise.kind === 'translate') usedSentences.add(sentenceKey(exercise.sample))
+    if (exercise.kind === 'assemble') usedSentences.add(sentenceKey(exercise.answer.join(' ')))
+    if (exercise.kind === 'listen') usedSentences.add(sentenceKey(exercise.audio))
+  }
+
+  const dictation = pickDictation(unit, usedSentences)
   if (dictation) {
     derived.push({
       kind: 'listen',
@@ -254,7 +323,12 @@ function withContent(unit: Unit): Unit {
     })
   }
 
-  return { ...unit, exercises: [...base, ...extra, ...derived, ...read] }
+  return {
+    ...unit,
+    exercises: [...base, ...extra, ...derived, ...read].map((exercise) =>
+      withDistractors(unit, exercise),
+    ),
+  }
 }
 
 export const units: Unit[] = [a101, a102, a103, a104, a105, a106, a107, a108, a109, a110, a111, a112, a113, a114, a115, a116, a117, a118, a119, a120, a121, a122, a123, a124, a125, a126, a127, a128, a129, a130, a131, a132, a133, a134, a135, a136, a137, a138, a139, a140, a201, a202, a203, a204, a205, a206, a207, a208, a209, a210, a211, a212, a213, a214, a215, a216, a217, a218, a219, a220, a221, a222, a223, a224, a225, a226, a227, a228, a229, a230, a231, a232, a233, a234, a235, a236, a237, a238, a239, a240, a241, a242, a243, a244, a245, a246, a247, a248, a249, a250, b101, b102, b103, b104, b105, b106, b107, b108, b109, b110, b111, b112, b113, b114, b115, b116, b117, b118, b119, b120, b121, b122, b123, b124, b125, b126, b127, b128, b129, b130, b131, b132, b133, b134, b135, b136, b137, b138, b139, b140, b141, b142, b143, b144, b145, b146, b147, b148, b149, b150, b151, b152, b153, b154, b155, b156, b157, b158, b159, b160, b201, b202, b203, b204, b205, b206, b207, b208, b209, b210, b211, b212, b213, b214, b215, b216, b217, b218, b219, b220, b221, b222, b223, b224, b225, b226, b227, b228, b229, b230, b231, b232, b233, b234, b235, b236, b237, b238, b239, b240, b241, b242, b243, b244, b245, b246, b247, b248, b249, b250, b251, b252, b253, b254, b255, b256, b257, b258, b259, b260]

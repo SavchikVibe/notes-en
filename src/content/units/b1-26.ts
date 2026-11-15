@@ -45,7 +45,7 @@ export const b126: Unit = {
     {
       id: 'real-estate-agent',
       term: 'real estate agent',
-      ipa: 'ˌrɪəl ɪˈsteɪt ˈeɪdʒənt',
+      ipa: 'ˌriːəl ɪˈsteɪt ˈeɪdʒənt',
       translation: 'агент по недвижимости',
       pos: 'n',
       level: 'B1',

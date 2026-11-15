@@ -191,7 +191,7 @@ export const b109: Unit = {
       kind: 'translate',
       id: 'b1-09-ex-08',
       source: 'Реклама влияет на наш выбор.',
-      accept: ['Advertising influences our choices.'],
+      accept: ['Advertising influences our choices.', 'Advertising affects our choices.'],
       sample: 'Advertising influences our choices.',
       explanation: 'Influence choices — влиять на выбор.',
     },

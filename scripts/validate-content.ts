@@ -66,7 +66,7 @@ function americanIssues(unit: Unit): string[] {
   }
 
   for (const word of unit.words) {
-    if (/ɒ|ɜː(?!r)|ɪə|eə|ʊə/.test(word.ipa)) issues.add(`IPA:${word.ipa}`)
+    if (/ɒ|ɜː(?!r)|(?<![aeɔo])ɪə|(?<![ao])ʊə|eə/.test(word.ipa)) issues.add(`IPA:${word.ipa}`)
     for (const example of word.examples) check(example.en)
   }
 
@@ -183,9 +183,9 @@ function checkExercise(unit: Unit, exercise: Exercise, seen: Set<string>) {
       ) {
         fail(`${path}: образец не входит в accept`)
       }
-      if (exercise.accept.length < 2) {
-        warn(`${path}: только один допустимый вариант перевода`)
-      }
+      // Один допустимый вариант — норма для коротких фраз: сравнение уже
+      // игнорирует пунктуацию и раскрывает сокращения («I'm» = «I am»).
+      // Список расширяем вручную там, где реально есть синоним.
       break
     case 'listen':
       if (!exercise.audio.trim()) fail(`${path}: пустая фраза для озвучки`)

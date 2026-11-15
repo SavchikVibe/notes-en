@@ -191,7 +191,7 @@ export const b105: Unit = {
       kind: 'translate',
       id: 'b1-05-ex-08',
       source: 'Профилактика лучше лечения.',
-      accept: ['Prevention is better than cure.'],
+      accept: ['Prevention is better than cure.', 'Prevention is better than treatment.'],
       sample: 'Prevention is better than cure.',
       explanation: 'Prevention — профилактика.',
     },

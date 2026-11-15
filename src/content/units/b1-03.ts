@@ -191,7 +191,7 @@ export const b103: Unit = {
       kind: 'translate',
       id: 'b1-03-ex-08',
       source: 'Он уволился в прошлом месяце.',
-      accept: ['He resigned last month.'],
+      accept: ['He resigned last month.', 'He quit last month.'],
       sample: 'He resigned last month.',
       explanation: 'Resign — уволиться.',
     },

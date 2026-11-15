@@ -199,7 +199,7 @@ export const b102: Unit = {
       kind: 'translate',
       id: 'b1-02-ex-09',
       source: 'Судья должен оставаться нейтральным.',
-      accept: ['The judge must stay neutral.'],
+      accept: ['The judge must stay neutral.', 'The judge has to stay neutral.'],
       sample: 'The judge must stay neutral.',
       explanation: 'Stay neutral — оставаться нейтральным.',
     },

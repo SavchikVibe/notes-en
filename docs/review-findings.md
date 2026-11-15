@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.61.0.
+Last updated: 2026-11-15, version 0.62.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.61.0)
+## 8. Current state (0.62.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
@@ -114,7 +114,7 @@ These are still the backbone of the roadmap.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
 - Version 0.61.0.
-- `npm run validate:content` passes with about 890 warnings (mostly assemble banks with fewer than two distractors and single-variant translations).
+- `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
 
@@ -122,11 +122,11 @@ These are still the backbone of the roadmap.
 
 Priority order unless the user changes it:
 
-1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Later: level filter, retry list, and evidence-quote cleanup in the older A1/A2/B1 texts (21 quotes are paraphrased or end with different punctuation).
+1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Reading has a level filter; still open: the same filter for Listening and a retry list for weak results.
 2. **Error bank and workshop.** Error bank is done: first-attempt mistakes in `choice`/`assemble`/`translate`/`listen` are stored in IndexedDB (`errors` store), returned the next day and then at 3, 7, 16, 35, 75 days, and practised from Today → «Ошибки». Still open: the 12-core + workshop flow for new units, and mixing old errors into the optional practice automatically.
 3. **Standalone speaking block.** Done: 30 tasks (6 per level) in `src/content/speaking.ts`, screen `/speaking`, 2 tasks per session, prep timer, recording, playback, checklist, progress in `kv` (`speaking-done`). Still open: shadowing with model audio, fluency cycle, IELTS Part 2 timing, and minimal pairs.
-4. **Content revision B1/B2.** Remove duplicate sentences, add distractors, widen `accept` lists, vary answer positions, lengthen reading, check level fit.
-5. **American English audit.** Fix British spellings/IPA flagged by the validator; keep US spelling and General American IPA.
+4. **Content revision.** Done: assemble banks always have every answer token plus two distractors, dictation avoids duplicate sentences, validator is clean. Widening `accept` lists continues only where a real synonym exists.
+5. **American English audit.** Done for what the validator can see: US spelling (`dialog`), GA IPA false positives fixed. Re-check when new content is added.
 6. **Writing portfolio.** Move Studio drafts from localStorage to IndexedDB, keep first and final versions, add a revision view.
 7. **C1 60-unit map revision.** Apply the merge/move/replace/add recommendations from section 6; the 6 C1 Studios are built, but the full 60-unit C1 map still needs the review edits.
 8. **Tests.** Add regression tests for first-attempt scoring, skip/resume, SRS intervals, session building and cloze.

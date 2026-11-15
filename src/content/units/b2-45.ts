@@ -206,16 +206,16 @@ export const b245: Unit = {
     {
       kind: 'listen',
       id: 'b2-45-ex-10',
-      audio: 'The quarantine lasted ten days.',
+      audio: 'The outbreak lasted ten days.',
       question: 'Что ты услышал?',
       mode: 'choice',
       options: [
-        'The quarantine lasted ten days.',
-        'The quarantine lasted seven days.',
         'The outbreak lasted ten days.',
+        'The outbreak lasted ten weeks.',
+        'The quarantine lasted ten days.',
       ],
       answer: 0,
-      translation: 'Карантин длился десять дней.',
+      translation: 'Вспышка длилась десять дней.',
     },
     {
       kind: 'speak',
