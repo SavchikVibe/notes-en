@@ -81,7 +81,7 @@ export const a122: Unit = {
       examples: [
         { en: 'We often visit our grandparents.', ru: 'Мы часто навещаем бабушку и дедушку.' },
         { en: 'She often reads before bed.', ru: 'Она часто читает перед сном.' },
-        { en: 'Do you often go to the cinema?', ru: 'Ты часто ходишь в кино?' },
+        { en: 'Do you often go to the movies?', ru: 'Ты часто ходишь в кино?' },
       ],
     },
     {
@@ -95,7 +95,7 @@ export const a122: Unit = {
       examples: [
         { en: 'I get up early on weekdays.', ru: 'По будням я встаю рано.' },
         { en: 'She arrives early for class.', ru: 'Она приходит на урок рано.' },
-        { en: 'We went to bed early last night.', ru: 'Вчера мы рано легли спать.' },
+        { en: 'We go to bed early on school nights.', ru: 'По школьным дням мы ложимся спать рано.' },
       ],
     },
   ],

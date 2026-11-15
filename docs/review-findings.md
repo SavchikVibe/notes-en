@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.68.0.
+Last updated: 2026-11-15, version 0.69.0.
 
 ## 1. What was reviewed
 
@@ -99,12 +99,12 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.68.0)
+## 8. Current state (0.69.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 3,390 exercises: 12–14 core per unit plus 3 optional workshop exercises generated from unused word examples.
 - Workshop flow: after a lesson, the result screen offers «Мастерская»; the workshop screen runs optional exercises without scoring and appends up to 3 due errors from earlier lessons.
-- Writing drafts show a revision prompt after checking; the portfolio detail marks whether any edits exist.
+- Naturalness pass A1-16…40: fixed calques and mismatches — «ответь на телефон» → «на звонок», «практиковал английский» → «занимался английским», present continuous translated as «носит» → «на ней», `cinema` → `movies`, «собрать чемодан» → «уложить», «делать стирку» → «стирать», «проект был весёлым» → «интересным», «grow up» examples made natural.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
@@ -113,7 +113,7 @@ These are still the backbone of the roadmap.
 - Reading retry list: weak results are stored in `kv` (`reading-results`) and shown as «Вернуться» above the level chips; tapping opens that text in repeat mode.
 - Studio step and done state live in IndexedDB (`kv` key `studio:<id>`); old localStorage state migrates once.
 - `npm run check` also runs `check:db` on `fake-indexeddb`: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset.
-- Writing portfolio: drafts live in the IndexedDB `writings` store (DB version 4), with the first checked version and the current text; screen `/portfolio`, linked from Progress. Old localStorage drafts migrate on first open. Backup includes writings and does not erase them when an older backup lacks that section.
+- Writing portfolio: drafts live in the IndexedDB `writings` store (DB version 4), with the first checked version and the current text; screen `/portfolio`, linked from Progress. Old localStorage drafts migrate on first open. Backup includes writings and does not erase them when an older backup lacks that section. A revision prompt appears after checking, and the detail view marks whether edits exist.
 - Backup reminder: Today shows a row after 10 finished lessons when the last export is missing or older than 14 days; exporting stamps `last-backup` in `kv`.
 - `npm run check` runs content validation, reading checks and logic checks (normalization, shuffle determinism, cloze, session building).
 - Translation matching expands common contractions, so «I'm» and «I am» are both accepted.
@@ -121,7 +121,7 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.61.0.
+- Version 0.69.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
@@ -136,10 +136,11 @@ Priority order unless the user changes it:
 4. **Content revision.** Done: assemble banks always have every answer token plus two distractors, dictation avoids duplicate sentences, validator is clean. Widening `accept` lists continues only where a real synonym exists.
 5. **American English audit.** Done for what the validator can see: US spelling (`dialog`), GA IPA false positives fixed. Re-check when new content is added.
 6. **Writing portfolio.** Done: IndexedDB `writings` store, first checked version and current text, `/portfolio` screen linked from Progress, backup support, a revision prompt after checking and an «есть правки» marker. Still open: exporting a single work as text.
-7. **C1 60-unit map revision.** Apply the merge/move/replace/add recommendations from section 6; the 6 C1 Studios are built, but the full 60-unit C1 map still needs the review edits.
+7. **C1 hybrid.** Decision: 24 short units + 8 project tasks (essay, report, debate, review); the 6 C1 Studios exist. Not started. Apply the review edits: merge, move earlier, replace academic job talk/mock panel, add US pragmatics, logical fallacies, US institutions, spoken idiomaticity, college composition, connected speech, capstone.
 8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. Still open: browser-level tests for the full lesson flow.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
+11. **Naturalness pass.** A1-16…40 done. Remaining: A1-01…15, then A2, B1, B2. Look for calques, tense mismatches, and UK/US vocabulary.
 
 ## 10. What not to change
 

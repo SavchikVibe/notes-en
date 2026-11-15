@@ -38,8 +38,8 @@ export const a130: Unit = {
       tags: ['life'],
       examples: [
         { en: 'Children grow up fast.', ru: 'Дети быстро растут.' },
-        { en: 'I want to grow up in a big city.', ru: 'Я хочу вырасти в большом городе.' },
-        { en: 'They grow up in a small town.', ru: 'Они растут в маленьком городке.' },
+        { en: 'Many people grow up in a big city.', ru: 'Многие люди вырастают в большом городе.' },
+        { en: 'Some children grow up in a small town.', ru: 'Некоторые дети вырастают в маленьком городке.' },
       ],
     },
     {

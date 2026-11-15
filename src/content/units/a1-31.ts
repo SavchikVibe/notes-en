@@ -79,7 +79,7 @@ export const a131: Unit = {
       level: 'A1',
       tags: ['actions'],
       examples: [
-        { en: 'I am going to meet my friend.', ru: 'Я собираюсь встретить друга.' },
+        { en: 'I am going to meet my friend.', ru: 'Я собираюсь встретиться с другом.' },
         { en: 'We meet at the café every Saturday.', ru: 'Мы встречаемся в кафе каждую субботу.' },
         { en: 'Nice to meet you.', ru: 'Приятно познакомиться.' },
       ],
@@ -153,7 +153,7 @@ export const a131: Unit = {
     {
       kind: 'translate',
       id: 'a1-31-ex-07',
-      source: 'Она собирается встретить друга.',
+      source: 'Она собирается встретиться с другом.',
       accept: ['She is going to meet a friend.', "She's going to meet a friend."],
       sample: 'She is going to meet a friend.',
       explanation: 'She is going to + meet.',

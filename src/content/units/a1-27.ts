@@ -93,7 +93,7 @@ export const a127: Unit = {
       level: 'A1',
       tags: ['actions'],
       examples: [
-        { en: 'She made a cake.', ru: 'Она сделала торт.' },
+        { en: 'She made a cake.', ru: 'Она испекла торт.' },
         { en: 'We made dinner together.', ru: 'Мы вместе приготовили ужин.' },
         { en: 'He made a small table.', ru: 'Он сделал маленький стол.' },
       ],
@@ -153,7 +153,7 @@ export const a127: Unit = {
     {
       kind: 'translate',
       id: 'a1-27-ex-07',
-      source: 'Она сделала торт.',
+      source: 'Она испекла торт.',
       accept: ['She made a cake.'],
       sample: 'She made a cake.',
       explanation: 'Make → made.',

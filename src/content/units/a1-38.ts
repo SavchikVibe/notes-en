@@ -53,7 +53,7 @@ export const a138: Unit = {
       examples: [
         { en: 'I do the laundry on Saturdays.', ru: 'По субботам я занимаюсь стиркой.' },
         { en: 'The laundry is in the basket.', ru: 'Бельё в корзине.' },
-        { en: 'Do you have to do the laundry?', ru: 'Тебе нужно делать стирку?' },
+        { en: 'Do you have to do the laundry?', ru: 'Тебе нужно стирать?' },
       ],
     },
     {
@@ -153,7 +153,7 @@ export const a138: Unit = {
     {
       kind: 'translate',
       id: 'a1-38-ex-07',
-      source: 'Тебе нужно делать стирку?',
+      source: 'Тебе нужно стирать?',
       accept: ['Do you have to do the laundry?'],
       sample: 'Do you have to do the laundry?',
       explanation: 'Вопрос: Do you have to...?',

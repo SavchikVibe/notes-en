@@ -38,7 +38,7 @@ export const a126: Unit = {
       tags: ['actions', 'school'],
       examples: [
         { en: 'He answered the question.', ru: 'Он ответил на вопрос.' },
-        { en: 'Please answer the phone.', ru: 'Пожалуйста, ответь на телефон.' },
+        { en: 'Please answer the phone.', ru: 'Пожалуйста, ответь на звонок.' },
         { en: "I don't know the answer.", ru: 'Я не знаю ответа.' },
       ],
     },
@@ -65,7 +65,7 @@ export const a126: Unit = {
       level: 'A1',
       tags: ['actions', 'school'],
       examples: [
-        { en: 'I practiced English with my friend.', ru: 'Я практиковал английский с другом.' },
+        { en: 'I practiced English with my friend.', ru: 'Я занимался английским с другом.' },
         { en: 'You need to practice every day.', ru: 'Тебе нужно тренироваться каждый день.' },
         { en: 'We practiced the new words in class.', ru: 'Мы отработали новые слова в классе.' },
       ],
@@ -170,7 +170,7 @@ export const a126: Unit = {
         'I practiced English last week.',
       ],
       answer: 0,
-      translation: 'Вчера я практиковал английский.',
+      translation: 'Вчера я занимался английским.',
     },
     {
       kind: 'speak',

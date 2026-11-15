@@ -38,7 +38,7 @@ export const a139: Unit = {
       tags: ['travel'],
       examples: [
         { en: 'My suitcase is very heavy.', ru: 'Мой чемодан очень тяжёлый.' },
-        { en: 'I am going to pack my suitcase.', ru: 'Я собираюсь собрать чемодан.' },
+        { en: 'I am going to pack my suitcase.', ru: 'Я собираюсь уложить чемодан.' },
         { en: 'Is this your suitcase?', ru: 'Это твой чемодан?' },
       ],
     },
@@ -79,8 +79,8 @@ export const a139: Unit = {
       level: 'A1',
       tags: ['travel'],
       examples: [
-        { en: 'I am going to pack tonight.', ru: 'Я собираюсь собрать вещи сегодня вечером.' },
-        { en: 'She packed her suitcase yesterday.', ru: 'Она собрала чемодан вчера.' },
+        { en: 'I am going to pack tonight.', ru: 'Я буду собирать вещи сегодня вечером.' },
+        { en: 'She packed her suitcase yesterday.', ru: 'Она уложила чемодан вчера.' },
         { en: "Don't forget to pack your passport.", ru: 'Не забудь положить паспорт.' },
       ],
     },
@@ -128,7 +128,7 @@ export const a139: Unit = {
       kind: 'assemble',
       id: 'a1-39-ex-04',
       task: 'Собери предложение',
-      translation: 'Я собираюсь собрать чемодан.',
+      translation: 'Я собираюсь уложить чемодан.',
       words: ['I', 'am', 'going', 'to', 'pack', 'my', 'suitcase'],
       answer: ['I', 'am', 'going', 'to', 'pack', 'my', 'suitcase'],
       explanation: 'I am going to + pack.',

@@ -154,8 +154,8 @@ export const a129: Unit = {
       kind: 'translate',
       id: 'a1-29-ex-07',
       source: 'Мы жили в отеле у моря.',
-      accept: ['We stayed at a hotel near the sea.', 'We stayed at a hotel by the sea.'],
-      sample: 'We stayed at a hotel near the sea.',
+      accept: ['We stayed at a hotel near the ocean.', 'We stayed at a hotel by the ocean.'],
+      sample: 'We stayed at a hotel near the ocean.',
       explanation: 'Stayed at a hotel — жили в отеле.',
     },
     {

@@ -23,7 +23,7 @@ export const a120: Unit = {
       level: 'A1',
       tags: ['clothes', 'actions'],
       examples: [
-        { en: 'She is wearing a blue jacket.', ru: 'Она носит синюю куртку.' },
+        { en: 'She is wearing a blue jacket.', ru: 'На ней синяя куртка.' },
         { en: 'I wear glasses every day.', ru: 'Я ношу очки каждый день.' },
         { en: 'What are you wearing today?', ru: 'Что ты сегодня носишь?' },
       ],
@@ -153,7 +153,7 @@ export const a120: Unit = {
     {
       kind: 'translate',
       id: 'a1-20-ex-07',
-      source: 'Она носит синюю куртку.',
+      source: 'На ней синяя куртка.',
       accept: ['She is wearing a blue jacket.', "She's wearing a blue jacket."],
       sample: 'She is wearing a blue jacket.',
       explanation: 'She is wearing — она носит сейчас.',

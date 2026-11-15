@@ -23,7 +23,7 @@ export const a121: Unit = {
       level: 'A1',
       tags: ['actions', 'school'],
       examples: [
-        { en: 'I write a letter to my friend every month.', ru: 'Я пишу другу письмо каждый месяц.' },
+        { en: 'I write a letter to my friend every month.', ru: 'Я пишу письмо другу каждый месяц.' },
         { en: 'I write in my notebook every day.', ru: 'Я пишу в блокноте каждый день.' },
         { en: 'Can you write your name here?', ru: 'Ты можешь написать здесь своё имя?' },
       ],

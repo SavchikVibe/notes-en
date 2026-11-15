@@ -66,7 +66,7 @@ export const a134: Unit = {
       tags: ['description'],
       examples: [
         { en: 'This is the least expensive option.', ru: 'Это самый дешёвый вариант.' },
-        { en: 'He is the least busy person here.', ru: 'Он самый незанятый человек здесь.' },
+        { en: 'He is the least busy person here.', ru: 'Он здесь меньше всех занят.' },
         { en: 'I like it least.', ru: 'Мне это нравится меньше всего.' },
       ],
     },

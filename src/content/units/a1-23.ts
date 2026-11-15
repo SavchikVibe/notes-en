@@ -79,7 +79,7 @@ export const a123: Unit = {
       level: 'A1',
       tags: ['clothes'],
       examples: [
-        { en: 'She is wearing a long coat.', ru: 'Она носит длинное пальто.' },
+        { en: 'She is wearing a long coat.', ru: 'На ней длинное пальто.' },
         { en: 'My coat is black.', ru: 'Моё пальто чёрное.' },
         { en: 'You need a coat today.', ru: 'Сегодня тебе нужно пальто.' },
       ],
@@ -93,7 +93,7 @@ export const a123: Unit = {
       level: 'A1',
       tags: ['clothes'],
       examples: [
-        { en: 'He is wearing black boots.', ru: 'Он носит чёрные ботинки.' },
+        { en: 'He is wearing black boots.', ru: 'На нём чёрные ботинки.' },
         { en: 'My boots are wet.', ru: 'Мои ботинки мокрые.' },
         { en: 'These boots are for winter.', ru: 'Эти ботинки для зимы.' },
       ],
@@ -170,7 +170,7 @@ export const a123: Unit = {
         'It is cold, so I am wearing boots.',
       ],
       answer: 0,
-      translation: 'Холодно, поэтому я ношу пальто.',
+      translation: 'Холодно, поэтому я в пальто.',
     },
     {
       kind: 'speak',

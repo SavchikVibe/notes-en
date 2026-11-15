@@ -94,7 +94,7 @@ export const a136: Unit = {
       tags: ['sport', 'free time'],
       examples: [
         { en: 'We go hiking in the mountains.', ru: 'Мы ходим в походы в горы.' },
-        { en: 'Hiking is fun but tiring.', ru: 'Походы весёлые, но утомительные.' },
+        { en: 'Hiking is fun but tiring.', ru: 'Походы — это весело, но утомительно.' },
         { en: 'Do you like hiking?', ru: 'Тебе нравятся походы?' },
       ],
     },

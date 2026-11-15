@@ -25,7 +25,7 @@ export const a140: Unit = {
       examples: [
         { en: 'Our project is about animals.', ru: 'Наш проект о животных.' },
         { en: 'I am going to present my project on Friday.', ru: 'Я собираюсь представить проект в пятницу.' },
-        { en: 'The project was fun.', ru: 'Проект был весёлым.' },
+        { en: 'The project was fun.', ru: 'Проект был интересным.' },
       ],
     },
     {

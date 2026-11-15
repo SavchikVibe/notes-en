@@ -66,7 +66,7 @@ export const a133: Unit = {
       tags: ['description'],
       examples: [
         { en: 'The bus is slow.', ru: 'Автобус медленный.' },
-        { en: 'Walking is slower than driving.', ru: 'Ходьба медленнее, чем езда.' },
+        { en: 'Walking is slower than driving.', ru: 'Ходить пешком медленнее, чем ездить на машине.' },
         { en: 'The internet is slow today.', ru: 'Интернет сегодня медленный.' },
       ],
     },

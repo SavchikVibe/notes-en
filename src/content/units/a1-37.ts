@@ -38,7 +38,7 @@ export const a137: Unit = {
       tags: ['health'],
       examples: [
         { en: 'He has a toothache.', ru: 'У него болит зуб.' },
-        { en: 'A toothache is very bad.', ru: 'Зубная боль — это очень плохо.' },
+        { en: 'A toothache is very bad.', ru: 'Зубная боль — это очень неприятно.' },
         { en: 'Do you have a toothache?', ru: 'У тебя болит зуб?' },
       ],
     },
