@@ -91,7 +91,7 @@ export const readings: Reading[] = [
     ],
     questions: [
       { question: 'Where is Max?', options: ['In California', 'In Canada', 'In Chicago'], answer: 0, evidence: 'I am in California for a week.' },
-      { question: 'What does he do in the morning?', options: ['He walks', 'He swims', 'He reads'], answer: 1, evidence: 'In the morning I swim in the ocean.' },
+      { question: 'What does he do in the morning?', options: ['He walks', 'He swims', 'He reads'], answer: 1, evidence: 'In the morning I swim in the ocean' },
       {
         question: 'What does he see today?',
         options: ['A famous bridge', 'A big park', 'A baseball game'],
@@ -173,7 +173,7 @@ export const readings: Reading[] = [
     ],
     questions: [
       { question: 'Where is the city?', options: ['Near the mountains', 'Near the ocean', 'Near a big lake'], answer: 0, evidence: 'I live in a small city near the mountains.' },
-      { question: 'What is in the center?', options: ['A school', 'A big park', 'A grocery store'], answer: 1, evidence: 'There is a big park in the center.' },
+      { question: 'What is in the center?', options: ['A school', 'A big park', 'A grocery store'], answer: 1, evidence: 'There is a big park in the center' },
       { question: 'What do they do in winter?', options: ['They swim', 'They play soccer', 'They go skiing'], answer: 2, evidence: 'In winter, we go skiing in the mountains.' },
       {
         question: 'What is in the park?',
@@ -194,7 +194,7 @@ export const readings: Reading[] = [
       'See you soon! Leo.',
     ],
     questions: [
-      { question: 'Who visits Leo?', options: ['His cousin', 'His brother', 'His friend Sam'], answer: 0, evidence: 'My cousin is visiting me next weekend.' },
+      { question: 'Who visits Leo?', options: ['His cousin', 'His brother', 'His friend Sam'], answer: 0, evidence: 'my cousin is visiting me next weekend.' },
       {
         question: 'What do they do on Saturday?',
         options: ['See a movie and eat pizza', 'Go to the beach', 'Play baseball'],
@@ -270,7 +270,7 @@ export const readings: Reading[] = [
       'I hope our project is good. I am a little nervous, but I am also excited.',
     ],
     questions: [
-      { question: 'What is the project about?', options: ['Animals', 'Cities', 'Food'], answer: 0, evidence: 'Our class has a project about animals.' },
+      { question: 'What is the project about?', options: ['Animals', 'Cities', 'Food'], answer: 0, evidence: 'our class has a project about animals.' },
       { question: 'What animal does the writer choose?', options: ['A dog', 'A dolphin', 'A cat'], answer: 1, evidence: 'I am writing about dolphins.' },
       { question: 'When is the presentation?', options: ['On Monday', 'On Friday', 'Next month'], answer: 1, evidence: 'We are presenting our project on Friday.' },
       {
@@ -302,7 +302,7 @@ export const readings: Reading[] = [
         question: 'What did Nora’s mother make?',
         options: ['A cake', 'A pizza', 'A salad'],
         answer: 0,
-        evidence: 'On Saturday, Nora’s mother made a cake.',
+        evidence: 'On Saturday, Nora’s mother made a cake',
       },
       {
         question: 'What did Sam and Nora do inside?',
@@ -334,7 +334,7 @@ export const readings: Reading[] = [
       'Last Friday, Class 8B went on a school trip to a science museum. They left school at eight o’clock and traveled by bus. The journey took one hour. On the bus, the students talked about the robots they wanted to see.',
       'At the museum, a guide showed them a robot that could draw pictures. The students asked many questions. Then they visited a room about space. They saw a model of Mars and learned about the first moon landing. The guide explained how astronauts live and work in space.',
       'After lunch, the class had a workshop. They built small cars from plastic pieces. The cars had to move using a balloon. Tom’s car went the fastest. Everyone clapped. The teacher took photos for the school website.',
-      'On the way home, the bus was quiet. Many students were tired, but they were happy. Their teacher said, “You asked excellent questions today. I am proud of you.” The next week, the class wrote a report about the trip. Tom wrote about the balloon cars. He said it was the best school trip of the year.',
+      'On the way home, the bus was quiet. Many students were tired, but they were happy. Their teacher said, “You asked excellent questions today. I am proud of you.” The next week, the class wrote a report about the trip. Tom wrote about the balloon cars. He said it was the best school trip of the year. Tom’s parents put the report on the kitchen wall at home, and he read it again and again.',
     ],
     questions: [
       {
@@ -379,7 +379,7 @@ export const readings: Reading[] = [
       'Leo used to drink two cans of soda every day. He also ate chips after school and did not exercise. He often felt tired, and he could not concentrate in class. His mother was worried, so she made an appointment with the doctor.',
       'One day, his doctor said, “You do not need a special diet. You need three small habits.” First, Leo started drinking water instead of soda. Second, he walked to school instead of taking the bus. Third, he ate fruit for an afternoon snack. The doctor said, “Do not try to change everything at once.”',
       'The first week was difficult. Leo missed the taste of soda, and he was hungry after school. But he did not give up. He wrote a note on his desk: “One small choice at a time.” His mother helped him by keeping a bottle of water in the fridge.',
-      'After a month, Leo felt better. He had more energy, and he could concentrate in class. He also slept better. His doctor was happy. Leo still drinks soda sometimes, but not every day. He says, “I did not change my whole life. I changed three small things.”',
+      'After a month, Leo felt better. He had more energy, and he could concentrate in class. He also slept better. His doctor was happy. Leo still drinks soda sometimes, but not every day. He says, “I did not change my whole life. I changed three small things.” He still uses the same water bottle every day.',
     ],
     questions: [
       {
@@ -424,7 +424,7 @@ export const readings: Reading[] = [
       'On Sunday afternoon, Maya and her friend Jess were shopping in the city center. Maya was trying on a jacket when she realized her phone was not in her bag. She looked in her pockets, under the chair, and on the floor. The phone was gone.',
       'Maya was worried. Her phone had photos, messages, and her train ticket. Jess said, “Let’s go back to the last shop. Maybe someone found it.” They walked back to the bookstore. Maya asked the assistant, “Excuse me, did anyone find a phone?”',
       'The assistant checked a drawer and smiled. “Is it a black phone with a blue case?” Maya said yes. A customer had found it near the magazines and given it to the assistant. The customer was still in the shop, so Maya thanked her too.',
-      'Maya was very happy. On the train home, she said to Jess, “I was lucky. Next time, I will keep my phone in my zipped pocket.” Jess laughed. “And I will check my bag before I try on a jacket.”',
+      'Maya was very happy. On the train home, she said to Jess, “I was lucky. Next time, I will keep my phone in my zipped pocket.” Jess laughed. “And I will check my bag before I try on a jacket.” That evening, Maya wrote a note and put it on the fridge: check your pockets before you leave. Jess added her name below and drew a small phone.',
     ],
     questions: [
       {
@@ -443,7 +443,7 @@ export const readings: Reading[] = [
         question: 'Who found the phone?',
         options: ['A customer', 'Jess', 'The assistant'],
         answer: 0,
-        evidence: 'A customer had found it near the magazines.',
+        evidence: 'A customer had found it near the magazines',
       },
       {
         question: 'Maya’s phone had her train ticket.',
@@ -469,7 +469,7 @@ export const readings: Reading[] = [
       'Three years ago, Ana started a small business from her kitchen. She made candles and sold them to friends and neighbors. At first, she had only ten customers. She worked in the evening, after her day job. Her kitchen smelled of lavender and lemon.',
       'Ana learned quickly. She asked customers what they liked, and she changed her products. She started making candles with lavender and lemon. She also opened an online shop. Soon, people from other cities were buying her candles. Ana was surprised, but she was ready to work harder.',
       'Last year, Ana moved her business into a small workshop. She hired one assistant, her cousin. They now sell about 300 candles a month. Ana still makes some candles herself, but she spends more time on planning and orders. She has also started using recycled boxes.',
-      'Ana says, “The most important thing was listening. I did not start with a perfect plan. I started with one product and learned from my customers.” She wants to open a second workshop next year, but she wants to grow slowly. “Fast growth is not always good growth,” she says.',
+      'Ana says, “The most important thing was listening. I did not start with a perfect plan. I started with one product and learned from my customers.” She wants to open a second workshop next year, but she wants to grow slowly. “Fast growth is not always good growth,” she says. Next year, she also wants to teach two young people how to repair furniture.',
     ],
     questions: [
       {
@@ -514,7 +514,7 @@ export const readings: Reading[] = [
       'Every summer, the town of Riverside has a festival in the park. Last year, the weather was sunny and dry. This year, the festival was different. In the morning, the sky was clear. Families arrived with blankets and food. Children played near the river.',
       'At two o’clock, dark clouds appeared. The wind became stronger, and the first drops of rain fell. People ran to the school hall. The festival continued inside. The music group played, and the children made paper boats. Everyone was a little wet, but nobody was unhappy.',
       '“We cannot change the weather,” said the mayor. “But we can change our plans.” The rain stopped at five o’clock. A rainbow appeared over the river. People went outside and took photos. The festival ended with a small fireworks show.',
-      'This year, the town will prepare two plans: one for sunny weather and one for rain. The mayor says, “If we are ready, the weather will not stop us.” The festival will also have a text-message alert so families know where to go.',
+      'This year, the town will prepare two plans: one for sunny weather and one for rain. The mayor says, “If we are ready, the weather will not stop us.” The festival will also have a text-message alert so families know where to go. The town also bought a large tent, so the concert can move indoors if the wind is strong. Local shops agreed to stay open later for visitors.',
     ],
     questions: [
       {
@@ -559,7 +559,7 @@ export const readings: Reading[] = [
       'Hi Mom and Dad, I am at camp, and I am fine. The camp is near a lake, and the water is cold but clean. I have already made three friends. Their names are Ben, Lily, and Sam. We sleep in a small cabin with four beds.',
       'Every morning, we have breakfast at seven thirty. Then we have activities. Yesterday, I tried kayaking. It was difficult at first, but I did not fall in. In the afternoon, we hiked in the forest. We saw a deer and a lot of birds. My legs are tired, but I am happy.',
       'The food is OK. We have pasta, soup, and fruit. I miss your cooking, Mom, but I am not hungry. Tomorrow, we are going to have a campfire. Ben is going to play the guitar, and Lily is going to tell a story. I am going to sing, but please do not laugh.',
-      'I will come home on Sunday afternoon. See you soon! Love, Alex.',
+      'I will come home on Sunday afternoon. Camp was fun, but I am ready for my own bed and my mother’s cooking. I have a long list of things to tell you, and I will show you the new photos on my phone. See you soon! Love, Alex.',
     ],
     questions: [
       {
@@ -611,7 +611,7 @@ export const readings: Reading[] = [
         question: 'What was the lot before?',
         options: ['Full of trash', 'A playground', 'A parking lot'],
         answer: 0,
-        evidence: 'An empty lot near the library was full of trash and dry grass.',
+        evidence: 'an empty lot near the library was full of trash and dry grass.',
       },
       {
         question: 'How many raised beds did they build?',
@@ -623,7 +623,7 @@ export const readings: Reading[] = [
         question: 'What will they collect?',
         options: ['Rainwater', 'Old tools', 'Flowers'],
         answer: 0,
-        evidence: 'They will collect rainwater in two large barrels.',
+        evidence: 'They will collect rainwater in two large barrels',
       },
       {
         question: 'The project is perfect.',
@@ -649,7 +649,7 @@ export const readings: Reading[] = [
       'Ava wanted to plan a surprise birthday party for her father. She asked her mother and brother for help. They decided to have the party on Saturday afternoon, when her father was at work. They had two weeks to prepare.',
       'Ava made a list. She bought balloons, a cake, and fruit. Her brother cleaned the living room. Her mother called her father’s friends and invited them. They also made a photo album with old family pictures. Ava wrote a short speech for the party.',
       'On Saturday, the family got ready. At three o’clock, the guests arrived. They hid in the living room and waited. When Ava’s father came home, everyone shouted, “Surprise!” He was very surprised. He laughed and said, “I thought I was coming home to a quiet afternoon!”',
-      'They ate cake and talked for hours. Ava’s father looked at the photo album and told stories about his childhood. He said it was the best birthday he could remember. After the party, Ava felt happy. She had worked hard, but the smile on her father’s face made everything worth it.',
+      'They ate cake and talked for hours. Ava’s father looked at the photo album and told stories about his childhood. He said it was the best birthday he could remember. After the party, Ava felt happy. She had worked hard, but the smile on her father’s face made everything worth it. Ava kept the card her father wrote for her. She put it in the box with the old photos.',
     ],
     questions: [
       {
@@ -662,7 +662,7 @@ export const readings: Reading[] = [
         question: 'When was the party?',
         options: ['Saturday afternoon', 'Sunday morning', 'Friday evening'],
         answer: 0,
-        evidence: 'They decided to have the party on Saturday afternoon.',
+        evidence: 'They decided to have the party on Saturday afternoon',
       },
       {
         question: 'What did Ava’s brother do?',
@@ -694,14 +694,14 @@ export const readings: Reading[] = [
       'On the first day of school, a new student joined Class 8A. Her name was Rina, and she had moved from another city. She was quiet and sat alone at lunch. She did not know anyone, and she missed her old friends.',
       'Two students, Omar and Lily, decided to talk to her. They asked where she was from and what she liked to do. Rina said she loved drawing and playing basketball. Omar said, “We have a basketball team. You should come to practice on Wednesday.”',
       'On Wednesday, Rina went to practice. She was nervous, but the team was friendly. She was fast and good at passing. After practice, the coach said, “You can play with us this Saturday.” Rina started to feel better. She joined the art club too. She made a drawing of the school garden, and the art teacher put it on the wall.',
-      'By the end of the month, Rina had many friends. She still missed her old city sometimes, but she was happy. She said, “The first day was scary. Now I feel like I belong here.”',
+      'By the end of the month, Rina had many friends. She still missed her old city sometimes, but she was happy. She said, “The first day was scary. Now I feel like I belong here.” Now she helps other new students find their classrooms. She says a friendly face is the best map.',
     ],
     questions: [
       {
         question: 'Where did Rina move from?',
         options: ['Another city', 'Another country', 'Another school'],
         answer: 0,
-        evidence: 'She had moved from another city.',
+        evidence: 'she had moved from another city.',
       },
       {
         question: 'What did Rina love?',
@@ -727,7 +727,7 @@ export const readings: Reading[] = [
         options: ['True', 'False'],
         answer: 0,
         type: 'tfng',
-        evidence: 'She still missed her old city sometimes.',
+        evidence: 'She still missed her old city sometimes',
       },
     ],
   },
@@ -754,7 +754,7 @@ export const readings: Reading[] = [
         question: 'How many children does it serve?',
         options: ['About eighty', 'About thirty', 'About five'],
         answer: 0,
-        evidence: 'The program serves about eighty children every week.',
+        evidence: 'the program serves about eighty children every week.',
       },
       {
         question: 'What problem does the building have?',
@@ -868,7 +868,7 @@ export const readings: Reading[] = [
         options: ['True', 'False'],
         answer: 1,
         type: 'tfng',
-        evidence: 'The editors say the award is not the main goal.',
+        evidence: 'the editors say the award is not the main goal.',
       },
     ],
   },
@@ -881,7 +881,7 @@ export const readings: Reading[] = [
       'One evening, his mother called. She asked, “What did you eat today?” Daniel laughed and said, “Pizza.” His mother was quiet for a moment. Then she said, “I will teach you three dishes. If you can cook three dishes, you can feed yourself.”',
       'The first dish was tomato soup. Daniel followed his mother’s instructions by video. He cut the onions too quickly and cried. He added too much salt. The soup was not good, but he ate it. The second dish was chicken with rice. Daniel burned the chicken because he was watching his phone. He learned to stay near the stove. The third dish was a simple salad with eggs. This time, he did not burn anything. He was proud.',
       'After a month, Daniel could cook the three dishes without help. He invited a friend for dinner. The friend said, “This is really good.” Daniel smiled. He had made the food himself. He still makes mistakes. Sometimes the rice is too hard, and sometimes the soup is too salty. But he is not afraid of the kitchen anymore. He has started to read recipes and watch cooking videos. He even bought a small notebook for his favorite dishes.',
-      'His mother visited him last month. He cooked dinner for her. She said, “You have learned more than cooking. You have learned to take care of yourself.” Daniel agreed. Cooking, he realized, is not only about food. It is about patience, attention, and the willingness to try again.',
+      'His mother visited him last month. He cooked dinner for her. She said, “You have learned more than cooking. You have learned to take care of yourself.” Daniel agreed. Cooking, he realized, is not only about food. It is about patience, attention, and the willingness to try again. He smiled and served the soup.',
     ],
     questions: [
       {
@@ -960,7 +960,7 @@ export const readings: Reading[] = [
         options: ['True', 'False'],
         answer: 0,
         type: 'tfng',
-        evidence: 'The district decided to keep the four-day week.',
+        evidence: 'The district decided to keep the four-day week',
       },
     ],
   },
@@ -1161,7 +1161,7 @@ export const readings: Reading[] = [
       'The delay lasted three hours. At first, Priya was worried. She did not want to arrive late at night. Then she decided to use the time. She read her book, shared snacks with the woman, and played cards with a family in the next seat. The family had two children, and they taught her a card game. Everyone in the carriage began to talk.',
       'When the train started again, the passengers clapped. The journey took longer than planned, but the atmosphere had changed. People who were strangers in the morning were now friends. They exchanged phone numbers and promised to stay in touch. One man gave Priya his email address and invited her to visit his town.',
       'Priya arrived in Denver after midnight. Her sister was waiting at the station with a warm coat. Priya was tired, but she was also happy. She said, “The delay was annoying, but it gave me a story. I met people I would never have met otherwise.”',
-      'She now takes the train whenever she can. She says it is slower than flying, but it is more human.',
+      'She now takes the train whenever she can. She says it is slower than flying, but it is more human. The train is also a place where strangers become friends, at least for a few hours.',
     ],
     questions: [
       {
@@ -1208,14 +1208,14 @@ export const readings: Reading[] = [
       'At first, he forgot them during rehearsals. He felt embarrassed. The other actors helped him. They practiced with him after school and gave him tips for remembering. Ms. Chen told him to practice one scene at a time, not the whole play. She also told him to move around while he spoke, because movement helps memory.',
       'The rehearsals were not easy. The set was late, the costumes were too small, and the music did not work. But the team solved each problem. They painted the set together, borrowed costumes, and used a phone for the music. On the night of the performance, Leo was nervous. His hands were shaking.',
       'When he walked on stage, he forgot the first line. The audience was silent. Then he heard a friend whisper the line from the side. He remembered, and the play continued. The audience laughed at the right moments. At the end, they clapped for a long time.',
-      'Leo was tired and happy. He said, “I was afraid of making a mistake. But the mistake did not ruin the play. It made me feel supported.”',
+      'Leo was tired and happy. He said, “I was afraid of making a mistake. But the mistake did not ruin the play. It made me feel supported.” The next morning, he signed up for the spring play.',
     ],
     questions: [
       {
         question: 'What play did they choose?',
         options: ['A comedy', 'A tragedy', 'A musical'],
         answer: 0,
-        evidence: 'They chose a comedy about a family on holiday.',
+        evidence: 'they chose a comedy about a family on holiday.',
       },
       {
         question: 'What role did Leo get?',
@@ -1255,7 +1255,7 @@ export const readings: Reading[] = [
       'The second step was to change their habits. They stopped buying things they did not need. They borrowed books from the library and repaired clothes instead of replacing them. They also started cooking at home more often. They planned meals for the week and bought only what was on the list.',
       'The change had benefits. They saved money and paid off a loan. Their apartment was easier to clean. They had more time for friends, walks, and hobbies. Emma says, “A smaller home made our life bigger.”',
       'But living with less is not always easy. Sometimes Emma misses a dress she gave away. Sometimes they need something and have to borrow it. They also have to explain their choices to family members who think they are strange. At Christmas, Emma’s mother gave her a new kitchen machine. Emma thanked her, but she was not sure she needed it.',
-      'Emma says the goal is not to own nothing. The goal is to own what matters. She asks a simple question before buying something: “Will I use this every week?” If the answer is no, she waits. Often, she decides she does not need it.',
+      'Emma says the goal is not to own nothing. The goal is to own what matters. She asks a simple question before buying something: “Will I use this every week?” If the answer is no, she waits. Often, she decides she does not need it. She also keeps a small box of things she almost bought. Once a year, she opens it and decides again. Most of it goes to a local charity shop.',
     ],
     questions: [
       {

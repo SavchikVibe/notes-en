@@ -18,17 +18,26 @@ function warn(message: string) {
   warnings.push(message)
 }
 
-const MIN_READ_WORDS: Record<string, number> = {
-  A1: 100,
-  A2: 200,
-  B1: 400,
-  B2: 700,
-  C1: 450,
+/**
+ * Тексты внутри урока короткие по замыслу: урок идёт 10–15 минут.
+ * Длинное чтение живёт в отдельной библиотеке (`scripts/check-readings.ts`).
+ */
+const MIN_UNIT_READ_WORDS: Record<string, number> = {
+  A1: 40,
+  A2: 55,
+  B1: 70,
+  B2: 60,
+  C1: 100,
 }
 
 const BRITISH_SPELLING =
   /\b(colour|flavour|centre|metre|organise|realise|recognise|analyse|travelling|travelled|traveller|cancelled|cancelling|labelled|modelling|programme|catalogue|dialogue|defence|offence|grey|tyre|cheque|aeroplane|aluminium)\b/i
 
+/**
+ * Повтор модели-примера в упражнении — это задуманная опора для A1/A2.
+ * Предупреждаем только о повторе одного и того же предложения
+ * в разных упражнениях юнита.
+ */
 function collectSentences(unit: Unit): number {
   const seen = new Map<string, string>()
   const duplicates = new Set<string>()
@@ -40,16 +49,10 @@ function collectSentences(unit: Unit): number {
     else seen.set(key, source)
   }
 
-  for (const word of unit.words) {
-    for (const example of word.examples) remember(example.en, `word:${word.id}`)
-  }
   for (const exercise of unit.exercises) {
     if (exercise.kind === 'assemble') remember(exercise.answer.join(' '), exercise.id)
     if (exercise.kind === 'translate') remember(exercise.sample, exercise.id)
     if (exercise.kind === 'listen') remember(exercise.audio, exercise.id)
-    if (exercise.kind === 'read') {
-      for (const paragraph of exercise.paragraphs) remember(paragraph, exercise.id)
-    }
   }
 
   return duplicates.size
@@ -215,9 +218,9 @@ function checkExercise(unit: Unit, exercise: Exercise, seen: Set<string>) {
       checkQuestions(path, exercise.questions)
       {
         const words = exercise.paragraphs.join(' ').split(/\s+/).filter(Boolean).length
-        const minimum = MIN_READ_WORDS[unit.level] ?? 0
+        const minimum = MIN_UNIT_READ_WORDS[unit.level] ?? 0
         if (words < minimum) {
-          warn(`${path}: текст ${words} слов, ориентир для ${unit.level} — ${minimum}+`)
+          warn(`${path}: текст ${words} слов, минимум для урока ${unit.level} — ${minimum}`)
         }
       }
       break
@@ -264,12 +267,8 @@ for (const unit of units) {
   for (const exercise of unit.exercises) checkExercise(unit, exercise, exerciseIds)
   for (const word of unit.words) checkWord(unit, word)
 
-  const choiceAnswers = unit.exercises
-    .filter((exercise) => exercise.kind === 'choice')
-    .map((exercise) => exercise.answer)
-  if (choiceAnswers.length >= 3 && choiceAnswers.every((answer) => answer === 0)) {
-    warn(`${unit.id}: все choice-ответы — вариант A`)
-  }
+  // Порядок вариантов перемешивается при показе (shuffleOptions), поэтому
+  // «все ответы — A» в исходнике ничего не говорит о том, что видит ученик.
 
   const duplicateSentences = collectSentences(unit)
   if (duplicateSentences > 0) {
