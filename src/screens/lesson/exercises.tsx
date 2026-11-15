@@ -807,6 +807,14 @@ export const WriteView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
                 {ex.modelAnswer}
               </p>
             </div>
+
+            <div className="border-l-2 border-accent pl-3">
+              <p className="text-[13px] font-medium text-accent">Перепиши одну часть</p>
+              <p className="mt-1 text-[15px] leading-relaxed text-ink-2">
+                Выбери один пункт чек-листа и измени абзац. Правки сохраняются в портфолио
+                автоматически.
+              </p>
+            </div>
           </div>
         )}
       </div>

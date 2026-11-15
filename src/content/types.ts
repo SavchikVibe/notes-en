@@ -29,6 +29,8 @@ export interface Formula {
 interface ExerciseBase {
   id: string
   explanation?: string
+  /** Необязательное упражнение мастерской: не входит в счёт урока. */
+  optional?: boolean
 }
 
 export interface ChoiceExercise extends ExerciseBase {

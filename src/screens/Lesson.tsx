@@ -20,11 +20,11 @@ export default function LessonScreen() {
   const { id = '' } = useParams()
   const unit = getUnit(id)
   const navigate = useNavigate()
+  const core = unit ? unit.exercises.filter((exercise) => !exercise.optional) : []
+  const workshop = unit ? unit.exercises.filter((exercise) => exercise.optional) : []
 
   const [ready, setReady] = useState(false)
-  const [queue, setQueue] = useState<number[]>(() =>
-    unit ? unit.exercises.map((_, index) => index) : [],
-  )
+  const [queue, setQueue] = useState<number[]>(() => core.map((_, index) => index))
   const [position, setPosition] = useState(0)
   const [phase, setPhase] = useState<'answer' | 'feedback' | 'skipped'>('answer')
   const [canCheck, setCanCheck] = useState(false)
@@ -82,20 +82,18 @@ export default function LessonScreen() {
 
         if (progress.status === 'in_progress') {
           const answered = new Set(Object.keys(savedAnswers))
-          const wrongIndices = unit.exercises
+          const wrongIndices = core
             .map((exercise, index) => (savedAnswers[exercise.id] === false ? index : -1))
             .filter((index) => index >= 0)
 
           if (wrongIndices.length > 0) {
             requeued.current = new Set(wrongIndices)
-            setQueue([...unit.exercises.map((_, index) => index), ...wrongIndices])
+            setQueue([...core.map((_, index) => index), ...wrongIndices])
           }
 
-          const firstUnanswered = unit.exercises.findIndex(
-            (exercise) => !answered.has(exercise.id),
-          )
+          const firstUnanswered = core.findIndex((exercise) => !answered.has(exercise.id))
           if (firstUnanswered !== -1) setPosition(firstUnanswered)
-          else if (wrongIndices.length > 0) setPosition(unit.exercises.length)
+          else if (wrongIndices.length > 0) setPosition(core.length)
         }
       }
       setReady(true)
@@ -106,13 +104,13 @@ export default function LessonScreen() {
   }, [unit])
 
   const exerciseIndex = queue[position] ?? 0
-  const total = unit?.exercises.length ?? 0
-  const current = unit?.exercises[exerciseIndex]
+  const total = core.length
+  const current = core[exerciseIndex]
 
   const handleResult = useCallback(
     (correct: boolean) => {
       if (!unit) return
-      const exercise = unit.exercises[exerciseIndex]
+      const exercise = core[exerciseIndex]
       const firstAttempt = answers[exercise.id] === undefined && skipped[exercise.id] !== true
 
       setAnswers((currentAnswers) => ({ ...currentAnswers, [exercise.id]: correct }))
@@ -120,7 +118,7 @@ export default function LessonScreen() {
         unit.id,
         exercise.id,
         correct,
-        Math.min(exerciseIndex + 1, unit.exercises.length - 1),
+        Math.min(exerciseIndex + 1, core.length - 1),
         firstAttempt,
       )
 
@@ -141,11 +139,11 @@ export default function LessonScreen() {
 
   const handleSkip = useCallback(() => {
     if (!unit) return
-    const exercise = unit.exercises[exerciseIndex]
+    const exercise = core[exerciseIndex]
     setSkipped((current) => ({ ...current, [exercise.id]: true }))
     setPhase('skipped')
-    void saveSkip(unit.id, exercise.id, Math.min(exerciseIndex + 1, unit.exercises.length - 1))
-  }, [unit, exerciseIndex])
+    void saveSkip(unit.id, exercise.id, Math.min(exerciseIndex + 1, core.length - 1))
+  }, [unit, core, exerciseIndex])
 
   async function handleNext() {
     if (!unit) return
@@ -172,7 +170,7 @@ export default function LessonScreen() {
   function restart() {
     setResult(null)
     setPosition(0)
-    setQueue(unit ? unit.exercises.map((_, index) => index) : [])
+    setQueue(core.map((_, index) => index))
     setAnswers({})
     setSkipped({})
     setMistakes(0)
@@ -260,6 +258,15 @@ export default function LessonScreen() {
           <Button className="w-full" onClick={() => navigate('/path')}>
             К пути
           </Button>
+          {workshop.length > 0 && (
+            <Button
+              variant="secondary"
+              className="w-full"
+              onClick={() => navigate(`/workshop/${unit.id}`)}
+            >
+              Мастерская · {workshop.length} упр.
+            </Button>
+          )}
           <Button variant="secondary" className="w-full" onClick={restart}>
             Пройти ещё раз
           </Button>

@@ -67,6 +67,11 @@ export default function PortfolioScreen() {
           <p className="mt-6 text-[13px] text-ink-3">
             {words(selected.text)} слов · проверок: {selected.revisions}
           </p>
+          <p className="mt-1 text-[13px] text-ink-3">
+            {selected.firstText === selected.text
+              ? 'Пока это первый вариант — правок ещё нет.'
+              : 'Есть правки: сравни первый вариант и текущий.'}
+          </p>
         </main>
       </>
     )

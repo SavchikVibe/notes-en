@@ -259,8 +259,9 @@ for (const unit of units) {
   if (!unit.title.trim()) fail(`Юнит ${unit.id}: нет заголовка`)
   if (!unit.goal.trim()) fail(`Юнит ${unit.id}: нет цели`)
   if (unit.formulas.length === 0) fail(`Юнит ${unit.id}: нет формул`)
-  if (unit.exercises.length < 12) fail(`Юнит ${unit.id}: меньше 12 упражнений`)
-  if (unit.exercises.length > 14) fail(`Юнит ${unit.id}: больше 14 упражнений`)
+  const coreCount = unit.exercises.filter((exercise) => !exercise.optional).length
+  if (coreCount < 12) fail(`Юнит ${unit.id}: меньше 12 обязательных упражнений`)
+  if (coreCount > 14) fail(`Юнит ${unit.id}: больше 14 обязательных упражнений`)
   if (unit.words.length === 0) fail(`Юнит ${unit.id}: нет слов`)
 
   const exerciseIds = new Set<string>()

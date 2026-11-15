@@ -217,6 +217,56 @@ function sentenceKey(text: string): string {
   return text.toLowerCase().replace(/\s+/g, ' ').trim()
 }
 
+/** Необязательная мастерская: 3 упражнения из примеров, не занятых в уроке. */
+function buildWorkshop(unit: Unit, used: Set<string>): Exercise[] {
+  const seen = new Set<string>()
+  const picks: Word['examples'] = []
+  for (const word of unit.words) {
+    for (const example of word.examples) {
+      if (picks.length >= 3) break
+      const key = sentenceKey(example.en)
+      if (used.has(key) || seen.has(key)) continue
+      seen.add(key)
+      picks.push(example)
+    }
+    if (picks.length >= 3) break
+  }
+
+  const workshop: Exercise[] = []
+  if (picks[0]) {
+    workshop.push({
+      kind: 'listen',
+      id: `${unit.id}-workshop-listen`,
+      audio: picks[0].en,
+      question: 'Напиши, что услышал',
+      mode: 'type',
+      answer: picks[0].en,
+      translation: picks[0].ru,
+      optional: true,
+    })
+  }
+  if (picks[1]) {
+    workshop.push({
+      kind: 'translate',
+      id: `${unit.id}-workshop-translate`,
+      source: picks[1].ru,
+      accept: [picks[1].en],
+      sample: picks[1].en,
+      optional: true,
+    })
+  }
+  if (picks[2]) {
+    workshop.push({
+      kind: 'speak',
+      id: `${unit.id}-workshop-speak`,
+      phrase: picks[2].en,
+      translation: picks[2].ru,
+      optional: true,
+    })
+  }
+  return workshop
+}
+
 function pickDictation(unit: Unit, used: Set<string>) {
   const candidates = unit.words
     .flatMap((word) => word.examples)
@@ -309,6 +359,7 @@ function withContent(unit: Unit): Unit {
       answer: dictation.en,
       translation: dictation.ru,
     })
+    usedSentences.add(sentenceKey(dictation.en))
   }
 
   const translate =
@@ -323,9 +374,11 @@ function withContent(unit: Unit): Unit {
     })
   }
 
+  const workshop = buildWorkshop(unit, usedSentences)
+
   return {
     ...unit,
-    exercises: [...base, ...extra, ...derived, ...read].map((exercise) =>
+    exercises: [...base, ...extra, ...derived, ...read, ...workshop].map((exercise) =>
       withDistractors(unit, exercise),
     ),
   }

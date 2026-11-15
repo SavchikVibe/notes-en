@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.67.0.
+Last updated: 2026-11-15, version 0.68.0.
 
 ## 1. What was reviewed
 
@@ -99,10 +99,12 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.67.0)
+## 8. Current state (0.68.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
-- 1,600 words, 2,760 exercises.
+- 1,600 words, 3,390 exercises: 12–14 core per unit plus 3 optional workshop exercises generated from unused word examples.
+- Workshop flow: after a lesson, the result screen offers «Мастерская»; the workshop screen runs optional exercises without scoring and appends up to 3 due errors from earlier lessons.
+- Writing drafts show a revision prompt after checking; the portfolio detail marks whether any edits exist.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
@@ -129,11 +131,11 @@ These are still the backbone of the roadmap.
 Priority order unless the user changes it:
 
 1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Reading and Listening have level filters; weak results appear in «Вернуться».
-2. **Error bank and workshop.** Error bank is done: first-attempt mistakes in `choice`/`assemble`/`translate`/`listen` are stored in IndexedDB (`errors` store), returned the next day and then at 3, 7, 16, 35, 75 days, and practised from Today → «Ошибки». Still open: the 12-core + workshop flow for new units, and mixing old errors into the optional practice automatically.
+2. **Error bank and workshop.** Error bank is done: first-attempt mistakes in `choice`/`assemble`/`translate`/`listen` are stored in IndexedDB (`errors` store), returned the next day and then at 3, 7, 16, 35, 75 days, and practised from Today → «Ошибки». Workshop is done: each unit has 3 optional exercises, reachable from the lesson result, and up to 3 due errors are mixed into it.
 3. **Standalone speaking block.** 40 tasks: 30 answers (6 per level) plus 10 shadowing tasks (2 per level). Screen `/speaking`, 2 tasks per session (one answer + one shadow when available). Fluency cycle at `/fluency`: 60 seconds without preparation, record, listen, repeat the same topic. Still open: IELTS Part 2 structure and minimal pairs.
 4. **Content revision.** Done: assemble banks always have every answer token plus two distractors, dictation avoids duplicate sentences, validator is clean. Widening `accept` lists continues only where a real synonym exists.
 5. **American English audit.** Done for what the validator can see: US spelling (`dialog`), GA IPA false positives fixed. Re-check when new content is added.
-6. **Writing portfolio.** Done: IndexedDB `writings` store, first checked version and current text, `/portfolio` screen linked from Progress, backup support. Still open: a revision prompt after the sample, and exporting a single work as text.
+6. **Writing portfolio.** Done: IndexedDB `writings` store, first checked version and current text, `/portfolio` screen linked from Progress, backup support, a revision prompt after checking and an «есть правки» marker. Still open: exporting a single work as text.
 7. **C1 60-unit map revision.** Apply the merge/move/replace/add recommendations from section 6; the 6 C1 Studios are built, but the full 60-unit C1 map still needs the review edits.
 8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. Still open: browser-level tests for the full lesson flow.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
