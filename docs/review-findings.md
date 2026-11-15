@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.59.0.
+Last updated: 2026-11-15, version 0.60.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** The reading library is complete (54 texts). Move to the error bank/workshop, the standalone speaking block, and the content revision.
 
-## 8. Current state (0.59.0)
+## 8. Current state (0.60.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
@@ -109,9 +109,10 @@ These are still the backbone of the roadmap.
 - Error bank: IndexedDB store `errors` (DB version 3), due errors on Today, practice screen `/errors`. Backup includes errors.
 - Speaking block: 30 tasks in `src/content/speaking.ts`, screen `/speaking`, 2 per session, progress in `kv`.
 - Translation matching expands common contractions, so «I'm» and «I am» are both accepted.
+- Reading has a level filter with unread counts and defaults to the learner’s current level; Listening still has no filter.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.59.0.
+- Version 0.60.0.
 - `npm run validate:content` passes with about 890 warnings (mostly assemble banks with fewer than two distractors and single-variant translations).
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run validate:content` passes with 1,504 warnings. Warnings are content debt, not build failures.
@@ -191,7 +192,7 @@ Every library text has 3–7 questions, evidence, and a neural audio version. Th
 
 ### Remaining stages, in recommended order
 
-1. **Reading library polish.** 54 texts exist and pass `npm run check:readings` (headings, exact evidence, target length). Add a level filter and a library list with retry. Effort S.
+1. **Reading library polish.** 54 texts pass `npm run check:readings`. Reading now has a level filter with unread counts, defaulting to the learner’s current level. Still open: the same filter for Listening, and a retry list for weak results. Effort S.
 2. **Error bank and workshop.** Save wrong exercises across lessons with due dates; mix old errors into optional practice; implement 12-core + workshop for new units. Effort M. Both reviews asked for this.
 3. **Standalone speaking block.** Replace the “Речь — скоро” placeholder with the Studio speaking format: prompt, preparation, recording, rubric, re-record. Add fluency cycle, shadowing, minimal pairs, IELTS Part 2. Effort M.
 4. **Content revision A1–B2.** Remove 739 duplicate sentences; add distractors to 517 `assemble` items; widen 349 `accept` lists; vary source answer positions; fix level fit; audit American English; review naturalness and translation quality. Effort L.

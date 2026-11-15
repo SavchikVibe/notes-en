@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check } from 'lucide-react'
+import { units, type Level } from '@/content'
 import { readings, type Reading } from '@/content/readings'
 import { readingAudio } from '@/content/reading-audio'
 import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
@@ -8,9 +9,12 @@ import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
 import { ReadView, type ExerciseViewHandle } from './lesson/exercises'
 
+const LEVELS: Level[] = ['A1', 'A2', 'B1', 'B2', 'C1']
+
 export default function ReadingScreen() {
   const navigate = useNavigate()
-  const [queue, setQueue] = useState<Reading[] | null>(null)
+  const [done, setDone] = useState<Set<string> | null>(null)
+  const [level, setLevel] = useState<Level | 'all'>('A1')
   const [index, setIndex] = useState(0)
   const [phase, setPhase] = useState<'answer' | 'feedback'>('answer')
   const [canCheck, setCanCheck] = useState(false)
@@ -31,12 +35,16 @@ export default function ReadingScreen() {
   useEffect(() => {
     void (async () => {
       const progress = await getAllLessonProgress()
-      const done = new Set(
+      const finishedIds = new Set(
         Object.values(progress)
           .filter((item) => item.status === 'done')
           .map((item) => item.lessonId),
       )
-      setQueue(readings.filter((reading) => !done.has(reading.id)))
+      setDone(finishedIds)
+
+      // По умолчанию открываем уровень, на котором сейчас идёт курс.
+      const nextUnit = units.find((unit) => progress[unit.id]?.status !== 'done')
+      if (nextUnit) setLevel(nextUnit.level)
     })()
   }, [])
 
@@ -44,7 +52,32 @@ export default function ReadingScreen() {
     return () => flushTime()
   }, [])
 
-  const current = queue?.[index]
+  useEffect(() => {
+    setIndex(0)
+    setPhase('answer')
+    setCanCheck(false)
+    setFinished(false)
+    setAudioFailed(false)
+  }, [level])
+
+  const unread = useMemo(() => {
+    if (!done) return [] as Reading[]
+    return readings.filter(
+      (reading) => (level === 'all' || reading.level === level) && !done.has(reading.id),
+    )
+  }, [done, level])
+
+  const counts = useMemo(() => {
+    const map = new Map<Level, number>()
+    if (!done) return map
+    for (const reading of readings) {
+      if (done.has(reading.id)) continue
+      map.set(reading.level, (map.get(reading.level) ?? 0) + 1)
+    }
+    return map
+  }, [done])
+
+  const current = unread[index]
   const audioSrc =
     current && readingAudio[current.id]
       ? `${import.meta.env.BASE_URL}${readingAudio[current.id]}`
@@ -72,9 +105,8 @@ export default function ReadingScreen() {
   }
 
   function next() {
-    if (!queue) return
     flushTime()
-    if (index + 1 >= queue.length) {
+    if (index + 1 >= unread.length) {
       setFinished(true)
       return
     }
@@ -83,7 +115,7 @@ export default function ReadingScreen() {
     setCanCheck(false)
   }
 
-  if (!queue) {
+  if (!done) {
     return (
       <>
         <AppBar title="Чтение" onBack={() => navigate('/')} />
@@ -94,18 +126,55 @@ export default function ReadingScreen() {
     )
   }
 
-  if (finished || queue.length === 0) {
+  const levelChips = (
+    <div className="mb-5 flex flex-wrap gap-2">
+      {LEVELS.map((item) => {
+        const active = level === item
+        return (
+          <button
+            key={item}
+            type="button"
+            onClick={() => setLevel(item)}
+            className={`flex min-h-10 items-center gap-1.5 rounded-[10px] border px-3 text-[15px] ${
+              active
+                ? 'border-accent bg-accent-soft text-accent'
+                : 'border-line bg-surface text-ink-2'
+            }`}
+          >
+            <span className="num">{item}</span>
+            <span className="text-[12px] text-ink-3">{counts.get(item) ?? 0}</span>
+          </button>
+        )
+      })}
+      <button
+        type="button"
+        onClick={() => setLevel('all')}
+        className={`flex min-h-10 items-center rounded-[10px] border px-3 text-[15px] ${
+          level === 'all'
+            ? 'border-accent bg-accent-soft text-accent'
+            : 'border-line bg-surface text-ink-2'
+        }`}
+      >
+        Все
+      </button>
+    </div>
+  )
+
+  if (finished || unread.length === 0) {
     return (
       <>
         <AppBar title="Чтение" onBack={() => navigate('/')} />
-        <main className="px-5 pb-8 pt-10">
-          <div className="flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">
+        <main className="px-5 pb-8 pt-6">
+          {levelChips}
+          <div className="mt-4 flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">
             <Check size={28} strokeWidth={1.5} />
           </div>
-          <h1 className="mt-6 text-[30px] leading-tight">Чтение на сегодня готово</h1>
-          <p className="mt-2 text-[15px] text-ink-2">
-            {queue.length === 0
-              ? 'Все тексты этого этапа прочитаны. Новые появятся с обновлением контента.'
+          <h1 className="mt-6 text-[30px] leading-tight">
+            {unread.length === 0 ? 'Этот уровень прочитан' : 'Чтение на сегодня готово'}
+          </h1>
+          <p className="mt-2 text-[15px] leading-snug text-ink-2">
+            {unread.length === 0
+              ? 'Выбери другой уровень выше или вернись к текстам позже: слабый результат оставляет текст в библиотеке.'
               : `Прочитано текстов: ${index + 1}.`}
           </p>
           <Button className="mt-8 w-full" onClick={() => navigate('/')}>
@@ -133,11 +202,13 @@ export default function ReadingScreen() {
     <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col">
       <AppBar
         title="Чтение"
-        subtitle={`${current.level} · ${index + 1} из ${queue.length}`}
+        subtitle={`${current.level} · ${index + 1} из ${unread.length}`}
         onBack={() => navigate('/')}
       />
 
       <main className="flex-1 px-5 pb-8 pt-6">
+        {levelChips}
+
         {useAudio && (
           <div className="mb-4 flex flex-wrap gap-2">
             <button
@@ -213,7 +284,7 @@ export default function ReadingScreen() {
           </Button>
         ) : (
           <Button className="w-full" onClick={next}>
-            {index + 1 >= queue.length ? 'Готово' : 'Следующий текст'}
+            {index + 1 >= unread.length ? 'Готово' : 'Следующий текст'}
           </Button>
         )}
       </div>
