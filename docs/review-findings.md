@@ -1,8 +1,8 @@
-# Review findings, decisions and project state
+﻿# Review findings, decisions and project state
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.54.0.
+Last updated: 2026-11-15, version 0.55.0.
 
 ## 1. What was reviewed
 
@@ -98,7 +98,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Expand the reading library: A2 first, then B1, B2, C1. Reuse the existing Reading/Listening screens; add exam-style questions and evidence.
 
-## 8. Current state (0.54.0)
+## 8. Current state (0.55.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
@@ -107,7 +107,7 @@ These are still the backbone of the roadmap.
 - 27 Studio audio files in `public/audio/`.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.54.0.
+- Version 0.55.0.
 - `npm run validate:content` passes with 1,504 warnings. Warnings are content debt, not build failures.
 - `npm run audit:content` prints the detailed audit table.
 

@@ -1,7 +1,7 @@
 {
   "name": "english-app",
   "private": true,
-  "version": "0.54.0",
+  "version": "0.55.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "deploy:pages": "node scripts/deploy-pages.mjs",
     "validate:content": "tsx scripts/validate-content.ts",
+    "check:readings": "tsx scripts/check-readings.ts",
     "audit:content": "tsx scripts/audit-content.ts",
     "icons": "node scripts/make-icons.mjs"
   },
