@@ -164,7 +164,37 @@ python scripts/generate-studio-audio.py
 - Audit: `scripts/audit-content.ts`
 - Audio source: `scripts/studio-audio.json`
 
-## 12. User preferences and context
+## 12. Reading library plan and remaining roadmap
+
+### Library target
+
+| Level | Texts | Words each | Status |
+|---|---:|---|---|
+| A1 | 10 | 100–200 | 10 exist, but they are 40–74 words; revise/expand |
+| A2 | 10 | 200–300 | 8 done; add 2 |
+| B1 | 12 | 400–600 | not started |
+| B2 | 12 | 700–900 | not started |
+| C1 | 10 | 900–1200 | not started |
+| **Total** | **54** | | about 30,000 words |
+
+The 27 Studio tasks add about 10,000 words of reading. Together the app will have about 40,000 words of graded reading.
+
+Every library text should have 3–5 questions, evidence, and a neural audio version. Audio estimate: 2–3 minutes per text, about 50–70 MB for the library; the user has enough storage. Generate audio in batches, not all at once.
+
+### Remaining stages, in recommended order
+
+1. **Finish the reading library.** A2 +2, B1 12, B2 12, C1 10; revise A1 to 100–200 words; add neural audio; add level filter and a library list with retry. Effort L. This is the next phase because reading is the learner’s weakest skill.
+2. **Error bank and workshop.** Save wrong exercises across lessons with due dates; mix old errors into optional practice; implement 12-core + workshop for new units. Effort M. Both reviews asked for this.
+3. **Standalone speaking block.** Replace the “Речь — скоро” placeholder with the Studio speaking format: prompt, preparation, recording, rubric, re-record. Add fluency cycle, shadowing, minimal pairs, IELTS Part 2. Effort M.
+4. **Content revision A1–B2.** Remove 739 duplicate sentences; add distractors to 517 `assemble` items; widen 349 `accept` lists; vary source answer positions; fix level fit; audit American English; review naturalness and translation quality. Effort L.
+5. **Writing portfolio.** Move drafts from localStorage to IndexedDB; keep first and final versions; add a revision view. Effort M.
+6. **C1 decision and content.** The 6 C1 Studios exist, but the 60 C1 units do not. Decide between 60 short units and a project-based C1 track. Apply the review edits: merge, move earlier, replace academic job talk/mock panel, add US pragmatics, logical fallacies, US institutions, spoken idiomaticity, college composition, connected speech, capstone. Effort L/XL. Do this after the learner is closer to C1.
+7. **IELTS exam block.** Timed Reading/Listening sections, Writing tasks, Speaking test, self-assessment against descriptors; no automatic band score. Effort M/L.
+8. **Reliability and final QA.** Regression tests for scoring, skip/resume, SRS intervals, session building and cloze; backup reminder; code splitting only if startup becomes slow; full phone test of offline, update and restore. Effort M.
+
+Do not start stage 6 before stages 1–4: the reviews explicitly warned against mass-producing C1 before the learning core and content quality are fixed.
+
+## 13. User preferences and context
 
 - The user speaks Russian; the app UI is Russian, the course is American English.
 - The learner is the user’s child, 9th grade, started at A1/A2 with weak reading.
@@ -176,3 +206,14 @@ python scripts/generate-studio-audio.py
 - The user wants the Studio dialogues to sound good; bundled neural audio solved this.
 - The user wants the reading library expanded after the Studios.
 - The user asked for all review advice to be preserved in the repository so it survives context compaction. This file is that record.
+
+## 14. How to update this file
+
+After each major phase, update:
+- the version and current state;
+- the library counts;
+- the completed items in section 3;
+- the remaining stages in section 12;
+- any decision that changes the plan.
+
+This file is the source of truth for future sessions.
