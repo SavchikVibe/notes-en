@@ -24,8 +24,8 @@ export const a215: Unit = {
       tags: ['life'],
       examples: [
         { en: 'She has a medical background.', ru: 'У неё медицинское образование.' },
-        { en: 'My background is in engineering.', ru: 'Моё образование — инженерия.' },
-        { en: 'He told me about his family background.', ru: 'Он рассказал мне о своей семье.' },
+        { en: 'My background is in engineering.', ru: 'Я инженер по образованию.' },
+        { en: 'He told me about his family background.', ru: 'Он рассказал мне о своём происхождении.' },
       ],
     },
     {
@@ -65,7 +65,7 @@ export const a215: Unit = {
       level: 'A2',
       tags: ['life', 'feelings'],
       examples: [
-        { en: 'I feel confident about the exam.', ru: 'Я чувствую себя уверенно насчёт экзамена.' },
+        { en: 'I feel confident about the exam.', ru: 'Я чувствую себя уверенно перед экзаменом.' },
         { en: 'She is a confident speaker.', ru: 'Она уверенный оратор.' },
         { en: 'He became more confident after the course.', ru: 'После курса он стал увереннее.' },
       ],
@@ -94,7 +94,7 @@ export const a215: Unit = {
       tags: ['life'],
       examples: [
         { en: 'Learning a language is a challenge.', ru: 'Изучение языка — это испытание.' },
-        { en: 'He enjoys a good challenge.', ru: 'Он любит хорошие вызовы.' },
+        { en: 'He enjoys a good challenge.', ru: 'Он любит трудные задачи.' },
         { en: 'The exam was a real challenge.', ru: 'Экзамен был настоящим испытанием.' },
       ],
     },

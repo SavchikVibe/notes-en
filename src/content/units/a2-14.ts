@@ -107,7 +107,7 @@ export const a214: Unit = {
       level: 'A2',
       tags: ['weather', 'time'],
       examples: [
-        { en: 'Autumn is my favorite season.', ru: 'Осень — моё любимое время года.' },
+        { en: 'Fall is my favorite season.', ru: 'Осень — моё любимое время года.' },
         { en: 'There are four seasons in a year.', ru: 'В году четыре времени года.' },
         { en: 'The rainy season starts in June.', ru: 'Сезон дождей начинается в июне.' },
       ],

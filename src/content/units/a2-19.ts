@@ -37,7 +37,7 @@ export const a219: Unit = {
       level: 'A2',
       tags: ['actions', 'rules'],
       examples: [
-        { en: 'They allow dogs in the park.', ru: 'В парке разрешают собак.' },
+        { en: 'They allow dogs in the park.', ru: 'В парк пускают с собаками.' },
         { en: 'My parents allowed me to go.', ru: 'Родители разрешили мне пойти.' },
         { en: 'Smoking is not allowed here.', ru: 'Здесь курить нельзя.' },
       ],
@@ -80,8 +80,8 @@ export const a219: Unit = {
       tags: ['rules', 'study'],
       examples: [
         { en: 'The extra lesson is optional.', ru: 'Дополнительный урок необязателен.' },
-        { en: 'Breakfast is optional at this hotel.', ru: 'В этом отеле завтрак необязателен.' },
-        { en: 'Homework is not optional.', ru: 'Домашняя работа не является необязательной.' },
+        { en: 'Breakfast is optional at this hotel.', ru: 'В этом отеле завтрак по желанию.' },
+        { en: 'Homework is not optional.', ru: 'Домашнюю работу делать обязательно.' },
       ],
     },
     {

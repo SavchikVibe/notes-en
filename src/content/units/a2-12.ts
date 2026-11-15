@@ -66,7 +66,7 @@ export const a212: Unit = {
       tags: ['travel', 'time'],
       examples: [
         { en: 'Our arrival time is six in the morning.', ru: 'Время нашего прибытия — шесть утра.' },
-        { en: 'The arrival was late because of the weather.', ru: 'Прибытие задержалось из-за погоды.' },
+        { en: 'The arrival was delayed because of the weather.', ru: 'Прибытие задержалось из-за погоды.' },
         { en: 'Please check the arrival board.', ru: 'Пожалуйста, проверь табло прибытия.' },
       ],
     },

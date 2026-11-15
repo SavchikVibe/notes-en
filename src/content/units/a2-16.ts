@@ -121,7 +121,7 @@ export const a216: Unit = {
       level: 'A2',
       tags: ['time'],
       examples: [
-        { en: 'I have seen this film before.', ru: 'Я уже видел этот фильм раньше.' },
+        { en: 'I have seen this movie before.', ru: 'Я уже видел этот фильм раньше.' },
         { en: 'Have you been here before?', ru: 'Ты был здесь раньше?' },
         { en: 'She has never worked abroad before.', ru: 'Она никогда раньше не работала за границей.' },
       ],

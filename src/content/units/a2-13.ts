@@ -11,7 +11,7 @@ export const a213: Unit = {
     { label: 'Устройство', pattern: 'turn on / off the device', note: 'Turn on your device.' },
     { label: 'Зарядка', pattern: 'charge the battery', note: 'I need to charge my phone.' },
     { label: 'Файлы', pattern: 'download / upload a file', note: 'Download the app first.' },
-    { label: 'Проблема', pattern: "It doesn't connect.", note: 'The Wi-Fi does not connect.' },
+    { label: 'Проблема', pattern: "It doesn't connect.", note: "I can't connect to the Wi-Fi." },
   ],
   words: [
     {
@@ -121,7 +121,7 @@ export const a213: Unit = {
       level: 'A2',
       tags: ['technology'],
       examples: [
-        { en: 'The Wi-Fi does not connect.', ru: 'Wi-Fi не подключается.' },
+        { en: "I can't connect to the Wi-Fi.", ru: 'Wi-Fi не подключается.' },
         { en: 'Connect your phone to the charger.', ru: 'Подключи телефон к зарядке.' },
         { en: 'I connected the printer to my laptop.', ru: 'Я подключил принтер к ноутбуку.' },
       ],

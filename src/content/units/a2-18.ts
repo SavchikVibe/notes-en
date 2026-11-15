@@ -53,7 +53,7 @@ export const a218: Unit = {
       examples: [
         { en: 'I promise to help you.', ru: 'Я обещаю помочь тебе.' },
         { en: 'He promised to call.', ru: 'Он обещал позвонить.' },
-        { en: 'She never keeps her promises.', ru: 'Она никогда не держит обещания.' },
+        { en: 'She never keeps her promises.', ru: 'Она никогда не сдерживает обещания.' },
       ],
     },
     {

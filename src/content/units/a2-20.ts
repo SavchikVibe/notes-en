@@ -38,7 +38,7 @@ export const a220: Unit = {
       tags: ['actions'],
       examples: [
         { en: 'You should avoid sugar.', ru: 'Тебе стоит избегать сахара.' },
-        { en: 'I avoid driving at night.', ru: 'Я избегаю водить ночью.' },
+        { en: 'I avoid driving at night.', ru: 'Я стараюсь не водить машину ночью.' },
         { en: 'She avoided the question.', ru: 'Она ушла от вопроса.' },
       ],
     },
@@ -107,7 +107,7 @@ export const a220: Unit = {
       level: 'A2',
       tags: ['actions'],
       examples: [
-        { en: 'Keep practising every day.', ru: 'Продолжай практиковаться каждый день.' },
+        { en: 'Keep practicing every day.', ru: 'Продолжай практиковаться каждый день.' },
         { en: 'He keeps asking questions.', ru: 'Он постоянно задаёт вопросы.' },
         { en: 'I keep my notes in a folder.', ru: 'Я храню записи в папке.' },
       ],
@@ -198,7 +198,7 @@ export const a220: Unit = {
         'I avoid driving in the morning.',
       ],
       answer: 0,
-      translation: 'Я избегаю водить ночью.',
+      translation: 'Я стараюсь не водить машину ночью.',
     },
     {
       kind: 'speak',

@@ -81,7 +81,7 @@ export const a211: Unit = {
       examples: [
         { en: 'Can I borrow ten dollars?', ru: 'Можно занять десять долларов?' },
         { en: 'I borrowed a book from the library.', ru: 'Я взял книгу в библиотеке.' },
-        { en: 'She never borrows money.', ru: 'Она никогда не занимает деньги.' },
+        { en: 'She never borrows money.', ru: 'Она никогда не берёт деньги в долг.' },
       ],
     },
     {
