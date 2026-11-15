@@ -160,13 +160,17 @@ export default function TodayScreen() {
                   ? '/reading'
                   : block.key === 'listening'
                     ? '/listening'
-                    : '/review'
+                    : block.key === 'speaking'
+                      ? '/speaking'
+                      : '/review'
               const action =
                 block.key === 'reading'
                   ? 'Читать'
                   : block.key === 'listening'
                     ? 'Слушать'
-                    : 'Повторить'
+                    : block.key === 'speaking'
+                      ? 'Говорить'
+                      : 'Повторить'
               const body = (
                 <>
                   <div className="min-w-0">
@@ -206,8 +210,7 @@ export default function TodayScreen() {
             })}
           </div>
           <p className="mt-4 text-[13px] leading-relaxed text-ink-3">
-            Слушание, чтение и повторение уже работают. Речь — запись и сравнение без оценки
-            произношения.
+            Чтение, слушание, речь и повторение слов — короткие блоки на 5–10 минут.
           </p>
         </section>
 

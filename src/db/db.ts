@@ -375,6 +375,14 @@ export async function countDueErrors(): Promise<number> {
   return all.filter((item) => item.dueAt <= now).length
 }
 
+export async function getKv<T>(key: string): Promise<T | undefined> {
+  return (await (await db()).get('kv', key)) as T | undefined
+}
+
+export async function setKv(key: string, value: unknown): Promise<void> {
+  await (await db()).put('kv', value, key)
+}
+
 export async function getSettings(): Promise<Settings> {  const stored = (await (await db()).get('kv', 'settings')) as Partial<Settings> | undefined
   if (!stored) return { ...defaultSettings, minutes: { ...DEFAULT_MINUTES } }
   return {

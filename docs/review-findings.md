@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.57.0.
+Last updated: 2026-11-15, version 0.58.0.
 
 ## 1. What was reviewed
 
@@ -98,7 +98,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** The reading library is complete (54 texts). Move to the error bank/workshop, the standalone speaking block, and the content revision.
 
-## 8. Current state (0.57.0)
+## 8. Current state (0.58.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
@@ -106,9 +106,10 @@ These are still the backbone of the roadmap.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (164–213), 12 B1 (271–384), 12 B2 (702–718), 10 C1 (901–915).
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
 - Error bank: IndexedDB store `errors` (DB version 3), due errors on Today, practice screen `/errors`. Backup includes errors.
+- Speaking block: 30 tasks in `src/content/speaking.ts`, screen `/speaking`, 2 per session, progress in `kv`.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.57.0.
+- Version 0.58.0.
 - `npm run validate:content` passes with 1,504 warnings. Warnings are content debt, not build failures.
 - `npm run audit:content` prints the detailed audit table.
 
@@ -118,7 +119,7 @@ Priority order unless the user changes it:
 
 1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Later: level filter, retry list, and evidence-quote cleanup in the older A1/A2/B1 texts (21 quotes are paraphrased or end with different punctuation).
 2. **Error bank and workshop.** Error bank is done: first-attempt mistakes in `choice`/`assemble`/`translate`/`listen` are stored in IndexedDB (`errors` store), returned the next day and then at 3, 7, 16, 35, 75 days, and practised from Today → «Ошибки». Still open: the 12-core + workshop flow for new units, and mixing old errors into the optional practice automatically.
-3. **Standalone speaking block.** Today still says “Речь — скоро”. Use the Studio speaking format: prompt, preparation, recording, rubric, re-record.
+3. **Standalone speaking block.** Done: 30 tasks (6 per level) in `src/content/speaking.ts`, screen `/speaking`, 2 tasks per session, prep timer, recording, playback, checklist, progress in `kv` (`speaking-done`). Still open: shadowing with model audio, fluency cycle, IELTS Part 2 timing, and minimal pairs.
 4. **Content revision B1/B2.** Remove duplicate sentences, add distractors, widen `accept` lists, vary answer positions, lengthen reading, check level fit.
 5. **American English audit.** Fix British spellings/IPA flagged by the validator; keep US spelling and General American IPA.
 6. **Writing portfolio.** Move Studio drafts from localStorage to IndexedDB, keep first and final versions, add a revision view.

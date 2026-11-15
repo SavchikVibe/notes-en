@@ -42,10 +42,10 @@ const SPLITS: Record<
   number,
   { course: number; listening: number; reading: number; speaking: number; srs: number }
 > = {
-  90: { course: 30, listening: 20, reading: 20, speaking: 10, srs: 10 },
-  120: { course: 45, listening: 25, reading: 25, speaking: 15, srs: 10 },
-  150: { course: 55, listening: 30, reading: 30, speaking: 20, srs: 15 },
-  180: { course: 70, listening: 35, reading: 40, speaking: 20, srs: 15 },
+  90: { course: 30, listening: 20, reading: 25, speaking: 5, srs: 10 },
+  120: { course: 45, listening: 25, reading: 30, speaking: 10, srs: 10 },
+  150: { course: 55, listening: 30, reading: 35, speaking: 15, srs: 15 },
+  180: { course: 70, listening: 35, reading: 45, speaking: 15, srs: 15 },
 }
 
 function splitFor(total: number) {
@@ -124,8 +124,8 @@ export function buildSession(
       key: 'speaking',
       title: 'Речь',
       minutes: speakingMinutes,
-      status: 'soon',
-      note: 'Фразы из урока — этап 3',
+      status: 'ready',
+      note: '2 коротких ответа с записью',
       units: [],
     },
     {
