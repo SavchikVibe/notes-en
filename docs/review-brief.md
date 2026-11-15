@@ -1,5 +1,7 @@
 # Review brief — personal English-learning PWA
 
+> Results, verified audit numbers, all recommendations and the decisions made are preserved in `docs/review-findings.md`. Read that file first in a new session.
+
 This document is for an independent review of the project. Read it first, then inspect the listed files. Do not modify any files. The review is read-only.
 
 ## 0. What this is
