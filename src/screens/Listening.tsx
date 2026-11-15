@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check, Play } from 'lucide-react'
+import { units, type Level } from '@/content'
 import { readings, type Reading } from '@/content/readings'
 import { readingAudio } from '@/content/reading-audio'
 import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
@@ -9,6 +10,7 @@ import { shuffleOptions } from '@/lib/options'
 import { speak, stopSpeaking } from '@/lib/speech'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
+import { LevelChips } from '@/components/LevelChips'
 import { SpeakButton } from '@/components/SpeakButton'
 
 type Step = 'gist' | 'dictation' | 'shadow'
@@ -35,7 +37,8 @@ function optionClass(selected: boolean, correct: boolean, checked: boolean): str
 
 export default function ListeningScreen() {
   const navigate = useNavigate()
-  const [queue, setQueue] = useState<Reading[] | null>(null)
+  const [done, setDone] = useState<Set<string> | null>(null)
+  const [level, setLevel] = useState<Level | 'all'>('A1')
   const [index, setIndex] = useState(0)
   const [step, setStep] = useState<Step>('gist')
   const [answers, setAnswers] = useState<Record<number, number>>({})
@@ -59,14 +62,52 @@ export default function ListeningScreen() {
   useEffect(() => {
     void (async () => {
       const progress = await getAllLessonProgress()
-      const done = new Set(
+      const finishedIds = new Set(
         Object.values(progress)
           .filter((item) => item.status === 'done')
           .map((item) => item.lessonId),
       )
-      setQueue(readings.filter((reading) => !done.has(`listening-${reading.id}`)))
+      setDone(finishedIds)
+
+      // По умолчанию открываем уровень, на котором сейчас идёт курс.
+      const nextUnit = units.find((unit) => progress[unit.id]?.status !== 'done')
+      if (nextUnit) setLevel(nextUnit.level)
     })()
   }, [])
+
+  useEffect(() => {
+    setIndex(0)
+    setStep('gist')
+    setAnswers({})
+    setGistChecked(false)
+    setGistCorrect(0)
+    setDictationIndex(0)
+    setDictation('')
+    setDictationChecked(false)
+    setDictationCorrect(0)
+    setFinished(false)
+    setAudioFailed(false)
+  }, [level])
+
+  const unread = useMemo(() => {
+    if (!done) return [] as Reading[]
+    return readings.filter(
+      (reading) =>
+        (level === 'all' || reading.level === level) && !done.has(`listening-${reading.id}`),
+    )
+  }, [done, level])
+
+  const counts = useMemo(() => {
+    const map = new Map<Level, number>()
+    if (!done) return map
+    for (const reading of readings) {
+      if (done.has(`listening-${reading.id}`)) continue
+      map.set(reading.level, (map.get(reading.level) ?? 0) + 1)
+    }
+    return map
+  }, [done])
+
+  const queue = done ? unread : null
 
   useEffect(() => {
     return () => flushTime()
@@ -204,14 +245,17 @@ export default function ListeningScreen() {
     return (
       <>
         <AppBar title="Слушание" onBack={() => navigate('/')} />
-        <main className="px-5 pb-8 pt-10">
-          <div className="flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">
+        <main className="px-5 pb-8 pt-6">
+          <LevelChips level={level} counts={counts} onChange={setLevel} />
+          <div className="mt-4 flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">
             <Check size={28} strokeWidth={1.5} />
           </div>
-          <h1 className="mt-6 text-[30px] leading-tight">Слушание готово</h1>
+          <h1 className="mt-6 text-[30px] leading-tight">
+            {queue.length === 0 ? 'Этот уровень разобран' : 'Слушание готово'}
+          </h1>
           <p className="mt-2 text-[15px] text-ink-2">
             {queue.length === 0
-              ? 'Все тексты этого этапа разобраны. Новые появятся с обновлением контента.'
+              ? 'Выбери другой уровень выше. Новые тексты появятся с обновлением контента.'
               : `Разобрано текстов: ${index + 1}.`}
           </p>
           <Button className="mt-8 w-full" onClick={() => navigate('/')}>
@@ -233,6 +277,8 @@ export default function ListeningScreen() {
       />
 
       <main className="flex-1 px-5 pb-8 pt-6">
+        <LevelChips level={level} counts={counts} onChange={setLevel} />
+
         {step === 'gist' && (
           <>
             <p className="text-[13px] font-medium text-ink-3">Шаг 1 · Слушай</p>

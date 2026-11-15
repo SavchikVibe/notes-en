@@ -7,12 +7,10 @@ import { readingAudio } from '@/content/reading-audio'
 import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
+import { LevelChips } from '@/components/LevelChips'
 import { ReadView, type ExerciseViewHandle } from './lesson/exercises'
 
-const LEVELS: Level[] = ['A1', 'A2', 'B1', 'B2', 'C1']
-
-export default function ReadingScreen() {
-  const navigate = useNavigate()
+export default function ReadingScreen() {  const navigate = useNavigate()
   const [done, setDone] = useState<Set<string> | null>(null)
   const [level, setLevel] = useState<Level | 'all'>('A1')
   const [index, setIndex] = useState(0)
@@ -137,39 +135,7 @@ export default function ReadingScreen() {
     )
   }
 
-  const levelChips = (
-    <div className="mb-5 flex flex-wrap gap-2">
-      {LEVELS.map((item) => {
-        const active = level === item
-        return (
-          <button
-            key={item}
-            type="button"
-            onClick={() => setLevel(item)}
-            className={`flex min-h-10 items-center gap-1.5 rounded-[10px] border px-3 text-[15px] ${
-              active
-                ? 'border-accent bg-accent-soft text-accent'
-                : 'border-line bg-surface text-ink-2'
-            }`}
-          >
-            <span className="num">{item}</span>
-            <span className="text-[12px] text-ink-3">{counts.get(item) ?? 0}</span>
-          </button>
-        )
-      })}
-      <button
-        type="button"
-        onClick={() => setLevel('all')}
-        className={`flex min-h-10 items-center rounded-[10px] border px-3 text-[15px] ${
-          level === 'all'
-            ? 'border-accent bg-accent-soft text-accent'
-            : 'border-line bg-surface text-ink-2'
-        }`}
-      >
-        Все
-      </button>
-    </div>
-  )
+  const levelChips = <LevelChips level={level} counts={counts} onChange={setLevel} />
 
   if (finished || unread.length === 0) {
     return (

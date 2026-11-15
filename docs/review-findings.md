@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.64.0.
+Last updated: 2026-11-15, version 0.65.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.64.0)
+## 8. Current state (0.65.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
@@ -112,7 +112,7 @@ These are still the backbone of the roadmap.
 - Backup reminder: Today shows a row after 10 finished lessons when the last export is missing or older than 14 days; exporting stamps `last-backup` in `kv`.
 - `npm run check` runs content validation, reading checks and logic checks (normalization, shuffle determinism, cloze, session building).
 - Translation matching expands common contractions, so «I'm» and «I am» are both accepted.
-- Reading has a level filter with unread counts and defaults to the learner’s current level; Listening still has no filter.
+- Reading and Listening have a level filter with unread counts and default to the learner’s current level.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
@@ -125,7 +125,7 @@ These are still the backbone of the roadmap.
 
 Priority order unless the user changes it:
 
-1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Reading has a level filter; still open: the same filter for Listening and a retry list for weak results.
+1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Reading and Listening both have a level filter with unread counts; still open: a retry list for weak results.
 2. **Error bank and workshop.** Error bank is done: first-attempt mistakes in `choice`/`assemble`/`translate`/`listen` are stored in IndexedDB (`errors` store), returned the next day and then at 3, 7, 16, 35, 75 days, and practised from Today → «Ошибки». Still open: the 12-core + workshop flow for new units, and mixing old errors into the optional practice automatically.
 3. **Standalone speaking block.** Done: 30 tasks (6 per level) in `src/content/speaking.ts`, screen `/speaking`, 2 tasks per session, prep timer, recording, playback, checklist, progress in `kv` (`speaking-done`). Still open: shadowing with model audio, fluency cycle, IELTS Part 2 timing, and minimal pairs.
 4. **Content revision.** Done: assemble banks always have every answer token plus two distractors, dictation avoids duplicate sentences, validator is clean. Widening `accept` lists continues only where a real synonym exists.
