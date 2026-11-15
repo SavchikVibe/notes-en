@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.65.0.
+Last updated: 2026-11-15, version 0.66.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.65.0)
+## 8. Current state (0.66.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
@@ -107,7 +107,7 @@ These are still the backbone of the roadmap.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
 - Error bank: IndexedDB store `errors` (DB version 3), due errors on Today, practice screen `/errors`. Backup includes errors.
-- Speaking block: 30 tasks in `src/content/speaking.ts`, screen `/speaking`, 2 per session, progress in `kv`.
+- Speaking block: 40 tasks (30 answers + 10 shadowing) in `src/content/speaking.ts`, screen `/speaking`, 2 per session, progress in `kv`.
 - Writing portfolio: drafts live in the IndexedDB `writings` store (DB version 4), with the first checked version and the current text; screen `/portfolio`, linked from Progress. Old localStorage drafts migrate on first open. Backup includes writings and does not erase them when an older backup lacks that section.
 - Backup reminder: Today shows a row after 10 finished lessons when the last export is missing or older than 14 days; exporting stamps `last-backup` in `kv`.
 - `npm run check` runs content validation, reading checks and logic checks (normalization, shuffle determinism, cloze, session building).
@@ -127,7 +127,7 @@ Priority order unless the user changes it:
 
 1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Reading and Listening both have a level filter with unread counts; still open: a retry list for weak results.
 2. **Error bank and workshop.** Error bank is done: first-attempt mistakes in `choice`/`assemble`/`translate`/`listen` are stored in IndexedDB (`errors` store), returned the next day and then at 3, 7, 16, 35, 75 days, and practised from Today → «Ошибки». Still open: the 12-core + workshop flow for new units, and mixing old errors into the optional practice automatically.
-3. **Standalone speaking block.** Done: 30 tasks (6 per level) in `src/content/speaking.ts`, screen `/speaking`, 2 tasks per session, prep timer, recording, playback, checklist, progress in `kv` (`speaking-done`). Still open: shadowing with model audio, fluency cycle, IELTS Part 2 timing, and minimal pairs.
+3. **Standalone speaking block.** 40 tasks: 30 answers (6 per level) plus 10 shadowing tasks (2 per level) with model lines and system TTS. Screen `/speaking`, 2 tasks per session (one answer + one shadow when available), prep timer, recording, playback, checklist, progress in `kv` (`speaking-done`). Still open: a fluency cycle with 60-second timings, IELTS Part 2 structure, and minimal pairs.
 4. **Content revision.** Done: assemble banks always have every answer token plus two distractors, dictation avoids duplicate sentences, validator is clean. Widening `accept` lists continues only where a real synonym exists.
 5. **American English audit.** Done for what the validator can see: US spelling (`dialog`), GA IPA false positives fixed. Re-check when new content is added.
 6. **Writing portfolio.** Done: IndexedDB `writings` store, first checked version and current text, `/portfolio` screen linked from Progress, backup support. Still open: a revision prompt after the sample, and exporting a single work as text.

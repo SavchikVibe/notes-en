@@ -2,9 +2,9 @@
 
 Before changing this project, read **`docs/review-findings.md`**. It preserves the two independent reviews, the verified content audit, the decisions already made, the current state and the pending work. It is the long-term memory for this repository.
 
-Current state: version 0.65.0; 210 units; 1,600 words; 2,760 exercises; 27 Studio tasks (4 A1, 5 A2, 6 B1, 6 B2, 6 C1); 54 standalone reading texts, all inside target ranges; error bank with spaced review; standalone speaking block with 30 tasks; level filters in reading and listening; library audio on demand (precache ~17 MB); writing portfolio in IndexedDB; backup reminder; `npm run check` clean.
+Current state: version 0.66.0; 210 units; 1,600 words; 2,760 exercises; 27 Studio tasks (4 A1, 5 A2, 6 B1, 6 B2, 6 C1); 54 standalone reading texts, all inside target ranges; error bank with spaced review; speaking block with 40 tasks including shadowing; level filters in reading and listening; library audio on demand (precache ~17 MB); writing portfolio in IndexedDB; backup reminder; `npm run check` clean.
 
-Next planned phase: shadowing and fluency work in the speaking block, then the C1 units decision (60 short units vs project track). IELTS is on hold by user request.
+Next planned phase: the C1 units decision (60 short units vs a project track), then the remaining speaking work (fluency cycle, minimal pairs). IELTS is on hold by user request.
 
 Hard constraints: offline-first PWA for one user; no accounts, payments or sync; short 10–15-minute lessons; American English; workbook design; no gamification; TypeScript content; JSON backup.
 

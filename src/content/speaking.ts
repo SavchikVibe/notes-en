@@ -9,6 +9,9 @@ export interface SpeakingTask {
   speakingSeconds: number
   checklist: string[]
   usefulLanguage?: string[]
+  /** shadow — повторение готовых фраз за образцом. */
+  mode?: 'answer' | 'shadow'
+  lines?: string[]
 }
 
 /**
@@ -471,6 +474,196 @@ export const speakingTasks: SpeakingTask[] = [
       'Сформулировал(а) вывод с оговоркой.',
     ],
     usefulLanguage: ['It matters because …', 'The cost is real, yet …', 'A defensible conclusion is …'],
+  },
+  {
+    id: 'speak-shadow-a1-01',
+    level: 'A1',
+    title: 'Ритм: мой день',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 10,
+    speakingSeconds: 45,
+    mode: 'shadow',
+    lines: [
+      'I usually get up at seven in the morning.',
+      'Then I have breakfast and go to school.',
+      'In the evening I do my homework.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сохранил(а) ритм и ударения.',
+      'Во второй раз говорил(а) без листа.',
+    ],
+  },
+  {
+    id: 'speak-shadow-a1-02',
+    level: 'A1',
+    title: 'Ритм: мой друг',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 10,
+    speakingSeconds: 45,
+    mode: 'shadow',
+    lines: [
+      'My friend lives near the park.',
+      'We play football on Saturdays.',
+      'He is very good at it.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Не потерял(а) окончания слов.',
+      'Сказал(а) фразы слитно, без пауз между словами.',
+    ],
+  },
+  {
+    id: 'speak-shadow-a2-01',
+    level: 'A2',
+    title: 'Ритм: прошлые выходные',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 15,
+    speakingSeconds: 60,
+    mode: 'shadow',
+    lines: [
+      'Last weekend I went to the market with my sister.',
+      'We bought some fruit and a warm hat.',
+      'It was cold, but we had a good time.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сохранил(а) past simple: went, bought, had.',
+      'Связал(а) фразы интонацией, а не паузами.',
+    ],
+  },
+  {
+    id: 'speak-shadow-a2-02',
+    level: 'A2',
+    title: 'Ритм: планы',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 15,
+    speakingSeconds: 60,
+    mode: 'shadow',
+    lines: [
+      'I am going to visit my grandparents in July.',
+      'We will travel by train and stay for a week.',
+      'I hope the weather will be sunny.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сказал(а) going to и will без запинки.',
+      'Сохранил(а) ровный темп.',
+    ],
+  },
+  {
+    id: 'speak-shadow-b1-01',
+    level: 'B1',
+    title: 'Ритм: учёба',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 20,
+    speakingSeconds: 75,
+    mode: 'shadow',
+    lines: [
+      'I have been learning English for about three years.',
+      'At first it was difficult, but now I enjoy it.',
+      'I try to practise a little every day.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сказал(а) have been learning без паузы.',
+      'Сохранил(а) естественные ударения.',
+    ],
+  },
+  {
+    id: 'speak-shadow-b1-02',
+    level: 'B1',
+    title: 'Ритм: мой город',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 20,
+    speakingSeconds: 75,
+    mode: 'shadow',
+    lines: [
+      'One thing I would change about my city is the traffic.',
+      'There are too many cars in the center.',
+      'The city should build more bike lanes.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сказал(а) would change и should build правильно.',
+      'Не разрывал(а) фразу на отдельные слова.',
+    ],
+  },
+  {
+    id: 'speak-shadow-b2-01',
+    level: 'B2',
+    title: 'Ритм: удалённая работа',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 25,
+    speakingSeconds: 90,
+    mode: 'shadow',
+    lines: [
+      'Although remote work saves time, it can make teamwork harder.',
+      'On the other hand, it gives people more control.',
+      'In my view, a hybrid model works best.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сохранил(а) логические ударения на although и on the other hand.',
+      'Связал(а) фразы без длинных пауз.',
+    ],
+  },
+  {
+    id: 'speak-shadow-b2-02',
+    level: 'B2',
+    title: 'Ритм: жизнь в городе',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 25,
+    speakingSeconds: 90,
+    mode: 'shadow',
+    lines: [
+      'The main advantage of living in a city is access to opportunities.',
+      'However, the cost of housing has risen sharply.',
+      'This puts pressure on younger residents.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сказал(а) however с правильной интонацией.',
+      'Сохранил(а) ровный темп в длинной фразе.',
+    ],
+  },
+  {
+    id: 'speak-shadow-c1-01',
+    level: 'C1',
+    title: 'Ритм: эффективность',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 30,
+    speakingSeconds: 105,
+    mode: 'shadow',
+    lines: [
+      'It is tempting to treat efficiency as an end in itself.',
+      'In practice, however, resilient systems need a certain amount of slack.',
+      'The question is not whether to optimize, but what to optimize for.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сохранил(а) паузы в длинных конструкциях.',
+      'Сказал(а) фразы слитно, не по словам.',
+    ],
+  },
+  {
+    id: 'speak-shadow-c1-02',
+    level: 'C1',
+    title: 'Ритм: доверие',
+    prompt: 'Listen to each line, then repeat all three without reading.',
+    preparationSeconds: 30,
+    speakingSeconds: 105,
+    mode: 'shadow',
+    lines: [
+      'Trust in institutions depends less on claims than on behavior.',
+      'When errors are acknowledged openly, credibility tends to recover.',
+      'That is a slower process, and a more durable one.',
+    ],
+    checklist: [
+      'Повторил(а) все три фразы.',
+      'Сохранил(а) ударение на смысловых словах.',
+      'Не потерял(а) окончания в быстрой речи.',
+    ],
   },
 ]
 

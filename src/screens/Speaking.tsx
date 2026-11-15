@@ -4,8 +4,10 @@ import { Check, Mic, Play, Square } from 'lucide-react'
 import { units } from '@/content'
 import { speakingTasksFor, type SpeakingTask } from '@/content/speaking'
 import { getAllLessonProgress, getKv, setKv } from '@/db/db'
+import { speak } from '@/lib/speech'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
+import { SpeakButton } from '@/components/SpeakButton'
 
 type Phase = 'idle' | 'prep' | 'recording' | 'recorded'
 
@@ -42,12 +44,18 @@ export default function SpeakingScreen() {
       const level = nextUnit?.level ?? 'A1'
       const levelTasks = speakingTasksFor(level)
       const fresh = levelTasks.filter((task) => !completed[task.id])
+      const pickSession = (pool: SpeakingTask[]): SpeakingTask[] => {
+        const answer = pool.find((item) => item.mode !== 'shadow')
+        const shadow = pool.find((item) => item.mode === 'shadow')
+        if (answer && shadow) return [answer, shadow]
+        return pool.slice(0, TASKS_PER_SESSION)
+      }
       const chosen =
         fresh.length > 0
-          ? fresh.slice(0, TASKS_PER_SESSION)
-          : [...levelTasks]
-              .sort((a, b) => (completed[a.id] ?? 0) - (completed[b.id] ?? 0))
-              .slice(0, TASKS_PER_SESSION)
+          ? pickSession(fresh)
+          : pickSession(
+              [...levelTasks].sort((a, b) => (completed[a.id] ?? 0) - (completed[b.id] ?? 0)),
+            )
       setQueue(chosen)
     })()
   }, [])
@@ -187,6 +195,32 @@ export default function SpeakingScreen() {
       <main className="flex-1 px-5 pb-8 pt-6">
         <h1 className="text-[26px] leading-tight">{task.title}</h1>
         <p className="mt-2 text-[16px] leading-relaxed text-ink-2">{task.prompt}</p>
+
+        {task.mode === 'shadow' && task.lines && task.lines.length > 0 && (
+          <div className="mt-4 border-l-2 border-accent pl-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <p className="text-[13px] font-medium text-ink-3">Образец</p>
+              <button
+                type="button"
+                onClick={() => speak(task.lines!.join(' '), 0.9)}
+                className="flex min-h-9 items-center rounded-[8px] border border-line px-2.5 text-[13px] text-ink-2"
+              >
+                Прослушать всё
+              </button>
+            </div>
+            <ul className="mt-2 space-y-1.5">
+              {task.lines.map((line) => (
+                <li key={line} className="flex items-start gap-1">
+                  <SpeakButton text={line} size={14} compact />
+                  <p className="font-serif text-[17px] leading-snug">{line}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-[13px] leading-snug text-ink-3">
+              Сначала прослушай каждую фразу, потом повтори все три без текста.
+            </p>
+          </div>
+        )}
 
         {task.usefulLanguage && task.usefulLanguage.length > 0 && (
           <div className="mt-4 border-l-2 border-accent pl-4">
