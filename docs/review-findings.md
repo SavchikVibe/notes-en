@@ -107,7 +107,7 @@ These are still the backbone of the roadmap.
 - Naturalness pass A1-16…40: fixed calques and mismatches — «ответь на телефон» → «на звонок», «практиковал английский» → «занимался английским», present continuous translated as «носит» → «на ней», `cinema` → `movies`, «собрать чемодан» → «уложить», «делать стирку» → «стирать», «проект был весёлым» → «интересным», «grow up» examples made natural.
 - Naturalness pass A1-01…15: removed past tense and present continuous from units where they are not taught yet (01, 03, 04, 08, 09, 10, 12), fixed «университет» → «колледж» and «напиши молоко в список» → «добавь».
 - Naturalness pass A2-01…10: «любимый родственник» → «родственница», «организую стол» → «разбираю», «в эти дни» → «в последнее время», «ужасное движение» → «пробки», `cinema` → `movies`, «учится на степень» → «получает высшее образование», `doctor's appointment`.
-- Naturalness pass A2-11…20: «занимает деньги» → «берёт в долг», `fall` вместо `autumn`, «инженерия» → «инженер по образованию», «хорошие вызовы» → «трудные задачи», «держит обещания» → «сдерживает», `practicing`, «разрешают собак» → «пускают с собаками».
+- Naturalness pass A2-11…20: «занимает деньги» → «берёт в долг», `fall` chosen over `autumn` (both are correct in the US; `fall` is more common), «инженерия» → «инженер по образованию», «хорошие вызовы» → «трудные задачи», «держит обещания» → «сдерживает», `practicing` (real UK/US spelling fix), «разрешают собак» → «пускают с собаками».
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
