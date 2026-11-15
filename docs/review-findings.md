@@ -94,20 +94,20 @@ These are still the backbone of the roadmap.
 - **Studio count.** 27 tasks total: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1. One per 10-unit block. Completed in 0.38.0–0.49.0.
 - **Audio.** Studio dialogues use bundled neural audio (Edge TTS, generated at build time). System TTS remains for words and as a fallback. The user’s phone has only one system voice; this is expected.
 - **Voice settings.** The user can choose an en-US system voice for words/fallback; Studio audio is fixed. No Studio voice picker for now.
-- **Storage.** The user has plenty of free space; do not split the precache yet. Current precache is about 16.8 MB.
+- **Storage.** The user has plenty of free space; do not split the precache yet. Current precache is about 73 MB, because all 54 library texts have bundled neural audio. Flag this to the user before adding more audio.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
-- **Next phase.** Expand the reading library: A2 first, then B1, B2, C1. Reuse the existing Reading/Listening screens; add exam-style questions and evidence.
+- **Next phase.** The reading library is complete (54 texts). Move to the error bank/workshop, the standalone speaking block, and the content revision.
 
-## 8. Current state (0.55.0)
+## 8. Current state (0.56.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
-- 32 standalone reading texts: 10 A1 (107–118 words), 10 A2, 12 B1.
+- 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (164–213), 12 B1 (271–384), 12 B2 (702–718), 10 C1 (901–915).
 - 27 Studio audio files in `public/audio/`.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.55.0.
+- Version 0.56.0.
 - `npm run validate:content` passes with 1,504 warnings. Warnings are content debt, not build failures.
 - `npm run audit:content` prints the detailed audit table.
 
@@ -115,7 +115,7 @@ These are still the backbone of the roadmap.
 
 Priority order unless the user changes it:
 
-1. **Reading library expansion.** A1 revision is done (10 texts, 107–118 words); A2 is done (10 texts); B1 is done (12 texts). Next: B2 12, C1 10. Include TFNG, headings, evidence, inference, note completion. Reuse texts across skills.
+1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Later: level filter, retry list, and evidence-quote cleanup in the older A1/A2/B1 texts (21 quotes are paraphrased or end with different punctuation).
 2. **Error bank and workshop.** Save wrong exercises with due dates; mix old errors into optional practice; add the 12-core + workshop flow for new units.
 3. **Standalone speaking block.** Today still says “Речь — скоро”. Use the Studio speaking format: prompt, preparation, recording, rubric, re-record.
 4. **Content revision B1/B2.** Remove duplicate sentences, add distractors, widen `accept` lists, vary answer positions, lengthen reading, check level fit.
@@ -172,20 +172,20 @@ npx tsx scripts/export-library-audio.ts
 
 | Level | Texts | Words each | Status |
 |---|---:|---|---|
-| A1 | 10 | 100–200 | 10 exist, but they are 40–74 words; revise/expand |
-| A2 | 10 | 200–300 | 8 done; add 2 |
-| B1 | 12 | 400–600 | not started |
-| B2 | 12 | 700–900 | not started |
-| C1 | 10 | 900–1200 | not started |
+| A1 | 10 | 100–200 | done: 107–118 words |
+| A2 | 10 | 200–300 | done: 164–213 words |
+| B1 | 12 | 400–600 | done: 271–384 words (short of target, acceptable for B1) |
+| B2 | 12 | 700–900 | done: 702–718 words |
+| C1 | 10 | 900–1200 | done: 901–915 words |
 | **Total** | **54** | | about 30,000 words |
 
 The 27 Studio tasks add about 10,000 words of reading. Together the app will have about 40,000 words of graded reading.
 
-Every library text should have 3–5 questions, evidence, and a neural audio version. Audio estimate: 2–3 minutes per text, about 50–70 MB for the library; the user has enough storage. Generate audio in batches, not all at once.
+Every library text has 3–7 questions, evidence, and a neural audio version. The 54 texts produced about 73 MB of MP3 at the current bitrate; the user has enough storage, but a future option is on-demand caching of library audio to keep the install smaller.
 
 ### Remaining stages, in recommended order
 
-1. **Finish the reading library.** A2 +2, B1 12, B2 12, C1 10; revise A1 to 100–200 words; add neural audio; add level filter and a library list with retry. Effort L. This is the next phase because reading is the learner’s weakest skill.
+1. **Reading library polish.** The 54 texts exist. Add a level filter and a library list with retry; clean up 21 evidence quotes in the older A1/A2/B1 texts that are paraphrased or end with different punctuation. Effort S.
 2. **Error bank and workshop.** Save wrong exercises across lessons with due dates; mix old errors into optional practice; implement 12-core + workshop for new units. Effort M. Both reviews asked for this.
 3. **Standalone speaking block.** Replace the “Речь — скоро” placeholder with the Studio speaking format: prompt, preparation, recording, rubric, re-record. Add fluency cycle, shadowing, minimal pairs, IELTS Part 2. Effort M.
 4. **Content revision A1–B2.** Remove 739 duplicate sentences; add distractors to 517 `assemble` items; widen 349 `accept` lists; vary source answer positions; fix level fit; audit American English; review naturalness and translation quality. Effort L.
