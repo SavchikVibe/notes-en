@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Check } from 'lucide-react'
 import { getStudioTask } from '@/content/studio'
-import { addStudyTime, finishLesson } from '@/db/db'
+import { addStudyTime, finishLesson, getKv, setKv } from '@/db/db'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
 import { ReadingStep } from './studio/ReadingStep'
@@ -23,38 +23,53 @@ export default function StudioTaskScreen() {
   const navigate = useNavigate()
   const task = getStudioTask(id)
 
-  const [step, setStep] = useState(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem(`studio:${id}`) ?? 'null') as {
-        step?: number
-      } | null
-      return Math.min(3, Math.max(0, saved?.step ?? 0))
-    } catch {
-      return 0
-    }
-  })
-  const [done, setDone] = useState<boolean[]>(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem(`studio:${id}`) ?? 'null') as {
-        done?: boolean[]
-      } | null
-      return Array.isArray(saved?.done) && saved.done.length === 4
-        ? saved.done
-        : [false, false, false, false]
-    } catch {
-      return [false, false, false, false]
-    }
-  })
+  const [step, setStep] = useState(0)
+  const [done, setDone] = useState<boolean[]>([false, false, false, false])
+  const [ready, setReady] = useState(false)
   const [finished, setFinished] = useState(false)
   const startedAt = useRef(Date.now())
 
   useEffect(() => {
-    try {
-      localStorage.setItem(`studio:${id}`, JSON.stringify({ step, done }))
-    } catch {
-      // Черновик шага не сохранится, но сама студия продолжит работать.
+    let alive = true
+    void (async () => {
+      const saved = await getKv<{ step?: number; done?: boolean[] }>(`studio:${id}`)
+      if (!alive) return
+      if (saved) {
+        setStep(Math.min(3, Math.max(0, saved.step ?? 0)))
+        if (Array.isArray(saved.done) && saved.done.length === 4) setDone(saved.done)
+      } else {
+        // Переносим старый прогресс из localStorage один раз.
+        try {
+          const legacy = JSON.parse(localStorage.getItem(`studio:${id}`) ?? 'null') as {
+            step?: number
+            done?: boolean[]
+          } | null
+          if (legacy) {
+            const nextStep = Math.min(3, Math.max(0, legacy.step ?? 0))
+            const nextDone =
+              Array.isArray(legacy.done) && legacy.done.length === 4
+                ? legacy.done
+                : [false, false, false, false]
+            setStep(nextStep)
+            setDone(nextDone)
+            await setKv(`studio:${id}`, { step: nextStep, done: nextDone })
+            localStorage.removeItem(`studio:${id}`)
+          }
+        } catch {
+          // Битый localStorage просто игнорируем.
+        }
+      }
+      setReady(true)
+    })()
+    return () => {
+      alive = false
     }
-  }, [id, step, done])
+  }, [id])
+
+  useEffect(() => {
+    if (!ready) return
+    void setKv(`studio:${id}`, { step, done })
+  }, [id, step, done, ready])
 
   const markDone = useCallback((index: number) => {
     setDone((current) => current.map((value, itemIndex) => (itemIndex === index ? true : value)))
@@ -86,6 +101,14 @@ export default function StudioTaskScreen() {
       // Не критично: при следующем запуске шаг просто восстановится.
     }
     setFinished(true)
+  }
+
+  if (!ready) {
+    return (
+      <div className="mx-auto flex min-h-dvh w-full max-w-[560px] items-center justify-center px-5">
+        <p className="text-[15px] text-ink-3">Загрузка…</p>
+      </div>
+    )
   }
 
   if (finished) {

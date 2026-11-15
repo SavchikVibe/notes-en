@@ -302,6 +302,16 @@ export default function SpeakingScreen() {
             Чек-лист не блокирует завершение. Достаточно записать ответ или пропустить задание.
           </p>
         </div>
+
+        <div className="mt-7 border-t border-line pt-5">
+          <p className="text-[13px] font-medium text-ink-3">Беглость</p>
+          <p className="mt-1 text-[15px] leading-snug text-ink-2">
+            60 секунд без подготовки: говори на тему, послушай себя, повтори.
+          </p>
+          <Button variant="secondary" className="mt-3" onClick={() => navigate('/fluency')}>
+            Открыть цикл беглости
+          </Button>
+        </div>
       </main>
 
       <div

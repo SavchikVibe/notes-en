@@ -4,14 +4,26 @@ import { Check } from 'lucide-react'
 import { units, type Level } from '@/content'
 import { readings, type Reading } from '@/content/readings'
 import { readingAudio } from '@/content/reading-audio'
-import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
+import { addStudyTime, finishLesson, getAllLessonProgress, getKv, setKv } from '@/db/db'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
 import { LevelChips } from '@/components/LevelChips'
 import { ReadView, type ExerciseViewHandle } from './lesson/exercises'
 
-export default function ReadingScreen() {  const navigate = useNavigate()
+interface ReadingResult {
+  score: number
+  total: number
+  passed: boolean
+  at: number
+}
+
+const RESULTS_KEY = 'reading-results'
+
+export default function ReadingScreen() {
+  const navigate = useNavigate()
   const [done, setDone] = useState<Set<string> | null>(null)
+  const [results, setResults] = useState<Record<string, ReadingResult>>({})
+  const [focusId, setFocusId] = useState<string | null>(null)
   const [level, setLevel] = useState<Level | 'all'>('A1')
   const [index, setIndex] = useState(0)
   const [phase, setPhase] = useState<'answer' | 'feedback'>('answer')
@@ -32,13 +44,17 @@ export default function ReadingScreen() {  const navigate = useNavigate()
 
   useEffect(() => {
     void (async () => {
-      const progress = await getAllLessonProgress()
+      const [progress, storedResults] = await Promise.all([
+        getAllLessonProgress(),
+        getKv<Record<string, ReadingResult>>(RESULTS_KEY),
+      ])
       const finishedIds = new Set(
         Object.values(progress)
           .filter((item) => item.status === 'done')
           .map((item) => item.lessonId),
       )
       setDone(finishedIds)
+      setResults(storedResults ?? {})
 
       // По умолчанию открываем уровень, на котором сейчас идёт курс.
       const nextUnit = units.find((unit) => progress[unit.id]?.status !== 'done')
@@ -52,6 +68,7 @@ export default function ReadingScreen() {  const navigate = useNavigate()
 
   useEffect(() => {
     setIndex(0)
+    setFocusId(null)
     setPhase('answer')
     setCanCheck(false)
     setFinished(false)
@@ -75,7 +92,17 @@ export default function ReadingScreen() {  const navigate = useNavigate()
     return map
   }, [done])
 
-  const current = unread[index]
+  const weak = useMemo(
+    () =>
+      readings.filter((reading) => {
+        const result = results[reading.id]
+        return result && !result.passed
+      }),
+    [results],
+  )
+
+  const focused = focusId ? readings.find((reading) => reading.id === focusId) ?? null : null
+  const current = focused ?? unread[index]
   const audioSrc =
     current && readingAudio[current.id]
       ? `${import.meta.env.BASE_URL}${readingAudio[current.id]}`
@@ -108,13 +135,35 @@ export default function ReadingScreen() {  const navigate = useNavigate()
     setLastScore(correct)
     setLastTotal(total)
     const threshold = Math.ceil(total * 0.6)
-    if (correct >= threshold) {
+    const passed = correct >= threshold
+    const nextResults = {
+      ...results,
+      [current.id]: { score: correct, total, passed, at: Date.now() },
+    }
+    setResults(nextResults)
+    void setKv(RESULTS_KEY, nextResults)
+    if (passed) {
       void finishLesson(current.id, correct / total, total)
     }
   }
 
+  function startFocus(id: string) {
+    setFocusId(id)
+    setPhase('answer')
+    setCanCheck(false)
+    setLastScore(0)
+    setLastTotal(0)
+    window.scrollTo({ top: 0 })
+  }
+
   function next() {
     flushTime()
+    if (focusId) {
+      setFocusId(null)
+      setPhase('answer')
+      setCanCheck(false)
+      return
+    }
     if (index + 1 >= unread.length) {
       setFinished(true)
       return
@@ -137,7 +186,7 @@ export default function ReadingScreen() {  const navigate = useNavigate()
 
   const levelChips = <LevelChips level={level} counts={counts} onChange={setLevel} />
 
-  if (finished || unread.length === 0) {
+  if (!focused && (finished || unread.length === 0)) {
     return (
       <>
         <AppBar title="Чтение" onBack={() => navigate('/')} />
@@ -179,12 +228,33 @@ export default function ReadingScreen() {  const navigate = useNavigate()
     <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col">
       <AppBar
         title="Чтение"
-        subtitle={`${current.level} · ${index + 1} из ${unread.length}`}
+        subtitle={
+          focused ? `${focused.level} · повтор` : `${current.level} · ${index + 1} из ${unread.length}`
+        }
         onBack={() => navigate('/')}
       />
 
       <main className="flex-1 px-5 pb-8 pt-6">
         {levelChips}
+
+        {!focused && weak.length > 0 && (
+          <section className="mb-5 border-l-2 border-warn pl-4">
+            <p className="text-[13px] font-medium text-warn">Вернуться</p>
+            <ul className="mt-1 space-y-1">
+              {weak.slice(0, 3).map((reading) => (
+                <li key={reading.id}>
+                  <button
+                    type="button"
+                    onClick={() => startFocus(reading.id)}
+                    className="text-left text-[15px] leading-snug text-ink underline underline-offset-4"
+                  >
+                    {reading.title} · {results[reading.id]?.score} из {results[reading.id]?.total}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {useAudio && (
           <div className="mb-4 flex flex-wrap gap-2">
@@ -268,7 +338,11 @@ export default function ReadingScreen() {  const navigate = useNavigate()
           </Button>
         ) : (
           <Button className="w-full" onClick={next}>
-            {index + 1 >= unread.length ? 'Готово' : 'Следующий текст'}
+            {focused
+              ? 'К списку'
+              : index + 1 >= unread.length
+                ? 'Готово'
+                : 'Следующий текст'}
           </Button>
         )}
       </div>

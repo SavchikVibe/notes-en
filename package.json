@@ -1,7 +1,7 @@
 {
   "name": "english-app",
   "private": true,
-  "version": "0.66.0",
+  "version": "0.67.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +12,8 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "check:readings": "tsx scripts/check-readings.ts",
     "check:logic": "tsx scripts/check-logic.ts",
-    "check": "tsx scripts/validate-content.ts && tsx scripts/check-readings.ts && tsx scripts/check-logic.ts",
+    "check:db": "tsx scripts/check-db.ts",
+    "check": "tsx scripts/validate-content.ts && tsx scripts/check-readings.ts && tsx scripts/check-logic.ts && tsx scripts/check-db.ts",
     "audit:content": "tsx scripts/audit-content.ts",
     "icons": "node scripts/make-icons.mjs"
   },
@@ -22,6 +23,7 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.2.1",
+    "fake-indexeddb": "^6.2.8",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
