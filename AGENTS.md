@@ -1,0 +1,18 @@
+# Project instructions for agents
+
+Before changing this project, read **`docs/review-findings.md`**. It preserves the two independent reviews, the verified content audit, the decisions already made, the current state and the pending work. It is the long-term memory for this repository.
+
+Current state: version 0.49.0; 210 units; 1,600 words; 2,760 exercises; 27 Studio tasks (4 A1, 5 A2, 6 B1, 6 B2, 6 C1); 10 standalone reading texts, all A1.
+
+Next planned phase: expand the reading library — A2 first, then B1, B2, C1.
+
+Hard constraints: offline-first PWA for one user; no accounts, payments or sync; short 10–15-minute lessons; American English; workbook design; no gamification; TypeScript content; JSON backup.
+
+Useful commands:
+
+```bash
+npm run validate:content
+npm run audit:content
+node scripts/deploy-pages.mjs SavchikVibe/notes-en
+python scripts/generate-studio-audio.py
+```
