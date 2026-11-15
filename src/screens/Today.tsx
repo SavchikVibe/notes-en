@@ -7,6 +7,7 @@ import { studioTasks } from '@/content/studio'
 import {
   addWordsToSrs,
   countDue,
+  countDueErrors,
   getAllLessonProgress,
   getSettings,
   type LessonProgress,
@@ -23,6 +24,7 @@ export default function TodayScreen() {
     progress: Record<string, LessonProgress>
     settings: Settings
     due: number
+    errorsDue: number
     readingsLeft: number
     listeningLeft: number
   } | null>(null)
@@ -41,6 +43,7 @@ export default function TodayScreen() {
           .flatMap((unit) => unit.words.map((word) => word.id)),
       )
       const due = await countDue()
+      const errorsDue = await countDueErrors()
       const doneReadings = new Set(
         Object.values(progress)
           .filter((item) => item.status === 'done' && item.lessonId.startsWith('reading-'))
@@ -55,7 +58,7 @@ export default function TodayScreen() {
       const listeningLeft = readings.filter(
         (reading) => !doneListening.has(`listening-${reading.id}`),
       ).length
-      setState({ progress, settings, due, readingsLeft, listeningLeft })
+      setState({ progress, settings, due, errorsDue, readingsLeft, listeningLeft })
     })()
   }, [])
 
@@ -207,6 +210,31 @@ export default function TodayScreen() {
             произношения.
           </p>
         </section>
+
+        {state.errorsDue > 0 && (
+          <section className="mt-9">
+            <h2 className="text-[20px]">Ошибки</h2>
+            <p className="mt-1 text-[13px] text-ink-3">
+              Задания, где первый ответ был неверным
+            </p>
+            <button
+              type="button"
+              onClick={() => navigate('/errors')}
+              className="mt-2 flex min-h-[60px] w-full items-start justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
+            >
+              <div className="min-w-0">
+                <p className="text-[17px] text-ink">Повторить ошибки</p>
+                <p className="text-[13px] text-ink-3">
+                  через день, потом 3, 7, 16 дней
+                </p>
+              </div>
+              <div className="shrink-0 text-right">
+                <p className="num text-[15px] text-ink-2">{state.errorsDue}</p>
+                <p className="text-[11px] text-accent">повторить</p>
+              </div>
+            </button>
+          </section>
+        )}
 
         <section className="mt-9">
           <h2 className="text-[20px]">Студия</h2>

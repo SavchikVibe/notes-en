@@ -2,7 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Check, ChevronDown, X } from 'lucide-react'
 import { getUnit } from '@/content'
-import { finishLesson, getLessonProgress, saveAnswer, saveSkip, restartLesson, addStudyTime, addWordsToSrs } from '@/db/db'
+import { finishLesson, getLessonProgress, saveAnswer, saveError, saveSkip, restartLesson, addStudyTime, addWordsToSrs } from '@/db/db'
+import { isReviewable } from '@/lib/errors'
 import { Button } from '@/components/Button'
 import { SpeakButton } from '@/components/SpeakButton'
 import { renderExercise, type ExerciseViewHandle } from './lesson/exercises'
@@ -125,6 +126,7 @@ export default function LessonScreen() {
 
       if (firstAttempt && !correct) {
         setMistakes((value) => value + 1)
+        if (isReviewable(exercise)) void saveError(unit.id, exercise.id)
         if (!requeued.current.has(exerciseIndex)) {
           requeued.current.add(exerciseIndex)
           setQueue((currentQueue) => [...currentQueue, exerciseIndex])

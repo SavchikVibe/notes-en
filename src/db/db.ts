@@ -34,6 +34,18 @@ export interface SrsCard {
   lastAt: number
 }
 
+/** Ошибка в упражнении, которая возвращается по расписанию. */
+export interface ErrorItem {
+  exerciseId: string
+  unitId: string
+  box: number
+  dueAt: number
+  reviews: number
+  correct: number
+  wrong: number
+  lastAt: number
+}
+
 export interface Settings {
   /** Целевые минуты по дню недели. 0 — воскресенье. */
   minutes: Record<number, number>
@@ -61,13 +73,14 @@ interface EnglishDB extends DBSchema {
   days: { key: string; value: DayLog }
   kv: { key: string; value: unknown }
   srs: { key: string; value: SrsCard }
+  errors: { key: string; value: ErrorItem }
 }
 
 let dbPromise: Promise<IDBPDatabase<EnglishDB>> | null = null
 
 function db() {
   if (!dbPromise) {
-    dbPromise = openDB<EnglishDB>('english', 2, {
+    dbPromise = openDB<EnglishDB>('english', 3, {
       upgrade(database, oldVersion) {
         if (oldVersion < 1) {
           database.createObjectStore('progress', { keyPath: 'lessonId' })
@@ -76,6 +89,9 @@ function db() {
         }
         if (oldVersion < 2) {
           database.createObjectStore('srs', { keyPath: 'wordId' })
+        }
+        if (oldVersion < 3) {
+          database.createObjectStore('errors', { keyPath: 'exerciseId' })
         }
       },
       blocking() {
@@ -178,7 +194,8 @@ export async function finishLesson(
   lessonId: string,
   score: number,
   exerciseCount: number,
-): Promise<void> {  const database = await db()
+): Promise<void> {
+  const database = await db()
   const existing = await database.get('progress', lessonId)
   await database.put('progress', {
     ...existing,
@@ -293,8 +310,72 @@ export async function reviewCard(wordId: string, correct: boolean): Promise<void
   })
 }
 
-export async function getSettings(): Promise<Settings> {
-  const stored = (await (await db()).get('kv', 'settings')) as Partial<Settings> | undefined
+/* ------------------------------- error bank -------------------------------- */
+
+const ERROR_DAYS = [1, 3, 7, 16, 35, 75]
+const DAY_MS = 86_400_000
+
+/** Первая ошибка: карточка ждёт следующего дня, чтобы не дублировать урок. */
+export async function saveError(unitId: string, exerciseId: string): Promise<void> {
+  const database = await db()
+  const existing = await database.get('errors', exerciseId)
+  const now = Date.now()
+  if (existing) {
+    await database.put('errors', {
+      ...existing,
+      box: 0,
+      dueAt: now + DAY_MS,
+      wrong: existing.wrong + 1,
+      lastAt: now,
+    })
+    return
+  }
+  await database.put('errors', {
+    exerciseId,
+    unitId,
+    box: 0,
+    dueAt: now + DAY_MS,
+    reviews: 0,
+    correct: 0,
+    wrong: 1,
+    lastAt: now,
+  })
+}
+
+export async function reviewError(exerciseId: string, correct: boolean): Promise<void> {
+  const database = await db()
+  const item = await database.get('errors', exerciseId)
+  if (!item) return
+  const now = Date.now()
+  const nextBox = correct ? Math.min(item.box + 1, ERROR_DAYS.length - 1) : 0
+  const days = correct ? ERROR_DAYS[nextBox] : 1
+  await database.put('errors', {
+    ...item,
+    box: nextBox,
+    dueAt: now + days * DAY_MS,
+    reviews: item.reviews + 1,
+    correct: item.correct + (correct ? 1 : 0),
+    wrong: item.wrong + (correct ? 0 : 1),
+    lastAt: now,
+  })
+}
+
+export async function getDueErrors(limit = 12): Promise<ErrorItem[]> {
+  const now = Date.now()
+  const all = await (await db()).getAll('errors')
+  return all
+    .filter((item) => item.dueAt <= now)
+    .sort((a, b) => a.dueAt - b.dueAt)
+    .slice(0, limit)
+}
+
+export async function countDueErrors(): Promise<number> {
+  const now = Date.now()
+  const all = await (await db()).getAll('errors')
+  return all.filter((item) => item.dueAt <= now).length
+}
+
+export async function getSettings(): Promise<Settings> {  const stored = (await (await db()).get('kv', 'settings')) as Partial<Settings> | undefined
   if (!stored) return { ...defaultSettings, minutes: { ...DEFAULT_MINUTES } }
   return {
     minutes: { ...DEFAULT_MINUTES, ...stored.minutes },
@@ -313,6 +394,7 @@ export interface Backup {
   progress: LessonProgress[]
   days: DayLog[]
   srs?: SrsCard[]
+  errors?: ErrorItem[]
 }
 
 export async function exportBackup(): Promise<Backup> {
@@ -324,6 +406,7 @@ export async function exportBackup(): Promise<Backup> {
     progress: await database.getAll('progress'),
     days: await database.getAll('days'),
     srs: await database.getAll('srs'),
+    errors: await database.getAll('errors'),
   }
 }
 
@@ -332,24 +415,27 @@ export async function importBackup(data: unknown): Promise<void> {
   const backup = data as Partial<Backup>
   if (backup.version !== 1) throw new Error('Неизвестная версия бэкапа')
   const database = await db()
-  const tx = database.transaction(['progress', 'days', 'kv', 'srs'], 'readwrite')
+  const tx = database.transaction(['progress', 'days', 'kv', 'srs', 'errors'], 'readwrite')
   await tx.objectStore('progress').clear()
   await tx.objectStore('days').clear()
   await tx.objectStore('srs').clear()
+  await tx.objectStore('errors').clear()
   for (const item of backup.progress ?? []) await tx.objectStore('progress').put(item)
   for (const item of backup.days ?? []) await tx.objectStore('days').put(item)
   for (const item of backup.srs ?? []) await tx.objectStore('srs').put(item)
+  for (const item of backup.errors ?? []) await tx.objectStore('errors').put(item)
   if (backup.settings) await tx.objectStore('kv').put(backup.settings, 'settings')
   await tx.done
 }
 
 export async function resetAll(): Promise<void> {
   const database = await db()
-  const tx = database.transaction(['progress', 'days', 'kv', 'srs'], 'readwrite')
+  const tx = database.transaction(['progress', 'days', 'kv', 'srs', 'errors'], 'readwrite')
   await tx.objectStore('progress').clear()
   await tx.objectStore('days').clear()
   await tx.objectStore('kv').clear()
   await tx.objectStore('srs').clear()
+  await tx.objectStore('errors').clear()
   await tx.done
 }
 

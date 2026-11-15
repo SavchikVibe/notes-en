@@ -9,6 +9,7 @@ import ProgressScreen from '@/screens/Progress'
 import SettingsScreen from '@/screens/Settings'
 import LessonScreen from '@/screens/Lesson'
 import ReviewScreen from '@/screens/Review'
+import ErrorsScreen from '@/screens/Errors'
 import ReadingScreen from '@/screens/Reading'
 import ListeningScreen from '@/screens/Listening'
 import LevelScreen from '@/screens/Level'
@@ -32,6 +33,7 @@ export default function App() {
       </Route>
       <Route path="lesson/:id" element={<LessonScreen />} />
       <Route path="review" element={<ReviewScreen />} />
+      <Route path="errors" element={<ErrorsScreen />} />
       <Route path="reading" element={<ReadingScreen />} />
       <Route path="listening" element={<ListeningScreen />} />
       <Route path="studio" element={<StudioScreen />} />
