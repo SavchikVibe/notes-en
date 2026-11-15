@@ -26,4 +26,7 @@ export const readingAudio: Record<string, string> = {
   'reading-24': 'audio/readings/reading-24.mp3',
   'reading-25': 'audio/readings/reading-25.mp3',
   'reading-26': 'audio/readings/reading-26.mp3',
+  'reading-27': 'audio/readings/reading-27.mp3',
+  'reading-28': 'audio/readings/reading-28.mp3',
+  'reading-29': 'audio/readings/reading-29.mp3',
 }
