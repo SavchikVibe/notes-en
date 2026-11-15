@@ -2,10 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check, Play } from 'lucide-react'
 import { readings, type Reading } from '@/content/readings'
+import { readingAudio } from '@/content/reading-audio'
 import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
 import { normalizeAnswer } from '@/lib/text'
 import { shuffleOptions } from '@/lib/options'
-import { speak } from '@/lib/speech'
+import { speak, stopSpeaking } from '@/lib/speech'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
 import { SpeakButton } from '@/components/SpeakButton'
@@ -46,6 +47,8 @@ export default function ListeningScreen() {
   const [dictationCorrect, setDictationCorrect] = useState(0)
   const [finished, setFinished] = useState(false)
   const startedAt = useRef(Date.now())
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [audioFailed, setAudioFailed] = useState(false)
 
   function flushTime() {
     const seconds = (Date.now() - startedAt.current) / 1000
@@ -70,6 +73,16 @@ export default function ListeningScreen() {
   }, [])
 
   const current = queue?.[index]
+  const audioSrc =
+    current && readingAudio[current.id]
+      ? `${import.meta.env.BASE_URL}${readingAudio[current.id]}`
+      : null
+  const useAudio = Boolean(audioSrc) && !audioFailed
+
+  useEffect(() => {
+    setAudioFailed(false)
+  }, [current?.id])
+
   const preparedQuestions = useMemo(
     () =>
       current
@@ -84,6 +97,26 @@ export default function ListeningScreen() {
   const fullText =
     current?.paragraphs.map((paragraph) => paragraph.replace(/^[A-Z][a-z]+:\s*/, '')).join(' ') ?? ''
   const allAnswered = current ? current.questions.every((_, i) => answers[i] !== undefined) : false
+
+  function playFull(multiplier = 1) {
+    if (useAudio && audioRef.current) {
+      const audio = audioRef.current
+      audio.playbackRate = multiplier
+      audio.currentTime = 0
+      void audio.play().catch(() => setAudioFailed(true))
+      return
+    }
+    speak(fullText, multiplier === 1 ? 0.92 : 0.7)
+  }
+
+  function stopFull() {
+    if (useAudio && audioRef.current) {
+      audioRef.current.pause()
+      audioRef.current.currentTime = 0
+      return
+    }
+    stopSpeaking()
+  }
 
   function checkGist() {
     if (!current) return
@@ -198,7 +231,7 @@ export default function ListeningScreen() {
             <div className="mt-4 flex flex-wrap gap-2.5">
               <button
                 type="button"
-                onClick={() => speak(fullText)}
+                onClick={() => playFull(1)}
                 className="flex min-h-12 items-center gap-2 rounded-[10px] border border-line-strong bg-surface px-4 text-[16px]"
               >
                 <Play size={18} strokeWidth={1.5} />
@@ -206,14 +239,32 @@ export default function ListeningScreen() {
               </button>
               <button
                 type="button"
-                onClick={() => speak(fullText, 0.7)}
+                onClick={() => playFull(0.72)}
                 className="flex min-h-12 items-center rounded-[10px] border border-line px-3 text-[14px] text-ink-2"
               >
                 0.7×
               </button>
+              <button
+                type="button"
+                onClick={stopFull}
+                className="flex min-h-12 items-center rounded-[10px] border border-line px-3 text-[14px] text-ink-2"
+              >
+                Стоп
+              </button>
             </div>
 
+            {audioSrc && (
+              <audio
+                ref={audioRef}
+                src={audioSrc}
+                preload="metadata"
+                onError={() => setAudioFailed(true)}
+                className="hidden"
+              />
+            )}
+
             <p className="mt-2 text-[13px] text-ink-3">
+              {useAudio ? 'Аудио записано нейроголосом.' : 'Текст читает системный голос.'}{' '}
               Текст скрыт. Слушай и отвечай на вопросы.
             </p>
 

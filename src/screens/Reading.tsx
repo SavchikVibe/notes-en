@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check } from 'lucide-react'
 import { readings, type Reading } from '@/content/readings'
+import { readingAudio } from '@/content/reading-audio'
 import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
@@ -16,6 +17,8 @@ export default function ReadingScreen() {
   const [lastScore, setLastScore] = useState(0)
   const [finished, setFinished] = useState(false)
   const viewRef = useRef<ExerciseViewHandle | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [audioFailed, setAudioFailed] = useState(false)
   const startedAt = useRef(Date.now())
 
   function flushTime() {
@@ -41,6 +44,15 @@ export default function ReadingScreen() {
   }, [])
 
   const current = queue?.[index]
+  const audioSrc =
+    current && readingAudio[current.id]
+      ? `${import.meta.env.BASE_URL}${readingAudio[current.id]}`
+      : null
+  const useAudio = Boolean(audioSrc) && !audioFailed
+
+  useEffect(() => {
+    setAudioFailed(false)
+  }, [current?.id])
 
   function handleResult() {
     if (!current) return
@@ -120,6 +132,43 @@ export default function ReadingScreen() {
       />
 
       <main className="flex-1 px-5 pb-8 pt-6">
+        {useAudio && (
+          <div className="mb-4 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                const audio = audioRef.current
+                if (!audio) return
+                audio.currentTime = 0
+                void audio.play().catch(() => setAudioFailed(true))
+              }}
+              className="flex min-h-11 items-center rounded-[10px] border border-line-strong bg-surface px-3 text-[15px]"
+            >
+              Прослушать текст
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                audioRef.current?.pause()
+                if (audioRef.current) audioRef.current.currentTime = 0
+              }}
+              className="flex min-h-11 items-center rounded-[10px] border border-line px-3 text-[15px] text-ink-2"
+            >
+              Стоп
+            </button>
+          </div>
+        )}
+
+        {audioSrc && (
+          <audio
+            ref={audioRef}
+            src={audioSrc}
+            preload="metadata"
+            onError={() => setAudioFailed(true)}
+            className="hidden"
+          />
+        )}
+
         <ReadView
           key={current.id}
           ref={viewRef}

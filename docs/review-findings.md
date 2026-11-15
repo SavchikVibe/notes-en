@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.50.0.
+Last updated: 2026-11-15, version 0.51.0.
 
 ## 1. What was reviewed
 
@@ -98,16 +98,16 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Expand the reading library: A2 first, then B1, B2, C1. Reuse the existing Reading/Listening screens; add exam-style questions and evidence.
 
-## 8. Current state (0.50.0)
+## 8. Current state (0.51.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
-- 18 standalone reading texts: 10 A1, 8 A2.
+- 26 standalone reading texts: 10 A1, 10 A2, 6 B1.
 - 27 Studio audio files in `public/audio/`.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.50.0.
+- Version 0.51.0.
 - `npm run validate:content` passes with 1,504 warnings. Warnings are content debt, not build failures.
 - `npm run audit:content` prints the detailed audit table.
 
@@ -115,7 +115,7 @@ These are still the backbone of the roadmap.
 
 Priority order unless the user changes it:
 
-1. **Reading library expansion.** A2 is done (8 texts). Next: B1 10–12, B2 10–12, C1 8–10. Include TFNG, headings, evidence, inference, note completion. Reuse texts across skills.
+1. **Reading library expansion.** A2 is done (10 texts); B1 has 6 of 12. Next: 6 more B1, then B2 12, C1 10. Include TFNG, headings, evidence, inference, note completion. Reuse texts across skills.
 2. **Error bank and workshop.** Save wrong exercises with due dates; mix old errors into optional practice; add the 12-core + workshop flow for new units.
 3. **Standalone speaking block.** Today still says “Речь — скоро”. Use the Studio speaking format: prompt, preparation, recording, rubric, re-record.
 4. **Content revision B1/B2.** Remove duplicate sentences, add distractors, widen `accept` lists, vary answer positions, lengthen reading, check level fit.
@@ -146,6 +146,8 @@ npm run validate:content
 npm run audit:content
 node scripts/deploy-pages.mjs SavchikVibe/notes-en
 python scripts/generate-studio-audio.py
+python scripts/generate-library-audio.py
+npx tsx scripts/export-library-audio.ts
 ```
 
 - Brief for external reviewers: `docs/review-brief.md`
