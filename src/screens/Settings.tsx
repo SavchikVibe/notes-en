@@ -7,6 +7,7 @@ import {
   importBackup,
   resetAll,
   saveSettings,
+  setKv,
   type Settings,
 } from '@/db/db'
 import { todayKey, WEEKDAYS, WEEKDAYS_FULL } from '@/lib/date'
@@ -65,6 +66,7 @@ export default function SettingsScreen() {
     link.download = `english-backup-${todayKey()}.json`
     link.click()
     URL.revokeObjectURL(url)
+    await setKv('last-backup', Date.now())
     setMessage('Бэкап скачан.')
   }
 
@@ -269,7 +271,7 @@ export default function SettingsScreen() {
         <section className="mt-9 border-t border-line pt-6">
           <h2 className="text-[20px]">О приложении</h2>
           <p className="mt-2 text-[15px] leading-relaxed text-ink-2">
-            English — личный курс. Версия 0.63.0. Работает офлайн после установки на главный экран.
+            English — личный курс. Версия 0.64.0. Работает офлайн после установки на главный экран.
           </p>
           <p className="mt-2 text-[13px] leading-relaxed text-ink-3">
             Фото в словаре —{' '}

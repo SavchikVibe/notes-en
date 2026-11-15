@@ -9,6 +9,7 @@ import {
   countDue,
   countDueErrors,
   getAllLessonProgress,
+  getKv,
   getSettings,
   type LessonProgress,
   type Settings,
@@ -27,6 +28,7 @@ export default function TodayScreen() {
     errorsDue: number
     readingsLeft: number
     listeningLeft: number
+    lastBackup: number | null
   } | null>(null)
 
   useEffect(() => {
@@ -44,6 +46,7 @@ export default function TodayScreen() {
       )
       const due = await countDue()
       const errorsDue = await countDueErrors()
+      const lastBackup = (await getKv<number>('last-backup')) ?? null
       const doneReadings = new Set(
         Object.values(progress)
           .filter((item) => item.status === 'done' && item.lessonId.startsWith('reading-'))
@@ -58,7 +61,7 @@ export default function TodayScreen() {
       const listeningLeft = readings.filter(
         (reading) => !doneListening.has(`listening-${reading.id}`),
       ).length
-      setState({ progress, settings, due, errorsDue, readingsLeft, listeningLeft })
+      setState({ progress, settings, due, errorsDue, readingsLeft, listeningLeft, lastBackup })
     })()
   }, [])
 
@@ -85,6 +88,9 @@ export default function TodayScreen() {
   const course = session.blocks[0]
   const others = session.blocks.slice(1)
   const hasResume = course.units.some((unit) => state.progress[unit.id]?.status === 'in_progress')
+  const doneLessons = units.filter((unit) => state.progress[unit.id]?.status === 'done').length
+  const backupOld = state.lastBackup === null || Date.now() - state.lastBackup > 14 * 86_400_000
+  const showBackup = doneLessons >= 10 && backupOld
 
   return (
     <>
@@ -214,8 +220,7 @@ export default function TodayScreen() {
           </p>
         </section>
 
-        {state.errorsDue > 0 && (
-          <section className="mt-9">
+        {state.errorsDue > 0 && (          <section className="mt-9">
             <h2 className="text-[20px]">Ошибки</h2>
             <p className="mt-1 text-[13px] text-ink-3">
               Задания, где первый ответ был неверным
@@ -235,6 +240,28 @@ export default function TodayScreen() {
                 <p className="num text-[15px] text-ink-2">{state.errorsDue}</p>
                 <p className="text-[11px] text-accent">повторить</p>
               </div>
+            </button>
+          </section>
+        )}
+
+        {showBackup && (
+          <section className="mt-9">
+            <h2 className="text-[20px]">Бэкап</h2>
+            <p className="mt-1 text-[13px] text-ink-3">
+              {state.lastBackup === null
+                ? 'Копия прогресса ещё не сохранялась'
+                : 'Последняя копия старше двух недель'}
+            </p>
+            <button
+              type="button"
+              onClick={() => navigate('/settings')}
+              className="mt-2 flex min-h-[60px] w-full items-center justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
+            >
+              <div className="min-w-0">
+                <p className="text-[17px] text-ink">Сохранить копию</p>
+                <p className="text-[13px] text-ink-3">JSON-файл в настройках</p>
+              </div>
+              <span className="shrink-0 text-[13px] text-accent">открыть</span>
             </button>
           </section>
         )}
