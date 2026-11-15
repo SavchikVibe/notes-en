@@ -45,7 +45,7 @@ These are done; do not regress them.
 - Studio speaking can be completed after a recording or after “Пропустить речь”; the checklist is optional and does not block completion.
 - The validator now warns about answer skew, missing distractors, single accepted translations, duplicate sentences, British spelling/IPA, and short reading texts. Warnings do not fail the build. `npm run audit:content` gives the detailed counts.
 - Ten A1 reading texts had tense errors (“Tomorrow we go”, “Today I see”) and were fixed.
-- Standalone reading marks a text as done only with at least 2 of 3 correct answers. A weaker result leaves the text in the library for another attempt. The reading and listening screens show the text level.
+- Standalone reading marks a text as done only with at least 60% correct answers (2 of 3, 3 of 4, 3 of 5). A weaker result leaves the text in the library for another attempt. The reading and listening screens show the text level.
 
 ## 4. Consensus recommendations from both reviews
 

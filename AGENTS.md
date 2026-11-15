@@ -2,7 +2,7 @@
 
 Before changing this project, read **`docs/review-findings.md`**. It preserves the two independent reviews, the verified content audit, the decisions already made, the current state and the pending work. It is the long-term memory for this repository.
 
-Current state: version 0.52.0; 210 units; 1,600 words; 2,760 exercises; 27 Studio tasks (4 A1, 5 A2, 6 B1, 6 B2, 6 C1); 26 standalone reading texts (10 A1 at 107–118 words, 10 A2, 6 B1).
+Current state: version 0.52.1; 210 units; 1,600 words; 2,760 exercises; 27 Studio tasks (4 A1, 5 A2, 6 B1, 6 B2, 6 C1); 26 standalone reading texts (10 A1 at 107–118 words, 10 A2, 6 B1).
 
 Next planned phase: finish B1 (6 more texts), then B2 and C1.
 

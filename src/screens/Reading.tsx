@@ -15,6 +15,7 @@ export default function ReadingScreen() {
   const [phase, setPhase] = useState<'answer' | 'feedback'>('answer')
   const [canCheck, setCanCheck] = useState(false)
   const [lastScore, setLastScore] = useState(0)
+  const [lastTotal, setLastTotal] = useState(0)
   const [finished, setFinished] = useState(false)
   const viewRef = useRef<ExerciseViewHandle | null>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -63,7 +64,9 @@ export default function ReadingScreen() {
   function handleScore(correct: number, total: number) {
     if (!current) return
     setLastScore(correct)
-    if (correct >= 2) {
+    setLastTotal(total)
+    const threshold = Math.ceil(total * 0.6)
+    if (correct >= threshold) {
       void finishLesson(current.id, correct / total, total)
     }
   }
@@ -122,6 +125,9 @@ export default function ReadingScreen() {
     paragraphs: current.paragraphs,
     questions: current.questions,
   }
+
+  const threshold = Math.ceil((lastTotal || current.questions.length) * 0.6)
+  const passed = lastScore >= threshold
 
   return (
     <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col">
@@ -182,16 +188,16 @@ export default function ReadingScreen() {
         {phase === 'feedback' && (
           <div
             className={`mt-6 rounded-[10px] border-l-2 p-4 ${
-              lastScore >= 2 ? 'border-accent bg-accent-soft' : 'border-err bg-err-soft'
+              passed ? 'border-accent bg-accent-soft' : 'border-err bg-err-soft'
             }`}
           >
-            <p className={`text-[13px] font-medium ${lastScore >= 2 ? 'text-accent' : 'text-err'}`}>
-              {lastScore >= 2 ? 'Засчитано' : 'Пока не засчитано'}
+            <p className={`text-[13px] font-medium ${passed ? 'text-accent' : 'text-err'}`}>
+              {passed ? 'Засчитано' : 'Пока не засчитано'}
             </p>
             <p className="mt-1 text-[15px] leading-snug text-ink">
-              {lastScore >= 2
+              {passed
                 ? 'Текст засчитан. Можно переходить к следующему.'
-                : 'Нужно хотя бы 2 правильных ответа из 3. Текст останется в библиотеке.'}
+                : `Нужно хотя бы ${threshold} правильных ответов из ${lastTotal}. Текст останется в библиотеке.`}
             </p>
           </div>
         )}
