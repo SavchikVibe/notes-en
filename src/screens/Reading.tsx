@@ -88,6 +88,17 @@ export default function ReadingScreen() {
     setAudioFailed(false)
   }, [current?.id])
 
+  // Аудио библиотеки не в precache: прогреваем кэш при открытии текста,
+  // чтобы прослушивание работало офлайн и не требовало ждать при нажатии.
+  useEffect(() => {
+    if (!audioSrc || !navigator.onLine) return
+    const controller = new AbortController()
+    void fetch(audioSrc, { signal: controller.signal })
+      .then((response) => response.arrayBuffer())
+      .catch(() => {})
+    return () => controller.abort()
+  }, [audioSrc])
+
   function handleResult() {
     if (!current) return
     setPhase('feedback')
@@ -240,10 +251,17 @@ export default function ReadingScreen() {
           <audio
             ref={audioRef}
             src={audioSrc}
-            preload="metadata"
+            preload="none"
             onError={() => setAudioFailed(true)}
             className="hidden"
           />
+        )}
+
+        {audioSrc && audioFailed && (
+          <p className="mb-4 text-[13px] leading-snug text-ink-3">
+            Аудио не загрузилось. Оно скачивается при первом прослушивании — включи сеть один раз,
+            дальше работает офлайн.
+          </p>
         )}
 
         <ReadView

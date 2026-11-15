@@ -83,6 +83,16 @@ export default function ListeningScreen() {
     setAudioFailed(false)
   }, [current?.id])
 
+  // Аудио библиотеки кэшируется при первом открытии текста.
+  useEffect(() => {
+    if (!audioSrc || !navigator.onLine) return
+    const controller = new AbortController()
+    void fetch(audioSrc, { signal: controller.signal })
+      .then((response) => response.arrayBuffer())
+      .catch(() => {})
+    return () => controller.abort()
+  }, [audioSrc])
+
   const preparedQuestions = useMemo(
     () =>
       current
@@ -257,7 +267,7 @@ export default function ListeningScreen() {
               <audio
                 ref={audioRef}
                 src={audioSrc}
-                preload="metadata"
+                preload="none"
                 onError={() => setAudioFailed(true)}
                 className="hidden"
               />

@@ -38,9 +38,26 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,woff2,woff,svg,png,webp,mp3}'],
+        // Аудио библиотеки большое: не тянем его при установке, а кэшируем
+        // при первом прослушивании. Аудио студий остаётся в precache.
+        globIgnores: ['**/audio/readings/**'],
         navigateFallback: `${base}index.html`,
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
         cleanupOutdatedCaches: true,
+        runtimeCaching: [
+          {
+            urlPattern: /\/audio\/readings\/.*\.mp3$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'library-audio',
+              expiration: {
+                maxEntries: 60,
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+              },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
+        ],
       },
     }),
   ],
