@@ -124,7 +124,7 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.69.0.
+- Version 0.72.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
