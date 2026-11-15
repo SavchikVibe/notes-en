@@ -67,7 +67,7 @@ export const a205: Unit = {
       examples: [
         { en: 'The journey took five hours.', ru: 'Поездка заняла пять часов.' },
         { en: 'We had a long journey home.', ru: 'У нас была долгая дорога домой.' },
-        { en: 'The journey was beautiful.', ru: 'Путешествие было красивым.' },
+        { en: 'The journey was long but interesting.', ru: 'Поездка была долгой, но интересной.' },
       ],
     },
     {

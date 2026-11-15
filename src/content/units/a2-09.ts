@@ -108,7 +108,7 @@ export const a209: Unit = {
       tags: ['home', 'description'],
       examples: [
         { en: 'The bedroom is small but cozy.', ru: 'Спальня маленькая, но уютная.' },
-        { en: 'We made the room cozy with a lamp.', ru: 'Мы сделали комнату уютной с помощью лампы.' },
+        { en: 'We made the room cozy with a lamp.', ru: 'Мы сделали комнату уютнее, добавив лампу.' },
         { en: 'It is a cozy place to read.', ru: 'Это уютное место, чтобы читать.' },
       ],
     },

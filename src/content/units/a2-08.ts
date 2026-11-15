@@ -66,7 +66,7 @@ export const a208: Unit = {
       tags: ['study'],
       examples: [
         { en: 'She has a degree in English.', ru: 'У неё степень по английскому.' },
-        { en: 'He is studying for a degree.', ru: 'Он учится на степень.' },
+        { en: 'He is studying for a degree.', ru: 'Он получает высшее образование.' },
         { en: 'A degree can help you find a job.', ru: 'Степень может помочь найти работу.' },
       ],
     },

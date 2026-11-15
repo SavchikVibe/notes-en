@@ -65,7 +65,7 @@ export const a203: Unit = {
       level: 'A2',
       tags: ['city', 'transport'],
       examples: [
-        { en: 'The traffic is terrible today.', ru: 'Сегодня ужасное движение.' },
+        { en: 'The traffic is terrible today.', ru: 'Сегодня ужасные пробки.' },
         { en: 'I am stuck in traffic.', ru: 'Я застрял в пробке.' },
         { en: 'There is a lot of traffic in the morning.', ru: 'Утром много машин.' },
       ],
@@ -107,8 +107,8 @@ export const a203: Unit = {
       level: 'A2',
       tags: ['actions', 'work'],
       examples: [
-        { en: 'I organize my desk every Friday.', ru: 'Я организую свой стол каждую пятницу.' },
-        { en: 'She organizes the files every week.', ru: 'Она организует файлы каждую неделю.' },
+        { en: 'I organize my desk every Friday.', ru: 'Я разбираю свой стол каждую пятницу.' },
+        { en: 'She organizes the files every week.', ru: 'Она разбирает файлы каждую неделю.' },
         { en: 'We need to organize the meeting.', ru: 'Нам нужно организовать встречу.' },
       ],
     },

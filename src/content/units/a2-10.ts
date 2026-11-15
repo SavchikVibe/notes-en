@@ -38,7 +38,7 @@ export const a210: Unit = {
       tags: ['health', 'time'],
       examples: [
         { en: 'I made an appointment for Monday.', ru: 'Я записался на приём на понедельник.' },
-        { en: 'She has a doctor appointment today.', ru: 'У неё сегодня приём у врача.' },
+        { en: "She has a doctor's appointment today.", ru: 'У неё сегодня приём у врача.' },
         { en: 'Can I change my appointment?', ru: 'Можно перенести мою запись?' },
       ],
     },

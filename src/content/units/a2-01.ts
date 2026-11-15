@@ -65,7 +65,7 @@ export const a201: Unit = {
       level: 'A2',
       tags: ['family'],
       examples: [
-        { en: 'My aunt is my favorite relative.', ru: 'Моя тётя — мой любимый родственник.' },
+        { en: 'My aunt is my favorite relative.', ru: 'Моя тётя — моя любимая родственница.' },
         { en: 'We visit our relatives every summer.', ru: 'Мы навещаем родственников каждое лето.' },
         { en: 'She has relatives in Canada.', ru: 'У неё есть родственники в Канаде.' },
       ],

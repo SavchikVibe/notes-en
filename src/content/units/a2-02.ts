@@ -65,7 +65,7 @@ export const a202: Unit = {
       level: 'A2',
       tags: ['time', 'routine'],
       examples: [
-        { en: 'My schedule is full this week.', ru: 'Моё расписание заполнено на этой неделе.' },
+        { en: 'My schedule is full this week.', ru: 'У меня плотное расписание на этой неделе.' },
         { en: 'The train schedule is on the wall.', ru: 'Расписание поездов на стене.' },
         { en: 'I check my schedule every morning.', ru: 'Я проверяю расписание каждое утро.' },
       ],

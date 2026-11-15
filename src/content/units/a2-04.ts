@@ -37,8 +37,8 @@ export const a204: Unit = {
       level: 'A2',
       tags: ['time'],
       examples: [
-        { en: 'These days, I work from home.', ru: 'В эти дни я работаю из дома.' },
-        { en: 'He is very busy these days.', ru: 'В эти дни он очень занят.' },
+        { en: 'These days, I work from home.', ru: 'В последнее время я работаю из дома.' },
+        { en: 'He is very busy these days.', ru: 'В последнее время он очень занят.' },
         { en: 'These days, many people shop online.', ru: 'В наше время многие покупают онлайн.' },
       ],
     },
@@ -109,7 +109,7 @@ export const a204: Unit = {
       examples: [
         { en: 'I seldom drink coffee at night.', ru: 'Я редко пью кофе на ночь.' },
         { en: 'He seldom watches TV.', ru: 'Он редко смотрит телевизор.' },
-        { en: 'They seldom go out on weekdays.', ru: 'Они редко выходят в будни.' },
+        { en: 'They seldom go out on weekdays.', ru: 'Они редко выходят по будням.' },
       ],
     },
     {
@@ -156,7 +156,7 @@ export const a204: Unit = {
       kind: 'assemble',
       id: 'a2-04-ex-04',
       task: 'Собери предложение',
-      translation: 'В эти дни я работаю из дома.',
+      translation: 'В последнее время я работаю из дома.',
       words: ['These', 'days', 'I', 'work', 'from', 'home'],
       answer: ['These', 'days', 'I', 'work', 'from', 'home'],
       explanation: 'These days — в эти дни.',

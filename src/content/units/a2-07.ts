@@ -23,7 +23,7 @@ export const a207: Unit = {
       level: 'A2',
       tags: ['time', 'routine'],
       examples: [
-        { en: 'I occasionally go to the cinema.', ru: 'Иногда я хожу в кино.' },
+        { en: 'I occasionally go to the movies.', ru: 'Иногда я хожу в кино.' },
         { en: 'She occasionally works on Saturdays.', ru: 'Иногда она работает по субботам.' },
         { en: 'We occasionally eat out.', ru: 'Иногда мы едим в кафе.' },
       ],
@@ -81,7 +81,7 @@ export const a207: Unit = {
       examples: [
         { en: 'I rarely watch TV.', ru: 'Я редко смотрю телевизор.' },
         { en: 'He rarely eats meat.', ru: 'Он редко ест мясо.' },
-        { en: 'They rarely go out on weekdays.', ru: 'Они редко выходят в будни.' },
+        { en: 'They rarely go out on weekdays.', ru: 'Они редко выходят по будням.' },
       ],
     },
     {
@@ -94,7 +94,7 @@ export const a207: Unit = {
       tags: ['time', 'questions'],
       examples: [
         { en: 'Have you ever been to New York?', ru: 'Ты когда-нибудь был в Нью-Йорке?' },
-        { en: 'Do you ever cook at home?', ru: 'Ты когда-нибудь готовишь дома?' },
+        { en: 'Do you ever cook at home?', ru: 'Ты вообще готовишь дома?' },
         { en: 'This is the best movie I have ever seen.', ru: 'Это лучший фильм, который я когда-либо видел.' },
       ],
     },
@@ -131,7 +131,7 @@ export const a207: Unit = {
     {
       kind: 'choice',
       id: 'a2-07-ex-01',
-      question: 'I ___ go to the cinema.',
+      question: 'I ___ go to the movies.',
       options: ['occasionally', 'occasion', 'occasional'],
       answer: 0,
       explanation: 'Occasionally — иногда.',
@@ -203,7 +203,7 @@ export const a207: Unit = {
     {
       kind: 'speak',
       id: 'a2-07-ex-09',
-      phrase: 'I occasionally go to the cinema, but I rarely watch TV.',
+      phrase: 'I occasionally go to the movies, but I rarely watch TV.',
       translation: 'Иногда я хожу в кино, но редко смотрю телевизор.',
     },
     {
@@ -212,7 +212,7 @@ export const a207: Unit = {
       title: 'How Often?',
       paragraphs: [
         'I have a busy life. I regularly exercise in the morning and frequently travel for work.',
-        'I occasionally go to the cinema with friends, but I rarely watch TV at home. My brother constantly checks his phone.',
+        'I occasionally go to the movies with friends, but I rarely watch TV at home. My brother constantly checks his phone.',
         'My parents visit us from time to time, and we eat dinner together now and then. Have you ever tried to change your habits?',
       ],
       questions: [
