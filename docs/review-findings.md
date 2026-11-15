@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-15, version 0.49.0.
+Last updated: 2026-11-15, version 0.50.0.
 
 ## 1. What was reviewed
 
@@ -29,7 +29,7 @@ The audit was run with `scripts/audit-content.ts` (`npm run audit:content`) acro
 | Duplicate sentences inside a unit | 739 |
 | Average reading length | A1 53, A2 68, B1 96, B2 87 words |
 | Target reading length in `CURRICULUM.md` | A1 100–200, A2 200–400, B1 400–800, B2 700–1000 |
-| Standalone reading library | 10 texts, all A1 |
+| Standalone reading library | 10 texts, all A1 (at audit time; A2 texts were added later) |
 
 These were content-generation defects, not only UX issues. The position bias was fixed at render time (options are shuffled), but the content itself still has skewed answers, weak distractors, narrow `accept` lists and short texts.
 
@@ -45,6 +45,7 @@ These are done; do not regress them.
 - Studio speaking can be completed after a recording or after “Пропустить речь”; the checklist is optional and does not block completion.
 - The validator now warns about answer skew, missing distractors, single accepted translations, duplicate sentences, British spelling/IPA, and short reading texts. Warnings do not fail the build. `npm run audit:content` gives the detailed counts.
 - Ten A1 reading texts had tense errors (“Tomorrow we go”, “Today I see”) and were fixed.
+- Standalone reading marks a text as done only with at least 2 of 3 correct answers. A weaker result leaves the text in the library for another attempt. The reading and listening screens show the text level.
 
 ## 4. Consensus recommendations from both reviews
 
@@ -97,16 +98,16 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Expand the reading library: A2 first, then B1, B2, C1. Reuse the existing Reading/Listening screens; add exam-style questions and evidence.
 
-## 8. Current state (0.49.0)
+## 8. Current state (0.50.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 2,760 exercises.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
-- 10 standalone reading texts, all A1.
+- 18 standalone reading texts: 10 A1, 8 A2.
 - 27 Studio audio files in `public/audio/`.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.49.0.
+- Version 0.50.0.
 - `npm run validate:content` passes with 1,504 warnings. Warnings are content debt, not build failures.
 - `npm run audit:content` prints the detailed audit table.
 
@@ -114,7 +115,7 @@ These are still the backbone of the roadmap.
 
 Priority order unless the user changes it:
 
-1. **Reading library expansion.** A2 8–10 texts, B1 10–12, B2 10–12, C1 8–10. Include TFNG, headings, evidence, inference, note completion. Reuse texts across skills.
+1. **Reading library expansion.** A2 is done (8 texts). Next: B1 10–12, B2 10–12, C1 8–10. Include TFNG, headings, evidence, inference, note completion. Reuse texts across skills.
 2. **Error bank and workshop.** Save wrong exercises with due dates; mix old errors into optional practice; add the 12-core + workshop flow for new units.
 3. **Standalone speaking block.** Today still says “Речь — скоро”. Use the Studio speaking format: prompt, preparation, recording, rubric, re-record.
 4. **Content revision B1/B2.** Remove duplicate sentences, add distractors, widen `accept` lists, vary answer positions, lengthen reading, check level fit.

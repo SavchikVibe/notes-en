@@ -13,7 +13,7 @@ export default function ReadingScreen() {
   const [index, setIndex] = useState(0)
   const [phase, setPhase] = useState<'answer' | 'feedback'>('answer')
   const [canCheck, setCanCheck] = useState(false)
-  const [lastCorrect, setLastCorrect] = useState(false)
+  const [lastScore, setLastScore] = useState(0)
   const [finished, setFinished] = useState(false)
   const viewRef = useRef<ExerciseViewHandle | null>(null)
   const startedAt = useRef(Date.now())
@@ -42,12 +42,18 @@ export default function ReadingScreen() {
 
   const current = queue?.[index]
 
-  function handleResult(correct: boolean) {
+  function handleResult() {
     if (!current) return
-    setLastCorrect(correct)
     setPhase('feedback')
     flushTime()
-    void finishLesson(current.id, correct ? 1 : 0, current.questions.length)
+  }
+
+  function handleScore(correct: number, total: number) {
+    if (!current) return
+    setLastScore(correct)
+    if (correct >= 2) {
+      void finishLesson(current.id, correct / total, total)
+    }
   }
 
   function next() {
@@ -109,7 +115,7 @@ export default function ReadingScreen() {
     <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col">
       <AppBar
         title="Чтение"
-        subtitle={`${index + 1} из ${queue.length}`}
+        subtitle={`${current.level} · ${index + 1} из ${queue.length}`}
         onBack={() => navigate('/')}
       />
 
@@ -121,19 +127,22 @@ export default function ReadingScreen() {
           locked={phase === 'feedback'}
           onResult={handleResult}
           onCanCheck={setCanCheck}
+          onScore={handleScore}
         />
 
         {phase === 'feedback' && (
           <div
             className={`mt-6 rounded-[10px] border-l-2 p-4 ${
-              lastCorrect ? 'border-accent bg-accent-soft' : 'border-err bg-err-soft'
+              lastScore >= 2 ? 'border-accent bg-accent-soft' : 'border-err bg-err-soft'
             }`}
           >
-            <p className={`text-[13px] font-medium ${lastCorrect ? 'text-accent' : 'text-err'}`}>
-              {lastCorrect ? 'Верно' : 'Неверно'}
+            <p className={`text-[13px] font-medium ${lastScore >= 2 ? 'text-accent' : 'text-err'}`}>
+              {lastScore >= 2 ? 'Засчитано' : 'Пока не засчитано'}
             </p>
             <p className="mt-1 text-[15px] leading-snug text-ink">
-              Проверь подсвеченные ответы в тексте и прочитай его ещё раз.
+              {lastScore >= 2
+                ? 'Текст засчитан. Можно переходить к следующему.'
+                : 'Нужно хотя бы 2 правильных ответа из 3. Текст останется в библиотеке.'}
             </p>
           </div>
         )}

@@ -34,6 +34,8 @@ export interface ExerciseViewProps {
   onResult: (correct: boolean) => void
   onCanCheck: (can: boolean) => void
   onSkip?: () => void
+  /** Для чтения: сколько вопросов верно из скольких. */
+  onScore?: (correct: number, total: number) => void
 }
 
 type OptionState = 'idle' | 'picked' | 'correct' | 'wrong'
@@ -571,7 +573,7 @@ export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 /* ----------------------------------- read ---------------------------------- */
 
 export const ReadView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
-  function ReadView({ exercise, locked, onResult, onCanCheck }, ref) {
+  function ReadView({ exercise, locked, onResult, onCanCheck, onScore }, ref) {
     const ex = exercise as ReadExercise
     const prepared = useMemo(
       () =>
@@ -593,11 +595,14 @@ export const ReadView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
       ref,
       () => ({
         check: () => {
-          const ok = prepared.every((question, index) => answers[index] === question.answer)
-          onResult(ok)
+          const correct = prepared.filter(
+            (question, index) => answers[index] === question.answer,
+          ).length
+          onScore?.(correct, prepared.length)
+          onResult(correct === prepared.length)
         },
       }),
-      [answers, prepared, onResult],
+      [answers, prepared, onResult, onScore],
     )
 
     return (

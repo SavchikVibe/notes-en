@@ -18,7 +18,7 @@ function sentencesOf(reading: Reading): string[] {
     .map((sentence) => sentence.replace(/^[A-Z][a-z]+:\s*/, '').trim())
     .filter((sentence) => {
       const words = sentence.split(/\s+/).length
-      return words >= 4 && words <= 7
+      return words >= 4 && words <= 9
     })
     .slice(0, 2)
 }
@@ -185,7 +185,7 @@ export default function ListeningScreen() {
     <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col">
       <AppBar
         title="Слушание"
-        subtitle={`${index + 1} из ${queue.length}`}
+        subtitle={`${current.level} · ${index + 1} из ${queue.length}`}
         onBack={() => navigate('/')}
       />
 
