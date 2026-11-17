@@ -25,7 +25,7 @@ export const a233: Unit = {
       examples: [
         { en: 'We celebrate Thanksgiving in November.', ru: 'Мы празднуем День благодарения в ноябре.' },
         { en: 'They celebrated her birthday.', ru: 'Они отпраздновали её день рождения.' },
-        { en: 'How do you celebrate New Year?', ru: 'Как вы празднуете Новый год?' },
+        { en: 'How do you celebrate New Year’s?', ru: 'Как вы празднуете Новый год?' },
       ],
     },
     {
@@ -81,7 +81,7 @@ export const a233: Unit = {
       examples: [
         { en: 'We have guests tonight.', ru: 'Сегодня у нас гости.' },
         { en: 'The guest arrived at seven.', ru: 'Гость пришёл в семь.' },
-        { en: 'Please make our guests comfortable.', ru: 'Пожалуйста, позаботься о наших гостях.' },
+        { en: 'Please help our guests feel at home.', ru: 'Пожалуйста, помоги гостям почувствовать себя как дома.' },
       ],
     },
     {
@@ -203,8 +203,8 @@ export const a233: Unit = {
     {
       kind: 'speak',
       id: 'a2-33-ex-09',
-      phrase: 'On Thanksgiving, we have guests, cook a big dinner, and share gifts.',
-      translation: 'На День благодарения у нас гости, мы готовим большой ужин и дарим подарки.',
+      phrase: 'On Thanksgiving, we have guests, cook a big dinner, and spend the day together.',
+      translation: 'На День благодарения у нас гости, мы готовим большой ужин и проводим день вместе.',
     },
     {
       kind: 'read',

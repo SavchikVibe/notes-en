@@ -109,7 +109,7 @@ export const a234: Unit = {
       examples: [
         { en: 'Change the channel, please.', ru: 'Переключи канал, пожалуйста.' },
         { en: 'This channel shows only news.', ru: 'Этот канал показывает только новости.' },
-        { en: 'Which channel is the game on?', ru: 'По какому каналу игра?' },
+        { en: 'What channel is the game on?', ru: 'По какому каналу идёт игра?' },
       ],
     },
     {

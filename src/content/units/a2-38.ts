@@ -66,7 +66,7 @@ export const a238: Unit = {
       tags: ['communication', 'people'],
       examples: [
         { en: 'Can you do me a favor?', ru: 'Можешь оказать мне услугу?' },
-        { en: 'I asked a favor of my neighbor.', ru: 'Я попросил соседа об услуге.' },
+        { en: 'I asked my neighbor for a favor.', ru: 'Я попросил соседа об услуге.' },
         { en: 'She did me a big favor.', ru: 'Она оказала мне большую услугу.' },
       ],
     },
@@ -79,7 +79,7 @@ export const a238: Unit = {
       level: 'A2',
       tags: ['communication'],
       examples: [
-        { en: 'I wonder if you can help.', ru: 'Интересно, можешь ли ты помочь.' },
+        { en: 'I wonder if you could help.', ru: 'Интересно, сможешь ли ты помочь.' },
         { en: 'She wondered about the price.', ru: 'Она поинтересовалась ценой.' },
         { en: 'I wonder where he is.', ru: 'Интересно, где он.' },
       ],
@@ -211,7 +211,7 @@ export const a238: Unit = {
       id: 'a2-38-ex-10',
       title: 'A Polite Request',
       paragraphs: [
-        'Yesterday I needed help with a heavy box. I asked my neighbor, “Could you do me a favor?” He politely agreed.',
+        'Yesterday I needed help with a heavy box. I asked my neighbor, “Could you do me a favor?” He kindly agreed.',
         'He offered to carry the box upstairs. I accepted his help and offered him a cup of coffee.',
         '“Would you like some cake too?” I asked. He said he would, and we talked for an hour. It is nice when people are polite to each other.',
       ],

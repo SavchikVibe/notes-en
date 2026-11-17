@@ -52,7 +52,7 @@ export const a240: Unit = {
       tags: ['grammar', 'description'],
       examples: [
         { en: 'It was so cold.', ru: 'Было так холодно.' },
-        { en: 'The film was so good.', ru: 'Фильм был таким хорошим.' },
+        { en: 'The movie was so good.', ru: 'Фильм был таким хорошим.' },
         { en: 'I am so happy.', ru: 'Я так счастлив.' },
       ],
     },

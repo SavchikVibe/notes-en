@@ -39,7 +39,7 @@ export const a237: Unit = {
       examples: [
         { en: 'This factory produces cars.', ru: 'Этот завод производит машины.' },
         { en: 'The country produces a lot of coffee.', ru: 'Страна производит много кофе.' },
-        { en: 'The film was produced in 2020.', ru: 'Фильм был произведён в 2020 году.' },
+        { en: 'The movie was produced in 2020.', ru: 'Фильм был произведён в 2020 году.' },
       ],
     },
     {

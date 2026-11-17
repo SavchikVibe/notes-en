@@ -107,9 +107,9 @@ export const a232: Unit = {
       level: 'A2',
       tags: ['health', 'sport'],
       examples: [
-        { en: 'Stretch before you run.', ru: 'Разомнись перед бегом.' },
-        { en: 'I stretch every morning.', ru: 'Я разминаюсь каждое утро.' },
-        { en: 'She stretched after the workout.', ru: 'Она растянулась после тренировки.' },
+        { en: 'Stretch before you run.', ru: 'Сделай растяжку перед бегом.' },
+        { en: 'I stretch every morning.', ru: 'Я делаю растяжку каждое утро.' },
+        { en: 'She stretched after the workout.', ru: 'Она сделала растяжку после тренировки.' },
       ],
     },
     {

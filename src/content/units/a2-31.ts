@@ -25,7 +25,7 @@ export const a231: Unit = {
       examples: [
         { en: 'She wants a career in medicine.', ru: 'Она хочет карьеру в медицине.' },
         { en: 'His career started in 2010.', ru: 'Его карьера началась в 2010 году.' },
-        { en: 'A good career needs patience.', ru: 'Хорошая карьера требует терпения.' },
+        { en: 'A good career takes time.', ru: 'Хорошая карьера требует времени.' },
       ],
     },
     {
@@ -39,7 +39,7 @@ export const a231: Unit = {
       examples: [
         { en: 'She got a promotion last month.', ru: 'В прошлом месяце её повысили.' },
         { en: 'He wants a promotion.', ru: 'Он хочет повышения.' },
-        { en: 'The promotion comes with more money.', ru: 'Повышение сопровождается более высокой зарплатой.' },
+        { en: 'The promotion comes with more money.', ru: 'Повышение означает прибавку к зарплате.' },
       ],
     },
     {
@@ -212,7 +212,7 @@ export const a231: Unit = {
       title: 'A New Job',
       paragraphs: [
         'My cousin started a new job in March. The company hired her after two interviews, and the job includes a month of training.',
-        'She works in a small team, and her manager is friendly. The staff is young, and the office is close to the subway.',
+        'She works on a small team, and her manager is friendly. The staff is young, and the office is close to the subway.',
         'She wants a career in design, so she is learning new skills every week. Her goal is a promotion next year.',
       ],
       questions: [

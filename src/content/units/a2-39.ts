@@ -80,8 +80,8 @@ export const a239: Unit = {
       tags: ['actions', 'phrasal'],
       examples: [
         { en: 'I need to look for my keys.', ru: 'Мне нужно поискать ключи.' },
-        { en: 'We look for a new apartment.', ru: 'Мы ищем новую квартиру.' },
-        { en: 'They look for cheap tickets.', ru: 'Они ищут дешёвые билеты.' },
+        { en: 'We are looking for a new apartment.', ru: 'Мы ищем новую квартиру.' },
+        { en: 'They are looking for cheap tickets.', ru: 'Они ищут дешёвые билеты.' },
       ],
     },
     {
@@ -121,7 +121,7 @@ export const a239: Unit = {
       level: 'A2',
       tags: ['actions', 'phrasal'],
       examples: [
-        { en: 'Do not run out of time.', ru: 'Не останься без времени.' },
+        { en: 'Hurry up, or we will run out of time.', ru: 'Поторопись, иначе у нас закончится время.' },
         { en: 'We often run out of milk.', ru: 'У нас часто заканчивается молоко.' },
         { en: 'I run out of money every month.', ru: 'У меня каждый месяц заканчиваются деньги.' },
       ],
@@ -217,7 +217,7 @@ export const a239: Unit = {
       ],
       questions: [
         { question: 'Where were the keys?', options: ['In the jacket', 'On the table', 'In the bag'], answer: 0 },
-        { question: 'Why was the class canceled?', options: ['The writer found out by email', 'The teacher was ill', 'It was a holiday'], answer: 0 },
+        { question: 'What did the writer find out?', options: ['That the class was canceled', 'That the teacher was ill', 'That the store was closed'], answer: 0 },
         { question: 'What did they run out of?', options: ['Dog food', 'Milk', 'Time'], answer: 0 },
       ],
     },

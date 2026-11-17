@@ -107,7 +107,7 @@ export const a235: Unit = {
       level: 'A2',
       tags: ['communication', 'description'],
       examples: [
-        { en: 'The story is true.', ru: 'История правдива.' },
+        { en: 'The story is true.', ru: 'Эта история — правда.' },
         { en: 'Is it true that you are moving?', ru: 'Правда, что ты переезжаешь?' },
         { en: 'That is not true.', ru: 'Это неправда.' },
       ],
@@ -121,7 +121,7 @@ export const a235: Unit = {
       level: 'A2',
       tags: ['communication', 'description'],
       examples: [
-        { en: 'That information is false.', ru: 'Эта информация ложная.' },
+        { en: 'That information is false.', ru: 'Эта информация неверна.' },
         { en: 'The answer is false.', ru: 'Ответ неверный.' },
         { en: 'A false alarm woke us up.', ru: 'Ложная тревога разбудила нас.' },
       ],
@@ -213,7 +213,7 @@ export const a235: Unit = {
       paragraphs: [
         'Last night my friend and I talked about city life. In my opinion, a small town is better because it is quiet and clean.',
         'My friend disagrees. She prefers the city because there are more jobs and more things to do. She gave a good example: the subway runs all night.',
-        'I believe she is right about the jobs. In the end, we agreed that both places have good and bad sides. The reason is simple: it depends on your life.',
+        'I believe she is right about the jobs. In the end, we agreed that both places have good and bad sides. The reason is simple: it depends on what you want from life.',
       ],
       questions: [
         { question: 'What does the writer prefer?', options: ['A small town', 'The city', 'The subway'], answer: 0 },
