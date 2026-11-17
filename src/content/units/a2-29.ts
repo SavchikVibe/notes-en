@@ -65,7 +65,7 @@ export const a229: Unit = {
       level: 'A2',
       tags: ['nature', 'animals'],
       examples: [
-        { en: 'The park is full of wildlife.', ru: 'Парк полон дикой природы.' },
+        { en: 'The park is full of wildlife.', ru: 'В парке много диких животных.' },
         { en: 'We must protect wildlife.', ru: 'Мы должны защищать дикую природу.' },
         { en: 'Wildlife needs clean water.', ru: 'Дикой природе нужна чистая вода.' },
       ],

@@ -38,7 +38,7 @@ export const a225: Unit = {
       tags: ['actions', 'life'],
       examples: [
         { en: 'We solved the problem.', ru: 'Мы решили проблему.' },
-        { en: 'Can you solve this task?', ru: 'Ты можешь решить эту задачу?' },
+        { en: 'Can you solve this equation?', ru: 'Ты можешь решить это уравнение?' },
         { en: 'She solves problems quickly.', ru: 'Она быстро решает проблемы.' },
       ],
     },
@@ -81,7 +81,7 @@ export const a225: Unit = {
       examples: [
         { en: 'Although it was raining, we went out.', ru: 'Хотя шёл дождь, мы вышли.' },
         { en: 'Although she was tired, she finished.', ru: 'Хотя она устала, она закончила.' },
-        { en: 'I liked the film, although it was long.', ru: 'Мне понравился фильм, хотя он был длинным.' },
+        { en: 'I liked the movie, although it was long.', ru: 'Мне понравился фильм, хотя он был длинным.' },
       ],
     },
     {

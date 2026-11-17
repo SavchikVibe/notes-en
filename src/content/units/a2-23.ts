@@ -109,7 +109,7 @@ export const a223: Unit = {
       examples: [
         { en: 'We get along well.', ru: 'Мы хорошо ладим.' },
         { en: 'Do you get along with your sister?', ru: 'Ты ладишь с сестрой?' },
-        { en: 'They get along at school.', ru: 'Они ладят в школе.' },
+        { en: 'We get along with our classmates.', ru: 'Мы ладим с одноклассниками.' },
       ],
     },
     {
@@ -123,7 +123,7 @@ export const a223: Unit = {
       examples: [
         { en: 'They will break up soon.', ru: 'Они скоро расстанутся.' },
         { en: 'I do not want to break up.', ru: 'Я не хочу расставаться.' },
-        { en: 'People often break up in spring.', ru: 'Люди часто расстаются весной.' },
+        { en: 'They decided to break up last month.', ru: 'Они решили расстаться в прошлом месяце.' },
       ],
     },
   ],
@@ -213,7 +213,7 @@ export const a223: Unit = {
       paragraphs: [
         'My best friend is Pavel. We have a good relationship, and we get along well. We met at school ten years ago.',
         'Last month we argued about a small thing. I was tired and said something unkind. The next day I apologized, and he supported me when I had a difficult week.',
-        'A good friendship needs trust and respect. We do not always agree, but we never want to break up our friendship.',
+        'A good friendship needs trust and respect. We do not always agree, but we never want to lose our friendship.',
       ],
       questions: [
         { question: 'Where did they meet?', options: ['At school', 'At work', 'At a party'], answer: 0 },

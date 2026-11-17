@@ -66,7 +66,7 @@ export const a230: Unit = {
       tags: ['study'],
       examples: [
         { en: 'He failed the test.', ru: 'Он провалил тест.' },
-        { en: 'Do not be afraid to fail.', ru: 'Не бойся ошибиться.' },
+        { en: 'Do not be afraid to fail.', ru: 'Не бойся провала.' },
         { en: 'She failed the first exam.', ru: 'Она провалила первый экзамен.' },
       ],
     },
@@ -81,7 +81,7 @@ export const a230: Unit = {
       examples: [
         { en: 'I review my notes every evening.', ru: 'Я просматриваю записи каждый вечер.' },
         { en: 'Let us review the answers.', ru: 'Давай повторим ответы.' },
-        { en: 'We reviewed the whole unit.', ru: 'Мы повторили весь юнит.' },
+        { en: 'We reviewed the whole unit.', ru: 'Мы повторили всю тему.' },
       ],
     },
     {

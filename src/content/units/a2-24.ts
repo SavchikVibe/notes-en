@@ -25,7 +25,7 @@ export const a224: Unit = {
       examples: [
         { en: 'We ordered two coffees.', ru: 'Мы заказали два кофе.' },
         { en: 'I will order the soup.', ru: 'Я закажу суп.' },
-        { en: 'Can I take your order?', ru: 'Могу принять ваш заказ?' },
+        { en: 'Can I take your order?', ru: 'Готовы сделать заказ?' },
       ],
     },
     {
@@ -52,7 +52,7 @@ export const a224: Unit = {
       tags: ['food', 'money'],
       examples: [
         { en: 'We left a tip for the waiter.', ru: 'Мы оставили чаевые официанту.' },
-        { en: 'The service was good, so I gave a tip.', ru: 'Обслуживание было хорошим, поэтому я дал чаевые.' },
+        { en: 'The service was good, so I left a tip.', ru: 'Обслуживание было хорошим, поэтому я оставил чаевые.' },
         { en: 'A tip is usually ten percent.', ru: 'Чаевые обычно десять процентов.' },
       ],
     },

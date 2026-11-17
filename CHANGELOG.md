@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.73.0 — 2026-11-17
+
+- Вычитка естественности A2-21…30.
+- «Их результаты были равными» → «У них были одинаковые результаты», «Не бойся ошибиться» → «Не бойся провала».
+- «Парк полон дикой природы» → «В парке много диких животных», «весь юнит» → «всю тему», «указания есть на карте» → «на карте указано, как пройти».
+- Переписаны неудачные примеры: прогноз погоды, `get along at school`, `break up in spring`, `nearby park` → `park nearby`.
+- `Can you solve this task?` → `this equation`, `gave a tip` → `left a tip`, `film` → `movie` (американский вариант).
+- В текстах: `the same as each other in one way` → `have one thing in common`, `break up our friendship` → `lose our friendship`, `unlikely to appear immediately` → `I am unlikely to find one immediately`.
+- Следующий шаг: A2-31…40.
+
 ## 0.72.0 — 2026-11-15
 
 - Вычитка естественности A2-11…20.

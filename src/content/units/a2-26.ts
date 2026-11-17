@@ -212,7 +212,7 @@ export const a226: Unit = {
       title: 'Two Trips',
       paragraphs: [
         'I have traveled a lot in recent years. I have visited Canada, Mexico, and Japan.',
-        'I went to Canada in 2018 with my family. We stayed for a short period, only ten days, but it was a great trip.',
+        'I went to Canada in 2018 with my family. We only stayed for ten days, but it was a great trip.',
         'Last year I visited Japan for the first time. I have never seen anything like it. At present, I am saving money for my next trip.',
       ],
       questions: [

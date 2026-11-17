@@ -24,7 +24,7 @@ export const a222: Unit = {
       tags: ['future', 'grammar'],
       examples: [
         { en: 'My prediction was correct.', ru: 'Моё предсказание было верным.' },
-        { en: 'The forecast makes a prediction about the weather.', ru: 'Прогноз делает предсказание о погоде.' },
+        { en: 'Scientists make predictions about the weather.', ru: 'Учёные делают прогнозы о погоде.' },
         { en: 'It is only a prediction.', ru: 'Это всего лишь предсказание.' },
       ],
     },
@@ -212,7 +212,7 @@ export const a222: Unit = {
       title: 'Next Year',
       paragraphs: [
         'Next year I will definitely finish my English course. I expect to pass the final exam in June.',
-        'After that, it is likely that I will look for a new job. A better job is possible, but it is unlikely to appear immediately.',
+        'After that, it is likely that I will look for a new job. A better job is possible, but I am unlikely to find one immediately.',
         'Someday I want to work abroad. The future is not certain, but my prediction is simple: if I keep studying, good things will happen.',
       ],
       questions: [

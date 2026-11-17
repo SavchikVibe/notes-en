@@ -213,7 +213,7 @@ export const a227: Unit = {
       paragraphs: [
         'Yesterday I was in a meeting when my phone rang. I could not answer, so the call went to voicemail.',
         'After the meeting, I listened to the message. It was from my sister. She wanted to ask about dinner on Sunday.',
-        'I texted her back and said I would call in the evening. When I called, the signal was bad, so I called back from home. We talked for an hour.',
+        'I texted her back and said I would call in the evening. When I called her, the signal was bad, so I called back from home. We talked for an hour.',
       ],
       questions: [
         { question: 'Why did the call go to voicemail?', options: ['The writer was in a meeting', 'The phone was off', 'The signal was bad'], answer: 0 },

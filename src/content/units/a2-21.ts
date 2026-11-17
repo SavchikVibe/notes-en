@@ -81,7 +81,7 @@ export const a221: Unit = {
       examples: [
         { en: 'The two rooms are equal in size.', ru: 'Две комнаты одинакового размера.' },
         { en: 'Cut the cake into equal parts.', ru: 'Разрежь торт на равные части.' },
-        { en: 'Their scores were equal.', ru: 'Их результаты были равными.' },
+        { en: 'Their scores were equal.', ru: 'У них были одинаковые результаты.' },
       ],
     },
     {
@@ -213,7 +213,7 @@ export const a221: Unit = {
       paragraphs: [
         'We looked at two apartments yesterday. The first one is bigger than the second, but it is also far more expensive.',
         'The second apartment is slightly smaller, but the rooms are almost equal in size. The difference in price is big.',
-        'Both apartments are the same as each other in one way: they are close to the metro. We have less time this week, so we will decide on Friday.',
+        'The two apartments have one thing in common: they are both close to the metro. We have less time this week, so we will decide on Friday.',
       ],
       questions: [
         { question: 'Which apartment is bigger?', options: ['The first one', 'The second one', 'They are equal'], answer: 0 },

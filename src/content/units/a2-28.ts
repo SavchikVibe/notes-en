@@ -109,7 +109,7 @@ export const a228: Unit = {
       examples: [
         { en: 'There is a café nearby.', ru: 'Рядом есть кафе.' },
         { en: 'Is there a pharmacy nearby?', ru: 'Здесь поблизости есть аптека?' },
-        { en: 'We found a nearby park.', ru: 'Мы нашли парк поблизости.' },
+        { en: 'We found a park nearby.', ru: 'Мы нашли парк поблизости.' },
       ],
     },
     {
@@ -122,7 +122,7 @@ export const a228: Unit = {
       tags: ['city'],
       examples: [
         { en: 'I asked for directions.', ru: 'Я спросил дорогу.' },
-        { en: 'The directions are on the map.', ru: 'Указания есть на карте.' },
+        { en: 'The directions are on the map.', ru: 'На карте указано, как пройти.' },
         { en: 'We walked in the wrong direction.', ru: 'Мы пошли не в ту сторону.' },
       ],
     },
@@ -203,8 +203,8 @@ export const a228: Unit = {
     {
       kind: 'speak',
       id: 'a2-28-ex-09',
-      phrase: 'Take the subway, transfer at the next station, and walk two blocks to the corner.',
-      translation: 'Садись на метро, пересядь на следующей станции и пройди два квартала до угла.',
+      phrase: 'Take the subway, transfer at the next station, and walk two blocks. The bank is on the corner.',
+      translation: 'Садись на метро, пересядь на следующей станции и пройди два квартала. Банк на углу.',
     },
     {
       kind: 'read',
