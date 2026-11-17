@@ -11,7 +11,7 @@ export const a249: Unit = {
     { label: 'Проблема', pattern: 'There is a leak.', note: 'There is a leak under the sink.' },
     { label: 'Поломка', pattern: 'Something is broken.', note: 'The washing machine is broken.' },
     { label: 'Починить', pattern: 'fix / repair + noun', note: 'Can you fix the door?' },
-    { label: 'Гарантия', pattern: 'be under warranty', note: 'The repair is under warranty.' },
+    { label: 'Гарантия', pattern: 'be under warranty', note: 'The machine is still under warranty.' },
   ],
   words: [
     {
@@ -93,7 +93,7 @@ export const a249: Unit = {
       level: 'A2',
       tags: ['home', 'shopping'],
       examples: [
-        { en: 'The repair is under warranty.', ru: 'Ремонт по гарантии.' },
+        { en: 'The machine is still under warranty.', ru: 'Машина ещё на гарантии.' },
         { en: 'The warranty lasts two years.', ru: 'Гарантия действует два года.' },
         { en: 'Keep the warranty card.', ru: 'Сохрани гарантийный талон.' },
       ],
@@ -165,9 +165,9 @@ export const a249: Unit = {
       kind: 'assemble',
       id: 'a2-49-ex-05',
       task: 'Собери предложение',
-      translation: 'Ремонт по гарантии.',
-      words: ['The', 'repair', 'is', 'under', 'warranty'],
-      answer: ['The', 'repair', 'is', 'under', 'warranty'],
+      translation: 'Машина ещё на гарантии.',
+      words: ['The', 'machine', 'is', 'still', 'under', 'warranty'],
+      answer: ['The', 'machine', 'is', 'still', 'under', 'warranty'],
       explanation: 'Under warranty — по гарантии.',
     },
     {
@@ -212,12 +212,12 @@ export const a249: Unit = {
       title: 'A Problem at Home',
       paragraphs: [
         'On Monday we found a leak under the kitchen sink. The floor was wet, and the cabinet was damaged.',
-        'We called a plumber. He came the same day and gave us an estimate. The repair was not cheap, but it was under warranty, so we paid nothing.',
+        'We called a plumber. He came the same day and gave us an estimate. The repair was not cheap, but the machine was still under warranty, so we paid nothing.',
         'The plumber fixed the pipe and checked the washing machine too. He said the machine was old and needed a spare part. We will call him again next week.',
       ],
       questions: [
         { question: 'Where was the leak?', options: ['Under the sink', 'In the bathroom', 'On the roof'], answer: 0 },
-        { question: 'Why did they pay nothing?', options: ['It was under warranty', 'The plumber was a friend', 'The repair was small'], answer: 0 },
+        { question: 'Why did they pay nothing?', options: ['The machine was under warranty', 'The plumber was a friend', 'The repair was small'], answer: 0 },
         { question: 'What does the washing machine need?', options: ['A spare part', 'A new door', 'A key card'], answer: 0 },
       ],
     },

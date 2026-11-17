@@ -218,7 +218,7 @@ export const a248: Unit = {
       questions: [
         { question: 'What job did Anna apply for?', options: ['A designer', 'A teacher', 'A driver'], answer: 0 },
         { question: 'Who did she ask for a reference?', options: ['An old colleague', 'Her mother', 'The manager'], answer: 0 },
-        { question: 'When is the meeting?', options: ['On Wednesday', 'On Monday', 'Next month'], answer: 0 },
+        { question: 'When did the manager invite her?', options: ['On Wednesday', 'On Monday', 'Next month'], answer: 0 },
       ],
     },
   ],

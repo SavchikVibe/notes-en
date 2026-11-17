@@ -24,7 +24,7 @@ export const a242: Unit = {
       tags: ['media', 'technology'],
       examples: [
         { en: 'I listen to a podcast every morning.', ru: 'Я слушаю подкаст каждое утро.' },
-        { en: 'The podcast is about history.', ru: 'Подкаст о истории.' },
+        { en: 'The podcast is about history.', ru: 'Подкаст об истории.' },
         { en: 'She started her own podcast.', ru: 'Она запустила свой подкаст.' },
       ],
     },
@@ -66,7 +66,7 @@ export const a242: Unit = {
       tags: ['media'],
       examples: [
         { en: 'Turn on the subtitles.', ru: 'Включи субтитры.' },
-        { en: 'The film has English subtitles.', ru: 'У фильма есть английские субтитры.' },
+        { en: 'The movie has English subtitles.', ru: 'У фильма есть английские субтитры.' },
         { en: 'Subtitles help me understand.', ru: 'Субтитры помогают мне понимать.' },
       ],
     },

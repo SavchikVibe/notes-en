@@ -39,7 +39,7 @@ export const a241: Unit = {
       examples: [
         { en: 'Best regards, Ivan.', ru: 'С уважением, Иван.' },
         { en: 'Please give my regards to your family.', ru: 'Передай привет своей семье.' },
-        { en: 'Regards at the end are polite.', ru: '«С уважением» в конце — вежливо.' },
+        { en: 'Closing with regards is polite.', ru: '«С уважением» в конце — вежливо.' },
       ],
     },
     {
@@ -95,7 +95,7 @@ export const a241: Unit = {
       examples: [
         { en: 'Write your signature here.', ru: 'Поставь подпись здесь.' },
         { en: 'The email has a short signature.', ru: 'В письме короткая подпись.' },
-        { en: 'I forgot my signature.', ru: 'Я забыл свою подпись.' },
+        { en: 'I forgot to add my signature.', ru: 'Я забыл поставить подпись.' },
       ],
     },
     {

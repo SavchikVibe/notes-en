@@ -95,7 +95,7 @@ export const a243: Unit = {
       examples: [
         { en: 'It is your turn.', ru: 'Твоя очередь.' },
         { en: 'Wait for your turn.', ru: 'Дождись своей очереди.' },
-        { en: 'My turn is next.', ru: 'Следующая очередь моя.' },
+        { en: 'My turn came at last.', ru: 'Наконец настала моя очередь.' },
       ],
     },
     {
@@ -109,7 +109,7 @@ export const a243: Unit = {
       examples: [
         { en: 'The service is fast.', ru: 'Обслуживание быстрое.' },
         { en: 'Customer service was helpful.', ru: 'Служба поддержки помогла.' },
-        { en: 'The service costs ten percent.', ru: 'Обслуживание стоит десять процентов.' },
+        { en: 'The service charge is ten percent.', ru: 'Сервисный сбор — десять процентов.' },
       ],
     },
     {

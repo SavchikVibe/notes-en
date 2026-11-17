@@ -65,7 +65,7 @@ export const a245: Unit = {
       level: 'A2',
       tags: ['grammar', 'writing'],
       examples: [
-        { en: 'The hotel was nice. However, it was far.', ru: 'Отель был хороший. Однако он был далеко.' },
+        { en: 'The hotel was nice. However, it was far from the center.', ru: 'Отель был хороший. Однако он был далеко от центра.' },
         { en: 'However, the plan did not work.', ru: 'Однако план не сработал.' },
         { en: 'It was cheap; however, the quality was low.', ru: 'Это было дёшево, однако качество низкое.' },
       ],

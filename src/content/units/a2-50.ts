@@ -24,7 +24,7 @@ export const a250: Unit = {
       tags: ['study', 'description'],
       examples: [
         { en: 'She is fluent in English.', ru: 'Она свободно говорит по-английски.' },
-        { en: 'He wants to become fluent.', ru: 'Он хочет начать свободно говорить.' },
+        { en: 'He wants to become fluent.', ru: 'Он хочет свободно владеть языком.' },
         { en: 'Fluent speech takes practice.', ru: 'Беглая речь требует практики.' },
       ],
     },
@@ -65,8 +65,8 @@ export const a250: Unit = {
       level: 'A2',
       tags: ['study'],
       examples: [
-        { en: 'Grammar is the base of a language.', ru: 'Грамматика — основа языка.' },
-        { en: 'This unit reviews grammar.', ru: 'Этот юнит повторяет грамматику.' },
+        { en: 'Grammar is the foundation of a language.', ru: 'Грамматика — основа языка.' },
+        { en: 'This lesson reviews grammar.', ru: 'Этот урок повторяет грамматику.' },
         { en: 'Her grammar is good.', ru: 'У неё хорошая грамматика.' },
       ],
     },
@@ -121,7 +121,7 @@ export const a250: Unit = {
       level: 'A2',
       tags: ['study', 'life'],
       examples: [
-        { en: 'She is an independent learner.', ru: 'Она самостоятельный ученик.' },
+        { en: 'She is an independent learner.', ru: 'Она самостоятельная ученица.' },
         { en: 'Try to be independent.', ru: 'Постарайся быть самостоятельным.' },
         { en: 'Independent study is important.', ru: 'Самостоятельная учёба важна.' },
       ],
@@ -213,7 +213,7 @@ export const a250: Unit = {
       paragraphs: [
         'When I started A2, I was afraid to speak. My vocabulary was small, and my grammar was not strong.',
         'Now I can talk about my past, my plans, and my problems. I can order food, ask for directions, and deal with a hotel or a doctor.',
-        'I am not fluent yet, but my accuracy and confidence are better. My next goal is B1: longer conversations and more natural English. I will keep practising every day.',
+        'I am not fluent yet, but my accuracy and confidence are better. My next goal is B1: longer conversations and more natural English. I will keep practicing every day.',
       ],
       questions: [
         { question: 'How did the writer feel at the start?', options: ['Afraid to speak', 'Confident', 'Bored'], answer: 0 },

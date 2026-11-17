@@ -93,7 +93,7 @@ export const a244: Unit = {
       level: 'A2',
       tags: ['travel'],
       examples: [
-        { en: 'The gate changed to 24.', ru: 'Выход изменился на 24.' },
+        { en: 'Our gate changed to 24.', ru: 'Наш выход изменился на 24.' },
         { en: 'Wait at the gate.', ru: 'Подожди у выхода.' },
         { en: 'Our gate is closed.', ru: 'Наш выход закрыт.' },
       ],
@@ -203,8 +203,8 @@ export const a244: Unit = {
     {
       kind: 'speak',
       id: 'a2-44-ex-09',
-      phrase: 'Our flight was canceled, so we had to catch a later train.',
-      translation: 'Наш рейс отменили, поэтому нам пришлось успеть на более поздний поезд.',
+      phrase: 'Our flight was canceled, so we had to catch a later flight.',
+      translation: 'Наш рейс отменили, поэтому нам пришлось лететь более поздним рейсом.',
     },
     {
       kind: 'read',

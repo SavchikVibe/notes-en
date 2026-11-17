@@ -94,7 +94,7 @@ export const a246: Unit = {
       tags: ['travel', 'hotel'],
       examples: [
         { en: 'We need a double room.', ru: 'Нам нужен двухместный номер.' },
-        { en: 'The double room has two beds.', ru: 'В двухместном номере две кровати.' },
+        { en: 'The double room is bigger.', ru: 'Двухместный номер больше.' },
         { en: 'A double room costs more.', ru: 'Двухместный номер стоит дороже.' },
       ],
     },
@@ -212,7 +212,7 @@ export const a246: Unit = {
       title: 'At the Hotel',
       paragraphs: [
         'We arrived at the hotel at two, but check-in started at three. The front desk was busy, so we waited in the lobby.',
-        'We booked a double room, but the clerk said there were no vacancies. Then he found a single room for the first night.',
+        'We booked a double room, but the clerk said our room was not ready. Then he found a single room for the first night.',
         'He gave us a key card and said we could move to a double room tomorrow. The key card did not work at first, but the clerk fixed it quickly.',
       ],
       questions: [
