@@ -231,11 +231,11 @@ export const b111: Unit = {
         'My sister and I had been arguing for months about our parents’ house. She wanted to sell it, and I wanted to keep it.',
         'One evening we finally talked. I had been avoiding the conversation because I was afraid of conflict.',
         'She said I was not being honest about my feelings. She was right. I admitted that I was afraid of change, not of selling the house.',
-        'We found a compromise: we rented the house for a year and decided later. I wish we had talked sooner. It was a good lesson about listening.',
+        'We found a compromise: we rented the house for a year and agreed to decide later. I wish we had talked sooner. It was a good lesson about listening.',
       ],
       questions: [
         { question: 'What were they arguing about?', options: ['Their parents’ house', 'Money for school', 'A family trip'], answer: 0 },
-        { question: 'Why had the writer avoided the conversation?', options: ['He was afraid of conflict', 'He was busy', 'He did not care'], answer: 0 },
+        { question: 'Why had the writer avoided the conversation?', options: ['Afraid of conflict', 'Busy with work', 'Did not care'], answer: 0 },
         { question: 'What was the compromise?', options: ['To rent the house for a year', 'To sell it immediately', 'To give it away'], answer: 0 },
       ],
     },

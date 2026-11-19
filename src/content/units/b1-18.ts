@@ -66,7 +66,7 @@ export const b118: Unit = {
       tags: ['health'],
       examples: [
         { en: 'Good posture protects your back.', ru: 'Хорошая осанка защищает спину.' },
-        { en: 'Check your posture at the desk.', ru: 'Следи за осанкой за столом.' },
+        { en: 'Check your posture at your desk.', ru: 'Следи за осанкой за столом.' },
         { en: 'Poor posture causes pain.', ru: 'Плохая осанка вызывает боль.' },
       ],
     },
@@ -234,7 +234,7 @@ export const b118: Unit = {
         'I still use my phone, but I have a new rule: no screens after ten. My sleep is better, and I do not need a nap in the afternoon anymore.',
       ],
       questions: [
-        { question: 'What was the writer’s problem?', options: ['He could not fall asleep', 'He had a headache', 'He was always hungry'], answer: 0 },
+        { question: 'What was the writer’s problem?', options: ['Could not fall asleep', 'Had a headache', 'Was always hungry'], answer: 0 },
         { question: 'What did the doctor suggest?', options: ['No phone before bed', 'More coffee', 'A longer nap'], answer: 0 },
         { question: 'What is the new rule?', options: ['No screens after ten', 'No phone at home', 'Sleep at nine'], answer: 0 },
       ],

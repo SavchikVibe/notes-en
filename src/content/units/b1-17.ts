@@ -66,7 +66,7 @@ export const b117: Unit = {
       tags: ['study', 'work'],
       examples: [
         { en: 'She hopes to qualify as a doctor.', ru: 'Она надеется получить квалификацию врача.' },
-        { en: 'You need a degree to qualify.', ru: 'Чтобы получить право, нужен диплом.' },
+        { en: 'You need a degree to qualify.', ru: 'Чтобы получить квалификацию, нужен диплом.' },
         { en: 'You must qualify for the scholarship first.', ru: 'Сначала нужно получить право на стипендию.' },
       ],
     },
@@ -121,7 +121,7 @@ export const b117: Unit = {
       level: 'B1',
       tags: ['study', 'work'],
       examples: [
-        { en: 'Lifelong learning keeps your mind active.', ru: 'Обучение на протяжении жизни держит ум активным.' },
+        { en: 'Lifelong learning keeps your mind active.', ru: 'Постоянное обучение помогает сохранять ясность ума.' },
         { en: 'The company supports lifelong learning.', ru: 'Компания поддерживает постоянное обучение.' },
         { en: 'Lifelong learning is more than a course.', ru: 'Постоянное обучение — это больше, чем курс.' },
       ],
@@ -228,7 +228,7 @@ export const b117: Unit = {
       id: 'b1-17-ex-12',
       title: 'A Second Chance',
       paragraphs: [
-        'When I finished school, I did not know what to study. My parents wanted me to go to university immediately, but I decided to take a gap year.',
+        'When I finished school, I did not know what to study. My parents wanted me to go to college immediately, but I decided to take a gap year.',
         'I worked in a café and saved money. In the spring, I visited two universities and talked to students on campus. That helped me choose a major.',
         'I applied for a scholarship and was surprised when I got it. It covered most of my tuition, but not all of it.',
         'Now I am in my second year. I still work part-time, but I know why I am studying. My gap year was not a waste of time; it was the best decision I made.',

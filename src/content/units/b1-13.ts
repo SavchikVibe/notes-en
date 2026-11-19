@@ -23,7 +23,7 @@ export const b113: Unit = {
       level: 'B1',
       tags: ['books', 'media'],
       examples: [
-        { en: 'The plot was easy to follow.', ru: 'Сюжет было легко понять.' },
+        { en: 'The plot was easy to follow.', ru: 'За сюжетом было легко следить.' },
         { en: 'The film has a simple plot.', ru: 'У фильма простой сюжет.' },
         { en: 'I did not understand the plot.', ru: 'Я не понял сюжет.' },
       ],
@@ -230,7 +230,7 @@ export const b113: Unit = {
       paragraphs: [
         'Last weekend I finally watched a film that everyone had recommended. It is a science fiction film, but the story is more about people than technology.',
         'The plot is simple: a family moves to a new planet and tries to adapt. The main character is the mother, and her performance is excellent.',
-        'My favorite scene takes place in an empty kitchen. There is no music, only silence, and it says more than a long speech.',
+        'My favorite scene takes place in an empty kitchen. There is no music, only silence, and it says more than a long speech would.',
         'Some critics call the film a masterpiece. I am not sure about that, but it is one of the best films I have ever seen. I would rather watch it again than see a noisy action movie.',
       ],
       questions: [

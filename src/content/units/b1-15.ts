@@ -230,8 +230,8 @@ export const b115: Unit = {
       paragraphs: [
         'This essay discusses remote work. Some people believe it is the future, while others think it harms teamwork.',
         'Firstly, remote work saves time. Employees do not spend hours on the commute, so they can start earlier and finish earlier. Secondly, it gives people more control over their day.',
-        'However, critics argue that remote work isolates people. A counterargument is that online meetings cannot replace a quick conversation in the office.',
-        'In conclusion, remote work is useful, but it should not be the only option. The best structure is a mix: two or three days at home and the rest in the office.',
+        'However, critics argue that remote work isolates people. One counterargument is that online meetings cannot replace a quick conversation in the office.',
+        'In conclusion, remote work is useful, but it should not be the only option. The best solution is a mix: two or three days at home and the rest in the office.',
       ],
       questions: [
         { question: 'What is the essay about?', options: ['Remote work', 'School exams', 'City transport'], answer: 0 },

@@ -228,7 +228,7 @@ export const b119: Unit = {
       id: 'b1-19-ex-12',
       title: 'A Different Kind of Trip',
       paragraphs: [
-        'Last summer we did not book a package tour. We wanted to explore the coast at our own speed, so we rented a small car.',
+        'Last summer we did not book a package tour. We wanted to explore the coast at our own pace, so we rented a small car.',
         'The guidebook mentioned a famous landmark, but the crowd there was huge. We left after twenty minutes and drove further.',
         'A local family rented us a room in a village off the beaten track. The beach was empty, the food was authentic, and the view was breathtaking.',
         'It was the best trip I have ever had. We did not see everything, but we saw the place, not just the photos of it.',

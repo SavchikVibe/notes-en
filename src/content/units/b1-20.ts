@@ -121,9 +121,9 @@ export const b120: Unit = {
       level: 'B1',
       tags: ['society', 'work'],
       examples: [
-        { en: 'There is a shift toward remote work.', ru: 'Происходит сдвиг в сторону удалённой работы.' },
+        { en: 'There is a shift toward remote work.', ru: 'Наблюдается переход к удалённой работе.' },
         { en: 'The shift in opinion was sudden.', ru: 'Смена мнения была внезапной.' },
-        { en: 'We need a shift in policy.', ru: 'Нам нужен сдвиг в политике.' },
+        { en: 'We need a shift in policy.', ru: 'Нам нужно изменить политику.' },
       ],
     },
   ],

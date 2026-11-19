@@ -229,7 +229,7 @@ export const b116: Unit = {
       title: 'A Family Budget',
       paragraphs: [
         'When my wife and I moved to a new city, we made a budget for the first time. Our income was good, but our expenses were higher than we expected.',
-        'Rent was the biggest expense, followed by food and transport. We also had a loan for the furniture, and the monthly payment was not small.',
+        'Rent was the biggest expense, followed by food and transportation. We also had a loan for the furniture, and the monthly payment was not small.',
         'We decided to change three things. We started cooking at home, we sold one car, and we saved a fixed amount every month.',
         'After a year, we paid off the loan and built a small emergency fund. Money is still tight, but we feel more in control.',
       ],
