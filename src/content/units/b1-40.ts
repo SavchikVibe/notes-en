@@ -231,7 +231,7 @@ export const b140: Unit = {
         'Our team has just finished a six-month project. The goal was to launch a new booking system for a small hotel.',
         'At the start, the scope was too big. The client wanted everything at once, and the timeline was tight. We listed the deliverables and agreed on three milestones.',
         'Halfway through, we found a major risk: the payment system was not ready. We told the stakeholders, reduced the scope, and moved one feature to the next version.',
-        'In the end, we launched on time and stayed within the budget. The client said that the communication was the best part of the project.',
+        'In the end, we launched on time and stayed within the budget. The client said that communication was the best part of the project.',
       ],
       questions: [
         { question: 'What was the project goal?', options: ['A booking system', 'A new hotel', 'A payment app'], answer: 0 },

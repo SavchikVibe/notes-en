@@ -65,8 +65,8 @@ export const b138: Unit = {
       level: 'B1',
       tags: ['books', 'art'],
       examples: [
-        { en: 'The narrator is a young boy.', ru: 'Рассказчик — молодой парень.' },
-        { en: 'The narrator tells the story in the first person.', ru: 'Рассказчик ведёт историю от первого лица.' },
+        { en: 'The narrator is a young boy.', ru: 'Рассказчик — мальчик.' },
+        { en: 'The narrator tells the story in the first person.', ru: 'Рассказчик ведёт повествование от первого лица.' },
         { en: 'The narrator is not reliable.', ru: 'Рассказчик ненадёжен.' },
       ],
     },
@@ -80,7 +80,7 @@ export const b138: Unit = {
       tags: ['books', 'art'],
       examples: [
         { en: 'The poem uses a strong metaphor.', ru: 'В стихотворении сильная метафора.' },
-        { en: 'Life is a journey is a metaphor.', ru: '«Жизнь — это путешествие» — метафора.' },
+        { en: '“Life is a journey” is a metaphor.', ru: '«Жизнь — это путешествие» — метафора.' },
         { en: 'The metaphor is easy to understand.', ru: 'Метафора легко понятна.' },
       ],
     },
@@ -108,7 +108,7 @@ export const b138: Unit = {
       tags: ['books', 'writing'],
       examples: [
         { en: 'He sent the manuscript to a publisher.', ru: 'Он отправил рукопись издателю.' },
-        { en: 'The manuscript was 300 pages.', ru: 'Рукопись была на 300 страниц.' },
+        { en: 'The manuscript was 300 pages long.', ru: 'Рукопись была на 300 страниц.' },
         { en: 'She edited the manuscript twice.', ru: 'Она дважды редактировала рукопись.' },
       ],
     },

@@ -95,7 +95,7 @@ export const b137: Unit = {
       examples: [
         { en: 'My subscription costs ten dollars a month.', ru: 'Моя подписка стоит десять долларов в месяц.' },
         { en: 'Cancel the subscription if you do not use it.', ru: 'Отмени подписку, если не пользуешься.' },
-        { en: 'The app offers a free subscription.', ru: 'Приложение предлагает бесплатную подписку.' },
+        { en: 'The subscription is free for students.', ru: 'Подписка бесплатна для студентов.' },
       ],
     },
     {
@@ -234,8 +234,8 @@ export const b137: Unit = {
         'I did not give up technology completely. I still use streaming and a few apps, but I canceled two subscriptions and set a daily limit.',
       ],
       questions: [
-        { question: 'What did the writer realize?', options: ['He checked his phone too often', 'He lost his phone', 'He needed a new phone'], answer: 0 },
-        { question: 'What did he do for a week?', options: ['Disconnected from social media', 'Bought a new phone', 'Stopped working'], answer: 0 },
+        { question: 'What did the writer realize?', options: ['Checked the phone too often', 'Lost the phone', 'Needed a new phone'], answer: 0 },
+        { question: 'What did the writer do for a week?', options: ['Disconnected from social media', 'Bought a new phone', 'Stopped working'], answer: 0 },
         { question: 'What changed after the experiment?', options: ['He read more and slept better', 'He sold his phone', 'He started a blog'], answer: 0 },
       ],
     },

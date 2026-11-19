@@ -8,7 +8,7 @@ export const b242: Unit = {
   subtitle: 'remedy · curb · enforce',
   goal: 'Предлагать реалистичные решения',
   formulas: [
-    { label: 'Решение', pattern: 'One remedy would be to...', note: 'One remedy would be to fund public transport.' },
+    { label: 'Решение', pattern: 'One remedy would be to...', note: 'One remedy would be to fund public transportation.' },
     { label: 'Сдерживание', pattern: 'curb + noun', note: 'The tax is designed to curb demand.' },
     { label: 'Обязанность', pattern: 'governments should + verb', note: 'Governments should enforce the rules.' },
     { label: 'Оценка', pattern: 'This measure could + verb', note: 'This measure could reduce waste.' },
@@ -23,7 +23,7 @@ export const b242: Unit = {
       level: 'B2',
       tags: ['society', 'academic'],
       examples: [
-        { en: 'One remedy would be to fund public transport.', ru: 'Одним решением было бы финансировать транспорт.' },
+        { en: 'One remedy would be to fund public transportation.', ru: 'Одним решением было бы финансировать общественный транспорт.' },
         { en: 'There is no simple remedy.', ru: 'Простого решения нет.' },
         { en: 'The report suggests a remedy.', ru: 'Отчёт предлагает решение.' },
       ],
@@ -131,7 +131,7 @@ export const b242: Unit = {
     {
       kind: 'choice',
       id: 'b2-42-ex-01',
-      question: 'One remedy would ___ to fund public transport.',
+      question: 'One remedy would ___ to fund public transportation.',
       options: ['be', 'is', 'are'],
       answer: 0,
       explanation: 'Would be — было бы.',

@@ -109,7 +109,7 @@ export const b136: Unit = {
       examples: [
         { en: 'The animals lost their habitat.', ru: 'Животные потеряли среду обитания.' },
         { en: 'The wetland is a habitat for birds.', ru: 'Болото — среда обитания птиц.' },
-        { en: 'Protecting habitat is essential.', ru: 'Защита среды обитания необходима.' },
+        { en: 'Protecting habitats is essential.', ru: 'Защита мест обитания необходима.' },
       ],
     },
     {

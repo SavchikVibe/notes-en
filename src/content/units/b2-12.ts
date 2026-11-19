@@ -230,7 +230,7 @@ export const b212: Unit = {
       paragraphs: [
         'Many cities face a housing crisis. Rents are rising faster than incomes, and young people cannot afford to live near their work.',
         'The root cause is a shortage of homes, not a shortage of space. In some areas, empty buildings could be converted into apartments.',
-        'A feasible solution has three parts: build more affordable housing, limit short-term rentals, and improve public transport to connect cheaper areas with the center.',
+        'A feasible solution has three parts: build more affordable housing, limit short-term rentals, and improve public transportation to connect cheaper areas with the center.',
         'These measures will not solve everything, but they could alleviate pressure. The key is to implement them quickly and measure the results.',
       ],
       questions: [

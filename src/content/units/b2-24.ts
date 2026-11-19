@@ -66,7 +66,7 @@ export const b224: Unit = {
       tags: ['academic', 'society'],
       examples: [
         { en: 'Some people advocate remote work.', ru: 'Некоторые выступают за удалённую работу.' },
-        { en: 'She advocates for public transport.', ru: 'Она выступает за общественный транспорт.' },
+        { en: 'She advocates for public transportation.', ru: 'Она выступает за общественный транспорт.' },
         { en: 'The group advocates change.', ru: 'Группа выступает за перемены.' },
       ],
     },

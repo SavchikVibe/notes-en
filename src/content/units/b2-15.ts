@@ -94,7 +94,7 @@ export const b215: Unit = {
       tags: ['city'],
       examples: [
         { en: 'The population density is high.', ru: 'Плотность населения высокая.' },
-        { en: 'High density can support public transport.', ru: 'Высокая плотность поддерживает общественный транспорт.' },
+        { en: 'High density can support public transportation.', ru: 'Высокая плотность поддерживает общественный транспорт.' },
         { en: 'The density increased near the station.', ru: 'Плотность выросла у станции.' },
       ],
     },
@@ -220,7 +220,7 @@ export const b215: Unit = {
     {
       kind: 'speak',
       id: 'b2-15-ex-11',
-      phrase: 'Rapid migration can lead to overpopulation, but high density also makes public transport more efficient.',
+      phrase: 'Rapid migration can lead to overpopulation, but high density also makes public transportation more efficient.',
       translation: 'Быстрая миграция может привести к перенаселению, но высокая плотность делает общественный транспорт эффективнее.',
     },
     {

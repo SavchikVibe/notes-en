@@ -39,7 +39,7 @@ export const b132: Unit = {
       examples: [
         { en: 'I lived with a host family.', ru: 'Я жил в принимающей семье.' },
         { en: 'The host family was very kind.', ru: 'Принимающая семья была очень доброй.' },
-        { en: 'She recommends a host family.', ru: 'Она рекомендует принимающую семью.' },
+        { en: 'She recommends staying with a host family.', ru: 'Она советует остановиться в принимающей семье.' },
       ],
     },
     {
@@ -66,8 +66,8 @@ export const b132: Unit = {
       tags: ['study'],
       examples: [
         { en: 'The course is worth three credits.', ru: 'Курс даёт три зачётные единицы.' },
-        { en: 'She needs more credits to graduate.', ru: 'Ей нужно больше кредитов, чтобы выпуститься.' },
-        { en: 'Credits transfer between universities.', ru: 'Кредиты перезачитываются между вузами.' },
+        { en: 'She needs more credits to graduate.', ru: 'Ей нужно больше зачётных единиц, чтобы окончить учёбу.' },
+        { en: 'Credits transfer between universities.', ru: 'Зачётные единицы перезачитываются между вузами.' },
       ],
     },
     {

@@ -52,7 +52,7 @@ export const b133: Unit = {
       tags: ['work', 'feelings'],
       examples: [
         { en: 'The work is fulfilling.', ru: 'Эта работа приносит удовлетворение.' },
-        { en: 'He wants a fulfilling career.', ru: 'Он хочет карьеру, которая приносит удовлетворение.' },
+        { en: 'He wants a fulfilling career.', ru: 'Он хочет работу, которая приносит удовлетворение.' },
         { en: 'Volunteering is fulfilling.', ru: 'Волонтёрство приносит удовлетворение.' },
       ],
     },

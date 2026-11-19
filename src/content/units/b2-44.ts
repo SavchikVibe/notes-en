@@ -10,7 +10,7 @@ export const b244: Unit = {
   formulas: [
     { label: 'Перефраз', pattern: 'What I mean is...', note: 'What I mean is that it saves time.' },
     { label: 'Самокоррекция', pattern: 'Or rather, ...', note: 'It was cheap, or rather, affordable.' },
-    { label: 'Пример', pattern: 'Take, for example, ...', note: 'Take, for example, public transport.' },
+    { label: 'Пример', pattern: 'Take, for example, ...', note: 'Take, for example, public transportation.' },
     { label: 'Идиома', pattern: 'It is a double-edged sword.', note: 'Technology is a double-edged sword.' },
   ],
   words: [
@@ -147,7 +147,7 @@ export const b244: Unit = {
     {
       kind: 'choice',
       id: 'b2-44-ex-03',
-      question: 'Take, for ___, public transport.',
+      question: 'Take, for ___, public transportation.',
       options: ['example', 'instance', 'sample'],
       answer: 0,
       explanation: 'For example — например.',

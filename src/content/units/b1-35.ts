@@ -52,7 +52,7 @@ export const b135: Unit = {
       tags: ['society', 'people'],
       examples: [
         { en: 'Supporters of the plan met outside.', ru: 'Сторонники плана собрались снаружи.' },
-        { en: 'She is a supporter of public transport.', ru: 'Она сторонница общественного транспорта.' },
+        { en: 'She is a supporter of public transportation.', ru: 'Она сторонница общественного транспорта.' },
         { en: 'The supporters were optimistic.', ru: 'Сторонники были оптимистичны.' },
       ],
     },
@@ -174,8 +174,8 @@ export const b135: Unit = {
       id: 'b1-35-ex-06',
       task: 'Собери предложение',
       translation: 'Она сторонница общественного транспорта.',
-      words: ['She', 'is', 'a', 'supporter', 'of', 'public', 'transport'],
-      answer: ['She', 'is', 'a', 'supporter', 'of', 'public', 'transport'],
+      words: ['She', 'is', 'a', 'supporter', 'of', 'public', 'transportation'],
+      answer: ['She', 'is', 'a', 'supporter', 'of', 'public', 'transportation'],
       explanation: 'A supporter of — сторонник.',
     },
     {

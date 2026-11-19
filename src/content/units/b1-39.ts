@@ -65,7 +65,7 @@ export const b139: Unit = {
       level: 'B1',
       tags: ['feelings'],
       examples: [
-        { en: 'It was a relief to finish.', ru: 'Было облегчением закончить.' },
+        { en: 'It was a relief to finish.', ru: 'Закончить было облегчением.' },
         { en: 'He sighed with relief.', ru: 'Он вздохнул с облегчением.' },
         { en: 'The news brought relief.', ru: 'Новость принесла облегчение.' },
       ],
@@ -123,7 +123,7 @@ export const b139: Unit = {
       examples: [
         { en: 'Children often show resilience.', ru: 'Дети часто проявляют стойкость.' },
         { en: 'Resilience helps you recover.', ru: 'Стойкость помогает восстановиться.' },
-        { en: 'The team built resilience after the loss.', ru: 'Команда стала устойчивее после поражения.' },
+        { en: 'The team built resilience after the loss.', ru: 'Команда стала стойче после поражения.' },
       ],
     },
   ],

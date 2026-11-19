@@ -24,7 +24,7 @@ export const b253: Unit = {
       tags: ['academic', 'writing'],
       examples: [
         { en: 'Proponents argue that the policy works.', ru: 'Сторонники утверждают, что политика работает.' },
-        { en: 'She is a proponent of public transport.', ru: 'Она сторонница общественного транспорта.' },
+        { en: 'She is a proponent of public transportation.', ru: 'Она сторонница общественного транспорта.' },
         { en: 'The proponents of the plan were optimistic.', ru: 'Сторонники плана были оптимистичны.' },
       ],
     },
@@ -230,7 +230,7 @@ export const b253: Unit = {
       paragraphs: [
         'The proposal to ban cars in the city center has both proponents and detractors. Proponents argue that the air will be cleaner.',
         'Detractors claim that shops will lose customers. Their rationale is economic, and their premise is that people only travel by car.',
-        'A strong essay acknowledges the counterpoint. It may concede that some shops will suffer, but it can offer a refutation: better public transport brings new visitors.',
+        'A strong essay acknowledges the counterpoint. It may concede that some shops will suffer, but it can offer a refutation: better public transportation brings new visitors.',
         'After deliberation, the council agreed to a trial. The justification was simple: a temporary test is better than a permanent mistake.',
       ],
       questions: [
