@@ -9,7 +9,7 @@ export const b101: Unit = {
   goal: 'Рассказать историю с прошлым совершенным',
   formulas: [
     { label: 'До события', pattern: 'had + V3', note: 'I had never lived alone before.' },
-    { label: 'К тому времени', pattern: 'By the time + Past Simple, had + V3', note: 'By the time I arrived, the film had started.' },
+    { label: 'К тому времени', pattern: 'By the time + Past Simple, had + V3', note: 'By the time I arrived, the movie had started.' },
     { label: 'Оказалось', pattern: 'It turned out that...', note: 'It turned out that she was right.' },
     { label: 'Поворот', pattern: 'was a turning point', note: 'Moving abroad was a turning point.' },
   ],
@@ -109,7 +109,7 @@ export const b101: Unit = {
       examples: [
         { en: 'The company showed strong growth.', ru: 'Компания показала сильный рост.' },
         { en: 'Personal growth takes time.', ru: 'Личностный рост требует времени.' },
-        { en: 'Reading helps your growth.', ru: 'Чтение помогает твоему развитию.' },
+        { en: 'Reading contributes to personal growth.', ru: 'Чтение способствует личностному росту.' },
       ],
     },
     {
@@ -131,7 +131,7 @@ export const b101: Unit = {
     {
       kind: 'choice',
       id: 'b1-01-ex-01',
-      question: 'By the time I arrived, the film ___.',
+      question: 'By the time I arrived, the movie ___.',
       options: ['had started', 'started', 'has started'],
       answer: 0,
       explanation: 'Действие до другого прошлого → Past Perfect.',
@@ -206,13 +206,13 @@ export const b101: Unit = {
     {
       kind: 'listen',
       id: 'b1-01-ex-10',
-      audio: 'By the time I arrived, the film had started.',
+      audio: 'By the time I arrived, the movie had started.',
       question: 'Что ты услышал?',
       mode: 'choice',
       options: [
-        'By the time I arrived, the film had started.',
-        'By the time I arrived, the film started.',
-        'By the time I left, the film had started.',
+        'By the time I arrived, the movie had started.',
+        'By the time I arrived, the movie started.',
+        'By the time I left, the movie had started.',
       ],
       answer: 0,
       translation: 'К тому времени, как я пришёл, фильм уже начался.',

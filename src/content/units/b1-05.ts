@@ -122,7 +122,7 @@ export const b105: Unit = {
       tags: ['health', 'life'],
       examples: [
         { en: 'Mindfulness helps with stress.', ru: 'Осознанность помогает при стрессе.' },
-        { en: 'She practises mindfulness every morning.', ru: 'Она практикует осознанность каждое утро.' },
+        { en: 'She practices mindfulness every morning.', ru: 'Она практикует осознанность каждое утро.' },
         { en: 'Mindfulness is about the present moment.', ru: 'Осознанность — это про настоящий момент.' },
       ],
     },
@@ -199,8 +199,8 @@ export const b105: Unit = {
       kind: 'translate',
       id: 'b1-05-ex-09',
       source: 'Она практикует осознанность каждое утро.',
-      accept: ['She practises mindfulness every morning.', 'She practices mindfulness every morning.'],
-      sample: 'She practises mindfulness every morning.',
+      accept: ['She practices mindfulness every morning.'],
+      sample: 'She practices mindfulness every morning.',
       explanation: 'Practice mindfulness — практиковать осознанность.',
     },
     {
@@ -230,7 +230,7 @@ export const b105: Unit = {
       paragraphs: [
         'My friend Alex has been working twelve hours a day for two months. He must be exhausted, but he says he cannot stop.',
         'Last week he forgot an important meeting and felt anxious all the time. His doctor said it might be the first sign of burnout.',
-        'Alex started therapy and changed his routine. He practises mindfulness in the morning, breathes slowly before meetings, and leaves the office at six.',
+        'Alex started therapy and changed his routine. He practices mindfulness in the morning, breathes slowly before meetings, and leaves the office at six.',
         'He still has a heavy workload, but his wellbeing is better. Prevention is better than cure, and now he knows it.',
       ],
       questions: [

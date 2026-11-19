@@ -122,7 +122,7 @@ export const b104: Unit = {
       tags: ['study'],
       examples: [
         { en: 'Academic writing is formal.', ru: 'Академическое письмо формально.' },
-        { en: 'She has a strong academic background.', ru: 'У неё сильная академическая база.' },
+        { en: 'She has a strong academic background.', ru: 'У неё хорошая академическая подготовка.' },
         { en: 'The academic year starts in September.', ru: 'Учебный год начинается в сентябре.' },
       ],
     },

@@ -93,7 +93,7 @@ export const b107: Unit = {
       level: 'B1',
       tags: ['technology', 'work'],
       examples: [
-        { en: 'Innovation drives the economy.', ru: 'Инновации двигают экономику.' },
+        { en: 'Innovation drives the economy.', ru: 'Инновации — двигатель экономики.' },
         { en: 'The company is known for innovation.', ru: 'Компания известна инновациями.' },
         { en: 'We need more innovation.', ru: 'Нам нужно больше инноваций.' },
       ],
@@ -121,9 +121,9 @@ export const b107: Unit = {
       level: 'B1',
       tags: ['technology'],
       examples: [
-        { en: 'Cyber security is important.', ru: 'Кибербезопасность важна.' },
+        { en: 'Cybersecurity is important.', ru: 'Кибербезопасность важна.' },
         { en: 'The company hired a cyber expert.', ru: 'Компания наняла киберэксперта.' },
-        { en: 'Cyber attacks are growing.', ru: 'Кибератаки растут.' },
+        { en: 'Cyberattacks are growing.', ru: 'Кибератаки растут.' },
       ],
     },
   ],
@@ -183,9 +183,9 @@ export const b107: Unit = {
       id: 'b1-07-ex-07',
       task: 'Собери предложение',
       translation: 'Кибербезопасность важна.',
-      words: ['Cyber', 'security', 'is', 'important'],
-      answer: ['Cyber', 'security', 'is', 'important'],
-      explanation: 'Cyber security — кибербезопасность.',
+      words: ['Cybersecurity', 'is', 'important'],
+      answer: ['Cybersecurity', 'is', 'important'],
+      explanation: 'Cybersecurity — кибербезопасность.',
     },
     {
       kind: 'translate',
@@ -230,7 +230,7 @@ export const b107: Unit = {
       paragraphs: [
         'Every day we give away data: searches, locations, photos, and messages. Companies say this makes their services better, and that may be true.',
         'However, the same data can be used to influence what we buy and even what we think. An algorithm decides which news we see first.',
-        'Some governments are working on new privacy laws. Others are investing in cyber security. Innovation is moving faster than the rules.',
+        'Some governments are working on new privacy laws. Others are investing in cybersecurity. Innovation is moving faster than the rules.',
         'In my view, we should ask one simple question before we click “accept”: who will own this information, and why do they need it?',
       ],
       questions: [

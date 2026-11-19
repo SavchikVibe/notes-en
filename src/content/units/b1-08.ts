@@ -51,7 +51,7 @@ export const b108: Unit = {
       level: 'B1',
       tags: ['ecology', 'energy'],
       examples: [
-        { en: 'Solar power is renewable.', ru: 'Солнечная энергия возобновляема.' },
+        { en: 'Solar power is renewable.', ru: 'Солнечная энергия — возобновляемый источник.' },
         { en: 'The country invests in renewable energy.', ru: 'Страна инвестирует в возобновляемую энергию.' },
         { en: 'Renewable sources are clean.', ru: 'Возобновляемые источники чистые.' },
       ],
@@ -79,7 +79,7 @@ export const b108: Unit = {
       level: 'B1',
       tags: ['ecology'],
       examples: [
-        { en: 'We need sustainable solutions.', ru: 'Нам нужны устойчивые решения.' },
+        { en: 'We need sustainable solutions.', ru: 'Нам нужны экологичные решения.' },
         { en: 'This farm uses sustainable methods.', ru: 'Эта ферма использует экологичные методы.' },
         { en: 'Sustainable living is possible.', ru: 'Экологичный образ жизни возможен.' },
       ],
@@ -95,7 +95,7 @@ export const b108: Unit = {
       examples: [
         { en: 'Cars produce carbon emissions.', ru: 'Машины производят углеродные выбросы.' },
         { en: 'We should reduce our carbon footprint.', ru: 'Нам следует сократить углеродный след.' },
-        { en: 'Carbon is a major cause of warming.', ru: 'Углерод — основная причина потепления.' },
+        { en: 'Carbon dioxide is a major cause of warming.', ru: 'Углекислый газ — основная причина потепления.' },
       ],
     },
     {
@@ -122,7 +122,7 @@ export const b108: Unit = {
       tags: ['ecology'],
       examples: [
         { en: 'The city limits emissions.', ru: 'Город ограничивает выбросы.' },
-        { en: 'Carbon emission is a global problem.', ru: 'Углеродный выброс — глобальная проблема.' },
+        { en: 'Carbon emissions are a global problem.', ru: 'Углеродные выбросы — глобальная проблема.' },
         { en: 'We must cut emissions.', ru: 'Мы должны сократить выбросы.' },
       ],
     },

@@ -81,7 +81,7 @@ export const b103: Unit = {
       examples: [
         { en: 'She has strong leadership skills.', ru: 'У неё сильные лидерские качества.' },
         { en: 'The course teaches leadership.', ru: 'Курс учит лидерству.' },
-        { en: 'Good leadership builds trust.', ru: 'Хорошее лидерство строит доверие.' },
+        { en: 'Good leadership builds trust.', ru: 'Хорошее лидерство укрепляет доверие.' },
       ],
     },
     {
@@ -229,14 +229,14 @@ export const b103: Unit = {
       title: 'A Better Offer',
       paragraphs: [
         'Maria has been working at a small company for three years. She likes her colleagues, but her workload has been growing, and her salary has not changed.',
-        'Last month she started looking for a new job. She found an internship at a larger company, but the pay was low. However, the company offered remote work and flexible hours.',
-        'Maria decided to negotiate. She showed her results and asked for a higher salary. The manager agreed to a small increase and a permanent position after the internship.',
+        'Last month she started looking for a new job. She found a job at a larger company, but the starting pay was low. However, the company offered remote work and flexible hours.',
+        'Maria decided to negotiate. She showed her results and asked for a higher salary. The manager agreed to a small increase and a permanent position after three months.',
         'Now Maria feels optimistic. She has been learning new skills, and she has not resigned from her old job yet. She wants to compare both offers before she decides.',
       ],
       questions: [
         { question: 'How long has Maria worked at the small company?', options: ['Three years', 'One year', 'Six months'], answer: 0 },
         { question: 'What did the new company offer?', options: ['Remote work and flexible hours', 'A higher salary', 'A company car'], answer: 0 },
-        { question: 'What has Maria not done yet?', options: ['Resigned from her old job', 'Negotiated', 'Started the internship'], answer: 0 },
+        { question: 'What has Maria not done yet?', options: ['Resigned from her old job', 'Negotiated', 'Started the new job'], answer: 0 },
       ],
     },
   ],
