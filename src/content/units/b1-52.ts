@@ -53,7 +53,7 @@ export const b152: Unit = {
       examples: [
         { en: 'Phone notifications are a distraction.', ru: 'Уведомления телефона отвлекают.' },
         { en: 'Remove distractions before studying.', ru: 'Убери отвлекающие факторы перед учёбой.' },
-        { en: 'Noise is a common distraction.', ru: 'Шум — частое отвлечение.' },
+        { en: 'Noise is a common distraction.', ru: 'Шум часто отвлекает.' },
       ],
     },
     {
@@ -123,7 +123,7 @@ export const b152: Unit = {
       examples: [
         { en: 'Did you recognize the name?', ru: 'Ты узнал имя?' },
         { en: 'I did not recognize that word.', ru: 'Я не узнал это слово.' },
-        { en: 'Try to recognize the main verb.', ru: 'Постарайся узнать главный глагол.' },
+        { en: 'Try to recognize the main verb.', ru: 'Постарайся распознать главный глагол.' },
       ],
     },
   ],

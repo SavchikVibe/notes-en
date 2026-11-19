@@ -121,7 +121,7 @@ export const b156: Unit = {
       level: 'B1',
       tags: ['society', 'feelings'],
       examples: [
-        { en: 'She feels a sense of belonging.', ru: 'Она чувствует принадлежность.' },
+        { en: 'She feels a sense of belonging.', ru: 'Она чувствует себя частью целого.' },
         { en: 'Belonging matters to young people.', ru: 'Чувство общности важно для молодых.' },
         { en: 'The club creates belonging.', ru: 'Клуб создаёт чувство общности.' },
       ],

@@ -230,7 +230,7 @@ export const b157: Unit = {
       paragraphs: [
         'A hospital planned a clinical trial for a new genetic treatment. Before it could start, the plan was reviewed by an ethics committee.',
         'The committee asked two questions: did every patient give consent, and were there enough safeguards for private data?',
-        'The hospital changed the plan. It added a clear regulation for data storage and promised that patients could leave the trial at any time.',
+        'The hospital changed the plan. It added clear regulations for data storage and promised that patients could leave the trial at any time.',
         'The trial started a month later. The doctors said that good science is not only about results; it is also about trust.',
       ],
       questions: [

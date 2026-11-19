@@ -220,8 +220,8 @@ export const b160: Unit = {
     {
       kind: 'speak',
       id: 'b1-60-ex-11',
-      phrase: 'If I keep my consistency, I will reach B2, and my next step is to start the first B2 unit.',
-      translation: 'Если я сохраню регулярность, я дойду до B2, и мой следующий шаг — начать первый юнит B2.',
+      phrase: 'If I stay consistent, I will reach B2, and my next step is to start the first B2 unit.',
+      translation: 'Если я буду регулярно заниматься, я дойду до B2, и мой следующий шаг — начать первый урок B2.',
     },
     {
       kind: 'read',
@@ -231,7 +231,7 @@ export const b160: Unit = {
         'When I started B1, I could talk about simple things, but long conversations were difficult. I often stopped to look for words.',
         'Now I can discuss work, health, travel, and ideas. My listening is better, and I can understand most of a podcast without subtitles.',
         'My strength is speaking; my weakness is writing. I still make grammar mistakes in long sentences, so I write a short text every week.',
-        'My next step is B2. I have an action plan: twenty minutes a day, one podcast a week, and one essay a month. If I keep consistency, I will improve.',
+        'My next step is B2. I have an action plan: twenty minutes a day, one podcast a week, and one essay a month. If I stay consistent, I will improve.',
       ],
       questions: [
         { question: 'What was difficult at the start?', options: ['Long conversations', 'Simple questions', 'Reading menus'], answer: 0 },

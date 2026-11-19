@@ -81,7 +81,7 @@ export const b153: Unit = {
       examples: [
         { en: 'The data is in the appendix.', ru: 'Данные в приложении.' },
         { en: 'The appendix has three tables.', ru: 'В приложении три таблицы.' },
-        { en: 'See the appendix for details.', ru: 'Смотри приложение для деталей.' },
+        { en: 'See the appendix for details.', ru: 'Подробности смотри в приложении.' },
       ],
     },
     {
@@ -228,7 +228,7 @@ export const b153: Unit = {
       id: 'b1-53-ex-12',
       title: 'The First Draft',
       paragraphs: [
-        'My first essay at university was a disaster. I had a good thesis, but my paragraphs did not connect.',
+        'My first essay at college was a disaster. I had a good thesis, but my paragraphs did not connect.',
         'The teacher said that each paragraph needed a topic sentence. She also told me to add a transition between ideas and a citation for every source.',
         'I revised the draft twice. The second version was shorter, but the coherence was much better.',
         'I also moved the long tables to an appendix and wrote a short abstract. The final essay was easier to read, and my grade improved.',

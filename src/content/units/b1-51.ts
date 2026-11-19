@@ -79,7 +79,7 @@ export const b151: Unit = {
       level: 'B1',
       tags: ['study', 'reading'],
       examples: [
-        { en: 'You can infer the meaning.', ru: 'Ты можешь вывести значение.' },
+        { en: 'You can infer the meaning.', ru: 'Ты можешь догадаться о значении.' },
         { en: 'Readers infer from details.', ru: 'Читатели делают выводы по деталям.' },
         { en: 'What can you infer from the text?', ru: 'Какой вывод можно сделать из текста?' },
       ],

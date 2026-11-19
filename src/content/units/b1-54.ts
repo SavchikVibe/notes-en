@@ -24,7 +24,7 @@ export const b154: Unit = {
       tags: ['grammar'],
       examples: [
         { en: 'English has many tenses.', ru: 'В английском много времён.' },
-        { en: 'The past tense is irregular here.', ru: 'Здесь прошедшее время неправильное.' },
+        { en: 'The past tense of this verb is irregular.', ru: 'У этого глагола неправильная форма прошедшего времени.' },
         { en: 'Check the tense in each sentence.', ru: 'Проверь время в каждом предложении.' },
       ],
     },
@@ -39,7 +39,7 @@ export const b154: Unit = {
       examples: [
         { en: 'Aspect shows how an action happens.', ru: 'Вид показывает, как происходит действие.' },
         { en: 'The continuous aspect describes duration.', ru: 'Длительный вид описывает продолжительность.' },
-        { en: 'Perfect aspect connects two times.', ru: 'Совершённый вид связывает два времени.' },
+        { en: 'Perfect aspect connects two points in time.', ru: 'Совершённый вид связывает два момента времени.' },
       ],
     },
     {
@@ -221,7 +221,7 @@ export const b154: Unit = {
       kind: 'speak',
       id: 'b1-54-ex-11',
       phrase: 'Tense shows time, aspect shows how the action happens, and auxiliary verbs build the form.',
-      translation: 'Время показывает время, вид показывает, как происходит действие, а вспомогательные глаголы строят форму.',
+      translation: 'Грамматическое время показывает, когда происходит действие, вид — как оно происходит, а вспомогательные глаголы строят форму.',
     },
     {
       kind: 'read',
