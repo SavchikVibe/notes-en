@@ -231,7 +231,7 @@ export const b141: Unit = {
         'Our flight home had a six-hour layover in Chicago. At check-in, I asked for an aisle seat, but only a window seat was available.',
         'The flight was delayed, so we had to hurry to the other terminal. The shuttle was complimentary, but it was full.',
         'At the hotel, the clerk offered a free upgrade because our room was not ready. We accepted and slept for a few hours.',
-        'The next day, jet lag woke me at four in the morning. Still, the trip ended well, and the upgrade made it better.',
+        'The next day, I woke up at four in the morning because of jet lag. Still, the trip ended well, and the upgrade made it better.',
       ],
       questions: [
         { question: 'How long was the layover?', options: ['Six hours', 'Three hours', 'One hour'], answer: 0 },

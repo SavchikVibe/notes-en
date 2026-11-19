@@ -25,7 +25,7 @@ export const b143: Unit = {
       examples: [
         { en: 'Good nutrition is important.', ru: 'Хорошее питание важно.' },
         { en: 'She studies nutrition.', ru: 'Она изучает питание.' },
-        { en: 'The school teaches nutrition.', ru: 'В школе преподают питание.' },
+        { en: 'The school teaches nutrition.', ru: 'В школе преподают основы питания.' },
       ],
     },
     {
@@ -123,7 +123,7 @@ export const b143: Unit = {
       examples: [
         { en: 'The hotel has a wellness center.', ru: 'В отеле есть оздоровительный центр.' },
         { en: 'Wellness is more than exercise.', ru: 'Хорошее самочувствие — это больше, чем спорт.' },
-        { en: 'She follows a wellness routine.', ru: 'Она следует оздоровительному режиму.' },
+        { en: 'She follows a wellness routine.', ru: 'Она придерживается здорового распорядка.' },
       ],
     },
   ],

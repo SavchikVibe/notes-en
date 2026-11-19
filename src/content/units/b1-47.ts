@@ -38,7 +38,7 @@ export const b147: Unit = {
       tags: ['people', 'life'],
       examples: [
         { en: 'Marriage is a commitment.', ru: 'Брак — это обязательство.' },
-        { en: 'The project needs commitment.', ru: 'Проект требует приверженности.' },
+        { en: 'The project needs commitment.', ru: 'Проект требует самоотдачи.' },
         { en: 'He made a commitment to call every week.', ru: 'Он обязался звонить каждую неделю.' },
       ],
     },
@@ -67,7 +67,7 @@ export const b147: Unit = {
       examples: [
         { en: 'We reconnected after ten years.', ru: 'Мы снова связались через десять лет.' },
         { en: 'She wants to reconnect with old friends.', ru: 'Она хочет восстановить связь со старыми друзьями.' },
-        { en: 'The reunion helped them reconnect.', ru: 'Встреча помогла им сблизиться.' },
+        { en: 'The reunion helped them reconnect.', ru: 'Встреча помогла им снова наладить общение.' },
       ],
     },
     {
@@ -81,7 +81,7 @@ export const b147: Unit = {
       examples: [
         { en: 'We spend quality time together.', ru: 'Мы проводим время вместе.' },
         { en: 'Quality time matters more than gifts.', ru: 'Совместное время важнее подарков.' },
-        { en: 'They plan quality time every weekend.', ru: 'Они планируют совместное время каждые выходные.' },
+        { en: 'They plan quality time every weekend.', ru: 'Они каждые выходные выделяют время друг для друга.' },
       ],
     },
     {

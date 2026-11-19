@@ -67,7 +67,7 @@ export const b145: Unit = {
       examples: [
         { en: 'The poster was propaganda.', ru: 'Плакат был пропагандой.' },
         { en: 'Propaganda spreads false ideas.', ru: 'Пропаганда распространяет ложные идеи.' },
-        { en: 'The film was criticized as propaganda.', ru: 'Фильм критиковали как пропаганду.' },
+        { en: 'The movie was criticized as propaganda.', ru: 'Фильм критиковали как пропаганду.' },
       ],
     },
     {
@@ -122,7 +122,7 @@ export const b145: Unit = {
       tags: ['media', 'communication'],
       examples: [
         { en: 'The source has credibility.', ru: 'Источник заслуживает доверия.' },
-        { en: 'The scandal damaged his credibility.', ru: 'Скандал подорвал его доверие.' },
+        { en: 'The scandal damaged his credibility.', ru: 'Скандал подорвал доверие к нему.' },
         { en: 'Credibility takes years to build.', ru: 'Доверие строится годами.' },
       ],
     },

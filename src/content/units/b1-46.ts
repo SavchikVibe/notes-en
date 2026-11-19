@@ -231,7 +231,7 @@ export const b146: Unit = {
         'Our local museum reopened last month after two years of work. The building was restored, and the galleries were redesigned.',
         'The curator chose a new exhibition about the town’s history. It includes old photographs, tools, and a small sculpture found near the river.',
         'The museum also displays artifacts from the first settlers. Admission is free for students, and an audio guide is available in three languages.',
-        'It is said that the museum was almost closed forever. Now it is a place where people can preserve and understand their history.',
+        'It is said that the museum was almost closed forever. Now it is a place where the town can preserve its history and share it with visitors.',
       ],
       questions: [
         { question: 'What happened to the building?', options: ['It was restored', 'It was sold', 'It was closed'], answer: 0 },

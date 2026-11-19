@@ -38,8 +38,8 @@ export const b150: Unit = {
       tags: ['work', 'communication'],
       examples: [
         { en: 'I printed a handout for the audience.', ru: 'Я распечатал раздаточный материал для аудитории.' },
-        { en: 'The handout summarizes the talk.', ru: 'Раздатка кратко излагает выступление.' },
-        { en: 'Please take one handout.', ru: 'Пожалуйста, возьмите один материал.' },
+        { en: 'The handout summarizes the talk.', ru: 'В раздаточном материале кратко изложено выступление.' },
+        { en: 'Please take one handout.', ru: 'Пожалуйста, возьмите по одному раздаточному материалу.' },
       ],
     },
     {
@@ -53,7 +53,7 @@ export const b150: Unit = {
       examples: [
         { en: 'He gave the keynote at the conference.', ru: 'Он выступил с главным докладом на конференции.' },
         { en: 'The keynote lasted an hour.', ru: 'Главный доклад длился час.' },
-        { en: 'Her keynote was inspiring.', ru: 'Её доклад вдохновлял.' },
+        { en: 'Her keynote was inspiring.', ru: 'Её доклад вдохновил всех.' },
       ],
     },
     {
@@ -81,7 +81,7 @@ export const b150: Unit = {
       examples: [
         { en: 'Speak at a steady pace.', ru: 'Говори в ровном темпе.' },
         { en: 'His pace was too fast.', ru: 'Его темп был слишком быстрым.' },
-        { en: 'Slow your pace when you are nervous.', ru: 'Замедлись, когда нервничаешь.' },
+        { en: 'Slow your pace when you are nervous.', ru: 'Сбавь темп, когда нервничаешь.' },
       ],
     },
     {

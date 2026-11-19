@@ -230,7 +230,7 @@ export const b149: Unit = {
       paragraphs: [
         'Last week I found an old photograph of my grandparents. It shows them in front of a small house, smiling at the camera.',
         'The photo gave me nostalgia. I called my mother, and she told me an anecdote about the day it was taken.',
-        'It was a coincidence that she remembered the story so clearly. We talked for an hour and reminisced about family dinners.',
+        'By coincidence, my mother had the same photo in her album. We talked for an hour and reminisced about family dinners.',
         'The memory is bittersweet because my grandfather is gone. In hindsight, I wish I had asked him more questions. Now I write down the stories I hear.',
       ],
       questions: [

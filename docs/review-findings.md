@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-19, version 0.79.0.
+Last updated: 2026-11-19, version 0.80.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.79.0)
+## 8. Current state (0.80.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 3,390 exercises: 12–14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -118,6 +118,7 @@ These are still the backbone of the roadmap.
 - Naturalness pass B1-21…30: найден и убран английский текст в русском переводе — «Фестиваль celebrates местное наследие» → «прославляет». Тот же дефект найден сканированием всех юнитов и исправлен заранее в B2: b2-15 «поглощает farmland» → «сельхозугодья», b2-26 «снижают relevance» → «релевантность», b2-27 «Город celebrates мультикультурализм» → «гордится мультикультурализмом». `everything worked` → `worked out` (b1-21, b1-28), `might be used` → `might have been used` (b1-27), `worth paying attention` → `paying attention to`, `three months early` → `in advance`. В b1-25 `Every choice has a consequence` → `consequences` (пример, диктант и перевод), `public transport` → `transportation`. В b1-26 `a forever decision` → `a decision for life`. В b1-22: `The price is a bargain` → `At that price, it is a bargain`, `offers an exchange` → `allows exchanges`, `answered my complaint` → `responded to my complaint`. Кальки: «Будь терпелив к процессу» → «Наберись терпения», «сделали предположение о стоимости» → «предположили, сколько это будет стоить», «недвижимость рядом с парком» → «объект находится рядом с парком», «делают его стоящим просмотра» → «благодаря тонким символам его стоит посмотреть».
 - Naturalness pass B1-31…40: «кредиты» в смысле зачётных единиц → «зачётные единицы» (b1-32), «Он хочет карьеру, которая приносит удовлетворение» → «работу», «Было облегчением закончить» → «Закончить было облегчением», «Команда стала устойчивее» → «стойче», «Рассказчик — молодой парень» → «мальчик», «ведёт историю» → «ведёт повествование». `public transport` → `public transportation` (b1-35, пример и сборка; затем ещё 11 вхождений в b2-12, b2-15, b2-24, b2-42, b2-44, b2-53), `Protecting habitat` → `habitats`, `The manuscript was 300 pages` → `pages long`, `the communication was the best part` → `communication`. В b1-37 `The app offers a free subscription` → `The subscription is free for students`, вопросы чтения больше не предполагают пол автора. В b1-38 прямая речь выделена кавычками: `“Life is a journey” is a metaphor`.
 - Библиотека чтения: в трёх текстах ещё встречается `public transport`; менять только вместе с перегенерацией MP3 (`python scripts/generate-library-audio.py`), иначе озвучка разойдётся с текстом.
+- Naturalness pass B1-41…50: в b1-42 текст переписан целиком — раньше он почти повторял b1-27 (странная операция → блокировка карты → возврат денег). Теперь это история о краже личности через заявку на кредитку, с кредитным рейтингом и PIN; вопросы обновлены. В b1-49 «совпадением было то, что она так ясно помнила» заменено на естественное совпадение (у матери тот же снимок в альбоме). «Jet lag woke me» → «I woke up … because of jet lag» (b1-41). Кальки: «В школе преподают питание» → «основы питания», «придерживается здорового распорядка» вместо «следует оздоровительному режиму», «Проект требует самоотдачи» вместо «приверженности», «снова наладить общение» вместо «сблизиться» (b1-47), «каждые выходные выделяют время друг для друга», «раздаточный материал» вместо «раздатки» и «материала» (b1-50), «Сбавь темп», «доклад вдохновил всех». `The film` → `The movie` (b1-45), «подорвал его доверие» → «доверие к нему». В b1-46 музей теперь «сохраняет историю города и делится ею с посетителями».
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
@@ -134,7 +135,7 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.79.0.
+- Version 0.80.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
@@ -153,7 +154,7 @@ Priority order unless the user changes it:
 8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. Still open: browser-level tests for the full lesson flow.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
-11. **Naturalness pass.** A1 and A2 done; B1-01…40 done. Next: B1-41…50, then the rest of B1 and B2. Look for calques, tense mismatches, UK/US vocabulary and text logic errors.
+11. **Naturalness pass.** A1 and A2 done; all of B1 (01–50) done. Next: B1-51…60, then B2. Look for calques, tense mismatches, UK/US vocabulary, duplicate plots and text logic errors.
 
 ## 10. What not to change
 
