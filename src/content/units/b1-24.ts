@@ -95,7 +95,7 @@ export const b124: Unit = {
       examples: [
         { en: 'The patient is waiting.', ru: 'Пациент ждёт.' },
         { en: 'The doctor saw ten patients.', ru: 'Врач принял десять пациентов.' },
-        { en: 'Be patient with the process.', ru: 'Будь терпелив к процессу.' },
+        { en: 'Be patient with the process.', ru: 'Наберись терпения.' },
       ],
     },
     {

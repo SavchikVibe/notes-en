@@ -79,7 +79,7 @@ export const b215: Unit = {
       level: 'B2',
       tags: ['city'],
       examples: [
-        { en: 'Urban sprawl consumes farmland.', ru: 'Разрастание города поглощает farmland.' },
+        { en: 'Urban sprawl consumes farmland.', ru: 'Разрастание города поглощает сельхозугодья.' },
         { en: 'Sprawl makes car travel necessary.', ru: 'Из-за разрастания города нужна машина.' },
         { en: 'The city limits sprawl.', ru: 'Город ограничивает разрастание.' },
       ],
@@ -198,7 +198,7 @@ export const b215: Unit = {
     {
       kind: 'translate',
       id: 'b2-15-ex-09',
-      source: 'Разрастание города поглощает farmland.',
+      source: 'Разрастание города поглощает сельхозугодья.',
       accept: ['Urban sprawl consumes farmland.'],
       sample: 'Urban sprawl consumes farmland.',
       explanation: 'Urban sprawl — разрастание города.',

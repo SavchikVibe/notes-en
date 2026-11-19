@@ -228,13 +228,13 @@ export const b128: Unit = {
       id: 'b1-28-ex-12',
       title: 'At the Border',
       paragraphs: [
-        'Last summer we traveled to a country that required a visa. I applied three months early, but the process was still stressful.',
+        'Last summer we traveled to a country that required a visa. I applied three months in advance, but the process was still stressful.',
         'At the airport, we showed our passports and boarding passes. The officer asked why we were visiting and how long we planned to stay.',
         'At customs, they checked one bag. We had nothing to declare, so it was quick. I kept copies of all documents in case something was lost.',
-        'Our visa was valid for thirty days. Before the trip, I had to renew my passport, so I was happy that everything worked.',
+        'Our visa was valid for thirty days. Before the trip, I had to renew my passport, so I was happy that everything worked out.',
       ],
       questions: [
-        { question: 'When did the writer apply for the visa?', options: ['Three months early', 'A week before', 'At the airport'], answer: 0 },
+        { question: 'When did the writer apply for the visa?', options: ['Three months in advance', 'A week before', 'At the airport'], answer: 0 },
         { question: 'What did customs check?', options: ['One bag', 'All bags', 'The tickets'], answer: 0 },
         { question: 'How long was the visa valid?', options: ['Thirty days', 'One year', 'Five years'], answer: 0 },
       ],

@@ -38,7 +38,7 @@ export const b125: Unit = {
       tags: ['communication', 'study'],
       examples: [
         { en: 'That is a false assumption.', ru: 'Это ложное предположение.' },
-        { en: 'We made an assumption about the cost.', ru: 'Мы сделали предположение о стоимости.' },
+        { en: 'We made an assumption about the cost.', ru: 'Мы предположили, сколько это будет стоить.' },
         { en: 'Check your assumptions.', ru: 'Проверь свои предположения.' },
       ],
     },
@@ -51,7 +51,7 @@ export const b125: Unit = {
       level: 'B1',
       tags: ['society', 'communication'],
       examples: [
-        { en: 'Every choice has a consequence.', ru: 'У каждого выбора есть последствие.' },
+        { en: 'Every choice has consequences.', ru: 'У каждого выбора есть последствия.' },
         { en: 'The consequence was serious.', ru: 'Последствие было серьёзным.' },
         { en: 'Think about the consequences.', ru: 'Подумай о последствиях.' },
       ],
@@ -206,16 +206,16 @@ export const b125: Unit = {
     {
       kind: 'listen',
       id: 'b1-25-ex-10',
-      audio: 'Every choice has a consequence.',
+      audio: 'Every choice has consequences.',
       question: 'Что ты услышал?',
       mode: 'choice',
       options: [
-        'Every choice has a consequence.',
-        'Every choice has a result.',
-        'Every change has a consequence.',
+        'Every choice has consequences.',
+        'Every choice has results.',
+        'Every change has consequences.',
       ],
       answer: 0,
-      translation: 'У каждого выбора есть последствие.',
+      translation: 'У каждого выбора есть последствия.',
     },
     {
       kind: 'speak',
@@ -231,7 +231,7 @@ export const b125: Unit = {
         'Our city is discussing a new plan: cars will not be allowed in the center on weekends. The goal is cleaner air and safer streets.',
         'From the perspective of residents, the plan sounds good. If the center had fewer cars, it would be quieter, and children could play outside. However, shop owners have a different view.',
         'Their assumption is simple: customers come by car. If people could not drive downtown, some shops would lose money. This is a real trade-off between health and business.',
-        'The city is testing the plan for three months. The outcome will show who is right. A long-term solution may need a different approach: better public transport and more parking outside the center.',
+        'The city is testing the plan for three months. The outcome will show who is right. A long-term solution may need a different approach: better public transportation and more parking outside the center.',
       ],
       questions: [
         { question: 'What is the new plan?', options: ['No cars in the center on weekends', 'Free buses', 'New shops'], answer: 0 },

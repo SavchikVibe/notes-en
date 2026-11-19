@@ -25,7 +25,7 @@ export const b122: Unit = {
       examples: [
         { en: 'This coat was a bargain.', ru: 'Это пальто было выгодной покупкой.' },
         { en: 'I love hunting for bargains.', ru: 'Я люблю искать выгодные предложения.' },
-        { en: 'The price is a bargain.', ru: 'Цена очень выгодная.' },
+        { en: 'At that price, it is a bargain.', ru: 'По такой цене это очень выгодно.' },
       ],
     },
     {
@@ -53,7 +53,7 @@ export const b122: Unit = {
       examples: [
         { en: 'Can I exchange this shirt?', ru: 'Можно обменять эту рубашку?' },
         { en: 'She exchanged the gift.', ru: 'Она обменяла подарок.' },
-        { en: 'The store offers an exchange.', ru: 'Магазин предлагает обмен.' },
+        { en: 'The store allows exchanges.', ru: 'Магазин разрешает обмен.' },
       ],
     },
     {
@@ -66,7 +66,7 @@ export const b122: Unit = {
       tags: ['shopping', 'communication'],
       examples: [
         { en: 'I made a complaint about the service.', ru: 'Я пожаловался на обслуживание.' },
-        { en: 'The company answered my complaint.', ru: 'Компания ответила на мою жалобу.' },
+        { en: 'The company responded to my complaint.', ru: 'Компания ответила на мою жалобу.' },
         { en: 'He filed a complaint.', ru: 'Он подал жалобу.' },
       ],
     },
@@ -199,8 +199,8 @@ export const b122: Unit = {
       kind: 'translate',
       id: 'b1-22-ex-09',
       source: 'Компания ответила на мою жалобу.',
-      accept: ['The company answered my complaint.'],
-      sample: 'The company answered my complaint.',
+      accept: ['The company responded to my complaint.'],
+      sample: 'The company responded to my complaint.',
       explanation: 'Answer a complaint — ответить на жалобу.',
     },
     {

@@ -231,7 +231,7 @@ export const b121: Unit = {
         'On Monday morning, our team had three meetings. The first one was short: we checked the agenda, confirmed the priorities, and delegated two tasks.',
         'The second meeting was longer. A client wanted to reschedule a project, so we had to change the workflow and follow up with the design team.',
         'I was responsible for the third meeting, but I almost forgot it. My colleague reminded me ten minutes before it started.',
-        'In the end, everything worked. We confirmed the new dates, and I sent a short email to summarize the decisions. Good communication saved the day.',
+        'In the end, everything worked out. We confirmed the new dates, and I sent a short email to summarize the decisions. Good communication saved the day.',
       ],
       questions: [
         { question: 'How many meetings did the team have?', options: ['Three', 'Two', 'Four'], answer: 0 },

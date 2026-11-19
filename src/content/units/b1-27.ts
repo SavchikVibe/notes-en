@@ -229,9 +229,9 @@ export const b127: Unit = {
       title: 'A Strange Transaction',
       paragraphs: [
         'Last week I noticed a strange transaction on my bank account. It was for a small amount, but I did not recognize the shop.',
-        'I called the bank. The manager said that my card might be used online, and she blocked it immediately.',
+        'I called the bank. The manager said that my card might have been used online, and she blocked it immediately.',
         'The fee for the call was zero, and the bank returned the money in two days. They also explained how to make my account safer.',
-        'Now I check my account every morning. A small transaction can be the first sign of a bigger problem, so it is worth paying attention.',
+        'Now I check my account every morning. A small transaction can be the first sign of a bigger problem, so it is worth paying attention to.',
       ],
       questions: [
         { question: 'What did the writer notice?', options: ['A strange transaction', 'A new fee', 'A missing card'], answer: 0 },

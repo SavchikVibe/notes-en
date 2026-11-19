@@ -52,7 +52,7 @@ export const b227: Unit = {
       tags: ['culture', 'society'],
       examples: [
         { en: 'Multiculturalism is official policy.', ru: 'Мультикультурализм — официальная политика.' },
-        { en: 'The city celebrates multiculturalism.', ru: 'Город celebrates мультикультурализм.' },
+        { en: 'The city celebrates multiculturalism.', ru: 'Город гордится мультикультурализмом.' },
         { en: 'Multiculturalism has critics.', ru: 'У мультикультурализма есть критики.' },
       ],
     },
@@ -109,7 +109,7 @@ export const b227: Unit = {
       examples: [
         { en: 'She returned to her roots.', ru: 'Она вернулась к своим корням.' },
         { en: 'Family roots matter to him.', ru: 'Семейные корни важны для него.' },
-        { en: 'The festival celebrates local roots.', ru: 'Фестиваль celebrates местные корни.' },
+        { en: 'The festival celebrates local roots.', ru: 'Фестиваль прославляет местные корни.' },
       ],
     },
     {

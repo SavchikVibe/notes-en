@@ -221,7 +221,7 @@ export const b129: Unit = {
       kind: 'speak',
       id: 'b1-29-ex-11',
       phrase: 'The film is an adaptation of a novel, and its subtle symbols make it worth watching.',
-      translation: 'Фильм — экранизация романа, и его тонкие символы делают его стоящим просмотра.',
+      translation: 'Фильм — экранизация романа, и благодаря тонким символам его стоит посмотреть.',
     },
     {
       kind: 'read',

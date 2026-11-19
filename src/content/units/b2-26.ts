@@ -102,14 +102,14 @@ export const b226: Unit = {
       id: 'relevance',
       term: 'relevance',
       ipa: 'ˈreləvəns',
-      translation: 'уместность, relevance',
+      translation: 'уместность, релевантность',
       pos: 'n',
       level: 'B2',
       tags: ['speaking', 'academic'],
       examples: [
         { en: 'Stay on topic and check relevance.', ru: 'Держись темы и проверяй уместность.' },
         { en: 'The relevance of the example is clear.', ru: 'Уместность примера ясна.' },
-        { en: 'Irrelevant details reduce relevance.', ru: 'Неуместные детали снижают relevance.' },
+        { en: 'Irrelevant details reduce relevance.', ru: 'Неуместные детали снижают релевантность.' },
       ],
     },
     {

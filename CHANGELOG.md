@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.78.0 — 2026-11-19
+
+- Вычитка естественности B1-21…30.
+- В b1-23 в русском переводе остался английский глагол: «Фестиваль celebrates местное наследие» → «прославляет». Сканирование всех 210 юнитов нашло тот же дефект ещё в трёх местах B2 — исправлено заранее: `farmland` (b2-15), `relevance` (b2-26), `celebrates` (b2-27).
+- Исправлена грамматика: `might be used online` → `might have been used`, `everything worked` → `worked out`, `worth paying attention` → `paying attention to`, `three months early` → `in advance`.
+- b1-25: `Every choice has a consequence` → `consequences` в примере, диктанте и переводе; `public transport` → `transportation`.
+- b1-22: `The price is a bargain` → `At that price, it is a bargain`, `offers an exchange` → `allows exchanges`, `answered my complaint` → `responded to my complaint`.
+- Кальки: «Наберись терпения» вместо «Будь терпелив к процессу», «предположили, сколько это будет стоить», «объект находится рядом с парком», «благодаря тонким символам его стоит посмотреть».
+- Следующий шаг: B1-31…40.
+
 ## 0.77.0 — 2026-11-19
 
 - Вычитка естественности B1-11…20.

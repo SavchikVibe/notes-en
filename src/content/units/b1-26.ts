@@ -121,7 +121,7 @@ export const b126: Unit = {
       level: 'B1',
       tags: ['home', 'money'],
       examples: [
-        { en: 'The property is near the park.', ru: 'Недвижимость рядом с парком.' },
+        { en: 'The property is near the park.', ru: 'Объект находится рядом с парком.' },
         { en: 'They bought a property in the city.', ru: 'Они купили недвижимость в городе.' },
         { en: 'Property prices are rising.', ru: 'Цены на недвижимость растут.' },
       ],
@@ -231,7 +231,7 @@ export const b126: Unit = {
         'My partner and I are deciding whether to rent or buy an apartment. Renting is simpler, but buying may be cheaper in the long run.',
         'The real estate agent showed us two properties. The first one was fully furnished, and utilities were included in the rent. The second one was cheaper, but we would have to furnish it ourselves.',
         'We also talked to a bank about a mortgage. The monthly payment would be higher than our current rent, and we would need a large deposit.',
-        'In the end, we decided to rent for one more year. The lease is short, and we can save money for a deposit. It is not a forever decision, and that is fine.',
+        'In the end, we decided to rent for one more year. The lease is short, and we can save money for a deposit. It is not a decision for life, and that is fine.',
       ],
       questions: [
         { question: 'What is the first apartment like?', options: ['Fully furnished', 'Empty', 'Very old'], answer: 0 },

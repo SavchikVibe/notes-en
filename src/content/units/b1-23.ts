@@ -81,7 +81,7 @@ export const b123: Unit = {
       examples: [
         { en: 'The city has a rich heritage.', ru: 'У города богатое наследие.' },
         { en: 'They protect their cultural heritage.', ru: 'Они защищают культурное наследие.' },
-        { en: 'The festival celebrates local heritage.', ru: 'Фестиваль celebrates местное наследие.' },
+        { en: 'The festival celebrates local heritage.', ru: 'Фестиваль прославляет местное наследие.' },
       ],
     },
     {
@@ -230,7 +230,7 @@ export const b123: Unit = {
       paragraphs: [
         'Last summer I visited a music festival in an old town. It was not a famous event, but the town has a rich heritage and a beautiful square.',
         'A local band opened the evening. Their lyrics were simple, but the tune was catchy, and the crowd loved them.',
-        'The main concert was with an orchestra. I have never heard classical music live before, and it was the best performance I have ever seen.',
+        'The main concert featured an orchestra. I have never heard classical music live before, and it was the best performance I have ever seen.',
         'Between concerts, we walked through a craft market. The festival is worth visiting, especially if you want to see the real culture of the region.',
       ],
       questions: [
