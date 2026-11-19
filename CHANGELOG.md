@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.82.0 — 2026-11-19
+
+- Вычитка естественности B2-01…10.
+- b2-03: убрано противоречие «visitors increased steadily for two years and peaked … in 2019» — 2018→2019 это один год.
+- b2-07: `greenhouse emissions` → `greenhouse gas emissions` (пример, диктант, перевод); `depletes local water` → `local water supplies`; «община» → «местное сообщество».
+- b2-05: «ошибки допустимы, если мысль ясная и точная» → «если мысль ясная».
+- b2-08: «качество школ не равно» → «сильно различается», вопрос чтения переформулирован.
+- Кальки: «проблемы происходят из» → «коренятся в» (b2-06); `The attitude of the writer` → `The writer’s attitude`; `Attitudes to work` → `toward` (US).
+- b2-01: `the skill IELTS reading tests` → `the skill that IELTS reading tests`. b2-04: `The tutorial is in a small group` → `takes place in`. b2-09: `disrupted transport` → `transportation`.
+- Следующий шаг: B2-11…20.
+
 ## 0.81.0 — 2026-11-19
 
 - Вычитка естественности B1-51…60; B1 вычитан полностью.

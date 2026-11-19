@@ -65,8 +65,8 @@ export const b206: Unit = {
       level: 'B2',
       tags: ['academic', 'writing'],
       examples: [
-        { en: 'The issues stem from a lack of trust.', ru: 'Проблемы происходят из недостатка доверия.' },
-        { en: 'Many problems stem from inequality.', ru: 'Многие проблемы происходят из неравенства.' },
+        { en: 'The issues stem from a lack of trust.', ru: 'Проблемы коренятся в недостатке доверия.' },
+        { en: 'Many problems stem from inequality.', ru: 'Многие проблемы коренятся в неравенстве.' },
         { en: 'The delay may stem from bad weather.', ru: 'Задержка может быть из-за плохой погоды.' },
       ],
     },

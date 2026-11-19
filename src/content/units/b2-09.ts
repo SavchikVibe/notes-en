@@ -38,7 +38,7 @@ export const b209: Unit = {
       tags: ['technology', 'society'],
       examples: [
         { en: 'AI may disrupt the job market.', ru: 'ИИ может подорвать рынок труда.' },
-        { en: 'The strike disrupted transport.', ru: 'Забастовка нарушила транспорт.' },
+        { en: 'The strike disrupted transportation.', ru: 'Забастовка нарушила транспорт.' },
         { en: 'New technology can disrupt old industries.', ru: 'Новые технологии могут подорвать старые отрасли.' },
       ],
     },

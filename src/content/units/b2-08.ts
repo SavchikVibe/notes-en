@@ -228,13 +228,13 @@ export const b208: Unit = {
       id: 'b2-08-ex-12',
       title: 'The Gap in Education',
       paragraphs: [
-        'Education is compulsory in most countries, but the quality of schools is not equal. Students from poorer families often have lower attainment.',
+        'Education is compulsory in most countries, but the quality of schools varies widely. Students from poorer families often have lower attainment.',
         'The curriculum matters, but so does assessment. If a single exam decides everything, students with test anxiety are disadvantaged.',
         'Some countries invest in vocational education. They believe that practical training motivates students who do not enjoy academic subjects.',
         'Tertiary education is still important, but it should not be the only path. A fair system offers different routes and supports students at every stage.',
       ],
       questions: [
-        { question: 'What is unequal?', options: ['The quality of schools', 'The number of subjects', 'The length of holidays'], answer: 0 },
+        { question: 'What varies between schools?', options: ['The quality', 'The number of subjects', 'The length of holidays'], answer: 0 },
         { question: 'Who is disadvantaged by a single exam?', options: ['Students with test anxiety', 'Teachers', 'Parents'], answer: 0 },
         { question: 'What should a fair system offer?', options: ['Different routes', 'Only university', 'Longer exams'], answer: 0 },
       ],

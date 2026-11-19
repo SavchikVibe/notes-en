@@ -229,7 +229,7 @@ export const b203: Unit = {
       title: 'Describing a Graph',
       paragraphs: [
         'The graph shows the number of visitors to a museum between 2018 and 2023. In 2018, the figure stood at 200,000.',
-        'Visitors increased steadily for two years and peaked at 350,000 in 2019. After that, the number dropped sharply because of the pandemic.',
+        'Visitors increased steadily and peaked at 350,000 in 2019. After that, the number dropped sharply because of the pandemic.',
         'In 2021, the figure began to recover. It fluctuated between 180,000 and 250,000, then reached a plateau in 2022.',
         'By 2023, visitor numbers had returned to 300,000. Overall, the trend was positive, but the period included a sharp fall and a slow recovery.',
       ],

@@ -79,8 +79,8 @@ export const b201: Unit = {
       level: 'B2',
       tags: ['academic', 'reading'],
       examples: [
-        { en: 'The attitude of the writer is positive.', ru: 'Отношение автора положительное.' },
-        { en: 'Attitudes to work are changing.', ru: 'Отношение к работе меняется.' },
+        { en: 'The writer’s attitude is positive.', ru: 'Отношение автора положительное.' },
+        { en: 'Attitudes toward work are changing.', ru: 'Отношение к работе меняется.' },
         { en: 'The survey measures public attitudes.', ru: 'Опрос измеряет общественные настроения.' },
       ],
     },
@@ -231,7 +231,7 @@ export const b201: Unit = {
         'Academic reading is not only about understanding words. It is about identifying the claim, the evidence, and the stance of the author.',
         'A claim may be stated directly, but an inference often has to be made from details. For example, if a study says that young people sleep less than before, the implication may be that screen time is affecting health.',
         'The tone matters too. A neutral article presents both sides, while a critical article may use stronger language. Cohesion helps the reader follow the argument from one paragraph to the next.',
-        'Finally, good academic reading includes synthesis. You compare two sources, notice where they agree, and explain where they differ. That is the skill IELTS reading tests.',
+        'Finally, good academic reading includes synthesis. You compare two sources, notice where they agree, and explain where they differ. That is the skill that IELTS reading tests.',
       ],
       questions: [
         { question: 'What should academic reading identify?', options: ['Claim, evidence, and stance', 'Only new words', 'The author’s name'], answer: 0 },

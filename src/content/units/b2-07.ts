@@ -39,7 +39,7 @@ export const b207: Unit = {
       examples: [
         { en: 'A resilient ecosystem recovers faster.', ru: 'Устойчивая экосистема восстанавливается быстрее.' },
         { en: 'Cities must become more resilient.', ru: 'Города должны стать устойчивее.' },
-        { en: 'The community was resilient after the flood.', ru: 'Община восстановилась после наводнения.' },
+        { en: 'The community was resilient after the flood.', ru: 'Местное сообщество восстановилось после наводнения.' },
       ],
     },
     {
@@ -52,7 +52,7 @@ export const b207: Unit = {
       tags: ['ecology'],
       examples: [
         { en: 'Do not deplete the soil.', ru: 'Не истощай почву.' },
-        { en: 'The factory depletes local water.', ru: 'Завод истощает местные запасы воды.' },
+        { en: 'The factory depletes local water supplies.', ru: 'Завод истощает местные запасы воды.' },
         { en: 'Resources are easy to deplete.', ru: 'Ресурсы легко истощить.' },
       ],
     },
@@ -123,7 +123,7 @@ export const b207: Unit = {
       examples: [
         { en: 'Greenhouse gases cause warming.', ru: 'Парниковые газы вызывают потепление.' },
         { en: 'The greenhouse effect is well known.', ru: 'Парниковый эффект хорошо известен.' },
-        { en: 'We must reduce greenhouse emissions.', ru: 'Мы должны сократить парниковые выбросы.' },
+        { en: 'We must reduce greenhouse gas emissions.', ru: 'Мы должны сократить выбросы парниковых газов.' },
       ],
     },
   ],
@@ -206,16 +206,16 @@ export const b207: Unit = {
     {
       kind: 'listen',
       id: 'b2-07-ex-10',
-      audio: 'We must reduce greenhouse emissions.',
+      audio: 'We must reduce greenhouse gas emissions.',
       question: 'Что ты услышал?',
       mode: 'choice',
       options: [
-        'We must reduce greenhouse emissions.',
+        'We must reduce greenhouse gas emissions.',
         'We must reduce greenhouse gases.',
-        'We should reduce greenhouse emissions.',
+        'We should reduce greenhouse gas emissions.',
       ],
       answer: 0,
-      translation: 'Мы должны сократить парниковые выбросы.',
+      translation: 'Мы должны сократить выбросы парниковых газов.',
     },
     {
       kind: 'speak',

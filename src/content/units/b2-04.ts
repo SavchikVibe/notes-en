@@ -51,7 +51,7 @@ export const b204: Unit = {
       level: 'B2',
       tags: ['academic'],
       examples: [
-        { en: 'The tutorial is in a small group.', ru: 'Практическое занятие в маленькой группе.' },
+        { en: 'The tutorial takes place in a small group.', ru: 'Практическое занятие проходит в маленькой группе.' },
         { en: 'We discussed the essay in a tutorial.', ru: 'Мы обсуждали эссе на практическом занятии.' },
         { en: 'The tutorial helped me understand.', ru: 'Занятие помогло мне понять.' },
       ],

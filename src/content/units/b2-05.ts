@@ -231,7 +231,7 @@ export const b205: Unit = {
         'In the speaking test, the examiner assesses fluency, lexical range, grammatical accuracy, and pronunciation.',
         'Fluency does not mean speaking fast. It means speaking without long hesitation and connecting ideas clearly.',
         'If you do not know a word, paraphrase it. If your answer is short, extend it with a reason or an example. The examiner cannot score what you do not say.',
-        'Spontaneous answers are better than memorized ones. Small mistakes are acceptable if the message is clear and accurate.',
+        'Spontaneous answers are better than memorized ones. Small mistakes are acceptable if the message is clear.',
       ],
       questions: [
         { question: 'What does fluency mean?', options: ['Speaking without long hesitation', 'Speaking fast', 'Using difficult words'], answer: 0 },

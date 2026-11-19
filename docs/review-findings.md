@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-19, version 0.81.0.
+Last updated: 2026-11-19, version 0.82.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.81.0)
+## 8. Current state (0.82.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 3,390 exercises: 12–14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -121,6 +121,7 @@ These are still the backbone of the roadmap.
 - Naturalness pass B1-41…50: в b1-42 текст переписан целиком — раньше он почти повторял b1-27 (странная операция → блокировка карты → возврат денег). Теперь это история о краже личности через заявку на кредитку, с кредитным рейтингом и PIN; вопросы обновлены. В b1-49 «совпадением было то, что она так ясно помнила» заменено на естественное совпадение (у матери тот же снимок в альбоме). «Jet lag woke me» → «I woke up … because of jet lag» (b1-41). Кальки: «В школе преподают питание» → «основы питания», «придерживается здорового распорядка» вместо «следует оздоровительному режиму», «Проект требует самоотдачи» вместо «приверженности», «снова наладить общение» вместо «сблизиться» (b1-47), «каждые выходные выделяют время друг для друга», «раздаточный материал» вместо «раздатки» и «материала» (b1-50), «Сбавь темп», «доклад вдохновил всех». `The film` → `The movie` (b1-45), «подорвал его доверие» → «доверие к нему». В b1-46 музей теперь «сохраняет историю города и делится ею с посетителями».
 - Naturalness pass B1-51…60: «Время показывает время» → «Грамматическое время показывает, когда происходит действие» (b1-54); `Perfect aspect connects two times` → `two points in time`; `The past tense is irregular` → `The past tense of this verb is irregular`. `If I keep consistency` / `If I keep my consistency` → `If I stay consistent` (b1-60, текст и речь), «юнит B2» → «урок B2». Кальки: «вывести значение» → «догадаться о значении», «Шум — частое отвлечение» → «Шум часто отвлекает», «Смотри приложение для деталей» → «Подробности смотри в приложении», «Она чувствует принадлежность» → «чувствует себя частью целого». `at university` → `at college` (b1-53); `a clear regulation` → `clear regulations` (b1-57).
 - B1 вычитан полностью (01–60).
+- Naturalness pass B2-01…10: `That is the skill IELTS reading tests` → `the skill that IELTS reading tests` (b2-01); `The attitude of the writer` → `The writer’s attitude`; `Attitudes to work` → `Attitudes toward work` (US). В b2-03 убрано противоречие «рос два года и достиг пика в 2019» (2018→2019 — один год). В b2-05 «мелкие ошибки допустимы, если мысль ясная и точная» → «если мысль ясная»; в b2-07 `greenhouse emissions` → `greenhouse gas emissions` (пример, диктант, перевод), `depletes local water` → `local water supplies`, «община» → «местное сообщество». В b2-08 «качество школ не равно» → «сильно различается», вопрос чтения переформулирован. Кальки: «проблемы происходят из» → «коренятся в» (b2-06); `disrupted transport` → `transportation` (b2-09); `The tutorial is in a small group` → `takes place in`.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
@@ -137,7 +138,7 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.81.0.
+- Version 0.82.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
@@ -156,7 +157,7 @@ Priority order unless the user changes it:
 8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. Still open: browser-level tests for the full lesson flow.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
-11. **Naturalness pass.** A1, A2 and B1 done (01–60). Next: B2-01…10, then the rest of B2. Look for calques, tense mismatches, UK/US vocabulary, duplicate plots and text logic errors.
+11. **Naturalness pass.** A1, A2 and B1 done; B2-01…10 done. Next: B2-11…20, then the rest of B2. Look for calques, tense mismatches, UK/US vocabulary, duplicate plots and text logic errors.
 
 ## 10. What not to change
 
