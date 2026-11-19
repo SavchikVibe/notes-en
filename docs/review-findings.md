@@ -154,7 +154,7 @@ Priority order unless the user changes it:
 8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. Still open: browser-level tests for the full lesson flow.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
-11. **Naturalness pass.** A1 and A2 done; all of B1 (01–50) done. Next: B1-51…60, then B2. Look for calques, tense mismatches, UK/US vocabulary, duplicate plots and text logic errors.
+11. **Naturalness pass.** A1 and A2 done; B1-01…50 done. Next: B1-51…60, then B2. Look for calques, tense mismatches, UK/US vocabulary, duplicate plots and text logic errors.
 
 ## 10. What not to change
 
