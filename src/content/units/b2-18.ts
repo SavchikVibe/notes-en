@@ -25,7 +25,7 @@ export const b218: Unit = {
       examples: [
         { en: 'Social media can create an echo chamber.', ru: 'Соцсети могут создавать эхо-камеру.' },
         { en: 'An echo chamber limits debate.', ru: 'Эхо-камера ограничивает дискуссию.' },
-        { en: 'Users leave the echo chamber slowly.', ru: 'Пользователи медленно покидают эхо-камеру.' },
+        { en: 'It is hard to leave an echo chamber.', ru: 'Из эхо-камеры трудно выйти.' },
       ],
     },
     {
@@ -230,7 +230,7 @@ export const b218: Unit = {
       paragraphs: [
         'A news channel reported a protest with the headline “Chaos in the City.” The framing was dramatic, and the story spread quickly.',
         'Critics said the report used sensationalism. It focused on a few violent moments and ignored the peaceful majority.',
-        'The channel defended its coverage as a watchdog role. However, media analysts noted that the narrative increased polarization.',
+        'The channel defended its coverage as part of its watchdog role. However, media analysts noted that the narrative increased polarization.',
         'A second report, published a week later, included more context. It did not change many minds. Once an echo chamber forms, correction is difficult.',
       ],
       questions: [

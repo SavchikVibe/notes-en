@@ -38,7 +38,7 @@ export const b217: Unit = {
       tags: ['science', 'academic'],
       examples: [
         { en: 'The control group received a placebo.', ru: 'Контрольная группа получала плацебо.' },
-        { en: 'We compared the two groups with a control group.', ru: 'Мы сравнили две группы с контрольной.' },
+        { en: 'We compared the results with the control group.', ru: 'Мы сравнили результаты с контрольной группой.' },
         { en: 'The control group did not take the drug.', ru: 'Контрольная группа не принимала лекарство.' },
       ],
     },
@@ -94,7 +94,7 @@ export const b217: Unit = {
       tags: ['science', 'academic'],
       examples: [
         { en: 'The study used qualitative interviews.', ru: 'В исследовании использовались качественные интервью.' },
-        { en: 'Qualitative data is rich but small.', ru: 'Качественные данные богаты, но немногочисленны.' },
+        { en: 'Qualitative data is rich but limited.', ru: 'Качественные данные богаты, но ограниченны.' },
         { en: 'She prefers qualitative methods.', ru: 'Она предпочитает качественные методы.' },
       ],
     },

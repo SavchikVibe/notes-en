@@ -9,7 +9,7 @@ export const b232: Unit = {
   goal: 'Описывать изменения на карте',
   formulas: [
     { label: 'Пассив', pattern: 'was / were + V3', note: 'The factory was demolished.' },
-    { label: 'Изменение', pattern: 'was replaced by', note: 'The car park was replaced by a square.' },
+    { label: 'Изменение', pattern: 'was replaced by', note: 'The parking lot was replaced by a square.' },
     { label: 'Порядок', pattern: 'first / then / finally', note: 'First, the old buildings were removed.' },
     { label: 'Сравнение', pattern: 'compared with', note: 'Compared with 2000, the area is greener.' },
   ],
@@ -79,7 +79,7 @@ export const b232: Unit = {
       level: 'B2',
       tags: ['city', 'writing'],
       examples: [
-        { en: 'The car park was replaced by a square.', ru: 'Парковку заменили площадью.' },
+        { en: 'The parking lot was replaced by a square.', ru: 'Парковку заменили площадью.' },
         { en: 'They replaced the old windows.', ru: 'Они заменили старые окна.' },
         { en: 'The plan will replace the road with a park.', ru: 'План заменит дорогу парком.' },
       ],
@@ -139,7 +139,7 @@ export const b232: Unit = {
     {
       kind: 'choice',
       id: 'b2-32-ex-02',
-      question: 'The car park was replaced ___ a square.',
+      question: 'The parking lot was replaced ___ a square.',
       options: ['by', 'with', 'from'],
       answer: 0,
       explanation: 'Replaced by — заменён чем-то.',
@@ -228,14 +228,14 @@ export const b232: Unit = {
       id: 'b2-32-ex-12',
       title: 'The Riverside Map',
       paragraphs: [
-        'The two maps show the riverside area in 1990 and today. In 1990, the area had a factory, a car park, and a narrow road.',
-        'The factory was demolished, and the site was redeveloped. A new apartment block was constructed, and the car park was replaced by a public square.',
+        'The two maps show the riverside area in 1990 and today. In 1990, the area had a factory, a parking lot, and a narrow road.',
+        'The factory was demolished, and the site was redeveloped. A new apartment block was constructed, and the parking lot was replaced by a public square.',
         'The road was widened, and a bridge was built across the river. The main street was pedestrianized, so the area is now easier to walk through.',
         'Overall, the layout changed from industrial to residential. The footprint of the site is similar, but the function is completely different.',
       ],
       questions: [
         { question: 'What was in the area in 1990?', options: ['A factory', 'A school', 'A museum'], answer: 0 },
-        { question: 'What replaced the car park?', options: ['A public square', 'A factory', 'A bridge'], answer: 0 },
+        { question: 'What replaced the parking lot?', options: ['A public square', 'A factory', 'A bridge'], answer: 0 },
         { question: 'What happened to the main street?', options: ['It was pedestrianized', 'It was closed', 'It was widened'], answer: 0 },
       ],
     },

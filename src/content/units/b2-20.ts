@@ -107,7 +107,7 @@ export const b220: Unit = {
       level: 'B2',
       tags: ['society'],
       examples: [
-        { en: 'Accountability builds trust.', ru: 'Подотчётность строит доверие.' },
+        { en: 'Accountability builds trust.', ru: 'Подотчётность укрепляет доверие.' },
         { en: 'The report calls for accountability.', ru: 'Отчёт призывает к подотчётности.' },
         { en: 'There is little accountability in the system.', ru: 'В системе мало подотчётности.' },
       ],

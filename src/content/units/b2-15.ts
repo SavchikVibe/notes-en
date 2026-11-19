@@ -25,7 +25,7 @@ export const b215: Unit = {
       examples: [
         { en: 'Rural migration is increasing.', ru: 'Миграция из сельской местности растёт.' },
         { en: 'Migration to cities creates pressure.', ru: 'Миграция в города создаёт давление.' },
-        { en: 'The report studies migration patterns.', ru: 'Отчёт изучает миграционные модели.' },
+        { en: 'The report studies migration patterns.', ru: 'Отчёт изучает закономерности миграции.' },
       ],
     },
     {
@@ -37,7 +37,7 @@ export const b215: Unit = {
       level: 'B2',
       tags: ['society', 'city'],
       examples: [
-        { en: 'Overpopulation strains resources.', ru: 'Перенаселение нагружает ресурсы.' },
+        { en: 'Overpopulation strains resources.', ru: 'Перенаселение истощает ресурсы.' },
         { en: 'The city suffers from overpopulation.', ru: 'Город страдает от перенаселения.' },
         { en: 'Overpopulation is not only about numbers.', ru: 'Перенаселение — не только о числах.' },
       ],
@@ -229,9 +229,9 @@ export const b215: Unit = {
       title: 'The Growing City',
       paragraphs: [
         'Over the last twenty years, the city has grown rapidly. Migration from rural areas has increased the population by thirty percent.',
-        'The growth has brought benefits: more shops, better transport, and a wider choice of jobs. But it has also created pressure on housing and sanitation.',
+        'The growth has brought benefits: more shops, better transportation, and a wider choice of jobs. But it has also created pressure on housing and sanitation.',
         'In the oldest district, gentrification has raised rents. Some families have been resettled, while others have moved to the edge of the city, where sprawl is expanding.',
-        'The city now plans to build denser neighborhoods near transport hubs. Higher density can be efficient, but only if affordable housing and public services keep pace.',
+        'The city now plans to build denser neighborhoods near transit hubs. Higher density can be efficient, but only if affordable housing and public services keep pace.',
       ],
       questions: [
         { question: 'Why has the population grown?', options: ['Migration from rural areas', 'More births', 'Tourism'], answer: 0 },

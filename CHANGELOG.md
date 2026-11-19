@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.83.0 — 2026-11-19
+
+- Вычитка естественности B2-11…20.
+- UK→US: `car park` → `parking lot` (b2-11; ещё 6 вхождений в b2-32 исправлены заранее), `transport plan` → `transportation plan`, `transport hubs` → `transit hubs`, `transport delay` → `shipping delay`, `pay rise` → `pay raise`.
+- Кальки: «закономерности миграции» вместо «миграционных моделей», «истощает ресурсы» вместо «нагружает», «угасающие отрасли» вместо «упаднических», «укрепляет доверие» вместо «строит».
+- b2-17: `We compared the two groups with a control group` → `the results with`; `Qualitative data is rich but small` → `limited`.
+- b2-18: `Users leave the echo chamber slowly` → `It is hard to leave an echo chamber`; `as a watchdog role` → `as part of its watchdog role`.
+- b2-13: `probed the answer` → `probed deeper`.
+- Следующий шаг: B2-21…30.
+
 ## 0.82.0 — 2026-11-19
 
 - Вычитка естественности B2-01…10.

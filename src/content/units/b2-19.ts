@@ -66,7 +66,7 @@ export const b219: Unit = {
       tags: ['work', 'economy'],
       examples: [
         { en: 'She faced redundancy.', ru: 'Ей грозило сокращение.' },
-        { en: 'Redundancy is common in declining industries.', ru: 'Сокращения часты в упаднических отраслях.' },
+        { en: 'Redundancy is common in declining industries.', ru: 'Сокращения часты в угасающих отраслях.' },
         { en: 'He received redundancy pay.', ru: 'Он получил выходное пособие.' },
       ],
     },
@@ -108,7 +108,7 @@ export const b219: Unit = {
       tags: ['work', 'society'],
       examples: [
         { en: 'The union represents workers.', ru: 'Профсоюз представляет работников.' },
-        { en: 'The union negotiated a pay rise.', ru: 'Профсоюз договорился о повышении зарплаты.' },
+        { en: 'The union negotiated a pay raise.', ru: 'Профсоюз договорился о повышении зарплаты.' },
         { en: 'Union membership is falling.', ru: 'Членство в профсоюзах падает.' },
       ],
     },

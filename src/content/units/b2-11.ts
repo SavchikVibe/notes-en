@@ -228,8 +228,8 @@ export const b211: Unit = {
       id: 'b2-11-ex-12',
       title: 'The Old Port',
       paragraphs: [
-        'The two maps show an old port in 2000 and the same area today. In 2000, the port was industrial, with warehouses and a car park.',
-        'The biggest change is the waterfront. The warehouses were converted into apartments, and the car park was transformed into a public square.',
+        'The two maps show an old port in 2000 and the same area today. In 2000, the port was industrial, with warehouses and a parking lot.',
+        'The biggest change is the waterfront. The warehouses were converted into apartments, and the parking lot was transformed into a public square.',
         'A new bridge was built across the river, and the road was expanded to connect the port with the city center.',
         'Overall, the area became more residential and more walkable. The port kept its character, but its function changed completely.',
       ],

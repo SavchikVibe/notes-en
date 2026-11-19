@@ -121,7 +121,7 @@ export const b213: Unit = {
       level: 'B2',
       tags: ['media', 'communication'],
       examples: [
-        { en: 'The interviewer probed the answer.', ru: 'Интервьюер углубился в ответ.' },
+        { en: 'The interviewer probed deeper.', ru: 'Интервьюер задал более глубокий вопрос.' },
         { en: 'She probed for more details.', ru: 'Она расспросила о подробностях.' },
         { en: 'Do not probe personal topics.', ru: 'Не затрагивай личные темы.' },
       ],
@@ -228,7 +228,7 @@ export const b213: Unit = {
       id: 'b2-13-ex-12',
       title: 'The Interview',
       paragraphs: [
-        'This excerpt is from an interview with a city spokesperson about the new transport plan. The interviewee begins with a short recap of the problem.',
+        'This excerpt is from an interview with a city spokesperson about the new transportation plan. The interviewee begins with a short recap of the problem.',
         'She says that congestion has increased by twenty percent in five years. According to the spokesperson, the city will implement two measures: a new bus lane and a small congestion charge.',
         'The interviewer probes the cost. The spokesperson admits that the plan is expensive, but argues that the long-term benefits will outweigh the price.',
         'The interview ends with a memorable soundbite: “A city that moves is a city that works.” The full interview is available online.',

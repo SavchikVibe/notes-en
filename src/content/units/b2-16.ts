@@ -229,7 +229,7 @@ export const b216: Unit = {
       title: 'The Fragile Supply Chain',
       paragraphs: [
         'Global trade has made goods cheaper, but it has also made supply chains longer and more fragile.',
-        'When one factory closes, the effects can reach several countries. A tariff or a transport delay can raise prices for consumers far away.',
+        'When one factory closes, the effects can reach several countries. A tariff or a shipping delay can raise prices for consumers far away.',
         'Some governments now offer subsidies to bring production home. Others invest in competitiveness through skills and technology.',
         'The debate is not simple. Globalization can reduce poverty, but it can also create dependency. The challenge is to keep the benefits while reducing the risks.',
       ],
