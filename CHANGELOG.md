@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.84.0 — 2026-11-20
+
+- Вычитка естественности B2-21…30.
+- b2-22: исправлена логика маршрута — `reception desk`, `left into the corridor`, «не перепутай круг со входом», кафе на первом этаже больше не противоречит подвалу; `over the roundabout` → `through`.
+- UK→US: `transport` → `transportation` в b2-23.
+- Точность: `Vaccination reduced the disease` → `the number of cases`; `mean healthier life` → `a healthier life`; `telecommute to reduce commuting` → `avoid the daily commute`; `augments the team` → `the team’s work`.
+- Кальки: «занимает высокое место по образованию», «теоретическая основа», «умение распределять время» вместо «тайминга» (b2-26 и b2-50), «один из предков».
+- b2-26: `Irrelevant details reduce relevance` → `Too many details reduce relevance`.
+- Следующий шаг: B2-31…40.
+
 ## 0.83.0 — 2026-11-19
 
 - Вычитка естественности B2-11…20.

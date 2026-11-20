@@ -39,7 +39,7 @@ export const b226: Unit = {
       examples: [
         { en: 'Each bullet is a prompt.', ru: 'Каждый пункт — подсказка.' },
         { en: 'Cover all the bullets.', ru: 'Раскрой все пункты.' },
-        { en: 'The first bullet asks about time.', ru: 'Первый пункт спрашивает о времени.' },
+        { en: 'The first bullet asks when it happened.', ru: 'Первый пункт спрашивает, когда это было.' },
       ],
     },
     {
@@ -51,7 +51,7 @@ export const b226: Unit = {
       level: 'B2',
       tags: ['speaking'],
       examples: [
-        { en: 'The long turn is a monologue.', ru: 'Long turn — это монолог.' },
+        { en: 'The long turn is a monologue.', ru: 'Длинный ответ — это монолог.' },
         { en: 'Keep the monologue going.', ru: 'Продолжай монолог.' },
         { en: 'A two-minute monologue feels long.', ru: 'Двухминутный монолог кажется долгим.' },
       ],
@@ -65,9 +65,9 @@ export const b226: Unit = {
       level: 'B2',
       tags: ['speaking'],
       examples: [
-        { en: 'Timing is important in Part 2.', ru: 'Тайминг важен во второй части.' },
-        { en: 'Practice your timing.', ru: 'Тренируй тайминг.' },
-        { en: 'Good timing keeps the answer balanced.', ru: 'Хороший тайминг делает ответ сбалансированным.' },
+        { en: 'Timing is important in Part 2.', ru: 'Важно правильно распределить время во второй части.' },
+        { en: 'Practice your timing.', ru: 'Тренируй чувство времени.' },
+        { en: 'Good timing keeps the answer balanced.', ru: 'Умение распределять время делает ответ сбалансированным.' },
       ],
     },
     {
@@ -109,7 +109,7 @@ export const b226: Unit = {
       examples: [
         { en: 'Stay on topic and check relevance.', ru: 'Держись темы и проверяй уместность.' },
         { en: 'The relevance of the example is clear.', ru: 'Уместность примера ясна.' },
-        { en: 'Irrelevant details reduce relevance.', ru: 'Неуместные детали снижают релевантность.' },
+        { en: 'Too many details reduce relevance.', ru: 'Слишком много деталей снижает релевантность.' },
       ],
     },
     {
@@ -182,10 +182,10 @@ export const b226: Unit = {
       kind: 'assemble',
       id: 'b2-26-ex-07',
       task: 'Собери предложение',
-      translation: 'Тайминг важен во второй части.',
+      translation: 'Во второй части важно правильно распределить время.',
       words: ['Timing', 'is', 'important', 'in', 'Part', '2'],
       answer: ['Timing', 'is', 'important', 'in', 'Part', '2'],
-      explanation: 'Timing — тайминг.',
+      explanation: 'Timing — распределение времени.',
     },
     {
       kind: 'translate',

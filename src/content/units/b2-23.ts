@@ -67,7 +67,7 @@ export const b223: Unit = {
       examples: [
         { en: 'The country ranks second.', ru: 'Страна занимает второе место.' },
         { en: 'The ranking changed.', ru: 'Рейтинг изменился.' },
-        { en: 'It ranks high in education.', ru: 'Она высоко в образовании.' },
+        { en: 'It ranks high in education.', ru: 'Она занимает высокое место по образованию.' },
       ],
     },
     {
@@ -228,9 +228,9 @@ export const b223: Unit = {
       id: 'b2-23-ex-12',
       title: 'The Chart',
       paragraphs: [
-        'The chart compares four categories of household spending in 2010 and 2020. The categories are food, housing, transport, and leisure.',
+        'The chart compares four categories of household spending in 2010 and 2020. The categories are food, housing, transportation, and leisure.',
         'In 2010, housing was the largest category at 35 percent. By 2020, it had risen to 42 percent, while food fell from 30 to 25 percent.',
-        'Transport remained stable at around 15 percent. Leisure was the smallest category in both years, but it doubled from 5 to 10 percent.',
+        'Transportation remained stable at around 15 percent. Leisure was the smallest category in both years, but it doubled from 5 to 10 percent.',
         'Overall, the average household spent a larger share on housing and less on food. The margin between housing and food widened.',
       ],
       questions: [

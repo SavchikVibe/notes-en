@@ -109,7 +109,7 @@ export const b228: Unit = {
       examples: [
         { en: 'Vaccination protects communities.', ru: 'Вакцинация защищает сообщества.' },
         { en: 'The vaccination rate is high.', ru: 'Уровень вакцинации высокий.' },
-        { en: 'Vaccination reduced the disease.', ru: 'Вакцинация сократила заболевание.' },
+        { en: 'Vaccination reduced the number of cases.', ru: 'Вакцинация сократила число случаев.' },
       ],
     },
     {
@@ -121,7 +121,7 @@ export const b228: Unit = {
       level: 'B2',
       tags: ['health', 'society'],
       examples: [
-        { en: 'The aging population needs care.', ru: 'Старению населения нужен уход.' },
+        { en: 'The aging population needs care.', ru: 'Стареющему населению нужен уход.' },
         { en: 'Aging is a natural process.', ru: 'Старение — естественный процесс.' },
         { en: 'The country studies aging.', ru: 'Страна изучает старение.' },
       ],
@@ -229,7 +229,7 @@ export const b228: Unit = {
       title: 'Living Longer',
       paragraphs: [
         'People are living longer than ever. In many countries, longevity has increased because of better nutrition, vaccination, and healthcare.',
-        'However, longer life does not always mean healthier life. Obesity and chronic disease are rising, and an aging population puts pressure on health systems.',
+        'However, longer life does not always mean a healthier life. Obesity and chronic disease are rising, and an aging population puts pressure on health systems.',
         'Preventive care is cheaper than treatment. Screening can detect disease early, and lifestyle changes can reduce risk.',
         'The challenge is to make prevention accessible. If only rich people can afford healthy food and regular checkups, inequality will grow.',
       ],

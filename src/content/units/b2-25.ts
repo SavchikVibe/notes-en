@@ -23,7 +23,7 @@ export const b225: Unit = {
       level: 'B2',
       tags: ['academic', 'listening'],
       examples: [
-        { en: 'Signposting helps listeners follow.', ru: 'Сигналы структуры помогают слушателям.' },
+        { en: 'Signposting helps listeners follow.', ru: 'Сигналы структуры помогают слушателям следить за мыслью.' },
         { en: 'The lecturer used signposts.', ru: 'Лектор использовал сигналы структуры.' },
         { en: 'A signpost can be a short phrase.', ru: 'Сигналом может быть короткая фраза.' },
       ],
@@ -95,7 +95,7 @@ export const b225: Unit = {
       examples: [
         { en: 'The framework has four parts.', ru: 'Структура состоит из четырёх частей.' },
         { en: 'Use a clear framework.', ru: 'Используй ясную структуру.' },
-        { en: 'The theoretical framework is explained.', ru: 'Теоретическая рамка объяснена.' },
+        { en: 'The theoretical framework is explained.', ru: 'Теоретическая основа объяснена.' },
       ],
     },
     {

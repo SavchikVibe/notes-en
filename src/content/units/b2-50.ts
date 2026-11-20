@@ -37,9 +37,9 @@ export const b250: Unit = {
       level: 'B2',
       tags: ['exam'],
       examples: [
-        { en: 'Section timing is strict.', ru: 'Тайминг по секциям строгий.' },
-        { en: 'Practice section timing.', ru: 'Тренируй тайминг по секциям.' },
-        { en: 'Good section timing prevents panic.', ru: 'Хороший тайминг предотвращает панику.' },
+        { en: 'Section timing is strict.', ru: 'На каждую секцию отведено строгое время.' },
+        { en: 'Practice section timing.', ru: 'Тренируй распределение времени по секциям.' },
+        { en: 'Good section timing prevents panic.', ru: 'Умение распределять время предотвращает панику.' },
       ],
     },
     {

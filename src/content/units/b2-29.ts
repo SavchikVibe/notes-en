@@ -24,7 +24,7 @@ export const b229: Unit = {
       tags: ['work', 'technology'],
       examples: [
         { en: 'Many employees telecommute two days a week.', ru: 'Многие сотрудники работают удалённо два дня в неделю.' },
-        { en: 'They telecommute to reduce commuting.', ru: 'Они работают удалённо, чтобы меньше ездить.' },
+        { en: 'They telecommute to avoid the daily commute.', ru: 'Они работают удалённо, чтобы не ездить каждый день.' },
         { en: 'She telecommutes from another city.', ru: 'Она работает удалённо из другого города.' },
       ],
     },
@@ -80,7 +80,7 @@ export const b229: Unit = {
       tags: ['technology', 'work'],
       examples: [
         { en: 'AI can augment human skills.', ru: 'ИИ может усиливать навыки человека.' },
-        { en: 'The tool augments the team.', ru: 'Инструмент усиливает команду.' },
+        { en: 'The tool augments the team’s work.', ru: 'Инструмент усиливает работу команды.' },
         { en: 'Technology should augment, not replace, workers.', ru: 'Технологии должны дополнять, а не заменять работников.' },
       ],
     },

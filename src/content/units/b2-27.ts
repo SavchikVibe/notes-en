@@ -123,7 +123,7 @@ export const b227: Unit = {
       examples: [
         { en: 'His ancestors came from Ireland.', ru: 'Его предки приехали из Ирландии.' },
         { en: 'The museum honors her ancestors.', ru: 'Музей чтит её предков.' },
-        { en: 'An ancestor fought in the war.', ru: 'Один предок воевал.' },
+        { en: 'An ancestor fought in the war.', ru: 'Один из предков воевал.' },
       ],
     },
   ],

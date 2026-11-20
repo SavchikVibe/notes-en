@@ -39,7 +39,7 @@ export const b222: Unit = {
       examples: [
         { en: 'Take the second exit at the roundabout.', ru: 'На круге сверни на второй выход.' },
         { en: 'The roundabout is near the station.', ru: 'Круговое движение рядом со станцией.' },
-        { en: 'Go straight over the roundabout.', ru: 'Проезжай круг прямо.' },
+        { en: 'Go straight through the roundabout.', ru: 'Проезжай круг прямо.' },
       ],
     },
     {
@@ -228,10 +228,10 @@ export const b222: Unit = {
       id: 'b2-22-ex-12',
       title: 'Finding the Language Lab',
       paragraphs: [
-        'The language lab is in the basement of the main building. Enter through the main entrance and walk past the reception.',
-        'Turn left at the corridor, then go down the stairs. The lab is adjacent to the computer room.',
-        'If you reach the exit at the end of the corridor, you have gone too far. The roundabout outside is not the right entrance.',
-        'The lab is opposite the small cafe, but the cafe is on the ground floor. Check the signs before you go down.',
+        'The language lab is in the basement of the main building. Enter through the main entrance and walk past the reception desk.',
+        'Turn left into the corridor, then go down the stairs. The lab is adjacent to the computer room.',
+        'If you reach the exit at the end of the corridor, you have gone too far. Do not confuse the roundabout outside with the entrance.',
+        'There is a small cafe on the ground floor, but the lab is one level below. Check the signs before you go down.',
       ],
       questions: [
         { question: 'Where is the lab?', options: ['In the basement', 'On the ground floor', 'Outside'], answer: 0 },
