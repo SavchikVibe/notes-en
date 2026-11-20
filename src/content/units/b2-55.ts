@@ -93,7 +93,7 @@ export const b255: Unit = {
       level: 'B2',
       tags: ['society'],
       examples: [
-        { en: 'Social capital builds trust.', ru: 'Социальный капитал строит доверие.' },
+        { en: 'Social capital builds trust.', ru: 'Социальный капитал укрепляет доверие.' },
         { en: 'The club creates social capital.', ru: 'Клуб создаёт социальный капитал.' },
         { en: 'Social capital is hard to measure.', ru: 'Социальный капитал трудно измерить.' },
       ],
@@ -109,7 +109,7 @@ export const b255: Unit = {
       examples: [
         { en: 'Reciprocity means helping each other.', ru: 'Взаимность означает помогать друг другу.' },
         { en: 'The relationship is based on reciprocity.', ru: 'Отношения основаны на взаимности.' },
-        { en: 'Reciprocity builds cooperation.', ru: 'Взаимность строит сотрудничество.' },
+        { en: 'Reciprocity builds cooperation.', ru: 'Взаимность укрепляет сотрудничество.' },
       ],
     },
     {

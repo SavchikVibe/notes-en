@@ -67,7 +67,7 @@ export const b256: Unit = {
       examples: [
         { en: 'The sanctuary protects injured birds.', ru: 'Приют защищает раненых птиц.' },
         { en: 'The wildlife sanctuary is closed to visitors.', ru: 'Заповедник закрыт для посетителей.' },
-        { en: 'She volunteers at a sanctuary.', ru: 'Она волонтёрит в приюте.' },
+        { en: 'She volunteers at a sanctuary.', ru: 'Она работает волонтёром в приюте.' },
       ],
     },
     {

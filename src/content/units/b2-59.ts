@@ -66,8 +66,8 @@ export const b259: Unit = {
       tags: ['culture', 'society'],
       examples: [
         { en: 'The museum runs outreach programs.', ru: 'Музей ведёт программы работы с сообществом.' },
-        { en: 'Outreach brings art to schools.', ru: 'Аутрич приносит искусство в школы.' },
-        { en: 'The outreach project was successful.', ru: 'Проект аутрич был успешным.' },
+        { en: 'Outreach brings art to schools.', ru: 'Работа с сообществом приносит искусство в школы.' },
+        { en: 'The outreach project was successful.', ru: 'Проект работы с сообществом был успешным.' },
       ],
     },
     {

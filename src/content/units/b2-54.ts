@@ -228,7 +228,7 @@ export const b254: Unit = {
       id: 'b2-54-ex-12',
       title: 'The Roundtable',
       paragraphs: [
-        'A roundtable on urban transport brought together five experts. The moderator introduced the topic and set a clear goal.',
+        'A roundtable on urban transportation brought together five experts. The moderator introduced the topic and set a clear goal.',
         'The panel discussed congestion, costs, and public health. There was dissent on one point: whether to charge drivers.',
         'After a brainstorm, the facilitator grouped the ideas into three options. The minutes recorded the main arguments.',
         'The meeting ended with two action items: collect more data and prepare a short report for the next roundtable.',

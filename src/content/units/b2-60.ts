@@ -102,7 +102,7 @@ export const b260: Unit = {
       id: 'scaffolding',
       term: 'scaffolding',
       ipa: 'ˈskæfəldɪŋ',
-      translation: 'поддержка, scaffolding',
+      translation: 'поддержка (в обучении)',
       pos: 'n',
       level: 'B2',
       tags: ['study'],

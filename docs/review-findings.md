@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-20, version 0.86.0.
+Last updated: 2026-11-20, version 0.87.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.86.0)
+## 8. Current state (0.87.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 3,390 exercises: 12–14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -126,6 +126,8 @@ These are still the backbone of the roadmap.
 - Naturalness pass B2-21…30: в b2-22 исправлены логика и коллокации маршрута — «walk past the reception» → `the reception desk`, «turn left at the corridor» → `into the corridor`, «the roundabout outside is not the right entrance» → `Do not confuse the roundabout outside with the entrance`, абзац с кафе больше не противоречит подвалу (кафе на первом этаже, лаборатория на уровень ниже), `go straight over the roundabout` → `through`. UK→US: `transport` → `transportation` в категориях расходов b2-23. Точность: «Она высоко в образовании» → «занимает высокое место по образованию», «Теоретическая рамка» → «основа», «Vaccination reduced the disease» → `the number of cases`, `longer life does not always mean healthier life` → `a healthier life`, `They telecommute to reduce commuting` → `avoid the daily commute`, `The tool augments the team` → `the team’s work`. «Тайминг» убран из b2-26 и b2-50 — вместо него «умение распределять время»; `Irrelevant details reduce relevance` → `Too many details reduce relevance`, «Один предок воевал» → «Один из предков».
 - Naturalness pass B2-31…40: `A supporting detail proves the main idea` → `supports`, «доказывает» → «подкрепляет» (b2-31); `The sediment was layers deep` → `several layers deep` (b2-34); «нагружает пенсии» → «создаёт нагрузку на пенсионную систему», `The demographic is changing` → `The demographic picture is changing` (b2-36); `decarbonize transport` → `transportation` (b2-39). Остальные шесть юнитов блока чистые: b2-32, b2-33, b2-35, b2-37, b2-38, b2-40.
 - Naturalness pass B2-41…50: в b2-43 британское `enquiry` заменено на американское `inquiry` во всех 11 местах (слово, id, примеры, сборка, речь, текст), IPA → `ɪnˈkwaɪri`. `A place opened from the waiting list` → `opened up on`, `a cancellation might open a place` → `free up a table`; «доступность ограничена» → «свободных мест мало». b2-44: `Collocation means words that go together` → `A collocation is a group of words that often go together`, `Strong collocation` → `Good collocations`. b2-45: «медицинский провайдер» → «медицинское учреждение / поставщик медицинских услуг» (слово, три примера, речь). b2-48: `Respect matters in cultural appropriation` → `when cultural elements are borrowed`. b2-49: «проверять галлюцинации» → «проверять ответы на галлюцинации». b2-50: «переводится в band» → «в итоговый балл» (пример и перевод). Юниты b2-41, b2-42, b2-46, b2-47 чистые.
+- Naturalness pass B2-51…60: `urban transport` → `transportation` (b2-54); «социальный капитал строит доверие» и «взаимность строит сотрудничество» → «укрепляет» (b2-55); «волонтёрит» → «работает волонтёром» (b2-56); «аутрич» → «работа с сообществом» в двух примерах (b2-59); в переводе `scaffolding` убрано английское слово → «поддержка (в обучении)» (b2-60). Юниты b2-51, b2-52, b2-53, b2-57, b2-58 чистые.
+- Naturalness pass finished for all 210 units: A1-01…40, A2-01…50, B1-01…60, B2-01…60.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
@@ -142,7 +144,7 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.86.0.
+- Version 0.87.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
@@ -161,7 +163,7 @@ Priority order unless the user changes it:
 8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. Still open: browser-level tests for the full lesson flow.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
-11. **Naturalness pass.** A1, A2 and B1 done; B2-01…50 done. Next: B2-51…60. Look for calques, tense mismatches, UK/US vocabulary, duplicate plots and text logic errors.
+11. **Naturalness pass.** Done for all 210 units (A1, A2, B1, B2). Left: the 54 library reading texts still contain a few UK forms (`public transport`), which must be fixed together with audio regeneration; the C1 content is not written yet.
 
 ## 10. What not to change
 
