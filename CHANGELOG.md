@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.93.0 — 2026-11-20
+
+- C1-17…20 написаны.
+- C1-17 «Дебаты: кейс» — case, burden of proof, contention, line of argument, motion, ramification, feasibility, threshold.
+- C1-18 «Ответ на возражение» — undermine, weaken, pushback, flaw, pivot, straw man, red herring, fallacy.
+- C1-19 «Речь под давлением» — buy time, correction, stall, stammer, workaround, improvisation, composure, regain.
+- C1-20 «Аудирование: дебаты» — irony, sarcasm, subtext, presupposition, insinuation, understatement, hyperbole, appeal.
+- Итого: 230 юнитов, 1 760 слов, 3 690 упражнений.
+- Следующий шаг: C1-21…24.
+
 ## 0.92.0 — 2026-11-20
 
 - C1-13…16 написаны.
