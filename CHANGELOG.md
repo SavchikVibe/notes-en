@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.85.0 — 2026-11-20
+
+- Вычитка естественности B2-31…40.
+- b2-31: `A supporting detail proves the main idea` → `supports`; «доказывает» → «подкрепляет».
+- b2-34: `The sediment was layers deep` → `several layers deep`.
+- b2-36: «нагружает пенсии» → «создаёт нагрузку на пенсионную систему»; `The demographic is changing` → `The demographic picture is changing`.
+- b2-39: `decarbonize transport` → `transportation` (US).
+- Остальные шесть юнитов блока правок не потребовали.
+- Следующий шаг: B2-41…50.
+
 ## 0.84.0 — 2026-11-20
 
 - Вычитка естественности B2-21…30.

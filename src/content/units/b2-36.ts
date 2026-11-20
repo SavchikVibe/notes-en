@@ -24,7 +24,7 @@ export const b236: Unit = {
       tags: ['society', 'economy'],
       examples: [
         { en: 'The dependency ratio is rising.', ru: 'Коэффициент зависимости растёт.' },
-        { en: 'A high dependency ratio strains pensions.', ru: 'Высокий коэффициент зависимости нагружает пенсии.' },
+        { en: 'A high dependency ratio strains pensions.', ru: 'Высокий коэффициент зависимости создаёт нагрузку на пенсионную систему.' },
         { en: 'The report compares dependency ratios.', ru: 'Отчёт сравнивает коэффициенты зависимости.' },
       ],
     },
@@ -93,7 +93,7 @@ export const b236: Unit = {
       level: 'B2',
       tags: ['society', 'demography'],
       examples: [
-        { en: 'The demographic is changing.', ru: 'Демографическая ситуация меняется.' },
+        { en: 'The demographic picture is changing.', ru: 'Демографическая ситуация меняется.' },
         { en: 'Demographic data shows an aging population.', ru: 'Демографические данные показывают старение населения.' },
         { en: 'The demographic trend is clear.', ru: 'Демографический тренд ясен.' },
       ],

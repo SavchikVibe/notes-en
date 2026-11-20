@@ -93,7 +93,7 @@ export const b234: Unit = {
       level: 'B2',
       tags: ['science', 'nature'],
       examples: [
-        { en: 'The sediment was layers deep.', ru: 'Отложения были глубиной в несколько слоёв.' },
+        { en: 'The sediment was several layers deep.', ru: 'Отложения были глубиной в несколько слоёв.' },
         { en: 'The river carries sediment.', ru: 'Река переносит осадок.' },
         { en: 'Sediment covered the site.', ru: 'Осадок покрыл участок.' },
       ],

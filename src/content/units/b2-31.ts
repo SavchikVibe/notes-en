@@ -51,7 +51,7 @@ export const b231: Unit = {
       level: 'B2',
       tags: ['academic', 'reading'],
       examples: [
-        { en: 'A supporting detail proves the main idea.', ru: 'Подтверждающая деталь доказывает главную мысль.' },
+        { en: 'A supporting detail supports the main idea.', ru: 'Подтверждающая деталь подкрепляет главную мысль.' },
         { en: 'The paragraph includes two supporting details.', ru: 'Абзац включает две подтверждающие детали.' },
         { en: 'Do not confuse a supporting detail with the main idea.', ru: 'Не путай подтверждающую деталь с главной мыслью.' },
       ],

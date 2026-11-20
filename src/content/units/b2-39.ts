@@ -122,7 +122,7 @@ export const b239: Unit = {
       tags: ['energy', 'ecology'],
       examples: [
         { en: 'The economy must decarbonize.', ru: 'Экономика должна декарбонизироваться.' },
-        { en: 'They plan to decarbonize transport.', ru: 'Они планируют декарбонизировать транспорт.' },
+        { en: 'They plan to decarbonize transportation.', ru: 'Они планируют декарбонизировать транспорт.' },
         { en: 'It is difficult to decarbonize industry.', ru: 'Трудно декарбонизировать промышленность.' },
       ],
     },
