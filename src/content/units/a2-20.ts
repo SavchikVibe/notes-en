@@ -166,8 +166,8 @@ export const a220: Unit = {
       id: 'a2-20-ex-05',
       task: 'Собери предложение',
       translation: 'Продолжай практиковаться каждый день.',
-      words: ['Keep', 'practising', 'every', 'day'],
-      answer: ['Keep', 'practising', 'every', 'day'],
+      words: ['Keep', 'practicing', 'every', 'day'],
+      answer: ['Keep', 'practicing', 'every', 'day'],
       explanation: 'Keep + V-ing.',
     },
     {
@@ -212,7 +212,7 @@ export const a220: Unit = {
       title: 'Learning Something New',
       paragraphs: [
         'My friend Anna enjoys learning languages. She decided to start Spanish last year, and she hopes to travel to Spain in summer.',
-        'She avoids studying late at night because she cannot focus. Instead, she keeps practising for twenty minutes every morning.',
+        'She avoids studying late at night because she cannot focus. Instead, she keeps practicing for twenty minutes every morning.',
         'I suggested taking a course together, and she agreed. Now we look forward to our first lesson. Do you mind joining us?',
       ],
       questions: [

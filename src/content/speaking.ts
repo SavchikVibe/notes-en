@@ -562,7 +562,7 @@ export const speakingTasks: SpeakingTask[] = [
     lines: [
       'I have been learning English for about three years.',
       'At first it was difficult, but now I enjoy it.',
-      'I try to practise a little every day.',
+      'I try to practice a little every day.',
     ],
     checklist: [
       'Повторил(а) все три фразы.',

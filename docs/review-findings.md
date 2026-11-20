@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-20, version 0.87.0.
+Last updated: 2026-11-20, version 0.87.1.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.87.0)
+## 8. Current state (0.87.1)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 3,390 exercises: 12–14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -127,6 +127,7 @@ These are still the backbone of the roadmap.
 - Naturalness pass B2-31…40: `A supporting detail proves the main idea` → `supports`, «доказывает» → «подкрепляет» (b2-31); `The sediment was layers deep` → `several layers deep` (b2-34); «нагружает пенсии» → «создаёт нагрузку на пенсионную систему», `The demographic is changing` → `The demographic picture is changing` (b2-36); `decarbonize transport` → `transportation` (b2-39). Остальные шесть юнитов блока чистые: b2-32, b2-33, b2-35, b2-37, b2-38, b2-40.
 - Naturalness pass B2-41…50: в b2-43 британское `enquiry` заменено на американское `inquiry` во всех 11 местах (слово, id, примеры, сборка, речь, текст), IPA → `ɪnˈkwaɪri`. `A place opened from the waiting list` → `opened up on`, `a cancellation might open a place` → `free up a table`; «доступность ограничена» → «свободных мест мало». b2-44: `Collocation means words that go together` → `A collocation is a group of words that often go together`, `Strong collocation` → `Good collocations`. b2-45: «медицинский провайдер» → «медицинское учреждение / поставщик медицинских услуг» (слово, три примера, речь). b2-48: `Respect matters in cultural appropriation` → `when cultural elements are borrowed`. b2-49: «проверять галлюцинации» → «проверять ответы на галлюцинации». b2-50: «переводится в band» → «в итоговый балл» (пример и перевод). Юниты b2-41, b2-42, b2-46, b2-47 чистые.
 - Naturalness pass B2-51…60: `urban transport` → `transportation` (b2-54); «социальный капитал строит доверие» и «взаимность строит сотрудничество» → «укрепляет» (b2-55); «волонтёрит» → «работает волонтёром» (b2-56); «аутрич» → «работа с сообществом» в двух примерах (b2-59); в переводе `scaffolding` убрано английское слово → «поддержка (в обучении)» (b2-60). Юниты b2-51, b2-52, b2-53, b2-57, b2-58 чистые.
+- Финальное сканирование по всем юнитам, речи и студиям нашло ещё пять британских `practis-`: a2-15 (текст), a2-20 (сборка и текст — пример был исправлен раньше, а сборка нет) и `speaking.ts`. Все заменены на `practic-` в 0.87.1.
 - Naturalness pass finished for all 210 units: A1-01…40, A2-01…50, B1-01…60, B2-01…60.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
@@ -144,7 +145,7 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.87.0.
+- Version 0.87.1.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.

@@ -213,7 +213,7 @@ export const a215: Unit = {
       paragraphs: [
         'I grew up in a small town. My background is simple: my parents worked at a school, and I was a quiet teenager.',
         'Two years ago I made a decision to study English. At first it was a challenge, and I felt nervous when I spoke.',
-        'But I practised every day, and I can see progress now. I want to improve my speaking and find a new job. This course is a great opportunity, and I feel confident about the future.',
+        'But I practiced every day, and I can see progress now. I want to improve my speaking and find a new job. This course is a great opportunity, and I feel confident about the future.',
       ],
       questions: [
         { question: 'Where did the writer grow up?', options: ['In a small town', 'In a big city', 'Abroad'], answer: 0 },
