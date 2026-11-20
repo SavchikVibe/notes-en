@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-20, version 0.87.1.
+Last updated: 2026-11-20, version 0.88.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.87.1)
+## 8. Current state (0.88.0)
 
 - 210 units: A1 40, A2 50, B1 60, B2 60.
 - 1,600 words, 3,390 exercises: 12–14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -129,6 +129,8 @@ These are still the backbone of the roadmap.
 - Naturalness pass B2-51…60: `urban transport` → `transportation` (b2-54); «социальный капитал строит доверие» и «взаимность строит сотрудничество» → «укрепляет» (b2-55); «волонтёрит» → «работает волонтёром» (b2-56); «аутрич» → «работа с сообществом» в двух примерах (b2-59); в переводе `scaffolding` убрано английское слово → «поддержка (в обучении)» (b2-60). Юниты b2-51, b2-52, b2-53, b2-57, b2-58 чистые.
 - Финальное сканирование по всем юнитам, речи и студиям нашло ещё пять британских `practis-`: a2-15 (текст), a2-20 (сборка и текст — пример был исправлен раньше, а сборка нет) и `speaking.ts`. Все заменены на `practic-` в 0.87.1.
 - Naturalness pass finished for all 210 units: A1-01…40, A2-01…50, B1-01…60, B2-01…60.
+- Library naturalness pass (0.88.0): all 54 texts checked for UK forms. 32 edits in 16 texts: `public transport` → `public transportation` (reading-34, 40, 46), `bus journeys`/`journeys` → `trips` (reading-30, 34, 46), `travel in transport` → `in transit` (reading-38), `on holiday` → `on vacation` (reading-31, 53), `cinema ticket` → `movie ticket` (reading-39), `marks` → `grades` (reading-42), `loves films` → `movies` (reading-36), `go to university` → `go to college` (reading-28), `timetable` → `schedule` in the school text (reading-35, with the evidence quote), `railway` → `railroad` (reading-44, 48 and two questions), `first lesson` → `the start of the school day` (reading-35, with evidence). Evidence quotes updated where needed; `check:readings` green. MP3 regenerated for the 16 affected texts; the other 38 files are untouched.
+- Small Studio fixes without audio impact: `on holiday` → `on vacation` (a2-02 option), `holiday plan` → `vacation plan` (b2-02 option), `labour market` → `labor market` (b2-01 reading), `programme` → `program` in the c1-05 reading. The c1-06 dialogue still says `programme` and needs its studio audio regenerated.
 - 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
@@ -145,7 +147,7 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.87.1.
+- Version 0.88.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
@@ -164,7 +166,7 @@ Priority order unless the user changes it:
 8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. Still open: browser-level tests for the full lesson flow.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
-11. **Naturalness pass.** Done for all 210 units (A1, A2, B1, B2). Left: the 54 library reading texts still contain a few UK forms (`public transport`), which must be fixed together with audio regeneration; the C1 content is not written yet.
+11. **Naturalness pass.** Done for all 210 units and all 54 library texts; audio is in sync. Left: `programme` in the c1-06 Studio dialogue (needs that studio's audio regenerated); the C1 units/projects are not written yet.
 
 ## 10. What not to change
 

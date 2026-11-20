@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.88.0 — 2026-11-20
+
+- Вычитка библиотеки чтения: 54 текста, 32 правки в 16 текстах.
+- `public transport` → `public transportation`, `journeys` → `trips`, `lost in transport` → `in transit`, `on holiday` → `on vacation`, `cinema ticket` → `movie ticket`, `marks` → `grades`, `loves films` → `movies`, `go to university` → `go to college`.
+- Школьный текст: `timetable` → `schedule`, `first lesson` → `start of the school day` (цитаты-доказательства обновлены).
+- Исторический текст: `railway` → `railroad` (включая два вопроса).
+- MP3 перегенерированы для 16 изменённых текстов (`edge-tts`), остальные 38 не тронуты.
+- Мелкие правки студий без аудио: `on vacation`, `vacation plan`, `labor market`, `program` в c1-05.
+- Осталось: `programme` в диалоге c1-06 — нужна перегенерация аудио студии.
+- Следующий шаг: обсуждение C1.
+
 ## 0.87.1 — 2026-11-20
 
 - Финальное сканирование всех юнитов, речи и студий: найдены ещё пять британских `practis-` — a2-15 (текст), a2-20 (сборка и текст) и `speaking.ts`. Заменены на `practic-`.

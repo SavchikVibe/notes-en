@@ -19,7 +19,7 @@ export const a2Studio02: StudioTask = {
     questions: [
       {
         question: 'Why didn’t Leo go to school?',
-        options: ['He felt ill', 'He was on holiday', 'He missed the bus'],
+        options: ['He felt ill', 'He was on vacation', 'He missed the bus'],
         answer: 0,
         evidence: 'On Monday morning, Leo did not go to school. He felt terrible.',
       },

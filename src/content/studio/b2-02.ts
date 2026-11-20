@@ -107,7 +107,7 @@ export const b2Studio02: StudioTask = {
     questions: [
       {
         question: 'What is the meeting about?',
-        options: ['A four-day week trial', 'A new salary', 'A holiday plan'],
+        options: ['A four-day week trial', 'A new salary', 'A vacation plan'],
         answer: 0,
       },
       {
