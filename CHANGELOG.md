@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.94.0 — 2026-11-20
+
+- C1-21…24 написаны; все 24 юнита C1 готовы.
+- C1-21 «Мнение в журналистике» — op-ed, slant, editorial, column, pundit, loaded language, cherry-pick, outrage.
+- C1-22 «Рецензия и стиль» — evaluation, verdict, pacing, cliché, overrated, underrated, polish, resonance.
+- C1-23 «Институты и прагматика» — security deposit, deductible, copay, credit history, utility bill, office hours, small talk, tenant rights.
+- C1-24 «Итог C1: capstone» — capstone, thesis statement, works cited, rubric, integrity, defense, committee, reflection.
+- Итого: 234 юнита, 1 792 слова, 3 750 упражнений.
+- Следующий шаг: 8 проектов C1 (6 существующих студий + research proposal и capstone).
+
 ## 0.93.0 — 2026-11-20
 
 - C1-17…20 написаны.
