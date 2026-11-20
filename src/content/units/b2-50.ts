@@ -65,7 +65,7 @@ export const b250: Unit = {
       level: 'B2',
       tags: ['exam'],
       examples: [
-        { en: 'The raw score is converted to a band.', ru: 'Сырой балл переводится в band.' },
+        { en: 'The raw score is converted to a band.', ru: 'Сырой балл переводится в итоговый балл.' },
         { en: 'My raw score was 30 out of 40.', ru: 'Мой сырой балл — 30 из 40.' },
         { en: 'The raw score matters.', ru: 'Сырой балл важен.' },
       ],
@@ -190,7 +190,7 @@ export const b250: Unit = {
     {
       kind: 'translate',
       id: 'b2-50-ex-08',
-      source: 'Сырой балл переводится в band.',
+      source: 'Сырой балл переводится в итоговый балл.',
       accept: ['The raw score is converted to a band.'],
       sample: 'The raw score is converted to a band.',
       explanation: 'A raw score — сырой балл.',

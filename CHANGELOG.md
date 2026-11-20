@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.86.0 — 2026-11-20
+
+- Вычитка естественности B2-41…50.
+- b2-43: британское `enquiry` → американское `inquiry` во всех 11 местах, IPA → `ɪnˈkwaɪri`; `opened from the waiting list` → `opened up on`; `a cancellation might open a place` → `free up a table`; «доступность ограничена» → «свободных мест мало».
+- b2-44: `Collocation means words that go together` → `A collocation is a group of words that often go together`; `Strong collocation` → `Good collocations`.
+- b2-45: «медицинский провайдер» → «медицинское учреждение / поставщик медицинских услуг» (слово, примеры, речь).
+- b2-48: `Respect matters in cultural appropriation` → `when cultural elements are borrowed`.
+- b2-49: «проверять галлюцинации» → «проверять ответы на галлюцинации».
+- b2-50: «переводится в band» → «в итоговый балл».
+- Следующий шаг: B2-51…60.
+
 ## 0.85.0 — 2026-11-20
 
 - Вычитка естественности B2-31…40.

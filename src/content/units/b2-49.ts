@@ -53,7 +53,7 @@ export const b249: Unit = {
       examples: [
         { en: 'The model produced a hallucination.', ru: 'Модель выдала галлюцинацию.' },
         { en: 'Hallucinations are a known problem.', ru: 'Галлюцинации — известная проблема.' },
-        { en: 'Users must check for hallucinations.', ru: 'Пользователи должны проверять галлюцинации.' },
+        { en: 'Users must check for hallucinations.', ru: 'Пользователи должны проверять ответы на галлюцинации.' },
       ],
     },
     {

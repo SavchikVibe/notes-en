@@ -5,7 +5,7 @@ export const b243: Unit = {
   level: 'B2',
   order: 193,
   title: 'Диалоги: услуги',
-  subtitle: 'enquiry · availability · confirmation',
+  subtitle: 'inquiry · availability · confirmation',
   goal: 'Понимать разговоры о бронировании',
   formulas: [
     { label: 'Вежливый вопрос', pattern: 'I was wondering if...', note: 'I was wondering if you have a table.' },
@@ -15,17 +15,17 @@ export const b243: Unit = {
   ],
   words: [
     {
-      id: 'enquiry',
-      term: 'enquiry',
-      ipa: 'ɪnˈkwaɪəri',
+      id: 'inquiry',
+      term: 'inquiry',
+      ipa: 'ɪnˈkwaɪri',
       translation: 'запрос, вопрос',
       pos: 'n',
       level: 'B2',
       tags: ['communication', 'listening'],
       examples: [
-        { en: 'I have an enquiry about a room.', ru: 'У меня вопрос о номере.' },
-        { en: 'The enquiry was answered quickly.', ru: 'На запрос ответили быстро.' },
-        { en: 'Please send your enquiry by email.', ru: 'Отправь запрос по почте.' },
+        { en: 'I have an inquiry about a room.', ru: 'У меня вопрос о номере.' },
+        { en: 'The inquiry was answered quickly.', ru: 'На запрос ответили быстро.' },
+        { en: 'Please send your inquiry by email.', ru: 'Отправь запрос по почте.' },
       ],
     },
     {
@@ -37,7 +37,7 @@ export const b243: Unit = {
       level: 'B2',
       tags: ['communication', 'listening'],
       examples: [
-        { en: 'Availability is limited in summer.', ru: 'Летом доступность ограничена.' },
+        { en: 'Availability is limited in summer.', ru: 'Летом свободных мест мало.' },
         { en: 'Check availability online.', ru: 'Проверь наличие онлайн.' },
         { en: 'The availability of seats changed.', ru: 'Наличие мест изменилось.' },
       ],
@@ -67,7 +67,7 @@ export const b243: Unit = {
       examples: [
         { en: 'I joined the waiting list.', ru: 'Я записался в лист ожидания.' },
         { en: 'The waiting list is long.', ru: 'Лист ожидания длинный.' },
-        { en: 'A place opened from the waiting list.', ru: 'Место освободилось из листа ожидания.' },
+        { en: 'A place opened from the waiting list.', ru: 'Место освободилось в листе ожидания.' },
       ],
     },
     {
@@ -165,9 +165,9 @@ export const b243: Unit = {
       id: 'b2-43-ex-05',
       task: 'Собери предложение',
       translation: 'У меня вопрос о номере.',
-      words: ['I', 'have', 'an', 'enquiry', 'about', 'a', 'room'],
-      answer: ['I', 'have', 'an', 'enquiry', 'about', 'a', 'room'],
-      explanation: 'An enquiry — запрос.',
+      words: ['I', 'have', 'an', 'inquiry', 'about', 'a', 'room'],
+      answer: ['I', 'have', 'an', 'inquiry', 'about', 'a', 'room'],
+      explanation: 'An inquiry — запрос.',
     },
     {
       kind: 'assemble',
@@ -220,7 +220,7 @@ export const b243: Unit = {
     {
       kind: 'speak',
       id: 'b2-43-ex-11',
-      phrase: 'I have an enquiry about availability, and I would like a confirmation by email.',
+      phrase: 'I have an inquiry about availability, and I would like a confirmation by email.',
       translation: 'У меня вопрос о наличии, и я хотел бы подтверждение по почте.',
     },
     {
@@ -228,8 +228,8 @@ export const b243: Unit = {
       id: 'b2-43-ex-12',
       title: 'The Booking',
       paragraphs: [
-        'A customer called a restaurant to make an enquiry. She asked if a table was available on Friday at peak time.',
-        'The host said that the restaurant was full, but she could join the waiting list. A cancellation might open a place.',
+        'A customer called a restaurant to make an inquiry. She asked if a table was available on Friday at peak time.',
+        'The host said that the restaurant was full, but she could join the waiting list. A cancellation might free up a table.',
         'The customer asked for confirmation by email. The host took her number and promised to call back.',
         'Walk-ins were welcome, but the host warned that opening hours changed on holidays. The customer decided to book for Saturday instead.',
       ],

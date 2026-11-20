@@ -60,14 +60,14 @@ export const b245: Unit = {
       id: 'healthcare-provider',
       term: 'healthcare provider',
       ipa: 'ˈhelθker prəˈvaɪdər',
-      translation: 'медицинский провайдер',
+      translation: 'медицинское учреждение, поставщик медицинских услуг',
       pos: 'n',
       level: 'B2',
       tags: ['health'],
       examples: [
-        { en: 'The healthcare provider offered free tests.', ru: 'Медицинский провайдер предложил бесплатные тесты.' },
-        { en: 'Choose a healthcare provider carefully.', ru: 'Выбирай провайдера внимательно.' },
-        { en: 'Healthcare providers need training.', ru: 'Провайдерам нужно обучение.' },
+        { en: 'The healthcare provider offered free tests.', ru: 'Медицинское учреждение предложило бесплатные тесты.' },
+        { en: 'Choose a healthcare provider carefully.', ru: 'Выбирай медицинское учреждение внимательно.' },
+        { en: 'Healthcare providers need training.', ru: 'Поставщикам медицинских услуг нужно обучение.' },
       ],
     },
     {
@@ -221,7 +221,7 @@ export const b245: Unit = {
       kind: 'speak',
       id: 'b2-45-ex-11',
       phrase: 'Public health depends on prevention, and prevention depends on trust in healthcare providers.',
-      translation: 'Общественное здоровье зависит от профилактики, а профилактика — от доверия к медицинским провайдерам.',
+      translation: 'Общественное здоровье зависит от профилактики, а профилактика — от доверия к медицинским учреждениям.',
     },
     {
       kind: 'read',

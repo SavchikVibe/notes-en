@@ -107,8 +107,8 @@ export const b244: Unit = {
       level: 'B2',
       tags: ['speaking', 'academic'],
       examples: [
-        { en: 'Collocation means words that go together.', ru: 'Коллокация — слова, которые сочетаются.' },
-        { en: 'Strong collocation improves writing.', ru: 'Хорошая коллокация улучшает письмо.' },
+        { en: 'A collocation is a group of words that often go together.', ru: 'Коллокация — это слова, которые часто употребляются вместе.' },
+        { en: 'Good collocations improve writing.', ru: 'Хорошие словосочетания улучшают письмо.' },
         { en: 'Learn collocations, not just words.', ru: 'Учи словосочетания, а не только слова.' },
       ],
     },

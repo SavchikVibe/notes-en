@@ -67,7 +67,7 @@ export const b248: Unit = {
       examples: [
         { en: 'Cultural appropriation is controversial.', ru: 'Культурная апроприация спорна.' },
         { en: 'The brand was accused of cultural appropriation.', ru: 'Бренд обвинили в культурной апроприации.' },
-        { en: 'Respect matters in cultural appropriation.', ru: 'В культурной апроприации важно уважение.' },
+        { en: 'Respect matters when cultural elements are borrowed.', ru: 'Уважение важно, когда заимствуют культурные элементы.' },
       ],
     },
     {
