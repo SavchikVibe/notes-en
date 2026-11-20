@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 0.89.0 — 2026-11-20
+
+- Старт C1: гибрид 24 коротких юнита + 8 проектов вместо 60 юнитов. Написаны C1-01…04.
+- Формат C1-юнита: 8 академических слов, чтение из 4 абзацев, 10 авторских упражнений + 2 производных = 12 обязательных, плюс мастерская.
+- C1-01 «Семинар: вход в разговор» — turn-taking, hedge, backchannel, build on, elicit, restate.
+- C1-02 «Исследовательский вопрос» — research question, measurable, pilot, robust, preliminary, exploratory.
+- C1-03 «Академическое несогласие» — push back, objection, counterexample, misrepresent, rebut, ad hominem.
+- C1-04 «Чтение abstract» — limitation, extrapolate, correlate, underpin, warrant, concise, peer-reviewed, preprint.
+- `LEVEL_INFO` для C1 обновлён: 24 урока и 8 проектов, 1 600–1 800 слов в карточках. В `CURRICULUM.md` зафиксировано решение о гибриде; таблица 60 тем остаётся банком.
+- Итого: 214 юнитов, 1 632 слова, 3 450 упражнений.
+- Следующий шаг: C1-05…08.
+
 ## 0.88.0 — 2026-11-20
 
 - Вычитка библиотеки чтения: 54 текста, 32 правки в 16 текстах.

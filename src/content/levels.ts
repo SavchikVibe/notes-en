@@ -115,8 +115,8 @@ export const LEVEL_INFO: Record<Level, LevelInfo> = {
       'Говорить подробно без заметной потери беглости',
     ],
     need: [
-      '60 уроков C1',
-      'Около 5200–6800 слов',
+      '24 коротких урока C1 и 8 проектов',
+      'Около 1600–1800 слов в карточках; широта лексики идёт из чтения и проектов',
       'Inversion, ellipsis, nominalization, register',
     ],
     grammar: [
