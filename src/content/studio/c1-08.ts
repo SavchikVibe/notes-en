@@ -1,0 +1,147 @@
+import type { StudioTask } from './types'
+
+export const c1Studio08: StudioTask = {
+  id: 'studio-c1-08',
+  level: 'C1',
+  kind: 'project',
+  title: 'Рецензия и культурный обзор',
+  subtitle: 'Reading · Listening · Writing · Speaking',
+  goal: 'Прочитать рецензию, понять разговор с редактором, написать свою рецензию и представить её устно',
+  estimatedMinutes: 45,
+  reading: {
+    title: 'What a Review Is For',
+    hint: 'Выбери правильный вариант. В вопросах True / False / Not Given выбери точный ответ.',
+    paragraphs: [
+      'A review is an argument about value, written for a reader who might spend two hours or twenty dollars on the work. It is not a summary, and it is not a verdict without reasons.',
+      'Context comes first. What is the work trying to do? A comedy judged by the standards of tragedy will always fail. The reviewer’s first job is to take the ambition seriously, then ask whether the work achieves it.',
+      'Evidence comes next: one precise scene, one paragraph, one choice the author made. This is where craft is discussed — pacing, structure, voice. “I liked it” is a reaction; “the middle section loses tension because every conversation repeats the same argument” is a review.',
+      'Balance is not politeness. A review that praises everything is useless, and a review that sneers is easy. The useful critic names what fails without contempt, and gives credit where it is due.',
+      'The verdict should be short and specific, and it should name its reader. “Worth seeing for the ending, despite a slow first hour” tells more than “a masterpiece.”',
+    ],
+    questions: [
+      {
+        question: 'Who is a review written for?',
+        options: ['A reader who might spend time or money', 'The author of the work', 'Other critics only'],
+        answer: 0,
+        evidence: 'written for a reader who might spend two hours or twenty dollars on the work',
+      },
+      {
+        question: 'What should the reviewer take seriously first?',
+        options: ['The work’s ambition', 'The budget', 'The marketing'],
+        answer: 0,
+        evidence: 'The reviewer’s first job is to take the ambition seriously',
+      },
+      {
+        question: 'What is an example of evidence in a review?',
+        options: ['One precise scene', 'A list of awards', 'The ticket price'],
+        answer: 0,
+        evidence: 'one precise scene, one paragraph, one choice the author made',
+      },
+      {
+        question: 'A review that praises everything is useful.',
+        options: ['True', 'False', 'Not Given'],
+        answer: 1,
+        type: 'tfng',
+        evidence: 'A review that praises everything is useless',
+      },
+      {
+        question: 'What should a verdict name?',
+        options: ['Its reader', 'Its budget', 'Its length'],
+        answer: 0,
+        evidence: 'it should name its reader',
+      },
+    ],
+  },
+  listening: {
+    title: 'The Editor’s Call',
+    intro: 'Редактор и критик обсуждают рецензию перед публикацией. Сначала слушай целиком, потом заполни заметки.',
+    audio: 'audio/studio-c1-08.mp3',
+    lines: [
+      { speaker: 'Priya', text: 'Your review is strong, but the first paragraph summarizes the plot.', pitch: 1.06 },
+      { speaker: 'Daniel', text: 'I wanted readers to know the story.', pitch: 0.94 },
+      { speaker: 'Priya', text: 'They can read the synopsis. Start with your verdict and one scene.', pitch: 1.06 },
+      { speaker: 'Daniel', text: 'The verdict is mixed. The acting is excellent; the script is weak.', pitch: 0.94 },
+      { speaker: 'Priya', text: 'Then say that in the first three sentences.', pitch: 1.06 },
+      { speaker: 'Daniel', text: 'Is the tone too harsh?', pitch: 0.94 },
+      { speaker: 'Priya', text: 'It is sharp, not cruel. Keep one line of praise for the ending.', pitch: 1.06 },
+      { speaker: 'Daniel', text: 'I will cut the plot summary and add one paragraph on pacing.', pitch: 0.94 },
+      { speaker: 'Priya', text: 'Good. And name the reader: who should see it?', pitch: 1.06 },
+      { speaker: 'Daniel', text: 'People who like quiet family dramas, not action fans.', pitch: 0.94 },
+      { speaker: 'Priya', text: 'That is your last line.', pitch: 1.06 },
+    ],
+    notes: [
+      { before: 'The first paragraph', after: 'the plot.', answer: 'summarizes', accept: ['summarizes', 'summarises'] },
+      { before: 'Start with your', after: 'and one scene.', answer: 'verdict', accept: ['verdict'] },
+      { before: 'The acting is excellent; the', after: 'is weak.', answer: 'script', accept: ['script'] },
+      { before: 'Keep one line of', after: 'for the ending.', answer: 'praise', accept: ['praise'] },
+      { before: 'Add one paragraph on', after: '.', answer: 'pacing', accept: ['pacing'] },
+      { before: 'The review is for people who like quiet family', after: '.', answer: 'dramas', accept: ['dramas'] },
+    ],
+    questions: [
+      {
+        question: 'What should the first paragraph do?',
+        options: ['State the verdict', 'Summarize the plot', 'List the actors'],
+        answer: 0,
+      },
+      {
+        question: 'What is the verdict?',
+        options: ['The acting is strong, the script is weak', 'Everything is excellent', 'Everything is weak'],
+        answer: 0,
+      },
+      {
+        question: 'Who should see the film?',
+        options: ['Fans of quiet family dramas', 'Action fans', 'Children'],
+        answer: 0,
+      },
+    ],
+    transcript: [
+      'Priya: Your review is strong, but the first paragraph summarizes the plot.',
+      'Daniel: I wanted readers to know the story.',
+      'Priya: They can read the synopsis. Start with your verdict and one scene.',
+      'Daniel: The verdict is mixed. The acting is excellent; the script is weak.',
+      'Priya: Then say that in the first three sentences.',
+      'Daniel: Is the tone too harsh?',
+      'Priya: It is sharp, not cruel. Keep one line of praise for the ending.',
+      'Daniel: I will cut the plot summary and add one paragraph on pacing.',
+      'Priya: Good. And name the reader: who should see it?',
+      'Daniel: People who like quiet family dramas, not action fans.',
+      'Priya: That is your last line.',
+    ],
+  },
+  writing: {
+    title: 'Напиши рецензию',
+    prompt:
+      'Write a review (280–320 words) of a film, book, or exhibition: the work’s ambition, one precise example, one weakness, and a verdict for a specific reader.',
+    minWords: 280,
+    maxWords: 320,
+    checklist: [
+      'Есть контекст: что работа пытается сделать.',
+      'Один точный пример вместо списка впечатлений.',
+      'Названа одна слабость без презрения.',
+      'Вердикт короткий и конкретный.',
+      'Указан читатель, которому адресована рецензия.',
+    ],
+    modelAnswer:
+      'A Quiet Film That Refuses to Explain\n\nThe new family drama wants to do something difficult: show grief without turning it into a lesson. Its ambition is clear in the first ten minutes, when a mother returns to an empty kitchen and says nothing for almost a full minute. The camera stays. The film trusts the silence, and for a while the silence is enough.\n\nThe best scene comes halfway through, when the two sisters sort their father’s papers. They argue about a receipt, then about a holiday, then about nothing at all. The argument is funny and painful because the subject keeps shifting. The acting is excellent; both actors let the other finish before they strike.\n\nThe weakness is the script. Every conversation repeats the same conflict, and by the third act the repetition has stopped adding pressure. The pacing slows, and the ending, which should feel earned, arrives as a speech rather than a scene. The final monologue explains what the kitchen already showed.\n\nEven so, the film is worth seeing for that kitchen, and for the receipt scene, which I will remember longer than the ending. It is not a masterpiece, and it does not need to be.\n\nWho should see it: readers of quiet family dramas, not action fans. If you liked the first hour, stay for the acting; if you need a plot that moves, wait for streaming.',
+    usefulLanguage: [
+      'The work wants to do something difficult...',
+      'The best scene comes...',
+      'The weakness is...',
+      'Who should see it: ...',
+    ],
+  },
+  speaking: {
+    title: 'Устная рецензия',
+    prompt:
+      'Give a two-minute spoken review of a film or book you know well: ambition, one scene, one weakness, and a verdict for a specific listener.',
+    preparationSeconds: 120,
+    speakingSeconds: 180,
+    checklist: [
+      'Сразу назван вердикт или вопрос.',
+      'Есть один точный эпизод, а не пересказ сюжета.',
+      'Названа одна слабость.',
+      'Вердикт адресован конкретному слушателю.',
+      'Речь звучит как разговор, а не как чтение.',
+    ],
+  },
+}

@@ -42,6 +42,11 @@ export default function StudioScreen() {
                   <div>
                     <p className="text-[13px] font-medium text-ink-3">
                       {task.level} · {task.estimatedMinutes} мин
+                      {task.kind === 'project' && (
+                        <span className="ml-2 rounded-[3px] border border-accent/40 bg-accent-soft px-1.5 py-0.5 text-[10px] font-medium text-accent">
+                          Проект
+                        </span>
+                      )}
                     </p>
                     <h2 className="mt-1 text-[24px] leading-tight">{task.title}</h2>
                   </div>

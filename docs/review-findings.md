@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-20, version 0.94.0.
+Last updated: 2026-11-20, version 0.95.0.
 
 ## 1. What was reviewed
 
@@ -91,7 +91,7 @@ These are still the backbone of the roadmap.
 - **Engine first.** Fix answer shuffling, scoring, resume, SRS and validator before new content. Done in 0.37.1–0.37.2.
 - **Exercise count.** New C1 units should have **12 mandatory exercises + an optional workshop**. Existing A1/A2 keep 12; existing B1/B2 keep 14 until content revision. Do not mechanically cut two exercises from all 210 units: in A1/A2 they carry practice, and in B1/B2 a workshop made from the same examples would be repetition, which both reviews criticized.
 - **Studio format.** A separate “Студия” section for long tasks, not inside the 10–15-minute lesson. Each task has reading, listening, writing, speaking. Access from Today; progress and current step persist.
-- **Studio count.** 27 tasks total: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1. One per 10-unit block. Completed in 0.38.0–0.49.0.
+- **Studio count.** 29 tasks total: 4 A1, 5 A2, 6 B1, 6 B2, 8 C1 projects. The first 27 were one per 10-unit block (0.38.0–0.49.0); under the C1 hybrid the 6 C1 Studios became 6 projects and 2 more were added in 0.95.0.
 - **Audio.** Studio dialogues use bundled neural audio (Edge TTS, generated at build time). System TTS remains for words and as a fallback. The user’s phone has only one system voice; this is expected.
 - **Voice settings.** The user can choose an en-US system voice for words/fallback; Studio audio is fixed. No Studio voice picker for now.
 - **Storage.** Precache is about 17 MB: app shell plus Studio audio. Library audio (54 MP3) is excluded from precache and cached on demand in the `library-audio` Cache Storage bucket when a text is opened. Studio audio stays fully offline from the first launch.
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.94.0)
+## 8. Current state (0.95.0)
 
 - 234 units: A1 40, A2 50, B1 60, B2 60, C1 24 (all C1 units written).
 - 1,792 words, 3,750 exercises: 12-14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -132,7 +132,9 @@ These are still the backbone of the roadmap.
 - Library naturalness pass (0.88.0): all 54 texts checked for UK forms. 32 edits in 16 texts: `public transport` → `public transportation` (reading-34, 40, 46), `bus journeys`/`journeys` → `trips` (reading-30, 34, 46), `travel in transport` → `in transit` (reading-38), `on holiday` → `on vacation` (reading-31, 53), `cinema ticket` → `movie ticket` (reading-39), `marks` → `grades` (reading-42), `loves films` → `movies` (reading-36), `go to university` → `go to college` (reading-28), `timetable` → `schedule` in the school text (reading-35, with the evidence quote), `railway` → `railroad` (reading-44, 48 and two questions), `first lesson` → `the start of the school day` (reading-35, with evidence). Evidence quotes updated where needed; `check:readings` green. MP3 regenerated for the 16 affected texts; the other 38 files are untouched.
 - Small Studio fixes without audio impact: `on holiday` → `on vacation` (a2-02 option), `holiday plan` → `vacation plan` (b2-02 option), `labour market` → `labor market` (b2-01 reading), `programme` → `program` in the c1-05 reading. The c1-06 dialogue still says `programme` and needs its studio audio regenerated.
 - C1 hybrid units complete (0.89.0–0.94.0): C1-01…24 written. Each unit: 8 academic words, 4-paragraph reading, 10 authored exercises + 2 derived = 12 mandatory, plus the workshop. C1-01 seminar talk, C1-02 research question, C1-03 academic disagreement, C1-04 reading an abstract, C1-05 lecture structure, C1-06 source paraphrase, C1-07 paragraph claim–evidence–commentary, C1-08 academic collocations, C1-09 methods section, C1-10 data in text, C1-11 distancing and caution, C1-12 source evaluation, C1-13 speech openings, C1-14 inversion, C1-15 fronting and cleft, C1-16 rhetorical devices, C1-17 debate case, C1-18 rebuttal and fallacies, C1-19 speaking under pressure, C1-20 listening between the lines, C1-21 opinion journalism, C1-22 review and style, C1-23 US institutions and pragmatics, C1-24 capstone. `LEVEL_INFO` for C1 says 24 lessons + 8 projects and 1,600–1,800 words in cards. `CURRICULUM.md` keeps the 60-topic bank and records the hybrid decision.
-- 27 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 6 C1.
+- C1 projects complete (0.95.0): 8 project tasks in the Studio format = 6 existing C1 Studios + 2 new ones (studio-c1-07 «Аналитический отчёт», studio-c1-08 «Рецензия и культурный обзор»). `StudioTask.kind: 'project'` marks them; the Studio list shows a «Проект» badge and the task header says «Проект · …». No separate section: a project is a Studio task with a project role.
+- Studio audio: 29 MP3 files; c1-06 dialogue fixed from `programme` to `program` and regenerated. `generate-studio-audio.py` now skips existing files, so only changed tracks are rebuilt.
+- 29 Studio tasks: 4 A1, 5 A2, 6 B1, 6 B2, 8 C1 projects.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
 - Error bank: IndexedDB store `errors` (DB version 3), due errors on Today, practice screen `/errors`. Backup includes errors.
@@ -148,7 +150,7 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.94.0.
+- Version 0.95.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
@@ -168,7 +170,7 @@ Priority order unless the user changes it:
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
 11. **Naturalness pass.** Done for all 210 A1–B2 units and all 54 library texts; audio is in sync. Left: `programme` in the c1-06 Studio dialogue (needs that studio's audio regenerated).
-12. **C1 hybrid.** Units complete: 24 short units (C1-01…24). Projects next: map the 6 existing C1 Studios to 6 of the 8 projects and write 2 new ones — research proposal and capstone. Projects use the Studio format. IELTS is on hold.
+12. **C1 hybrid.** Complete: 24 short units (C1-01…24) and 8 project tasks (the 6 existing C1 Studios plus studio-c1-07 data report and studio-c1-08 review). Projects are marked `kind: 'project'` and shown with a badge in the Studio section.
 
 ## 10. What not to change
 

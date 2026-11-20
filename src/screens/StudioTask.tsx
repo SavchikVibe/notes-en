@@ -149,7 +149,7 @@ export default function StudioTaskScreen() {
     <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col">
       <AppBar
         title={task.title}
-        subtitle={task.subtitle}
+        subtitle={task.kind === 'project' ? `Проект · ${task.subtitle}` : task.subtitle}
         onBack={() => navigate('/studio')}
         right={<span className="num text-[13px] text-ink-3">{step + 1} / 4</span>}
       />

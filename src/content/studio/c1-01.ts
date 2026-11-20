@@ -3,6 +3,7 @@ import type { StudioTask } from './types'
 export const c1Studio01: StudioTask = {
   id: 'studio-c1-01',
   level: 'C1',
+  kind: 'project',
   title: 'Семинар: зачем университет',
   subtitle: 'Reading · Listening · Writing · Speaking',
   goal: 'Прочитать академический текст, понять семинар, написать эссе о знании и навыках и выступить с позицией',

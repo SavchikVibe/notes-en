@@ -32,6 +32,9 @@ async def synthesize(text: str, voice: str, rate: str, path: Path) -> None:
 async def build_track(track: dict) -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     output = OUTPUT_DIR / f"{track['id']}.mp3"
+    if output.exists() and output.stat().st_size > 1000:
+        print(f"skip {output.name}")
+        return
 
     with tempfile.TemporaryDirectory() as temp_dir:
         temp = Path(temp_dir)

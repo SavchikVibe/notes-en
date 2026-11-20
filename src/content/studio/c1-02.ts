@@ -3,6 +3,7 @@ import type { StudioTask } from './types'
 export const c1Studio02: StudioTask = {
   id: 'studio-c1-02',
   level: 'C1',
+  kind: 'project',
   title: 'Исследовательское предложение',
   subtitle: 'Reading · Listening · Writing · Speaking',
   goal: 'Прочитать исследовательское предложение, понять встречу с научным руководителем, написать своё предложение и защитить метод',

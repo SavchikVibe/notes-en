@@ -3,6 +3,7 @@ import type { StudioTask } from './types'
 export const c1Studio04: StudioTask = {
   id: 'studio-c1-04',
   level: 'C1',
+  kind: 'project',
   title: 'Медиа и демократия',
   subtitle: 'Reading · Listening · Writing · Speaking',
   goal: 'Прочитать текст о медиа и демократии, понять панельную дискуссию, написать эссе и предложить реформу',

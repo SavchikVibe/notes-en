@@ -57,6 +57,8 @@ export interface StudioSpeaking {
 export interface StudioTask {
   id: string
   level: Level
+  /** project — задача-проект (C1): та же студия, но с ролью итоговой работы. */
+  kind?: 'studio' | 'project'
   title: string
   subtitle: string
   goal: string

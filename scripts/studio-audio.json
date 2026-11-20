@@ -3,483 +3,1899 @@
     "id": "studio-a1-01",
     "rate": "-8%",
     "lines": [
-      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "Good morning! What would you like?" },
-      { "speaker": "Anna", "voice": "en-US-JennyNeural", "text": "I would like a sandwich and a coffee, please." },
-      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "Would you like milk in your coffee?" },
-      { "speaker": "Anna", "voice": "en-US-JennyNeural", "text": "Yes, please. And a glass of water." },
-      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "Anything else?" },
-      { "speaker": "Anna", "voice": "en-US-JennyNeural", "text": "No, thank you. How much is it?" },
-      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "That is eight dollars." },
-      { "speaker": "Anna", "voice": "en-US-JennyNeural", "text": "Here you are." },
-      { "speaker": "Server", "voice": "en-US-GuyNeural", "text": "Thank you. Have a nice day!" }
+      {
+        "speaker": "Server",
+        "voice": "en-US-GuyNeural",
+        "text": "Good morning! What would you like?"
+      },
+      {
+        "speaker": "Anna",
+        "voice": "en-US-JennyNeural",
+        "text": "I would like a sandwich and a coffee, please."
+      },
+      {
+        "speaker": "Server",
+        "voice": "en-US-GuyNeural",
+        "text": "Would you like milk in your coffee?"
+      },
+      {
+        "speaker": "Anna",
+        "voice": "en-US-JennyNeural",
+        "text": "Yes, please. And a glass of water."
+      },
+      {
+        "speaker": "Server",
+        "voice": "en-US-GuyNeural",
+        "text": "Anything else?"
+      },
+      {
+        "speaker": "Anna",
+        "voice": "en-US-JennyNeural",
+        "text": "No, thank you. How much is it?"
+      },
+      {
+        "speaker": "Server",
+        "voice": "en-US-GuyNeural",
+        "text": "That is eight dollars."
+      },
+      {
+        "speaker": "Anna",
+        "voice": "en-US-JennyNeural",
+        "text": "Here you are."
+      },
+      {
+        "speaker": "Server",
+        "voice": "en-US-GuyNeural",
+        "text": "Thank you. Have a nice day!"
+      }
     ]
   },
   {
     "id": "studio-a1-02",
     "rate": "-8%",
     "lines": [
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "Hi, Leo. It's Mia. Do you have the math homework?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Yes. We have to do page twelve, exercises one and two." },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "Thanks. Do you want to study together?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Sure. Let's meet at the library at five." },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "OK. See you at five. Bye!" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Bye!" }
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "Hi, Leo. It's Mia. Do you have the math homework?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Yes. We have to do page twelve, exercises one and two."
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "Thanks. Do you want to study together?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Sure. Let's meet at the library at five."
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "OK. See you at five. Bye!"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Bye!"
+      }
     ]
   },
   {
     "id": "studio-a1-03",
     "rate": "-8%",
     "lines": [
-      { "speaker": "Emma", "voice": "en-US-AvaNeural", "text": "Hi, Nina! How was the beach?" },
-      { "speaker": "Nina", "voice": "en-US-JennyNeural", "text": "It was great! The weather was sunny and warm." },
-      { "speaker": "Emma", "voice": "en-US-AvaNeural", "text": "What did you do there?" },
-      { "speaker": "Nina", "voice": "en-US-JennyNeural", "text": "I swam in the sea and found a small shell." },
-      { "speaker": "Emma", "voice": "en-US-AvaNeural", "text": "Nice! Did you take photos?" },
-      { "speaker": "Nina", "voice": "en-US-JennyNeural", "text": "Yes, I did. I can show you on Monday." },
-      { "speaker": "Emma", "voice": "en-US-AvaNeural", "text": "Great. What time did you go home?" },
-      { "speaker": "Nina", "voice": "en-US-JennyNeural", "text": "We went home at five o'clock." }
+      {
+        "speaker": "Emma",
+        "voice": "en-US-AvaNeural",
+        "text": "Hi, Nina! How was the beach?"
+      },
+      {
+        "speaker": "Nina",
+        "voice": "en-US-JennyNeural",
+        "text": "It was great! The weather was sunny and warm."
+      },
+      {
+        "speaker": "Emma",
+        "voice": "en-US-AvaNeural",
+        "text": "What did you do there?"
+      },
+      {
+        "speaker": "Nina",
+        "voice": "en-US-JennyNeural",
+        "text": "I swam in the sea and found a small shell."
+      },
+      {
+        "speaker": "Emma",
+        "voice": "en-US-AvaNeural",
+        "text": "Nice! Did you take photos?"
+      },
+      {
+        "speaker": "Nina",
+        "voice": "en-US-JennyNeural",
+        "text": "Yes, I did. I can show you on Monday."
+      },
+      {
+        "speaker": "Emma",
+        "voice": "en-US-AvaNeural",
+        "text": "Great. What time did you go home?"
+      },
+      {
+        "speaker": "Nina",
+        "voice": "en-US-JennyNeural",
+        "text": "We went home at five o'clock."
+      }
     ]
   },
   {
     "id": "studio-a1-04",
     "rate": "-8%",
     "lines": [
-      { "speaker": "Sam", "voice": "en-US-BrianNeural", "text": "Hi, Alex. Are you free next weekend?" },
-      { "speaker": "Alex", "voice": "en-US-GuyNeural", "text": "No, I'm not. I'm going to visit my grandparents." },
-      { "speaker": "Sam", "voice": "en-US-BrianNeural", "text": "Oh, nice. What are you going to do there?" },
-      { "speaker": "Alex", "voice": "en-US-GuyNeural", "text": "I'm going to work in the garden and walk to the lake." },
-      { "speaker": "Sam", "voice": "en-US-BrianNeural", "text": "When are you going to come home?" },
-      { "speaker": "Alex", "voice": "en-US-GuyNeural", "text": "On Sunday evening. Do you want to play football on Monday?" },
-      { "speaker": "Sam", "voice": "en-US-BrianNeural", "text": "Sure! Let's meet at the park at four." },
-      { "speaker": "Alex", "voice": "en-US-GuyNeural", "text": "Great. See you on Monday!" }
+      {
+        "speaker": "Sam",
+        "voice": "en-US-BrianNeural",
+        "text": "Hi, Alex. Are you free next weekend?"
+      },
+      {
+        "speaker": "Alex",
+        "voice": "en-US-GuyNeural",
+        "text": "No, I'm not. I'm going to visit my grandparents."
+      },
+      {
+        "speaker": "Sam",
+        "voice": "en-US-BrianNeural",
+        "text": "Oh, nice. What are you going to do there?"
+      },
+      {
+        "speaker": "Alex",
+        "voice": "en-US-GuyNeural",
+        "text": "I'm going to work in the garden and walk to the lake."
+      },
+      {
+        "speaker": "Sam",
+        "voice": "en-US-BrianNeural",
+        "text": "When are you going to come home?"
+      },
+      {
+        "speaker": "Alex",
+        "voice": "en-US-GuyNeural",
+        "text": "On Sunday evening. Do you want to play football on Monday?"
+      },
+      {
+        "speaker": "Sam",
+        "voice": "en-US-BrianNeural",
+        "text": "Sure! Let's meet at the park at four."
+      },
+      {
+        "speaker": "Alex",
+        "voice": "en-US-GuyNeural",
+        "text": "Great. See you on Monday!"
+      }
     ]
   },
   {
     "id": "studio-a2-01",
     "rate": "-5%",
     "lines": [
-      { "speaker": "Receptionist", "voice": "en-US-BrianNeural", "text": "Good afternoon. Welcome to the Park Hotel." },
-      { "speaker": "Sofia", "voice": "en-US-AvaNeural", "text": "Hello. I have a reservation for two people. My name is Sofia Ramos." },
-      { "speaker": "Receptionist", "voice": "en-US-BrianNeural", "text": "Let me check. Yes, a room for two nights. Is that correct?" },
-      { "speaker": "Sofia", "voice": "en-US-AvaNeural", "text": "Yes, that's right. Is breakfast included?" },
-      { "speaker": "Receptionist", "voice": "en-US-BrianNeural", "text": "Yes, breakfast is from seven to ten in the café on the first floor." },
-      { "speaker": "Sofia", "voice": "en-US-AvaNeural", "text": "Great. What time is check-out?" },
-      { "speaker": "Receptionist", "voice": "en-US-BrianNeural", "text": "Check-out is at eleven. Here are your keys. Your room is on the fifth floor." },
-      { "speaker": "Sofia", "voice": "en-US-AvaNeural", "text": "Thank you very much." }
+      {
+        "speaker": "Receptionist",
+        "voice": "en-US-BrianNeural",
+        "text": "Good afternoon. Welcome to the Park Hotel."
+      },
+      {
+        "speaker": "Sofia",
+        "voice": "en-US-AvaNeural",
+        "text": "Hello. I have a reservation for two people. My name is Sofia Ramos."
+      },
+      {
+        "speaker": "Receptionist",
+        "voice": "en-US-BrianNeural",
+        "text": "Let me check. Yes, a room for two nights. Is that correct?"
+      },
+      {
+        "speaker": "Sofia",
+        "voice": "en-US-AvaNeural",
+        "text": "Yes, that's right. Is breakfast included?"
+      },
+      {
+        "speaker": "Receptionist",
+        "voice": "en-US-BrianNeural",
+        "text": "Yes, breakfast is from seven to ten in the café on the first floor."
+      },
+      {
+        "speaker": "Sofia",
+        "voice": "en-US-AvaNeural",
+        "text": "Great. What time is check-out?"
+      },
+      {
+        "speaker": "Receptionist",
+        "voice": "en-US-BrianNeural",
+        "text": "Check-out is at eleven. Here are your keys. Your room is on the fifth floor."
+      },
+      {
+        "speaker": "Sofia",
+        "voice": "en-US-AvaNeural",
+        "text": "Thank you very much."
+      }
     ]
   },
   {
     "id": "studio-a2-02",
     "rate": "-5%",
     "lines": [
-      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "Good morning, Leo. What seems to be the problem?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "I have a headache and a sore throat. I feel very tired." },
-      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "How long have you felt like this?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Since Sunday evening. I also have a cough." },
-      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "Do you have a temperature?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Yes, I think so." },
-      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "You have a bad cold. Stay home for two days and drink a lot of water." },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Should I take any medicine?" },
-      { "speaker": "Doctor", "voice": "en-US-AriaNeural", "text": "Yes, take this for your headache. And no football this week." },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "OK. Thank you, Doctor." }
+      {
+        "speaker": "Doctor",
+        "voice": "en-US-AriaNeural",
+        "text": "Good morning, Leo. What seems to be the problem?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "I have a headache and a sore throat. I feel very tired."
+      },
+      {
+        "speaker": "Doctor",
+        "voice": "en-US-AriaNeural",
+        "text": "How long have you felt like this?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Since Sunday evening. I also have a cough."
+      },
+      {
+        "speaker": "Doctor",
+        "voice": "en-US-AriaNeural",
+        "text": "Do you have a temperature?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Yes, I think so."
+      },
+      {
+        "speaker": "Doctor",
+        "voice": "en-US-AriaNeural",
+        "text": "You have a bad cold. Stay home for two days and drink a lot of water."
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Should I take any medicine?"
+      },
+      {
+        "speaker": "Doctor",
+        "voice": "en-US-AriaNeural",
+        "text": "Yes, take this for your headache. And no football this week."
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "OK. Thank you, Doctor."
+      }
     ]
   },
   {
     "id": "studio-a2-03",
     "rate": "-5%",
     "lines": [
-      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "Good morning. How can I help you?" },
-      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "Hello. I ordered a pair of running shoes last week, but I received the wrong size." },
-      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "I'm sorry about that. What is your order number?" },
-      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "It's four seven two nine." },
-      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "Thank you. I see the order: blue shoes, size thirty-eight. What did you receive?" },
-      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "Black shoes, size thirty-six." },
-      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "We will send the correct shoes today. The return is free. Please use the same box." },
-      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "Thank you. How long will the delivery take?" },
-      { "speaker": "Assistant", "voice": "en-US-AvaNeural", "text": "Two or three days." },
-      { "speaker": "Emma", "voice": "en-US-JennyNeural", "text": "Great. Thank you for your help." }
+      {
+        "speaker": "Assistant",
+        "voice": "en-US-AvaNeural",
+        "text": "Good morning. How can I help you?"
+      },
+      {
+        "speaker": "Emma",
+        "voice": "en-US-JennyNeural",
+        "text": "Hello. I ordered a pair of running shoes last week, but I received the wrong size."
+      },
+      {
+        "speaker": "Assistant",
+        "voice": "en-US-AvaNeural",
+        "text": "I'm sorry about that. What is your order number?"
+      },
+      {
+        "speaker": "Emma",
+        "voice": "en-US-JennyNeural",
+        "text": "It's four seven two nine."
+      },
+      {
+        "speaker": "Assistant",
+        "voice": "en-US-AvaNeural",
+        "text": "Thank you. I see the order: blue shoes, size thirty-eight. What did you receive?"
+      },
+      {
+        "speaker": "Emma",
+        "voice": "en-US-JennyNeural",
+        "text": "Black shoes, size thirty-six."
+      },
+      {
+        "speaker": "Assistant",
+        "voice": "en-US-AvaNeural",
+        "text": "We will send the correct shoes today. The return is free. Please use the same box."
+      },
+      {
+        "speaker": "Emma",
+        "voice": "en-US-JennyNeural",
+        "text": "Thank you. How long will the delivery take?"
+      },
+      {
+        "speaker": "Assistant",
+        "voice": "en-US-AvaNeural",
+        "text": "Two or three days."
+      },
+      {
+        "speaker": "Emma",
+        "voice": "en-US-JennyNeural",
+        "text": "Great. Thank you for your help."
+      }
     ]
   },
   {
     "id": "studio-a2-04",
     "rate": "-5%",
     "lines": [
-      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "Hello, Mr. Brown speaking." },
-      { "speaker": "Anna", "voice": "en-US-AvaNeural", "text": "Hello. This is Anna Miller. We moved into apartment three B last week." },
-      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "Yes, of course. Is everything OK?" },
-      { "speaker": "Anna", "voice": "en-US-AvaNeural", "text": "Almost. The kitchen window does not close, and the hot water is not working." },
-      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "I'm sorry about that. I can send a repair person tomorrow morning." },
-      { "speaker": "Anna", "voice": "en-US-AvaNeural", "text": "Thank you. What time will he come?" },
-      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "Between nine and eleven. Will someone be at home?" },
-      { "speaker": "Anna", "voice": "en-US-AvaNeural", "text": "Yes, I will be at home." },
-      { "speaker": "Landlord", "voice": "en-US-BrianNeural", "text": "Good. I will call you when he is on his way." }
+      {
+        "speaker": "Landlord",
+        "voice": "en-US-BrianNeural",
+        "text": "Hello, Mr. Brown speaking."
+      },
+      {
+        "speaker": "Anna",
+        "voice": "en-US-AvaNeural",
+        "text": "Hello. This is Anna Miller. We moved into apartment three B last week."
+      },
+      {
+        "speaker": "Landlord",
+        "voice": "en-US-BrianNeural",
+        "text": "Yes, of course. Is everything OK?"
+      },
+      {
+        "speaker": "Anna",
+        "voice": "en-US-AvaNeural",
+        "text": "Almost. The kitchen window does not close, and the hot water is not working."
+      },
+      {
+        "speaker": "Landlord",
+        "voice": "en-US-BrianNeural",
+        "text": "I'm sorry about that. I can send a repair person tomorrow morning."
+      },
+      {
+        "speaker": "Anna",
+        "voice": "en-US-AvaNeural",
+        "text": "Thank you. What time will he come?"
+      },
+      {
+        "speaker": "Landlord",
+        "voice": "en-US-BrianNeural",
+        "text": "Between nine and eleven. Will someone be at home?"
+      },
+      {
+        "speaker": "Anna",
+        "voice": "en-US-AvaNeural",
+        "text": "Yes, I will be at home."
+      },
+      {
+        "speaker": "Landlord",
+        "voice": "en-US-BrianNeural",
+        "text": "Good. I will call you when he is on his way."
+      }
     ]
   },
   {
     "id": "studio-a2-05",
     "rate": "-5%",
     "lines": [
-      { "speaker": "Mother", "voice": "en-US-AriaNeural", "text": "Hello? Mia, are you on the train?" },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "Not yet. The train is late. It will leave at six fifteen." },
-      { "speaker": "Mother", "voice": "en-US-AriaNeural", "text": "Oh no. What about the show?" },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "We have tickets for eight o'clock. If we arrive at seven thirty, we can still go." },
-      { "speaker": "Mother", "voice": "en-US-AriaNeural", "text": "I hope so. Are you OK?" },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "Yes, we are fine. We are drinking coffee and waiting." },
-      { "speaker": "Mother", "voice": "en-US-AriaNeural", "text": "Call me when you arrive in London." },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "I will. Bye, Mom." }
+      {
+        "speaker": "Mother",
+        "voice": "en-US-AriaNeural",
+        "text": "Hello? Mia, are you on the train?"
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "Not yet. The train is late. It will leave at six fifteen."
+      },
+      {
+        "speaker": "Mother",
+        "voice": "en-US-AriaNeural",
+        "text": "Oh no. What about the show?"
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "We have tickets for eight o'clock. If we arrive at seven thirty, we can still go."
+      },
+      {
+        "speaker": "Mother",
+        "voice": "en-US-AriaNeural",
+        "text": "I hope so. Are you OK?"
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "Yes, we are fine. We are drinking coffee and waiting."
+      },
+      {
+        "speaker": "Mother",
+        "voice": "en-US-AriaNeural",
+        "text": "Call me when you arrive in London."
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "I will. Bye, Mom."
+      }
     ]
   },
   {
     "id": "studio-b1-02",
     "rate": "-4%",
     "lines": [
-      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "Come in, Maya. How was your first week?" },
-      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "It was busy, but I enjoyed it. I have learned a lot." },
-      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "What was the most difficult part?" },
-      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "The software. I made a mistake in the report on Tuesday." },
-      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "I saw that. You told me immediately, and that was the right thing to do." },
-      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "I was worried, but my colleagues helped me." },
-      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "Good. Next week, I would like you to lead the short meeting on Monday." },
-      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "Me? I have never led a meeting before." },
-      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "You do not need to be perfect. Prepare three questions and listen to the team." },
-      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "OK. I will prepare on Friday." },
-      { "speaker": "Mr. Chen", "voice": "en-US-BrianNeural", "text": "Good. And Maya, ask for help when you need it. That is part of the job." },
-      { "speaker": "Maya", "voice": "en-US-AvaNeural", "text": "Thank you. I will." }
+      {
+        "speaker": "Mr. Chen",
+        "voice": "en-US-BrianNeural",
+        "text": "Come in, Maya. How was your first week?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "It was busy, but I enjoyed it. I have learned a lot."
+      },
+      {
+        "speaker": "Mr. Chen",
+        "voice": "en-US-BrianNeural",
+        "text": "What was the most difficult part?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "The software. I made a mistake in the report on Tuesday."
+      },
+      {
+        "speaker": "Mr. Chen",
+        "voice": "en-US-BrianNeural",
+        "text": "I saw that. You told me immediately, and that was the right thing to do."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "I was worried, but my colleagues helped me."
+      },
+      {
+        "speaker": "Mr. Chen",
+        "voice": "en-US-BrianNeural",
+        "text": "Good. Next week, I would like you to lead the short meeting on Monday."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "Me? I have never led a meeting before."
+      },
+      {
+        "speaker": "Mr. Chen",
+        "voice": "en-US-BrianNeural",
+        "text": "You do not need to be perfect. Prepare three questions and listen to the team."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "OK. I will prepare on Friday."
+      },
+      {
+        "speaker": "Mr. Chen",
+        "voice": "en-US-BrianNeural",
+        "text": "Good. And Maya, ask for help when you need it. That is part of the job."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "Thank you. I will."
+      }
     ]
   },
   {
     "id": "studio-b1-03",
     "rate": "-4%",
     "lines": [
-      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "Hi, Lena! How is life in the city?" },
-      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "It is very different from our town. I am still getting used to it." },
-      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "What do you miss most?" },
-      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "I miss the quiet mornings and my old friends. The city is noisy, but there are more things to do." },
-      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "How is your new job?" },
-      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "It is interesting. I have met many people, and I have learned to use the subway." },
-      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "Do you like your apartment?" },
-      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "Yes, it is smaller than our old house, but it is close to a park." },
-      { "speaker": "Jenny", "voice": "en-US-JennyNeural", "text": "I am glad. Come and visit us when you can." },
-      { "speaker": "Lena", "voice": "en-US-AvaNeural", "text": "I will. I am going to come back next month." }
+      {
+        "speaker": "Jenny",
+        "voice": "en-US-JennyNeural",
+        "text": "Hi, Lena! How is life in the city?"
+      },
+      {
+        "speaker": "Lena",
+        "voice": "en-US-AvaNeural",
+        "text": "It is very different from our town. I am still getting used to it."
+      },
+      {
+        "speaker": "Jenny",
+        "voice": "en-US-JennyNeural",
+        "text": "What do you miss most?"
+      },
+      {
+        "speaker": "Lena",
+        "voice": "en-US-AvaNeural",
+        "text": "I miss the quiet mornings and my old friends. The city is noisy, but there are more things to do."
+      },
+      {
+        "speaker": "Jenny",
+        "voice": "en-US-JennyNeural",
+        "text": "How is your new job?"
+      },
+      {
+        "speaker": "Lena",
+        "voice": "en-US-AvaNeural",
+        "text": "It is interesting. I have met many people, and I have learned to use the subway."
+      },
+      {
+        "speaker": "Jenny",
+        "voice": "en-US-JennyNeural",
+        "text": "Do you like your apartment?"
+      },
+      {
+        "speaker": "Lena",
+        "voice": "en-US-AvaNeural",
+        "text": "Yes, it is smaller than our old house, but it is close to a park."
+      },
+      {
+        "speaker": "Jenny",
+        "voice": "en-US-JennyNeural",
+        "text": "I am glad. Come and visit us when you can."
+      },
+      {
+        "speaker": "Lena",
+        "voice": "en-US-AvaNeural",
+        "text": "I will. I am going to come back next month."
+      }
     ]
   },
   {
     "id": "studio-b1-04",
     "rate": "-4%",
     "lines": [
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Welcome to the podcast. Today we are talking about plastic." },
-      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "Thank you. I am happy to be here." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "You tried to live without plastic for a month. Was it difficult?" },
-      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "Yes, especially at the beginning. Plastic is everywhere." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What was the hardest thing to avoid?" },
-      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "Food packaging. It is almost impossible to buy some products without plastic." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What did you learn?" },
-      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "I learned that small changes matter. If we all use a reusable bag, we will reduce waste." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What would you say to people who think one person cannot make a difference?" },
-      { "speaker": "Guest", "voice": "en-US-AriaNeural", "text": "I would say: start with one product. Then try another. Change is easier when it is small." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Thank you. That is a good place to stop." }
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Welcome to the podcast. Today we are talking about plastic."
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-AriaNeural",
+        "text": "Thank you. I am happy to be here."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "You tried to live without plastic for a month. Was it difficult?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-AriaNeural",
+        "text": "Yes, especially at the beginning. Plastic is everywhere."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What was the hardest thing to avoid?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-AriaNeural",
+        "text": "Food packaging. It is almost impossible to buy some products without plastic."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What did you learn?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-AriaNeural",
+        "text": "I learned that small changes matter. If we all use a reusable bag, we will reduce waste."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What would you say to people who think one person cannot make a difference?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-AriaNeural",
+        "text": "I would say: start with one product. Then try another. Change is easier when it is small."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Thank you. That is a good place to stop."
+      }
     ]
   },
   {
     "id": "studio-b1-05",
     "rate": "-4%",
     "lines": [
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Welcome. Today we are talking about rumors and social media." },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Thank you. It is a very important topic." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "A story about a local school spread last week. What happened?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Someone posted that the school was going to close. It was not true." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "How did you check it?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "I called the school, the city office, and the parents' group." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What did you find?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "The post was written by a person who did not work at the school." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What should people do before sharing a story?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Ask three questions: Who wrote it? What is the evidence? Who else reports it?" },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Thank you. That is good advice." }
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Welcome. Today we are talking about rumors and social media."
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "Thank you. It is a very important topic."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "A story about a local school spread last week. What happened?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "Someone posted that the school was going to close. It was not true."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "How did you check it?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "I called the school, the city office, and the parents' group."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What did you find?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "The post was written by a person who did not work at the school."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What should people do before sharing a story?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "Ask three questions: Who wrote it? What is the evidence? Who else reports it?"
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Thank you. That is good advice."
+      }
     ]
   },
   {
     "id": "studio-b1-06",
     "rate": "-4%",
     "lines": [
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "OK, let's start. The festival is in three weeks. What do we need to finish?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "The poster. We have the design, but we have not printed it yet." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Can you print it this week?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Yes, I can. I will ask the art teacher for help." },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "We also need more tables. The shop said they can lend us ten." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Great. Who will collect them?" },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "I will. I can take my father's car on Saturday." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Good. What about the music?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "The music teacher is away. Maybe we can ask the older students to play." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Good idea. I will ask them tomorrow. Anything else?" },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "We need to decide what to do if it rains." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "We will move everything into the hall. OK, let's meet again on Friday." }
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "OK, let's start. The festival is in three weeks. What do we need to finish?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "The poster. We have the design, but we have not printed it yet."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "Can you print it this week?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Yes, I can. I will ask the art teacher for help."
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "We also need more tables. The shop said they can lend us ten."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "Great. Who will collect them?"
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "I will. I can take my father's car on Saturday."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "Good. What about the music?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "The music teacher is away. Maybe we can ask the older students to play."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "Good idea. I will ask them tomorrow. Anything else?"
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "We need to decide what to do if it rains."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "We will move everything into the hall. OK, let's meet again on Friday."
+      }
     ]
   },
   {
     "id": "studio-b2-01",
     "rate": "-3%",
     "lines": [
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Today we are discussing the cost of university. Does a degree still justify the price?" },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "I think it does, but only for some careers. Medicine or law requires a degree." },
-      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "But many graduates work in jobs that do not require a degree. They still have debt." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "What does the evidence say?" },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Graduates earn more on average, but the gap is smaller in some fields." },
-      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "And online courses and apprenticeships are cheaper. They may be better for practical skills." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "So the value depends on the field and the person?" },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Yes. A degree is an investment, but not a guarantee." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "What about the social side? University is also about meeting people and learning to think." },
-      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "That is true, but students can get that in other ways too." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Good point. For next week, find one piece of data on graduate earnings and one on alternative routes." },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Should we focus on the US or compare countries?" },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Compare at least two countries. That will make your argument stronger." },
-      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "OK. See you next week." }
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "Today we are discussing the cost of university. Does a degree still justify the price?"
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "I think it does, but only for some careers. Medicine or law requires a degree."
+      },
+      {
+        "speaker": "Student B",
+        "voice": "en-US-JennyNeural",
+        "text": "But many graduates work in jobs that do not require a degree. They still have debt."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "What does the evidence say?"
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "Graduates earn more on average, but the gap is smaller in some fields."
+      },
+      {
+        "speaker": "Student B",
+        "voice": "en-US-JennyNeural",
+        "text": "And online courses and apprenticeships are cheaper. They may be better for practical skills."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "So the value depends on the field and the person?"
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "Yes. A degree is an investment, but not a guarantee."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "What about the social side? University is also about meeting people and learning to think."
+      },
+      {
+        "speaker": "Student B",
+        "voice": "en-US-JennyNeural",
+        "text": "That is true, but students can get that in other ways too."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "Good point. For next week, find one piece of data on graduate earnings and one on alternative routes."
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "Should we focus on the US or compare countries?"
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "Compare at least two countries. That will make your argument stronger."
+      },
+      {
+        "speaker": "Student B",
+        "voice": "en-US-JennyNeural",
+        "text": "OK. See you next week."
+      }
     ]
   },
   {
     "id": "studio-b2-02",
     "rate": "-3%",
     "lines": [
-      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "Thank you for coming. We are thinking about a four-day week trial." },
-      { "speaker": "Employee A", "voice": "en-US-AvaNeural", "text": "How would the work be organized? We already have too many meetings." },
-      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "We would cut meetings by half and protect two hours of quiet work each day." },
-      { "speaker": "Employee B", "voice": "en-US-JennyNeural", "text": "Would we work longer days from Monday to Thursday?" },
-      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "Yes, eight and a half hours instead of eight. Friday would be free." },
-      { "speaker": "Employee A", "voice": "en-US-AvaNeural", "text": "I like the idea, but some clients need support on Friday." },
-      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "We would keep a small Friday team and rotate it." },
-      { "speaker": "Employee B", "voice": "en-US-JennyNeural", "text": "What about pay? Would it stay the same?" },
-      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "Yes. The trial would last three months, and pay would not change." },
-      { "speaker": "Employee A", "voice": "en-US-AvaNeural", "text": "How will we measure success?" },
-      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "We will track output, sick days, and how people feel. If output falls, we will change the plan." },
-      { "speaker": "Employee B", "voice": "en-US-JennyNeural", "text": "That sounds fair. I would join the trial." },
-      { "speaker": "Manager", "voice": "en-US-BrianNeural", "text": "Good. I will send the details on Monday." }
+      {
+        "speaker": "Manager",
+        "voice": "en-US-BrianNeural",
+        "text": "Thank you for coming. We are thinking about a four-day week trial."
+      },
+      {
+        "speaker": "Employee A",
+        "voice": "en-US-AvaNeural",
+        "text": "How would the work be organized? We already have too many meetings."
+      },
+      {
+        "speaker": "Manager",
+        "voice": "en-US-BrianNeural",
+        "text": "We would cut meetings by half and protect two hours of quiet work each day."
+      },
+      {
+        "speaker": "Employee B",
+        "voice": "en-US-JennyNeural",
+        "text": "Would we work longer days from Monday to Thursday?"
+      },
+      {
+        "speaker": "Manager",
+        "voice": "en-US-BrianNeural",
+        "text": "Yes, eight and a half hours instead of eight. Friday would be free."
+      },
+      {
+        "speaker": "Employee A",
+        "voice": "en-US-AvaNeural",
+        "text": "I like the idea, but some clients need support on Friday."
+      },
+      {
+        "speaker": "Manager",
+        "voice": "en-US-BrianNeural",
+        "text": "We would keep a small Friday team and rotate it."
+      },
+      {
+        "speaker": "Employee B",
+        "voice": "en-US-JennyNeural",
+        "text": "What about pay? Would it stay the same?"
+      },
+      {
+        "speaker": "Manager",
+        "voice": "en-US-BrianNeural",
+        "text": "Yes. The trial would last three months, and pay would not change."
+      },
+      {
+        "speaker": "Employee A",
+        "voice": "en-US-AvaNeural",
+        "text": "How will we measure success?"
+      },
+      {
+        "speaker": "Manager",
+        "voice": "en-US-BrianNeural",
+        "text": "We will track output, sick days, and how people feel. If output falls, we will change the plan."
+      },
+      {
+        "speaker": "Employee B",
+        "voice": "en-US-JennyNeural",
+        "text": "That sounds fair. I would join the trial."
+      },
+      {
+        "speaker": "Manager",
+        "voice": "en-US-BrianNeural",
+        "text": "Good. I will send the details on Monday."
+      }
     ]
   },
   {
     "id": "studio-b2-03",
     "rate": "-3%",
     "lines": [
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Today we are talking about rewilding cities. What does that mean?" },
-      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "It means giving nature more space in urban areas: green roofs, wild gardens, and corridors for animals." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Why is it important?" },
-      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "Cities are getting hotter. Trees and plants cool the air and absorb rainwater. They also support insects and birds." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Is it expensive?" },
-      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "It can be, but not always. A wild garden is cheaper than a parking lot. The challenge is maintenance and public support." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Some people worry about safety or allergies. What do you say?" },
-      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "Those concerns are real. A good plan includes paths, clear information, and areas for different uses." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What would you do first in a city?" },
-      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "Start with small spaces: school grounds, rooftops, and empty corners. If people see the results, they will support bigger projects." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "So rewilding is as much about people as about nature?" },
-      { "speaker": "Ecologist", "voice": "en-US-AriaNeural", "text": "Exactly. If the community is involved, the project lasts." }
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Today we are talking about rewilding cities. What does that mean?"
+      },
+      {
+        "speaker": "Ecologist",
+        "voice": "en-US-AriaNeural",
+        "text": "It means giving nature more space in urban areas: green roofs, wild gardens, and corridors for animals."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Why is it important?"
+      },
+      {
+        "speaker": "Ecologist",
+        "voice": "en-US-AriaNeural",
+        "text": "Cities are getting hotter. Trees and plants cool the air and absorb rainwater. They also support insects and birds."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Is it expensive?"
+      },
+      {
+        "speaker": "Ecologist",
+        "voice": "en-US-AriaNeural",
+        "text": "It can be, but not always. A wild garden is cheaper than a parking lot. The challenge is maintenance and public support."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Some people worry about safety or allergies. What do you say?"
+      },
+      {
+        "speaker": "Ecologist",
+        "voice": "en-US-AriaNeural",
+        "text": "Those concerns are real. A good plan includes paths, clear information, and areas for different uses."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What would you do first in a city?"
+      },
+      {
+        "speaker": "Ecologist",
+        "voice": "en-US-AriaNeural",
+        "text": "Start with small spaces: school grounds, rooftops, and empty corners. If people see the results, they will support bigger projects."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "So rewilding is as much about people as about nature?"
+      },
+      {
+        "speaker": "Ecologist",
+        "voice": "en-US-AriaNeural",
+        "text": "Exactly. If the community is involved, the project lasts."
+      }
     ]
   },
   {
     "id": "studio-b2-04",
     "rate": "-3%",
     "lines": [
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Welcome. Today: can we trust the news?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "We can trust good journalism, but we need to check who paid for the story." },
-      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "Platforms give people more sources than ever. That is a positive change." },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "More sources is not the same as more understanding. Algorithms reward attention." },
-      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "We label political ads and explain why we show content." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What should readers do?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Compare two sources, check the date, and look for evidence." },
-      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "And report false information. We can reduce its reach." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Is regulation the answer?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Transparency helps. But regulation must protect independent journalism too." },
-      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "We support clear rules if they are the same for everyone." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What is the biggest risk?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "That people stop trusting everything, including reliable reporting." },
-      { "speaker": "Platform Rep", "voice": "en-US-BrianNeural", "text": "Or that they trust only the voices that make them angry." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Thank you both." }
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Welcome. Today: can we trust the news?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "We can trust good journalism, but we need to check who paid for the story."
+      },
+      {
+        "speaker": "Platform Rep",
+        "voice": "en-US-BrianNeural",
+        "text": "Platforms give people more sources than ever. That is a positive change."
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "More sources is not the same as more understanding. Algorithms reward attention."
+      },
+      {
+        "speaker": "Platform Rep",
+        "voice": "en-US-BrianNeural",
+        "text": "We label political ads and explain why we show content."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What should readers do?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "Compare two sources, check the date, and look for evidence."
+      },
+      {
+        "speaker": "Platform Rep",
+        "voice": "en-US-BrianNeural",
+        "text": "And report false information. We can reduce its reach."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Is regulation the answer?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "Transparency helps. But regulation must protect independent journalism too."
+      },
+      {
+        "speaker": "Platform Rep",
+        "voice": "en-US-BrianNeural",
+        "text": "We support clear rules if they are the same for everyone."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What is the biggest risk?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "That people stop trusting everything, including reliable reporting."
+      },
+      {
+        "speaker": "Platform Rep",
+        "voice": "en-US-BrianNeural",
+        "text": "Or that they trust only the voices that make them angry."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Thank you both."
+      }
     ]
   },
   {
     "id": "studio-b2-05",
     "rate": "-3%",
     "lines": [
-      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "Are algorithms making hiring fairer or less fair?" },
-      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "Both are possible. It depends on the data and the goal." },
-      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "What is the biggest risk?" },
-      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "A model learns from past decisions. If the past was unfair, the model can repeat it." },
-      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "How can companies reduce the risk?" },
-      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "Audit the model, test different groups, and keep human review." },
-      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "What about performance monitoring?" },
-      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "It can help, but workers need to know what is measured and why." },
-      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "Should governments regulate?" },
-      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "Yes, but rules should be clear and consistent. Companies need to know what is expected." },
-      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "What should workers do?" },
-      { "speaker": "Guest", "voice": "en-US-BrianNeural", "text": "Ask questions. If a decision is automated, ask for an explanation and a human review." },
-      { "speaker": "Host", "voice": "en-US-AvaNeural", "text": "Thank you. That is a useful place to end." }
+      {
+        "speaker": "Host",
+        "voice": "en-US-AvaNeural",
+        "text": "Are algorithms making hiring fairer or less fair?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-BrianNeural",
+        "text": "Both are possible. It depends on the data and the goal."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-AvaNeural",
+        "text": "What is the biggest risk?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-BrianNeural",
+        "text": "A model learns from past decisions. If the past was unfair, the model can repeat it."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-AvaNeural",
+        "text": "How can companies reduce the risk?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-BrianNeural",
+        "text": "Audit the model, test different groups, and keep human review."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-AvaNeural",
+        "text": "What about performance monitoring?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-BrianNeural",
+        "text": "It can help, but workers need to know what is measured and why."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-AvaNeural",
+        "text": "Should governments regulate?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-BrianNeural",
+        "text": "Yes, but rules should be clear and consistent. Companies need to know what is expected."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-AvaNeural",
+        "text": "What should workers do?"
+      },
+      {
+        "speaker": "Guest",
+        "voice": "en-US-BrianNeural",
+        "text": "Ask questions. If a decision is automated, ask for an explanation and a human review."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-AvaNeural",
+        "text": "Thank you. That is a useful place to end."
+      }
     ]
   },
   {
     "id": "studio-b2-06",
     "rate": "-3%",
     "lines": [
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Let's review the survey results. What did students ask for most?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Later library hours. Almost sixty percent mentioned it." },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "And more vegetarian food. The café has very few options." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "What about the bike shelter?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "It was popular, but the cost is higher than we thought." },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "The garden is cheaper. We could start with a small pilot." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "We need to present three options and a recommendation." },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "I can prepare the cost table." },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "I will write the section on student well-being." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "Good. What about the presentation?" },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "We have ten minutes and five slides." },
-      { "speaker": "Mia", "voice": "en-US-JennyNeural", "text": "I can design the slides, but someone else should speak." },
-      { "speaker": "Chair", "voice": "en-US-AvaNeural", "text": "I will speak. We need to rehearse on Thursday." },
-      { "speaker": "Leo", "voice": "en-US-GuyNeural", "text": "Agreed. Let's meet at four." }
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "Let's review the survey results. What did students ask for most?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Later library hours. Almost sixty percent mentioned it."
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "And more vegetarian food. The café has very few options."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "What about the bike shelter?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "It was popular, but the cost is higher than we thought."
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "The garden is cheaper. We could start with a small pilot."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "We need to present three options and a recommendation."
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "I can prepare the cost table."
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "I will write the section on student well-being."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "Good. What about the presentation?"
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "We have ten minutes and five slides."
+      },
+      {
+        "speaker": "Mia",
+        "voice": "en-US-JennyNeural",
+        "text": "I can design the slides, but someone else should speak."
+      },
+      {
+        "speaker": "Chair",
+        "voice": "en-US-AvaNeural",
+        "text": "I will speak. We need to rehearse on Thursday."
+      },
+      {
+        "speaker": "Leo",
+        "voice": "en-US-GuyNeural",
+        "text": "Agreed. Let's meet at four."
+      }
     ]
   },
   {
     "id": "studio-c1-01",
     "rate": "-2%",
     "lines": [
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Today we are discussing the purpose of a university. Is it to produce knowledge, or to prepare students for work?" },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "I think knowledge comes first. If students understand a subject deeply, they can adapt to any job." },
-      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "But most students need to earn a living. Employers want practical skills." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Are knowledge and skills really separate?" },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Not completely. But the emphasis matters. A course that focuses only on skills may become outdated." },
-      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "A course that focuses only on theory may leave students unprepared." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "What does the evidence suggest?" },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Graduates who can think critically tend to adapt better over time." },
-      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "But they also need internships and real projects." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "So the question is not either/or?" },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Maybe the question is how to integrate them." },
-      { "speaker": "Student B", "voice": "en-US-JennyNeural", "text": "And how to assess them. If we only test memory, we reward memory." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "Good point. Assessment shapes behavior." },
-      { "speaker": "Student A", "voice": "en-US-GuyNeural", "text": "Then we need tasks that require both knowledge and judgment." },
-      { "speaker": "Professor", "voice": "en-US-AriaNeural", "text": "For next week, find one example of a course that does this." }
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "Today we are discussing the purpose of a university. Is it to produce knowledge, or to prepare students for work?"
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "I think knowledge comes first. If students understand a subject deeply, they can adapt to any job."
+      },
+      {
+        "speaker": "Student B",
+        "voice": "en-US-JennyNeural",
+        "text": "But most students need to earn a living. Employers want practical skills."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "Are knowledge and skills really separate?"
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "Not completely. But the emphasis matters. A course that focuses only on skills may become outdated."
+      },
+      {
+        "speaker": "Student B",
+        "voice": "en-US-JennyNeural",
+        "text": "A course that focuses only on theory may leave students unprepared."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "What does the evidence suggest?"
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "Graduates who can think critically tend to adapt better over time."
+      },
+      {
+        "speaker": "Student B",
+        "voice": "en-US-JennyNeural",
+        "text": "But they also need internships and real projects."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "So the question is not either/or?"
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "Maybe the question is how to integrate them."
+      },
+      {
+        "speaker": "Student B",
+        "voice": "en-US-JennyNeural",
+        "text": "And how to assess them. If we only test memory, we reward memory."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "Good point. Assessment shapes behavior."
+      },
+      {
+        "speaker": "Student A",
+        "voice": "en-US-GuyNeural",
+        "text": "Then we need tasks that require both knowledge and judgment."
+      },
+      {
+        "speaker": "Professor",
+        "voice": "en-US-AriaNeural",
+        "text": "For next week, find one example of a course that does this."
+      }
     ]
   },
   {
     "id": "studio-c1-02",
     "rate": "-2%",
     "lines": [
-      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "Come in. You wanted to discuss your research proposal on remote work." },
-      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "Yes. I want to know whether remote work increases or decreases productivity." },
-      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "That is broad. Can you narrow it?" },
-      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "I could focus on software teams in one company over six months." },
-      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "Good. What data will you use?" },
-      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "I will use project completion times and a survey of eighty employees." },
-      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "How will you measure productivity?" },
-      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "I will combine output data with self-reported focus time." },
-      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "What are the limitations?" },
-      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "The sample is small, and self-reports may be biased." },
-      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "And ethics?" },
-      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "I will anonymize the data and ask for consent." },
-      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "Good. What is your expected contribution?" },
-      { "speaker": "Student", "voice": "en-US-AvaNeural", "text": "A clearer picture of when remote work helps and when it does not." },
-      { "speaker": "Supervisor", "voice": "en-US-BrianNeural", "text": "That is realistic. Send me a two-page draft by Friday." }
+      {
+        "speaker": "Supervisor",
+        "voice": "en-US-BrianNeural",
+        "text": "Come in. You wanted to discuss your research proposal on remote work."
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-AvaNeural",
+        "text": "Yes. I want to know whether remote work increases or decreases productivity."
+      },
+      {
+        "speaker": "Supervisor",
+        "voice": "en-US-BrianNeural",
+        "text": "That is broad. Can you narrow it?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-AvaNeural",
+        "text": "I could focus on software teams in one company over six months."
+      },
+      {
+        "speaker": "Supervisor",
+        "voice": "en-US-BrianNeural",
+        "text": "Good. What data will you use?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-AvaNeural",
+        "text": "I will use project completion times and a survey of eighty employees."
+      },
+      {
+        "speaker": "Supervisor",
+        "voice": "en-US-BrianNeural",
+        "text": "How will you measure productivity?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-AvaNeural",
+        "text": "I will combine output data with self-reported focus time."
+      },
+      {
+        "speaker": "Supervisor",
+        "voice": "en-US-BrianNeural",
+        "text": "What are the limitations?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-AvaNeural",
+        "text": "The sample is small, and self-reports may be biased."
+      },
+      {
+        "speaker": "Supervisor",
+        "voice": "en-US-BrianNeural",
+        "text": "And ethics?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-AvaNeural",
+        "text": "I will anonymize the data and ask for consent."
+      },
+      {
+        "speaker": "Supervisor",
+        "voice": "en-US-BrianNeural",
+        "text": "Good. What is your expected contribution?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-AvaNeural",
+        "text": "A clearer picture of when remote work helps and when it does not."
+      },
+      {
+        "speaker": "Supervisor",
+        "voice": "en-US-BrianNeural",
+        "text": "That is realistic. Send me a two-page draft by Friday."
+      }
     ]
   },
   {
     "id": "studio-c1-03",
     "rate": "-2%",
     "lines": [
-      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "I have to give a speech about why our school should reduce plastic waste. I don't know where to start." },
-      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Start with a concrete image, not a general statement. Instead of 'plastic is bad', describe one object." },
-      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "Like a plastic bottle in the ocean?" },
-      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Yes. Then give your argument. What do you want the audience to do?" },
-      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "I want them to support a ban on single-use bottles." },
-      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Then make the ask specific. 'Support the ban' is clearer than 'care about the environment'." },
-      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "Should I use statistics?" },
-      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "One or two, not ten. A number is powerful when it supports a story." },
-      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "What about opposing views?" },
-      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Acknowledge the strongest objection. If you ignore it, the audience will distrust you." },
-      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "How do I sound confident without sounding aggressive?" },
-      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Use pauses, short sentences, and concession. 'I understand the concern, but...' is stronger than shouting." },
-      { "speaker": "Student", "voice": "en-US-GuyNeural", "text": "And the ending?" },
-      { "speaker": "Speechwriter", "voice": "en-US-AriaNeural", "text": "Return to the image from the beginning. Close the circle." }
+      {
+        "speaker": "Student",
+        "voice": "en-US-GuyNeural",
+        "text": "I have to give a speech about why our school should reduce plastic waste. I don't know where to start."
+      },
+      {
+        "speaker": "Speechwriter",
+        "voice": "en-US-AriaNeural",
+        "text": "Start with a concrete image, not a general statement. Instead of 'plastic is bad', describe one object."
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-GuyNeural",
+        "text": "Like a plastic bottle in the ocean?"
+      },
+      {
+        "speaker": "Speechwriter",
+        "voice": "en-US-AriaNeural",
+        "text": "Yes. Then give your argument. What do you want the audience to do?"
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-GuyNeural",
+        "text": "I want them to support a ban on single-use bottles."
+      },
+      {
+        "speaker": "Speechwriter",
+        "voice": "en-US-AriaNeural",
+        "text": "Then make the ask specific. 'Support the ban' is clearer than 'care about the environment'."
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-GuyNeural",
+        "text": "Should I use statistics?"
+      },
+      {
+        "speaker": "Speechwriter",
+        "voice": "en-US-AriaNeural",
+        "text": "One or two, not ten. A number is powerful when it supports a story."
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-GuyNeural",
+        "text": "What about opposing views?"
+      },
+      {
+        "speaker": "Speechwriter",
+        "voice": "en-US-AriaNeural",
+        "text": "Acknowledge the strongest objection. If you ignore it, the audience will distrust you."
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-GuyNeural",
+        "text": "How do I sound confident without sounding aggressive?"
+      },
+      {
+        "speaker": "Speechwriter",
+        "voice": "en-US-AriaNeural",
+        "text": "Use pauses, short sentences, and concession. 'I understand the concern, but...' is stronger than shouting."
+      },
+      {
+        "speaker": "Student",
+        "voice": "en-US-GuyNeural",
+        "text": "And the ending?"
+      },
+      {
+        "speaker": "Speechwriter",
+        "voice": "en-US-AriaNeural",
+        "text": "Return to the image from the beginning. Close the circle."
+      }
     ]
   },
   {
     "id": "studio-c1-04",
     "rate": "-2%",
     "lines": [
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Can media support democracy, or does it undermine it?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Both. It can hold power accountable, but it can also amplify outrage." },
-      { "speaker": "Researcher", "voice": "en-US-AvaNeural", "text": "The problem is structural. Platforms reward engagement, not accuracy." },
-      { "speaker": "Critic", "voice": "en-US-BrianNeural", "text": "And ownership is concentrated. A few companies decide what is visible." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Is fragmentation new?" },
-      { "speaker": "Researcher", "voice": "en-US-AvaNeural", "text": "Not entirely. Partisan media existed before. But the scale is different." },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "We now have parallel realities. People disagree about basic facts." },
-      { "speaker": "Critic", "voice": "en-US-BrianNeural", "text": "Media literacy helps, but it puts the burden on individuals." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What about regulation?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "Transparency is useful. But regulation can become censorship." },
-      { "speaker": "Researcher", "voice": "en-US-AvaNeural", "text": "We need independent public media and data access for researchers." },
-      { "speaker": "Critic", "voice": "en-US-BrianNeural", "text": "And strong protections for journalists." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "What is the goal?" },
-      { "speaker": "Journalist", "voice": "en-US-AriaNeural", "text": "A shared basis for disagreement, not agreement." },
-      { "speaker": "Researcher", "voice": "en-US-AvaNeural", "text": "Pluralism, transparency, and accountability." },
-      { "speaker": "Host", "voice": "en-US-GuyNeural", "text": "Thank you all." }
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Can media support democracy, or does it undermine it?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "Both. It can hold power accountable, but it can also amplify outrage."
+      },
+      {
+        "speaker": "Researcher",
+        "voice": "en-US-AvaNeural",
+        "text": "The problem is structural. Platforms reward engagement, not accuracy."
+      },
+      {
+        "speaker": "Critic",
+        "voice": "en-US-BrianNeural",
+        "text": "And ownership is concentrated. A few companies decide what is visible."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Is fragmentation new?"
+      },
+      {
+        "speaker": "Researcher",
+        "voice": "en-US-AvaNeural",
+        "text": "Not entirely. Partisan media existed before. But the scale is different."
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "We now have parallel realities. People disagree about basic facts."
+      },
+      {
+        "speaker": "Critic",
+        "voice": "en-US-BrianNeural",
+        "text": "Media literacy helps, but it puts the burden on individuals."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What about regulation?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "Transparency is useful. But regulation can become censorship."
+      },
+      {
+        "speaker": "Researcher",
+        "voice": "en-US-AvaNeural",
+        "text": "We need independent public media and data access for researchers."
+      },
+      {
+        "speaker": "Critic",
+        "voice": "en-US-BrianNeural",
+        "text": "And strong protections for journalists."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "What is the goal?"
+      },
+      {
+        "speaker": "Journalist",
+        "voice": "en-US-AriaNeural",
+        "text": "A shared basis for disagreement, not agreement."
+      },
+      {
+        "speaker": "Researcher",
+        "voice": "en-US-AvaNeural",
+        "text": "Pluralism, transparency, and accountability."
+      },
+      {
+        "speaker": "Host",
+        "voice": "en-US-GuyNeural",
+        "text": "Thank you all."
+      }
     ]
   },
   {
     "id": "studio-c1-05",
     "rate": "-2%",
     "lines": [
-      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "We need to agree on the launch date. What are the constraints?" },
-      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "We have a campaign booked for October 15. If we move it, we lose visibility." },
-      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "We can finish the core feature by October 20, not October 15." },
-      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "So the date is the conflict. What would success look like for each team?" },
-      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "A launch with enough time to promote it." },
-      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "A release that does not break existing customers." },
-      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "What if we launch the core feature on October 20 and delay the campaign by one week?" },
-      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "We would need to rebook one event. That is possible but costly." },
-      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "We could deliver a beta on October 15 for a small group." },
-      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "That gives marketing content and engineering time. Is that acceptable?" },
-      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "Yes, if the beta is stable enough to demo." },
-      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "It will be stable. We will limit it to fifty users." },
-      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "Good. Who owns the decision?" },
-      { "speaker": "Marketing", "voice": "en-US-JennyNeural", "text": "I will confirm the event change by Friday." },
-      { "speaker": "Engineering", "voice": "en-US-BrianNeural", "text": "I will send the beta plan tomorrow." },
-      { "speaker": "Elena", "voice": "en-US-AvaNeural", "text": "Then we have a decision. Let's write it down." }
+      {
+        "speaker": "Elena",
+        "voice": "en-US-AvaNeural",
+        "text": "We need to agree on the launch date. What are the constraints?"
+      },
+      {
+        "speaker": "Marketing",
+        "voice": "en-US-JennyNeural",
+        "text": "We have a campaign booked for October 15. If we move it, we lose visibility."
+      },
+      {
+        "speaker": "Engineering",
+        "voice": "en-US-BrianNeural",
+        "text": "We can finish the core feature by October 20, not October 15."
+      },
+      {
+        "speaker": "Elena",
+        "voice": "en-US-AvaNeural",
+        "text": "So the date is the conflict. What would success look like for each team?"
+      },
+      {
+        "speaker": "Marketing",
+        "voice": "en-US-JennyNeural",
+        "text": "A launch with enough time to promote it."
+      },
+      {
+        "speaker": "Engineering",
+        "voice": "en-US-BrianNeural",
+        "text": "A release that does not break existing customers."
+      },
+      {
+        "speaker": "Elena",
+        "voice": "en-US-AvaNeural",
+        "text": "What if we launch the core feature on October 20 and delay the campaign by one week?"
+      },
+      {
+        "speaker": "Marketing",
+        "voice": "en-US-JennyNeural",
+        "text": "We would need to rebook one event. That is possible but costly."
+      },
+      {
+        "speaker": "Engineering",
+        "voice": "en-US-BrianNeural",
+        "text": "We could deliver a beta on October 15 for a small group."
+      },
+      {
+        "speaker": "Elena",
+        "voice": "en-US-AvaNeural",
+        "text": "That gives marketing content and engineering time. Is that acceptable?"
+      },
+      {
+        "speaker": "Marketing",
+        "voice": "en-US-JennyNeural",
+        "text": "Yes, if the beta is stable enough to demo."
+      },
+      {
+        "speaker": "Engineering",
+        "voice": "en-US-BrianNeural",
+        "text": "It will be stable. We will limit it to fifty users."
+      },
+      {
+        "speaker": "Elena",
+        "voice": "en-US-AvaNeural",
+        "text": "Good. Who owns the decision?"
+      },
+      {
+        "speaker": "Marketing",
+        "voice": "en-US-JennyNeural",
+        "text": "I will confirm the event change by Friday."
+      },
+      {
+        "speaker": "Engineering",
+        "voice": "en-US-BrianNeural",
+        "text": "I will send the beta plan tomorrow."
+      },
+      {
+        "speaker": "Elena",
+        "voice": "en-US-AvaNeural",
+        "text": "Then we have a decision. Let's write it down."
+      }
     ]
   },
   {
     "id": "studio-c1-06",
     "rate": "-2%",
     "lines": [
-      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "Your data is several years old. How does that affect your conclusion?" },
-      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "It limits the claim. I can show a pattern, not a current measurement." },
-      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "Why did you choose three districts?" },
-      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "They have similar income levels but different tree cover. That makes the comparison more useful." },
-      { "speaker": "Official", "voice": "en-US-BrianNeural", "text": "Could the city afford a tree-planting programme?" },
-      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "It depends on the model. A targeted programme for the hottest streets would cost less than a city-wide plan." },
-      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "What would you do differently?" },
-      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "I would collect current temperature data and interview more residents." },
-      { "speaker": "Official", "voice": "en-US-BrianNeural", "text": "What would you recommend first?" },
-      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "Start with shade on walking routes to schools. It is visible and relatively cheap." },
-      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "How would you measure success?" },
-      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "Surface temperature, use of the routes, and resident feedback." },
-      { "speaker": "Official", "voice": "en-US-BrianNeural", "text": "Thank you. That is practical." },
-      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "One last question: what is the main limitation of your evidence?" },
-      { "speaker": "Amara", "voice": "en-US-AvaNeural", "text": "The sample is small, and the data is old. I would not claim more than a pattern." },
-      { "speaker": "Examiner", "voice": "en-US-AriaNeural", "text": "Good. That is a fair conclusion." }
+      {
+        "speaker": "Examiner",
+        "voice": "en-US-AriaNeural",
+        "text": "Your data is several years old. How does that affect your conclusion?"
+      },
+      {
+        "speaker": "Amara",
+        "voice": "en-US-AvaNeural",
+        "text": "It limits the claim. I can show a pattern, not a current measurement."
+      },
+      {
+        "speaker": "Examiner",
+        "voice": "en-US-AriaNeural",
+        "text": "Why did you choose three districts?"
+      },
+      {
+        "speaker": "Amara",
+        "voice": "en-US-AvaNeural",
+        "text": "They have similar income levels but different tree cover. That makes the comparison more useful."
+      },
+      {
+        "speaker": "Official",
+        "voice": "en-US-BrianNeural",
+        "text": "Could the city afford a tree-planting program?"
+      },
+      {
+        "speaker": "Amara",
+        "voice": "en-US-AvaNeural",
+        "text": "It depends on the model. A targeted program for the hottest streets would cost less than a city-wide plan."
+      },
+      {
+        "speaker": "Examiner",
+        "voice": "en-US-AriaNeural",
+        "text": "What would you do differently?"
+      },
+      {
+        "speaker": "Amara",
+        "voice": "en-US-AvaNeural",
+        "text": "I would collect current temperature data and interview more residents."
+      },
+      {
+        "speaker": "Official",
+        "voice": "en-US-BrianNeural",
+        "text": "What would you recommend first?"
+      },
+      {
+        "speaker": "Amara",
+        "voice": "en-US-AvaNeural",
+        "text": "Start with shade on walking routes to schools. It is visible and relatively cheap."
+      },
+      {
+        "speaker": "Examiner",
+        "voice": "en-US-AriaNeural",
+        "text": "How would you measure success?"
+      },
+      {
+        "speaker": "Amara",
+        "voice": "en-US-AvaNeural",
+        "text": "Surface temperature, use of the routes, and resident feedback."
+      },
+      {
+        "speaker": "Official",
+        "voice": "en-US-BrianNeural",
+        "text": "Thank you. That is practical."
+      },
+      {
+        "speaker": "Examiner",
+        "voice": "en-US-AriaNeural",
+        "text": "One last question: what is the main limitation of your evidence?"
+      },
+      {
+        "speaker": "Amara",
+        "voice": "en-US-AvaNeural",
+        "text": "The sample is small, and the data is old. I would not claim more than a pattern."
+      },
+      {
+        "speaker": "Examiner",
+        "voice": "en-US-AriaNeural",
+        "text": "Good. That is a fair conclusion."
+      }
     ]
   },
   {
     "id": "studio-b1-01",
     "rate": "-4%",
     "lines": [
-      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "Come in, Maya. You wanted to talk about your project." },
-      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "Yes. I am studying how people use the new public space near the station." },
-      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "That is a good topic. What is your research question?" },
-      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "I want to know if the space changed how often people talk to their neighbors." },
-      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "Interesting. How will you collect data?" },
-      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "I plan to interview twenty residents and count how many people use the space at different times." },
-      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "Good. You should also observe the space on a weekend. The pattern may be different." },
-      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "I will. When should I send you the first draft?" },
-      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "By Friday, please. Then we can meet on March 12." },
-      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "How long should the report be?" },
-      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "About five pages, not more. Focus on the evidence, not on background." },
-      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "Should I include photos?" },
-      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "One or two, if they help. But do not use photos of people without permission." },
-      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "Understood. I will send the questions to you before I start the interviews." },
-      { "speaker": "Professor Grant", "voice": "en-US-AriaNeural", "text": "Perfect. And Maya, remember to keep a research diary. It will help you explain your choices later." },
-      { "speaker": "Maya", "voice": "en-US-JennyNeural", "text": "I will. Thank you, Professor Grant." }
+      {
+        "speaker": "Professor Grant",
+        "voice": "en-US-AriaNeural",
+        "text": "Come in, Maya. You wanted to talk about your project."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-JennyNeural",
+        "text": "Yes. I am studying how people use the new public space near the station."
+      },
+      {
+        "speaker": "Professor Grant",
+        "voice": "en-US-AriaNeural",
+        "text": "That is a good topic. What is your research question?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-JennyNeural",
+        "text": "I want to know if the space changed how often people talk to their neighbors."
+      },
+      {
+        "speaker": "Professor Grant",
+        "voice": "en-US-AriaNeural",
+        "text": "Interesting. How will you collect data?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-JennyNeural",
+        "text": "I plan to interview twenty residents and count how many people use the space at different times."
+      },
+      {
+        "speaker": "Professor Grant",
+        "voice": "en-US-AriaNeural",
+        "text": "Good. You should also observe the space on a weekend. The pattern may be different."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-JennyNeural",
+        "text": "I will. When should I send you the first draft?"
+      },
+      {
+        "speaker": "Professor Grant",
+        "voice": "en-US-AriaNeural",
+        "text": "By Friday, please. Then we can meet on March 12."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-JennyNeural",
+        "text": "How long should the report be?"
+      },
+      {
+        "speaker": "Professor Grant",
+        "voice": "en-US-AriaNeural",
+        "text": "About five pages, not more. Focus on the evidence, not on background."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-JennyNeural",
+        "text": "Should I include photos?"
+      },
+      {
+        "speaker": "Professor Grant",
+        "voice": "en-US-AriaNeural",
+        "text": "One or two, if they help. But do not use photos of people without permission."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-JennyNeural",
+        "text": "Understood. I will send the questions to you before I start the interviews."
+      },
+      {
+        "speaker": "Professor Grant",
+        "voice": "en-US-AriaNeural",
+        "text": "Perfect. And Maya, remember to keep a research diary. It will help you explain your choices later."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-JennyNeural",
+        "text": "I will. Thank you, Professor Grant."
+      }
+    ]
+  },
+  {
+    "id": "studio-c1-07",
+    "rate": "-2%",
+    "lines": [
+      {
+        "speaker": "Tom",
+        "voice": "en-US-BrianNeural",
+        "text": "The quarterly report is ready. What is the headline?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "Sales are up, but only by two percentage points."
+      },
+      {
+        "speaker": "Tom",
+        "voice": "en-US-BrianNeural",
+        "text": "The chart looks dramatic."
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "The axis starts at 60, not zero. The change is small."
+      },
+      {
+        "speaker": "Tom",
+        "voice": "en-US-BrianNeural",
+        "text": "How should we present it honestly?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "Show the absolute numbers and the base year."
+      },
+      {
+        "speaker": "Tom",
+        "voice": "en-US-BrianNeural",
+        "text": "What about the regional gap?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "The gap widened by five points, mostly in the north."
+      },
+      {
+        "speaker": "Tom",
+        "voice": "en-US-BrianNeural",
+        "text": "Is that significant?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "It is consistent across three quarters, but the sample is small."
+      },
+      {
+        "speaker": "Tom",
+        "voice": "en-US-BrianNeural",
+        "text": "Any caveats for the board?"
+      },
+      {
+        "speaker": "Maya",
+        "voice": "en-US-AvaNeural",
+        "text": "The data excludes online returns, and the survey was self-reported."
+      },
+      {
+        "speaker": "Tom",
+        "voice": "en-US-BrianNeural",
+        "text": "Good. Put the caveats on the same slide."
+      }
+    ]
+  },
+  {
+    "id": "studio-c1-08",
+    "rate": "-2%",
+    "lines": [
+      {
+        "speaker": "Priya",
+        "voice": "en-US-AriaNeural",
+        "text": "Your review is strong, but the first paragraph summarizes the plot."
+      },
+      {
+        "speaker": "Daniel",
+        "voice": "en-US-BrianNeural",
+        "text": "I wanted readers to know the story."
+      },
+      {
+        "speaker": "Priya",
+        "voice": "en-US-AriaNeural",
+        "text": "They can read the synopsis. Start with your verdict and one scene."
+      },
+      {
+        "speaker": "Daniel",
+        "voice": "en-US-BrianNeural",
+        "text": "The verdict is mixed. The acting is excellent; the script is weak."
+      },
+      {
+        "speaker": "Priya",
+        "voice": "en-US-AriaNeural",
+        "text": "Then say that in the first three sentences."
+      },
+      {
+        "speaker": "Daniel",
+        "voice": "en-US-BrianNeural",
+        "text": "Is the tone too harsh?"
+      },
+      {
+        "speaker": "Priya",
+        "voice": "en-US-AriaNeural",
+        "text": "It is sharp, not cruel. Keep one line of praise for the ending."
+      },
+      {
+        "speaker": "Daniel",
+        "voice": "en-US-BrianNeural",
+        "text": "I will cut the plot summary and add one paragraph on pacing."
+      },
+      {
+        "speaker": "Priya",
+        "voice": "en-US-AriaNeural",
+        "text": "Good. And name the reader: who should see it?"
+      },
+      {
+        "speaker": "Daniel",
+        "voice": "en-US-BrianNeural",
+        "text": "People who like quiet family dramas, not action fans."
+      },
+      {
+        "speaker": "Priya",
+        "voice": "en-US-AriaNeural",
+        "text": "That is your last line."
+      }
     ]
   }
 ]

@@ -3,6 +3,7 @@ import type { StudioTask } from './types'
 export const c1Studio03: StudioTask = {
   id: 'studio-c1-03',
   level: 'C1',
+  kind: 'project',
   title: 'Искусство убеждения',
   subtitle: 'Reading · Listening · Writing · Speaking',
   goal: 'Прочитать текст о риторике, понять разговор с спичрайтером, написать убедительную речь и ответить на возражение',
