@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 0.90.0 — 2026-11-20
+
+- C1-05…08 написаны.
+- C1-05 «Лекция: структура» — signposting, digression, segue, lay out, underscore, thread, recapitulate, unpack.
+- C1-06 «Пересказ источника» — attribution, reporting verb, quotation, verbatim, distort, condense, fidelity, misquote.
+- C1-07 «Абзац: тезис и опора» — commentary, backing, qualifier, frame, subordinate, synthesize, assertion, illustration.
+- C1-08 «Академические коллокации» — conduct, draw on, raise, collocate, noun phrase, precision, idiomatic, formality.
+- Слова на юнит остаются 8 — по решению пользователя повышать не нужно.
+- Итого: 218 юнитов, 1 664 слова, 3 510 упражнений.
+- Следующий шаг: C1-09…12.
+
 ## 0.89.0 — 2026-11-20
 
 - Старт C1: гибрид 24 коротких юнита + 8 проектов вместо 60 юнитов. Написаны C1-01…04.
