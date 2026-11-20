@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.91.0 — 2026-11-20
+
+- C1-09…12 написаны.
+- C1-09 «Reading: methods» — procedure, recruit, protocol, administer, calibrate, randomize, double-blind, sample size.
+- C1-10 «Данные в тексте» — approximation, percentage point, roughly, account for, dip, climb, level off, stand at.
+- C1-11 «Осторожность и дистанцирование» — allegedly, reportedly, ostensibly, be said to, appear to, may have, purport, tentative.
+- C1-12 «Оценка источника» — provenance, reputable, verifiable, corroborate, motive, disclosure, conflict of interest, primary source.
+- Итого: 222 юнита, 1 696 слов, 3 570 упражнений.
+- Следующий шаг: C1-13…16.
+
 ## 0.90.0 — 2026-11-20
 
 - C1-05…08 написаны.
