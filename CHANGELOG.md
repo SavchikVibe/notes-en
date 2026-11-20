@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.92.0 — 2026-11-20
+
+- C1-13…16 написаны.
+- C1-13 «Начало выступления» — hook, roadmap, opening, engage, compelling, stake, closing, presence.
+- C1-14 «Инверсия» — inversion, not only, barely, under no circumstances, hardly, scarcely, no sooner, little did.
+- C1-15 «Fronting и cleft» — cleft, fronting, what matters is, it was ... that, focus, foreground, the thing is, all I know is.
+- C1-16 «Риторические приёмы» — rhetoric, triad, antithesis, repetition, rhetorical question, rule of three, parallel structure, anaphora.
+- Итого: 226 юнитов, 1 728 слов, 3 630 упражнений.
+- Следующий шаг: C1-17…20.
+
 ## 0.91.0 — 2026-11-20
 
 - C1-09…12 написаны.
