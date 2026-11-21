@@ -15,6 +15,36 @@ Both agreed on the main point: the shell is strong, but the learning core at B1�
 
 The raw reviews are not stored here; this file keeps every actionable recommendation, the verified facts, and the decisions.
 
+## 1a. Second independent review (0.97.0, 2026-11-21)
+
+Two independent reviews were run again on a new packet (`docs/review-2/`, entry `00-START-HERE.md`):
+
+- **Gemini 4 Argon** — **7.4/10** (weighted 7.43): learning 7.5, content 7.0, assessment 6.5, UX 8.5, reliability 7.5, maintainability 8.0.
+- **Kimi K3.1 Pro** — **6.5/10**: learning 6.5, content 6.5, assessment 5.0, UX 8.0, reliability 6.0, maintainability 7.0.
+- Average about **7.0**. Both improved on the first review (5.5/6.5), and both explicitly refused gamification, accounts, sync and an AI tutor.
+
+Both agreed the shell, library, Studio, offline PWA and phone UX are strong, and that the ceiling is now **trust in assessment**, not content volume. Full reports: `docs/review-2/results/`; synthesis: `docs/review-2/SYNTHESIS.md`.
+
+Confirmed P0 defects (verified in code, not opinion):
+
+- `Lesson.tsx` computes the final score from `answers` (latest) instead of `firstAnswers`, so a lesson with first-attempt mistakes can show 100% after the repeat.
+- `Errors.tsx` calls `reviewError` on the immediate retry, so a card answered wrong and then correctly seconds later moves from +1 day to +3 days.
+- `normalizeAnswer` does not strip double/typographic quotes, and expands `'s` to `is` only, so `She's been...` becomes `she is been`; valid answers are marked wrong.
+- `exportBackup` omits `kv`: Studio step, speaking history, reading retry list and `last-backup` are lost after reset or restore on a new device.
+- Resume ignores skipped exercises and re-shows answered ones.
+- Listening shuffles TFNG, includes heading questions in blind audio, and marks a text done at 0%.
+- Studio marks itself complete and writes 100% even when reading/listening are wrong, writing is unchecked, and speaking is skipped.
+- `SpeakView` reports success after a microphone error.
+
+Confirmed content defects:
+
+- `studio-c1-07` model answer invents figures (64→66, north +11, south +2, below 2022, low response rate) that are not in the briefing.
+- 100% of B2 (180/180) and C1 (72/72) translations accept one variant; concrete false negatives in `c1-14-ex-08`, `b2-17-ex-09`, `b2-49-ex-09`, `b1-38-ex-09`, `a2-16-ex-07`.
+- Ambiguous items (`a2-23-ex-02`, `b2-17-ex-04`), impossible distractors (`c1-14-ex-02`), the wrong `Not only` explanation, mechanical `withDistractors`/`buildWorkshop`, A1/A2 grammar inside B2 (`b2-49-ex-01`, `b2-17-ex-02`), and formula `note` duplicated in `choice`.
+- Library evidence quotes are incomplete in `reading-31`, `reading-40` and `reading-50`.
+
+Decision: fix P0 before any new content or the IELTS block; the IELTS block stays on hold. P1 content pass after P0. P2 (level gates, micro-production, 1–2 new units per day) is a design decision, not a bug fix.
+
 ## 2. Verified facts from the audit
 
 The audit was run with `scripts/audit-content.ts` (`npm run audit:content`) across all 210 units.

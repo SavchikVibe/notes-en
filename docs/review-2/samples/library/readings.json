@@ -1,0 +1,303 @@
+[
+  {
+    "id": "reading-12",
+    "level": "A2",
+    "title": "The School Trip",
+    "paragraphs": [
+      "Last Friday, Class 8B went on a school trip to a science museum. They left school at eight o’clock and traveled by bus. The ride took one hour. On the bus, the students talked about the robots they wanted to see.",
+      "At the museum, a guide showed them a robot that could draw pictures. The students asked many questions. Then they visited a room about space. They saw a model of Mars and learned about the first moon landing. The guide explained how astronauts live and work in space.",
+      "After lunch, the class had a workshop. They built small cars from plastic pieces. The cars had to move using a balloon. Tom’s car went the fastest. Everyone clapped. The teacher took photos for the school website.",
+      "On the way home, the bus was quiet. Many students were tired, but they were happy. Their teacher said, “You asked excellent questions today. I am proud of you.” The next week, the class wrote a report about the trip. Tom wrote about the balloon cars. He said it was the best school trip of the year. Tom’s parents put the report on the kitchen wall at home, and he read it again and again."
+    ],
+    "questions": [
+      {
+        "question": "Where did Class 8B go?",
+        "options": [
+          "A science museum",
+          "A zoo",
+          "A farm"
+        ],
+        "answer": 0,
+        "evidence": "Class 8B went on a school trip to a science museum."
+      },
+      {
+        "question": "How did they travel?",
+        "options": [
+          "By bus",
+          "By train",
+          "By car"
+        ],
+        "answer": 0,
+        "evidence": "They left school at eight o’clock and traveled by bus."
+      },
+      {
+        "question": "What did they build?",
+        "options": [
+          "Small cars",
+          "Robots",
+          "Rockets"
+        ],
+        "answer": 0,
+        "evidence": "They built small cars from plastic pieces."
+      },
+      {
+        "question": "Tom’s car went the fastest.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 0,
+        "type": "tfng",
+        "evidence": "Tom’s car went the fastest."
+      },
+      {
+        "question": "The students were noisy on the way home.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 1,
+        "type": "tfng",
+        "evidence": "On the way home, the bus was quiet."
+      }
+    ]
+  },
+  {
+    "id": "reading-31",
+    "level": "B1",
+    "title": "The School Play",
+    "paragraphs": [
+      "Every year, the students at Maple School perform a play. This year, they chose a comedy about a family on vacation. The auditions were in October, and the performance was in December. The whole school helped: one class painted the set, another made costumes, and a group of students worked on the music.",
+      "Leo wanted a small part. He was shy and did not like speaking in front of people. But when he read for the role of the father, the director, Ms. Chen, said, “You have a natural sense of timing. I want you to take the main role.” Leo was terrified. He had never learned so many lines.",
+      "At first, he forgot them during rehearsals. He felt embarrassed. The other actors helped him. They practiced with him after school and gave him tips for remembering. Ms. Chen told him to practice one scene at a time, not the whole play. She also told him to move around while he spoke, because movement helps memory.",
+      "The rehearsals were not easy. The set was late, the costumes were too small, and the music did not work. But the team solved each problem. They painted the set together, borrowed costumes, and used a phone for the music. On the night of the performance, Leo was nervous. His hands were shaking.",
+      "When he walked on stage, he forgot the first line. The audience was silent. Then he heard a friend whisper the line from the side. He remembered, and the play continued. The audience laughed at the right moments. At the end, they clapped for a long time.",
+      "Leo was tired and happy. He said, “I was afraid of making a mistake. But the mistake did not ruin the play. It made me feel supported.” The next morning, he signed up for the spring play."
+    ],
+    "questions": [
+      {
+        "question": "What play did they choose?",
+        "options": [
+          "A comedy",
+          "A tragedy",
+          "A musical"
+        ],
+        "answer": 0,
+        "evidence": "they chose a comedy about a family on vacation."
+      },
+      {
+        "question": "What role did Leo get?",
+        "options": [
+          "The father",
+          "The mother",
+          "A small part"
+        ],
+        "answer": 0,
+        "evidence": "I want you to take the main role."
+      },
+      {
+        "question": "What happened on stage?",
+        "options": [
+          "He forgot his first line",
+          "He fell",
+          "He left"
+        ],
+        "answer": 0,
+        "evidence": "When he walked on stage, he forgot the first line."
+      },
+      {
+        "question": "The team had no problems.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 1,
+        "type": "tfng",
+        "evidence": "The rehearsals were not easy."
+      },
+      {
+        "question": "The audience clapped.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 0,
+        "type": "tfng",
+        "evidence": "At the end, they clapped for a long time."
+      }
+    ]
+  },
+  {
+    "id": "reading-40",
+    "level": "B2",
+    "title": "Remote Work and Small Towns",
+    "paragraphs": [
+      "Before 2020, working from home was unusual in most offices. It was seen as a favor for a few employees or a privilege for freelancers. The pandemic changed that within weeks. Millions of people set up desks in bedrooms and kitchens, and companies discovered that much of the work continued. Five years later, the picture is mixed. Offices have not disappeared, but the five-day commute has for many workers. In several large cities, the number of days worked at home remains close to one third.",
+      "The effects reached places far from the big cities. When employees could work from anywhere, some moved to smaller towns, mountain villages, and coastal areas. Local newspapers in the United States called these places “Zoom towns”. House prices rose quickly, and in some cases local families could no longer afford to buy. The new residents brought income and demand, but they also competed for a limited number of homes. The benefits and the costs arrived at the same time.",
+      "Not everyone could move. Remote work is concentrated among people with degrees and jobs that involve a computer. Nurses, drivers, shop assistants, and factory workers continued to travel to their workplaces. This is one reason the change is uneven. A software engineer can leave an expensive city and keep the same salary; a hotel employee in the same city cannot. The gap between those who can choose where to live and those who cannot has become more visible.",
+      "For small towns, the results depend on what the newcomers need. Cafés, coworking spaces, and gyms appear quickly, and local tax revenue rises. But services such as schools, doctors, and public transportation are planned years in advance, and a sudden increase in population can leave them short. Towns that had empty housing and fast internet benefited most. Towns without either received the demand without the capacity to meet it.",
+      "Companies are still working out what they gain and lose. Remote hiring widens the pool of candidates and reduces spending on office space. It also weakens the informal learning that happens when a junior colleague sits near an experienced one. Several large firms now ask staff to come in two or three days a week, not because the work requires it, but because training and trust seem to require presence. Employees, meanwhile, value the time saved on commuting more than the free coffee.",
+      "The evidence on productivity is genuinely mixed. Simple, individual tasks are often done faster at home, because there are fewer interruptions. Tasks that need negotiation or creativity benefit from being in the same room. Studies that compare whole companies tend to find small effects in either direction, which suggests that management matters more than location. A team with clear goals works well in both settings; a team without them struggles in both.",
+      "Big cities have responded in their own way. With fewer commuters, some office buildings lost value, and a few cities changed planning rules to allow conversion into apartments. The work is expensive and slow, because office floors are deep and windows are few, but it turns empty space into housing. City centers that depended on office workers have also lost lunch trade, and some shopping streets have more empty windows than before. The office district of the twentieth century is being asked to become a neighborhood.",
+      "Infrastructure decides much of the outcome. Fast internet is now as important as a road, and towns that invested in it early attracted new residents. Reliable trains and buses matter too, because hybrid workers still travel to the office regularly. In countries where broadband is slow and transportation is poor, remote work remains a privilege of the largest cities rather than a way to leave them.",
+      "The most likely future is not a return to villages or an end to offices, but a redistribution of opportunity. A person may live in a small town and work for a company in another country. That possibility is new, and it changes the politics of place: a town can grow without a factory. Whether it grows well depends on housing, services, and planning, which are decided locally. Remote work did not remove geography. It made local decisions more important. That is a quieter change than a revolution, and it is harder to notice."
+    ],
+    "questions": [
+      {
+        "question": "What happened to offices after 2020?",
+        "options": [
+          "They did not disappear, but commuting fell",
+          "They all closed permanently",
+          "They became larger and more expensive"
+        ],
+        "answer": 0,
+        "evidence": "Offices have not disappeared, but the five-day commute has for many workers."
+      },
+      {
+        "question": "What is a “Zoom town”?",
+        "options": [
+          "A small town that gained remote workers",
+          "A city without internet access",
+          "A town built around one factory"
+        ],
+        "answer": 0,
+        "evidence": "Local newspapers in the United States called these places “Zoom towns”."
+      },
+      {
+        "question": "All workers were able to move to smaller towns.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 1,
+        "type": "tfng",
+        "evidence": "Not everyone could move."
+      },
+      {
+        "question": "Which heading best fits the fifth paragraph?",
+        "options": [
+          "What companies gain and lose",
+          "House prices in small towns",
+          "The productivity debate"
+        ],
+        "answer": 0,
+        "type": "heading",
+        "evidence": "Companies are still working out what they gain and lose."
+      },
+      {
+        "question": "Studies of whole companies find large productivity effects.",
+        "options": [
+          "True",
+          "False"
+        ],
+        "answer": 1,
+        "type": "tfng",
+        "evidence": "Studies that compare whole companies tend to find small effects in either direction"
+      },
+      {
+        "question": "What does the author expect in the future?",
+        "options": [
+          "Opportunity will be redistributed, not offices abolished",
+          "Everyone will return to the office",
+          "Small towns will lose all their residents"
+        ],
+        "answer": 0,
+        "evidence": "The most likely future is not a return to villages or an end to offices, but a redistribution of opportunity."
+      }
+    ]
+  },
+  {
+    "id": "reading-50",
+    "level": "C1",
+    "title": "The Limits of Measurement",
+    "paragraphs": [
+      "Modern organizations run on numbers. Hospitals count waiting times, schools count test results, companies count sales, and governments count almost everything. Measurement makes comparison possible, and comparison makes management possible. The appeal is obvious: a number seems objective, it can be tracked over time, and it can be reported upward without lengthy explanation. The trouble begins when the number stops being a description and becomes a target.",
+      "The economist Charles Goodhart formulated the problem in 1975: when a measure becomes a target, it ceases to be a good measure. The reason is not stupidity but incentives. People respond to what is rewarded, and they respond in ways the designer did not imagine. A call center that measures the length of calls gets shorter calls, not necessarily better service. A school that measures pass rates gets higher pass rates, sometimes by excluding weak students from the exam.",
+      "The pattern has many names. Psychologists speak of Campbell’s law, sociologists of reactivity, and popular writers of the cobra effect, after a story about a colonial bounty on snakes that led people to breed them. The stories are often exaggerated, and the underlying logic is not. Any measure is a proxy for something that cannot be observed directly, and optimization puts pressure on the proxy until it separates from the thing it was meant to represent.",
+      "Education shows both the power and the danger. Standardized tests made it possible to compare schools and to identify neglected groups, which was a genuine gain. They also encouraged teaching to the test, narrowed the curriculum to tested subjects, and in a few documented cases produced cheating by teachers under pressure. Value-added models, which try to measure a teacher’s contribution, are statistically unstable: a teacher’s ranking can change substantially from one year to the next as different students arrive.",
+      "Health care offers a similar lesson. Waiting-time targets reduced long waits in several countries, and patients benefited. But hospitals also learned to game the measure: patients were kept in ambulances or in temporary beds so that the official clock had not started. The target improved the number and, in some cases, worsened the experience it was meant to improve. The measure was not wrong; it was incomplete, and the incompleteness became the space where gaming happened.",
+      "Rankings are a special case. A league table turns several measures into one position, which is convenient for readers and brutal for the institutions at the bottom. Once a ranking is published, institutions compete for position rather than for the underlying quality, and small differences are treated as meaningful even when they fall within the margin of error. The result is a permanent tournament in which everyone runs faster and the ordering changes little.",
+      "There is also a technical problem that is often ignored: most measures have error. A hospital with a rate of five percent and one with six percent may be statistically indistinguishable, yet the second will be asked to explain itself. Confidence intervals are rarely shown in management reports, because they complicate the story. A number without an error margin invites a decision that the data cannot support.",
+      "Business has its own version. Quarterly earnings are convenient for investors and damaging for long-term investment, because research and maintenance reduce this quarter’s number and pay off later. Executive pay tied to share price encourages buybacks rather than factories. None of this requires bad people. It requires ordinary people responding rationally to the incentives in front of them, while the consequences appear somewhere else and later.",
+      "The response is not to stop measuring. Without numbers, problems become invisible, and the people who suffer most are usually those with the least power to complain. A hospital that does not count infections will not reduce them. A city that does not measure air quality will not clean it. The question is how to keep measures honest: use several of them, change them periodically, publish the raw data, and let outsiders check the interpretation. That is why the first question about any metric should be who is missing from it.",
+      "Some organizations add qualitative review to quantitative reporting. A number tells you that something changed; a conversation tells you why. Audits, site visits, and case studies are slower and less comparable, which is exactly why they are useful: they can detect the gap between the metric and the reality. Randomized trials, where they are possible, provide a stronger test than any single indicator, because they compare what happened with what would have happened otherwise.",
+      "There is also a cultural condition. Measures work better in organizations where bad news can be reported without punishment. If a manager is blamed for every missed target, the targets will be met and the problems will be hidden. If the purpose of the number is learning rather than judgment, people are more likely to explain what went wrong. This sounds soft, and it is a practical requirement: the alternative is a system that produces confident reports and unpleasant surprises.",
+      "In the end, a measure is an instrument, not a truth. It is useful exactly as long as everyone remembers what it leaves out. The most dangerous number is not the inaccurate one, which invites correction, but the one that has become so central that questioning it seems like disloyalty. Goodhart’s law is often quoted as a reason to be cynical about targets. It is better read as a reason to keep them contestable, plural, and connected to the experience of the people they describe."
+    ],
+    "questions": [
+      {
+        "question": "What happens when a measure becomes a target?",
+        "options": [
+          "It stops being a good measure",
+          "It becomes more accurate",
+          "It becomes cheaper to collect"
+        ],
+        "answer": 0,
+        "evidence": "when a measure becomes a target, it ceases to be a good measure."
+      },
+      {
+        "question": "Why do call centers get shorter calls?",
+        "options": [
+          "People respond to what is rewarded",
+          "Calls become simpler over time",
+          "Customers prefer shorter calls"
+        ],
+        "answer": 0,
+        "evidence": "People respond to what is rewarded, and they respond in ways the designer did not imagine."
+      },
+      {
+        "question": "Standardized tests brought no benefits at all.",
+        "options": [
+          "True",
+          "False",
+          "Not Given"
+        ],
+        "answer": 1,
+        "type": "tfng",
+        "evidence": "Standardized tests made it possible to compare schools and to identify neglected groups, which was a genuine gain."
+      },
+      {
+        "question": "Which heading best fits the fifth paragraph?",
+        "options": [
+          "Gaming the waiting-time target",
+          "The cobra effect",
+          "Quarterly earnings"
+        ],
+        "answer": 0,
+        "type": "heading",
+        "evidence": "Health care offers a similar lesson."
+      },
+      {
+        "question": "Value-added models are statistically stable from year to year.",
+        "options": [
+          "True",
+          "False",
+          "Not Given"
+        ],
+        "answer": 1,
+        "type": "tfng",
+        "evidence": "Value-added models, which try to measure a teacher’s contribution, are statistically unstable"
+      },
+      {
+        "question": "Why can quarterly earnings damage long-term investment?",
+        "options": [
+          "Research reduces this quarter’s number",
+          "Investors are unable to read them",
+          "They are illegal in some countries"
+        ],
+        "answer": 0,
+        "evidence": "research and maintenance reduce this quarter’s number and pay off later."
+      },
+      {
+        "question": "What cultural condition makes measures work better?",
+        "options": [
+          "Bad news can be reported without punishment",
+          "Managers are punished for missed targets",
+          "Numbers are kept secret from staff"
+        ],
+        "answer": 0,
+        "evidence": "Measures work better in organizations where bad news can be reported without punishment."
+      }
+    ]
+  }
+]

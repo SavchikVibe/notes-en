@@ -1,0 +1,76 @@
+[
+  {
+    "id": "speak-a1-03",
+    "level": "A1",
+    "title": "Моя комната",
+    "prompt": "Describe your room. Name four things in it and say where they are: on the desk, near the window, under the bed.",
+    "preparationSeconds": 20,
+    "speakingSeconds": 40,
+    "checklist": [
+      "Назвал(а) четыре предмета.",
+      "Использовал(а) on / in / under / near.",
+      "Сказал(а), что тебе нравится в комнате."
+    ],
+    "usefulLanguage": [
+      "There is a desk near the window.",
+      "My books are on the shelf."
+    ]
+  },
+  {
+    "id": "speak-b1-02",
+    "level": "B1",
+    "title": "Телефон и приложения",
+    "prompt": "Talk about how you use your phone. Say which apps you use most, how they help, and one thing you would like to change.",
+    "preparationSeconds": 40,
+    "speakingSeconds": 90,
+    "checklist": [
+      "Назвал(а) два приложения и их пользу.",
+      "Сказал(а), сколько времени проводишь в телефоне.",
+      "Предложил(а) одно изменение."
+    ],
+    "usefulLanguage": [
+      "I use it mainly for …",
+      "It saves me time.",
+      "I wish I spent less time …"
+    ]
+  },
+  {
+    "id": "speak-b2-pairs",
+    "level": "B2",
+    "title": "Пары звуков: гласные переднего ряда",
+    "prompt": "Listen to each pair and repeat both words. Then record the pairs without the text. Keep the vowel in each pair separate.",
+    "preparationSeconds": 20,
+    "speakingSeconds": 55,
+    "pairs": [
+      [
+        "bad",
+        "bed"
+      ],
+      [
+        "man",
+        "men"
+      ],
+      [
+        "sat",
+        "set"
+      ],
+      [
+        "bag",
+        "beg"
+      ],
+      [
+        "tan",
+        "ten"
+      ],
+      [
+        "had",
+        "head"
+      ]
+    ],
+    "checklist": [
+      "Повторил(а) обе пары в каждом ряду.",
+      "Различил(а) гласные в быстрой речи.",
+      "Записал(а) все пары без текста."
+    ]
+  }
+]

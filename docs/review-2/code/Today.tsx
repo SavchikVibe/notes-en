@@ -1,0 +1,318 @@
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Settings as SettingsIcon } from 'lucide-react'
+import { units, levelNumber } from '@/content'
+import { readings } from '@/content/readings'
+import { studioTasks } from '@/content/studio'
+import {
+  addWordsToSrs,
+  countDue,
+  countDueErrors,
+  getAllLessonProgress,
+  getKv,
+  getSettings,
+  type LessonProgress,
+  type Settings,
+} from '@/db/db'
+import { buildSession } from '@/lib/session'
+import { formatDuration, formatTodayRu } from '@/lib/date'
+import { AppBar } from '@/components/AppBar'
+import { Button } from '@/components/Button'
+
+export default function TodayScreen() {
+  const navigate = useNavigate()
+  const [state, setState] = useState<{
+    progress: Record<string, LessonProgress>
+    settings: Settings
+    due: number
+    errorsDue: number
+    readingsLeft: number
+    listeningLeft: number
+    lastBackup: number | null
+  } | null>(null)
+
+  useEffect(() => {
+    void (async () => {
+      const [progress, settings] = await Promise.all([getAllLessonProgress(), getSettings()])
+      const done = new Set(
+        Object.values(progress)
+          .filter((item) => item.status === 'done')
+          .map((item) => item.lessonId),
+      )
+      await addWordsToSrs(
+        units
+          .filter((unit) => done.has(unit.id))
+          .flatMap((unit) => unit.words.map((word) => word.id)),
+      )
+      const due = await countDue()
+      const errorsDue = await countDueErrors()
+      const lastBackup = (await getKv<number>('last-backup')) ?? null
+      const doneReadings = new Set(
+        Object.values(progress)
+          .filter((item) => item.status === 'done' && item.lessonId.startsWith('reading-'))
+          .map((item) => item.lessonId),
+      )
+      const readingsLeft = readings.filter((reading) => !doneReadings.has(reading.id)).length
+      const doneListening = new Set(
+        Object.values(progress)
+          .filter((item) => item.status === 'done' && item.lessonId.startsWith('listening-'))
+          .map((item) => item.lessonId),
+      )
+      const listeningLeft = readings.filter(
+        (reading) => !doneListening.has(`listening-${reading.id}`),
+      ).length
+      setState({ progress, settings, due, errorsDue, readingsLeft, listeningLeft, lastBackup })
+    })()
+  }, [])
+
+  if (!state) {
+    return (
+      <>
+        <AppBar title="Сегодня" />
+        <main className="px-5 pt-6">
+          <p className="text-[15px] text-ink-3">Загрузка…</p>
+        </main>
+      </>
+    )
+  }
+
+  const session = buildSession(
+    units,
+    state.progress,
+    state.settings,
+    new Date(),
+    state.due,
+    state.readingsLeft,
+    state.listeningLeft,
+  )
+  const course = session.blocks[0]
+  const others = session.blocks.slice(1)
+  const hasResume = course.units.some((unit) => state.progress[unit.id]?.status === 'in_progress')
+  const doneLessons = units.filter((unit) => state.progress[unit.id]?.status === 'done').length
+  const backupOld = state.lastBackup === null || Date.now() - state.lastBackup > 14 * 86_400_000
+  const showBackup = doneLessons >= 10 && backupOld
+
+  return (
+    <>
+      <AppBar
+        title="Сегодня"
+        right={
+          <Link
+            to="/settings"
+            aria-label="Настройки"
+            className="-mr-2 flex size-11 items-center justify-center rounded-full text-ink-3 active:bg-surface"
+          >
+            <SettingsIcon size={21} strokeWidth={1.5} />
+          </Link>
+        }
+      />
+
+      <main className="px-5 pb-10 pt-6">
+        <p className="text-[13px] font-medium text-ink-3">{formatTodayRu()}</p>
+        <h1 className="mt-1 text-[34px] leading-none">{formatDuration(session.totalMinutes)}</h1>
+        <p className="mt-2 text-[15px] text-ink-2">План на сегодня</p>
+
+        <section className="mt-8 border-t border-line pt-5">
+          <div className="flex items-baseline justify-between gap-3">
+            <h2 className="text-[20px]">Курс</h2>
+            <span className="num text-[15px] text-ink-3">{course.minutes} мин</span>
+          </div>
+
+          {course.units.length > 0 ? (
+            <>
+              <ul className="mt-3">
+                {course.units.map((unit) => {
+                  const progress = state.progress[unit.id]
+                  return (
+                    <li
+                      key={unit.id}
+                      className="flex min-h-[60px] items-center gap-3 border-b border-line py-2.5"
+                    >
+                      <span className="num w-6 text-[13px] text-ink-3">
+                        {String(levelNumber(unit)).padStart(2, '0')}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-[17px] text-ink">{unit.title}</p>
+                        <p className="truncate text-[13px] text-ink-3">
+                          {progress?.status === 'in_progress' ? 'продолжить · ' : ''}
+                          {unit.subtitle ?? unit.goal}
+                        </p>
+                      </div>
+                    </li>
+                  )
+                })}
+              </ul>
+              <Button className="mt-5 w-full" onClick={() => navigate(`/lesson/${course.units[0].id}`)}>
+                {hasResume ? 'Продолжить' : 'Начать'}
+              </Button>
+            </>
+          ) : (
+            <div className="mt-4 border-l-2 border-accent pl-4">
+              <p className="text-[17px]">Все уроки этого этапа пройдены.</p>
+              <p className="mt-1 text-[15px] text-ink-2">
+                Следующая партия появится вместе с обновлением контента.
+              </p>
+            </div>
+          )}
+        </section>
+
+        <section className="mt-9">
+          <h2 className="text-[20px]">Ещё сегодня</h2>
+          <div className="mt-2">
+            {others.map((block) => {
+              const ready = block.status === 'ready'
+              const target =
+                block.key === 'reading'
+                  ? '/reading'
+                  : block.key === 'listening'
+                    ? '/listening'
+                    : block.key === 'speaking'
+                      ? '/speaking'
+                      : '/review'
+              const action =
+                block.key === 'reading'
+                  ? 'Читать'
+                  : block.key === 'listening'
+                    ? 'Слушать'
+                    : block.key === 'speaking'
+                      ? 'Говорить'
+                      : 'Повторить'
+              const body = (
+                <>
+                  <div className="min-w-0">
+                    <p className={`text-[17px] ${ready ? 'text-ink' : 'text-ink-2'}`}>
+                      {block.title}
+                    </p>
+                    <p className="text-[13px] text-ink-3">{block.note}</p>
+                  </div>
+                  <div className="shrink-0 text-right">
+                    <p className={`num text-[15px] ${ready ? 'text-ink-2' : 'text-ink-3'}`}>
+                      {block.minutes} мин
+                    </p>
+                    <p className={`text-[11px] ${ready ? 'text-accent' : 'text-ink-3'}`}>
+                      {ready ? action : 'скоро'}
+                    </p>
+                  </div>
+                </>
+              )
+
+              return ready ? (
+                <button
+                  key={block.key}
+                  type="button"
+                  onClick={() => navigate(target)}
+                  className="flex min-h-[60px] w-full items-start justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
+                >
+                  {body}
+                </button>
+              ) : (
+                <div
+                  key={block.key}
+                  className="flex min-h-[60px] items-start justify-between gap-4 border-b border-line py-3.5"
+                >
+                  {body}
+                </div>
+              )
+            })}
+          </div>
+          <p className="mt-4 text-[13px] leading-relaxed text-ink-3">
+            Чтение, слушание, речь и повторение слов — короткие блоки на 5–10 минут.
+          </p>
+        </section>
+
+        {state.errorsDue > 0 && (          <section className="mt-9">
+            <h2 className="text-[20px]">Ошибки</h2>
+            <p className="mt-1 text-[13px] text-ink-3">
+              Задания, где первый ответ был неверным
+            </p>
+            <button
+              type="button"
+              onClick={() => navigate('/errors')}
+              className="mt-2 flex min-h-[60px] w-full items-start justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
+            >
+              <div className="min-w-0">
+                <p className="text-[17px] text-ink">Повторить ошибки</p>
+                <p className="text-[13px] text-ink-3">
+                  через день, потом 3, 7, 16 дней
+                </p>
+              </div>
+              <div className="shrink-0 text-right">
+                <p className="num text-[15px] text-ink-2">{state.errorsDue}</p>
+                <p className="text-[11px] text-accent">повторить</p>
+              </div>
+            </button>
+          </section>
+        )}
+
+        {showBackup && (
+          <section className="mt-9">
+            <h2 className="text-[20px]">Бэкап</h2>
+            <p className="mt-1 text-[13px] text-ink-3">
+              {state.lastBackup === null
+                ? 'Копия прогресса ещё не сохранялась'
+                : 'Последняя копия старше двух недель'}
+            </p>
+            <button
+              type="button"
+              onClick={() => navigate('/settings')}
+              className="mt-2 flex min-h-[60px] w-full items-center justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
+            >
+              <div className="min-w-0">
+                <p className="text-[17px] text-ink">Сохранить копию</p>
+                <p className="text-[13px] text-ink-3">JSON-файл в настройках</p>
+              </div>
+              <span className="shrink-0 text-[13px] text-accent">открыть</span>
+            </button>
+          </section>
+        )}
+
+        <section className="mt-9">
+          <h2 className="text-[20px]">Студия</h2>
+          <p className="mt-1 text-[13px] text-ink-3">
+            Длинная задача: чтение, слушание, письмо и речь за один заход
+          </p>
+          {(() => {
+            const nextStudio = studioTasks.find(
+              (task) => state.progress[task.id]?.status !== 'done',
+            )
+            if (!nextStudio) {
+              return (
+                <div className="mt-3 border-l-2 border-accent pl-4">
+                  <p className="text-[17px]">Все студии пройдены.</p>
+                  <p className="mt-1 text-[13px] text-ink-3">
+                    Можно вернуться к любой задаче и перечитать текст.
+                  </p>
+                </div>
+              )
+            }
+            return (
+              <button
+                type="button"
+                onClick={() => navigate('/studio')}
+                className="mt-2 flex min-h-[60px] w-full items-start justify-between gap-4 border-b border-line py-3.5 text-left active:bg-surface"
+              >
+                <div className="min-w-0">
+                  <p className="text-[17px] text-ink">{nextStudio.title}</p>
+                  <p className="truncate text-[13px] text-ink-3">
+                    {nextStudio.level} · {nextStudio.estimatedMinutes} минут
+                  </p>
+                </div>
+                <div className="shrink-0 text-right">
+                  <p className="num text-[15px] text-ink-2">{nextStudio.estimatedMinutes} мин</p>
+                  <p className="text-[11px] text-ink-3">начать</p>
+                </div>
+              </button>
+            )
+          })()}
+          <button
+            type="button"
+            onClick={() => navigate('/studio')}
+            className="mt-3 text-[15px] text-ink-3 underline underline-offset-4"
+          >
+            Все студии
+          </button>
+        </section>
+      </main>
+    </>
+  )
+}
