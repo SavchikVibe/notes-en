@@ -147,10 +147,10 @@ export const b218: Unit = {
     {
       kind: 'choice',
       id: 'b2-18-ex-03',
-      question: 'The framing ___ influence readers.',
-      options: ['may', 'may to', 'is may'],
+      question: 'The story ___ as a crisis by several outlets.',
+      options: ['was framed', 'framed', 'was framing'],
       answer: 0,
-      explanation: 'May + глагол.',
+      explanation: 'Пассив: was framed — историю подали как кризис.',
     },
     {
       kind: 'choice',

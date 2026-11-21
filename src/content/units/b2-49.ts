@@ -131,10 +131,10 @@ export const b249: Unit = {
     {
       kind: 'choice',
       id: 'b2-49-ex-01',
-      question: 'AI ___ spread disinformation.',
-      options: ['can', 'can to', 'is can'],
+      question: 'If the data ___ biased, the model may be biased.',
+      options: ['is', 'will be', 'would be'],
       answer: 0,
-      explanation: 'Can + глагол.',
+      explanation: 'First Conditional: if + Present, may + verb.',
     },
     {
       kind: 'choice',

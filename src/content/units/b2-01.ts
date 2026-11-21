@@ -131,10 +131,10 @@ export const b201: Unit = {
     {
       kind: 'choice',
       id: 'b2-01-ex-01',
-      question: 'The data ___ suggest a trend.',
-      options: ['may', 'may to', 'is may'],
+      question: 'The data, ___ were collected online, may suggest a trend.',
+      options: ['which', 'who', 'where'],
       answer: 0,
-      explanation: 'May + глагол — осторожное утверждение.',
+      explanation: 'Which — для неодушевлённых существительных.',
     },
     {
       kind: 'choice',

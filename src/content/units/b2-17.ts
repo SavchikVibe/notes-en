@@ -139,10 +139,10 @@ export const b217: Unit = {
     {
       kind: 'choice',
       id: 'b2-17-ex-02',
-      question: 'The result ___ be unreliable.',
-      options: ['may', 'may to', 'is may'],
+      question: 'The study ___ twice before the results were published.',
+      options: ['was replicated', 'replicated', 'was replicating'],
       answer: 0,
-      explanation: 'May + глагол.',
+      explanation: 'Пассив: was replicated — исследование было воспроизведено.',
     },
     {
       kind: 'choice',

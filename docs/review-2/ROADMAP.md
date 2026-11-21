@@ -85,10 +85,12 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 - [ ] Version 0.99.0, full checks, deploy, commit, memory. Part 1 shipped in 0.98.1; exit waits
       for the full `accept` pass and authored distractors.
 
-## Stage 3 — P1b B2 depth (3–5 days)
+## Stage 3 — P1b B2 depth (3–5 days, in progress)
 
 - [ ] Replace A1/A2 grammar inside B1–B2 (`can / can to / is can`, `may / may to / is may`) with
       B2 syntax: complex passive, hedging, conditionals, relative/participial clauses.
+      Done for `b2-01`, `b2-17`, `b2-18`, `b2-34`, `b2-46`, `b2-49` in 0.98.2; the rest needs
+      a systematic pass.
 - [ ] Close the formula leak: do not repeat `formulas.note` verbatim in `choice`, or collapse the
       formula while answering.
 - [ ] Optional external audit of 20–30 random units and 5–6 Studio tasks.

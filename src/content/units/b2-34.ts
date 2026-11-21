@@ -155,10 +155,10 @@ export const b234: Unit = {
     {
       kind: 'choice',
       id: 'b2-34-ex-04',
-      question: 'The object ___ be 2,000 years old.',
-      options: ['may', 'may to', 'is may'],
+      question: 'The object, ___ was found last year, may be 2,000 years old.',
+      options: ['which', 'who', 'where'],
       answer: 0,
-      explanation: 'May + глагол.',
+      explanation: 'Which — для неодушевлённых предметов.',
     },
     {
       kind: 'assemble',

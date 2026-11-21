@@ -147,10 +147,10 @@ export const b246: Unit = {
     {
       kind: 'choice',
       id: 'b2-46-ex-03',
-      question: 'A free press ___ hold power accountable.',
-      options: ['can', 'can to', 'is can'],
+      question: 'While press freedom matters, responsibility ___ too.',
+      options: ['matters', 'matter', 'mattering'],
       answer: 0,
-      explanation: 'Can + глагол.',
+      explanation: 'Подлежащее responsibility — единственное число: matters.',
     },
     {
       kind: 'choice',
