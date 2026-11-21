@@ -97,7 +97,7 @@ These are still the backbone of the roadmap.
 - **Storage.** Precache is about 17 MB: app shell plus Studio audio. Library audio (54 MP3) is excluded from precache and cached on demand in the `library-audio` Cache Storage bucket when a text is opened. Studio audio stays fully offline from the first launch.
 - **Validation semantics (0.59.0).** In-unit readings are short by design: the minimum is A1 40 / A2 55 / B1 70 / B2 60 words, and long reading lives in the library. The duplicate check only compares sentences across exercises, because reusing a word example as an exercise is intended scaffolding. The «all choice answers are A» check was removed: options are shuffled at runtime. Library length targets live in `npm run check:readings`.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
-- **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
+- **Next phase (0.96.0).** All non-IELTS work is done: content revision, error bank, speaking block, reading library, portfolio, C1 hybrid, tests. Only the IELTS exam block remains, and it is on hold until the user settles the format questions (timed sections, Writing/Speaking scope, self-assessment without an automatic band).
 
 ## 8. Current state (0.96.0)
 

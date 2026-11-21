@@ -11,8 +11,13 @@ Hard constraints: offline-first PWA for one user; no accounts, payments or sync;
 Useful commands:
 
 ```bash
+npm run check
+npm run test:e2e
+npx playwright install chromium   # once per machine, before test:e2e
 npm run validate:content
 npm run audit:content
 node scripts/deploy-pages.mjs SavchikVibe/notes-en
 python scripts/generate-studio-audio.py
 ```
+
+`npm run test:e2e` starts the dev server on port 4173 itself and runs `tests/lesson.spec.ts`. `test-results/` and `playwright-report/` are gitignored.
