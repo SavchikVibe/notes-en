@@ -6,9 +6,17 @@ import { addStudyTime, finishLesson, getKv, setKv } from '@/db/db'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
 import { ReadingStep } from './studio/ReadingStep'
+import type { StepScore } from './studio/ReadingStep'
 import { ListeningStep } from './studio/ListeningStep'
 import { WritingStep } from './studio/WritingStep'
 import { SpeakingStep } from './studio/SpeakingStep'
+
+interface StudioDetails {
+  reading?: StepScore
+  listening?: StepScore
+  writing?: boolean
+  speaking?: 'recorded' | 'skipped'
+}
 
 const STEP_LABELS = ['Чтение', 'Слушание', 'Письмо', 'Речь']
 const STEP_HINTS = [
@@ -25,6 +33,7 @@ export default function StudioTaskScreen() {
 
   const [step, setStep] = useState(0)
   const [done, setDone] = useState<boolean[]>([false, false, false, false])
+  const [details, setDetails] = useState<StudioDetails>({})
   const [ready, setReady] = useState(false)
   const [finished, setFinished] = useState(false)
   const startedAt = useRef(Date.now())
@@ -32,11 +41,16 @@ export default function StudioTaskScreen() {
   useEffect(() => {
     let alive = true
     void (async () => {
-      const saved = await getKv<{ step?: number; done?: boolean[] }>(`studio:${id}`)
+      const saved = await getKv<{
+        step?: number
+        done?: boolean[]
+        details?: StudioDetails
+      }>(`studio:${id}`)
       if (!alive) return
       if (saved) {
         setStep(Math.min(3, Math.max(0, saved.step ?? 0)))
         if (Array.isArray(saved.done) && saved.done.length === 4) setDone(saved.done)
+        if (saved.details && typeof saved.details === 'object') setDetails(saved.details)
       } else {
         // Переносим старый прогресс из localStorage один раз.
         try {
@@ -68,11 +82,12 @@ export default function StudioTaskScreen() {
 
   useEffect(() => {
     if (!ready) return
-    void setKv(`studio:${id}`, { step, done })
-  }, [id, step, done, ready])
+    void setKv(`studio:${id}`, { step, done, details })
+  }, [id, step, done, details, ready])
 
-  const markDone = useCallback((index: number) => {
+  const markDone = useCallback((index: number, detail?: Partial<StudioDetails>) => {
     setDone((current) => current.map((value, itemIndex) => (itemIndex === index ? true : value)))
+    if (detail) setDetails((current) => ({ ...current, ...detail }))
   }, [])
 
   if (!task) {
@@ -93,7 +108,13 @@ export default function StudioTaskScreen() {
       window.scrollTo({ top: 0 })
       return
     }
-    await finishLesson(task.id, 1, 4)
+    const checked = [details.reading, details.listening].filter(
+      (item): item is StepScore => Boolean(item && item.total > 0),
+    )
+    const score = checked.length
+      ? checked.reduce((sum, item) => sum + item.correct / item.total, 0) / checked.length
+      : 0
+    await finishLesson(task.id, score, 4)
     await addStudyTime(Math.round((Date.now() - startedAt.current) / 1000))
     try {
       localStorage.removeItem(`studio:${id}`)
@@ -112,18 +133,61 @@ export default function StudioTaskScreen() {
   }
 
   if (finished) {
+    const checked = [details.reading, details.listening].filter(
+      (item): item is StepScore => Boolean(item && item.total > 0),
+    )
+    const score = checked.length
+      ? checked.reduce((sum, item) => sum + item.correct / item.total, 0) / checked.length
+      : 0
+    const readingOk = Boolean(
+      details.reading && details.reading.total > 0 && details.reading.correct / details.reading.total >= 0.6,
+    )
+    const listeningOk = Boolean(
+      details.listening &&
+        details.listening.total > 0 &&
+        details.listening.correct / details.listening.total >= 0.6,
+    )
+    const fullCycle = readingOk && listeningOk && details.writing === true && details.speaking === 'recorded'
     return (
       <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col px-5 pb-8 pt-10">
         <div className="flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">
           <Check size={28} strokeWidth={1.5} />
         </div>
-        <h1 className="mt-6 text-[32px] leading-tight">Студия пройдена</h1>
+        <h1 className="mt-6 text-[32px] leading-tight">Студия завершена</h1>
         <p className="mt-1 text-[17px] text-ink-2">{task.title}</p>
 
         <div className="mt-8 border-t border-line pt-5">
-          <p className="text-[15px] leading-relaxed text-ink-2">
-            Ты прошёл полный цикл: прочитал текст, разобрал разговор на слух, написал текст и
-            завершил устный шаг.
+          <p className="text-[13px] font-medium text-ink-3">Результат проверяемых шагов</p>
+          <p className="num mt-1 font-serif text-[36px] leading-none">
+            {checked.length > 0 ? `${Math.round(score * 100)}%` : '—'}
+          </p>
+          <ul className="mt-4 space-y-2 text-[15px] leading-snug text-ink-2">
+            <li>
+              Чтение:{' '}
+              {details.reading
+                ? `${details.reading.correct} из ${details.reading.total}`
+                : 'не проверено'}
+            </li>
+            <li>
+              Слушание:{' '}
+              {details.listening
+                ? `${details.listening.correct} из ${details.listening.total}`
+                : 'не проверено'}
+            </li>
+            <li>Письмо: {details.writing ? 'черновик сохранён' : 'не написано'}</li>
+            <li>
+              Речь:{' '}
+              {details.speaking === 'recorded'
+                ? 'записана'
+                : details.speaking === 'skipped'
+                  ? 'пропущена'
+                  : 'не записана'}
+            </li>
+          </ul>
+          <p className="mt-4 text-[15px] leading-relaxed text-ink-2">
+            {fullCycle
+              ? 'Полный цикл: чтение и слушание выше 60%, письмо сохранено, речь записана.'
+              : 'Попытка сохранена. Это не оценка языка: чтение, слушание и письмо проверены частично, речь — по чек-листу.'}
           </p>
           <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
             Черновик сохранён на этом устройстве. Вернись к нему через неделю и перепиши одну
@@ -170,10 +234,22 @@ export default function StudioTaskScreen() {
       </div>
 
       <main className="flex-1 px-5 pb-28 pt-4">
-        {step === 0 && <ReadingStep task={task} onDone={() => markDone(0)} />}
-        {step === 1 && <ListeningStep task={task} onDone={() => markDone(1)} />}
-        {step === 2 && <WritingStep task={task} onDone={() => markDone(2)} />}
-        {step === 3 && <SpeakingStep task={task} onDone={() => markDone(3)} />}
+        {step === 0 && (
+          <ReadingStep
+            task={task}
+            onDone={(score) => markDone(0, score ? { reading: score } : undefined)}
+          />
+        )}
+        {step === 1 && (
+          <ListeningStep
+            task={task}
+            onDone={(score) => markDone(1, score ? { listening: score } : undefined)}
+          />
+        )}
+        {step === 2 && <WritingStep task={task} onDone={() => markDone(2, { writing: true })} />}
+        {step === 3 && (
+          <SpeakingStep task={task} onDone={(status) => markDone(3, { speaking: status })} />
+        )}
       </main>
 
       <div

@@ -62,3 +62,60 @@ export function draftWithWords(minWords: number): string {
   }
   return text.trim()
 }
+
+/* ------------------------------ IndexedDB ------------------------------- */
+
+async function openAppDb(page: Page): Promise<void> {
+  await page.evaluate(async () => {
+    await new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open('english')
+      request.onsuccess = () => {
+        request.result.close()
+        resolve(request.result)
+      }
+      request.onerror = () => reject(request.error)
+    })
+  })
+}
+
+/** Положить запись в стор приложения (например, ошибку или прогресс). */
+export async function putRecord(page: Page, store: string, value: unknown): Promise<void> {
+  await openAppDb(page)
+  await page.evaluate(
+    async ({ storeName, record }) => {
+      const database = await new Promise<IDBDatabase>((resolve, reject) => {
+        const request = indexedDB.open('english')
+        request.onsuccess = () => resolve(request.result)
+        request.onerror = () => reject(request.error)
+      })
+      await new Promise<void>((resolve, reject) => {
+        const tx = database.transaction(storeName, 'readwrite')
+        tx.objectStore(storeName).put(record)
+        tx.oncomplete = () => resolve()
+        tx.onerror = () => reject(tx.error)
+      })
+    },
+    { storeName: store, record: value },
+  )
+}
+
+/** Прочитать запись из стора приложения по ключу. */
+export async function getRecord<T>(page: Page, store: string, key: string): Promise<T | undefined> {
+  await openAppDb(page)
+  return page.evaluate(
+    async ({ storeName, recordKey }) => {
+      const database = await new Promise<IDBDatabase>((resolve, reject) => {
+        const request = indexedDB.open('english')
+        request.onsuccess = () => resolve(request.result)
+        request.onerror = () => reject(request.error)
+      })
+      return new Promise<T | undefined>((resolve, reject) => {
+        const tx = database.transaction(storeName, 'readonly')
+        const request = tx.objectStore(storeName).get(recordKey)
+        request.onsuccess = () => resolve(request.result as T | undefined)
+        request.onerror = () => reject(request.error)
+      })
+    },
+    { storeName: store, recordKey: key },
+  )
+}

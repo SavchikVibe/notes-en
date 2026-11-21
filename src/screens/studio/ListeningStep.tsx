@@ -2,10 +2,11 @@ import { useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Play, Square } from 'lucide-react'
 import type { StudioTask } from '@/content/studio'
-import { normalizeAnswer } from '@/lib/text'
+import { answersMatch } from '@/lib/text'
 import { shuffleOptions } from '@/lib/options'
 import { speakSequence, speechSupported, stopSpeaking } from '@/lib/speech'
 import { Button } from '@/components/Button'
+import type { StepScore } from './ReadingStep'
 
 function optionClass(selected: boolean, correct: boolean, checked: boolean) {
   const base =
@@ -21,7 +22,7 @@ export function ListeningStep({
   onDone,
 }: {
   task: StudioTask
-  onDone: () => void
+  onDone: (score?: StepScore) => void
 }) {
   const [notes, setNotes] = useState<string[]>(() => task.listening.notes.map(() => ''))
   const [gist, setGist] = useState<Record<number, number>>({})
@@ -72,8 +73,18 @@ export function ListeningStep({
   }
 
   function check() {
+    const notesCorrect = task.listening.notes.filter((note, index) => {
+      const accepted = note.accept ?? [note.answer]
+      return accepted.some((item) => answersMatch(notes[index] ?? '', item))
+    }).length
+    const gistCorrect = task.listening.questions.filter(
+      (_, index) => gist[index] === prepared[index]?.answer,
+    ).length
     setChecked(true)
-    onDone()
+    onDone({
+      correct: notesCorrect + gistCorrect,
+      total: task.listening.notes.length + task.listening.questions.length,
+    })
   }
 
   return (
@@ -140,7 +151,7 @@ export function ListeningStep({
           {task.listening.notes.map((note, index) => {
             const accepted = note.accept ?? [note.answer]
             const correct = accepted.some(
-              (item) => normalizeAnswer(item) === normalizeAnswer(notes[index] ?? ''),
+              (item) => answersMatch(item, notes[index] ?? ''),
             )
             return (
               <div key={index} className="border-b border-line py-3">

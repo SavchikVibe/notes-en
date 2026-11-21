@@ -1,7 +1,7 @@
 import { units } from '../src/content/index.ts'
 import { readings } from '../src/content/readings.ts'
 import { studioTasks } from '../src/content/studio/index.ts'
-import { normalizeAnswer } from '../src/lib/text.ts'
+import { answersMatch } from '../src/lib/text.ts'
 import type { Exercise, ReadQuestion, Unit, Word } from '../src/content/types.ts'
 
 const errors: string[] = []
@@ -178,7 +178,7 @@ function checkExercise(unit: Unit, exercise: Exercise, seen: Set<string>) {
       if (
         exercise.sample.trim() &&
         !exercise.accept.some(
-          (item) => normalizeAnswer(item) === normalizeAnswer(exercise.sample),
+          (item) => answersMatch(item, exercise.sample),
         )
       ) {
         fail(`${path}: образец не входит в accept`)

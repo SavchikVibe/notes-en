@@ -3,12 +3,14 @@ import {
   addWordsToSrs,
   countDueErrors,
   exportBackup,
+  getKv,
   finishLesson,
   getDueCards,
   getDueErrors,
   getLessonProgress,
   getWriting,
   markWritingChecked,
+  importBackup,
   resetAll,
   reviewCard,
   reviewError,
@@ -16,6 +18,7 @@ import {
   saveError,
   saveResume,
   saveWriting,
+  setKv,
 } from '../src/db/db'
 
 let failures = 0
@@ -128,14 +131,36 @@ async function main() {
 
   /* --------------------------------- бэкап ---------------------------------- */
 
+  await setKv('studio:studio-a1-01', { step: 2, done: [true, true, false, false] })
+  await setKv('speaking-done', ['speak-a1-01'])
   const backup = await exportBackup()
+  check('бэкап версии 2', backup.version === 2)
   check('бэкап содержит прогресс', (backup.progress ?? []).length > 0)
   check('бэкап содержит ошибки', (backup.errors ?? []).length > 0)
   check('бэкап содержит портфолио', (backup.writings ?? []).length > 0)
+  check('бэкап содержит состояние экранов', (backup.kv ?? []).length > 0)
+  check(
+    'бэкап содержит шаг студии',
+    (backup.kv ?? []).some((entry) => entry.key === 'studio:studio-a1-01'),
+  )
 
   await resetAll()
   check('сброс очищает прогресс', (await getLessonProgress('a1-01')) === undefined)
   check('сброс очищает ошибки', (await countDueErrors()) === 0)
+  check('сброс очищает состояние экранов', (await getKv('studio:studio-a1-01')) === undefined)
+
+  await importBackup(backup)
+  check('импорт возвращает прогресс', (await getLessonProgress('a1-01')) !== undefined)
+  check('импорт возвращает шаг студии', (await getKv('studio:studio-a1-01')) !== undefined)
+  check(
+    'импорт возвращает историю речи',
+    Array.isArray(await getKv('speaking-done')),
+  )
+
+  // Бэкап версии 1 не знает про kv и не должен стирать текущее состояние.
+  await setKv('keep-me', 42)
+  await importBackup({ version: 1, settings: backup.settings, progress: [], days: [] })
+  check('старый бэкап не стирает kv', (await getKv('keep-me')) === 42)
 
   console.log(`Проверок БД не пройдено: ${failures}.`)
   if (failures > 0) process.exitCode = 1

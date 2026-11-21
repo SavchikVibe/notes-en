@@ -456,8 +456,13 @@ export async function saveSettings(settings: Settings): Promise<void> {
   await (await db()).put('kv', settings, 'settings')
 }
 
+export interface BackupKvEntry {
+  key: string
+  value: unknown
+}
+
 export interface Backup {
-  version: 1
+  version: 2
   exportedAt: string
   settings: Settings
   progress: LessonProgress[]
@@ -465,12 +470,20 @@ export interface Backup {
   srs?: SrsCard[]
   errors?: ErrorItem[]
   writings?: Writing[]
+  /** Состояние экранов: шаг Студии, история речи, результаты чтения, last-backup. */
+  kv?: BackupKvEntry[]
 }
 
 export async function exportBackup(): Promise<Backup> {
   const database = await db()
+  const kvKeys = await database.getAllKeys('kv')
+  const kv: BackupKvEntry[] = []
+  for (const key of kvKeys) {
+    const value = await database.get('kv', key)
+    if (value !== undefined) kv.push({ key: String(key), value })
+  }
   return {
-    version: 1,
+    version: 2,
     exportedAt: new Date().toISOString(),
     settings: await getSettings(),
     progress: await database.getAll('progress'),
@@ -478,13 +491,16 @@ export async function exportBackup(): Promise<Backup> {
     srs: await database.getAll('srs'),
     errors: await database.getAll('errors'),
     writings: await database.getAll('writings'),
+    kv,
   }
 }
 
 export async function importBackup(data: unknown): Promise<void> {
   if (!data || typeof data !== 'object') throw new Error('Файл не похож на бэкап')
-  const backup = data as Partial<Backup>
-  if (backup.version !== 1) throw new Error('Неизвестная версия бэкапа')
+  const backup = data as Partial<Omit<Backup, 'version'>> & { version?: number }
+  if (backup.version !== 1 && backup.version !== 2) {
+    throw new Error('Неизвестная версия бэкапа')
+  }
   const database = await db()
   const tx = database.transaction(['progress', 'days', 'kv', 'srs', 'errors', 'writings'], 'readwrite')
   await tx.objectStore('progress').clear()
@@ -503,6 +519,14 @@ export async function importBackup(data: unknown): Promise<void> {
   if (Array.isArray(backup.writings)) {
     await tx.objectStore('writings').clear()
     for (const item of backup.writings) await tx.objectStore('writings').put(item)
+  }
+  // Версия 2 хранит состояние экранов. Версия 1 его не знает: не стираем текущее.
+  if (Array.isArray(backup.kv)) {
+    await tx.objectStore('kv').clear()
+    for (const entry of backup.kv) {
+      if (!entry || typeof entry.key !== 'string') continue
+      await tx.objectStore('kv').put(entry.value, entry.key)
+    }
   }
   if (backup.settings) await tx.objectStore('kv').put(backup.settings, 'settings')
   await tx.done

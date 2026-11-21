@@ -1,7 +1,7 @@
 import { allWords, units } from '../src/content'
 import { buildCloze } from '../src/lib/srs'
 import { shuffle, shuffleOptions } from '../src/lib/options'
-import { matchesAny, normalizeAnswer } from '../src/lib/text'
+import { answersMatch, matchesAny, normalizeAnswer } from '../src/lib/text'
 import { buildSession, targetMinutes } from '../src/lib/session'
 import { defaultSettings } from '../src/db/db'
 
@@ -28,6 +28,24 @@ equal('десятичная точка сохраняется', normalizeAnswer(
 check('принимает сокращение', matchesAny("I'm from Russia.", ['I am from Russia.']))
 check('принимает полную форму', matchesAny('I am from Russia.', ["I'm from Russia."]))
 check('не принимает другой смысл', !matchesAny("I don't like it", ['I like it.']))
+check(
+  "she's been = she has been",
+  answersMatch("She's been busy lately.", 'She has been busy lately.'),
+)
+check("she's ready = she is ready", answersMatch("She's ready.", 'She is ready.'))
+check("he'd gone = he had gone", answersMatch("He'd gone home.", 'He had gone home.'))
+check(
+  'двойные кавычки не мешают',
+  answersMatch('“Conduct” collocates with “research.”', 'Conduct collocates with research.'),
+)
+check(
+  'одинарные кавычки не мешают',
+  answersMatch("'Conduct' collocates with 'research.'", 'Conduct collocates with research.'),
+)
+check(
+  "she's been не равно she is",
+  !answersMatch("She's been busy.", 'She is busy.'),
+)
 
 /* --------------------------------- варианты -------------------------------- */
 

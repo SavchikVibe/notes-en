@@ -55,7 +55,10 @@ test('studio flow: reading, listening, writing, speaking skip', async ({ page })
   await expect(page.getByText('Шаг 4 · Речь')).toBeVisible()
   await page.getByRole('button', { name: 'Пропустить речь' }).click()
   await page.getByRole('button', { name: 'Завершить студию' }).click()
-  await expect(page.getByText('Студия пройдена')).toBeVisible()
+  await expect(page.getByText('Студия завершена')).toBeVisible()
+  await expect(page.getByText('Чтение: 5 из 5')).toBeVisible()
+  await expect(page.getByText('Речь: пропущена')).toBeVisible()
+  await expect(page.getByText('Попытка сохранена')).toBeVisible()
 
   // Черновик попал в портфолио и выгружается текстом.
   await page.goto('/#/portfolio')

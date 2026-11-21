@@ -50,8 +50,8 @@ export default function ErrorsScreen() {
       const firstAttempt = !requeued.current.has(current.exercise.id)
       setLastCorrect(correct)
       setPhase('feedback')
-      void reviewError(current.exercise.id, correct)
       if (firstAttempt) {
+        void reviewError(current.exercise.id, correct)
         if (correct) correctCount.current += 1
         else wrongCount.current += 1
       }

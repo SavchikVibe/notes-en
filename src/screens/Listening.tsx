@@ -5,7 +5,7 @@ import { units, type Level } from '@/content'
 import { readings, type Reading } from '@/content/readings'
 import { readingAudio } from '@/content/reading-audio'
 import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
-import { normalizeAnswer } from '@/lib/text'
+import { answersMatch } from '@/lib/text'
 import { shuffleOptions } from '@/lib/options'
 import { speak, stopSpeaking } from '@/lib/speech'
 import { AppBar } from '@/components/AppBar'
@@ -49,6 +49,7 @@ export default function ListeningScreen() {
   const [dictationChecked, setDictationChecked] = useState(false)
   const [dictationCorrect, setDictationCorrect] = useState(0)
   const [finished, setFinished] = useState(false)
+  const [failed, setFailed] = useState<{ correct: number; total: number } | null>(null)
   const startedAt = useRef(Date.now())
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [audioFailed, setAudioFailed] = useState(false)
@@ -86,6 +87,7 @@ export default function ListeningScreen() {
     setDictationChecked(false)
     setDictationCorrect(0)
     setFinished(false)
+    setFailed(null)
     setAudioFailed(false)
   }, [level])
 
@@ -134,20 +136,26 @@ export default function ListeningScreen() {
     return () => controller.abort()
   }, [audioSrc])
 
+  const gistQuestions = useMemo(
+    () => (current ? current.questions.filter((question) => question.type !== 'heading') : []),
+    [current],
+  )
   const preparedQuestions = useMemo(
     () =>
       current
-        ? current.questions.map((question, questionIndex) =>
-            shuffleOptions(question.options, question.answer, `${current.id}-q${questionIndex}`),
+        ? gistQuestions.map((question, questionIndex) =>
+            question.type === 'tfng'
+              ? { options: question.options, answer: question.answer }
+              : shuffleOptions(question.options, question.answer, `${current.id}-q${questionIndex}`),
           )
         : [],
-    [current],
+    [current, gistQuestions],
   )
   const sentences = current ? sentencesOf(current) : []
   const sentence = sentences[dictationIndex]
   const fullText =
     current?.paragraphs.map((paragraph) => paragraph.replace(/^[A-Z][a-z]+:\s*/, '')).join(' ') ?? ''
-  const allAnswered = current ? current.questions.every((_, i) => answers[i] !== undefined) : false
+  const allAnswered = gistQuestions.every((_, i) => answers[i] !== undefined)
 
   function playFull(multiplier = 1) {
     if (useAudio && audioRef.current) {
@@ -171,7 +179,7 @@ export default function ListeningScreen() {
 
   function checkGist() {
     if (!current) return
-    const correct = current.questions.filter(
+    const correct = gistQuestions.filter(
       (_, i) => answers[i] === preparedQuestions[i]?.answer,
     ).length
     setGistCorrect(correct)
@@ -180,7 +188,7 @@ export default function ListeningScreen() {
 
   function checkDictation() {
     if (!sentence) return
-    const ok = normalizeAnswer(dictation) === normalizeAnswer(sentence)
+    const ok = answersMatch(dictation, sentence)
     if (ok) setDictationCorrect((value) => value + 1)
     setDictationChecked(true)
   }
@@ -206,19 +214,7 @@ export default function ListeningScreen() {
     setStep('shadow')
   }
 
-  async function finish() {
-    if (!current || !queue) return
-    flushTime()
-    const total = current.questions.length + sentences.length
-    const correct = gistCorrect + dictationCorrect
-    await finishLesson(`listening-${current.id}`, total > 0 ? correct / total : 0, total)
-
-    if (index + 1 >= queue.length) {
-      setFinished(true)
-      return
-    }
-
-    setIndex((value) => value + 1)
+  function resetCurrent() {
     setStep('gist')
     setAnswers({})
     setGistChecked(false)
@@ -228,6 +224,39 @@ export default function ListeningScreen() {
     setDictationChecked(false)
     setDictationCorrect(0)
     startedAt.current = Date.now()
+  }
+
+  function advance() {
+    if (!queue) return
+    if (index + 1 >= queue.length) {
+      setFinished(true)
+      return
+    }
+    setIndex((value) => value + 1)
+    resetCurrent()
+  }
+
+  async function finish() {
+    if (!current || !queue) return
+    flushTime()
+    const total = gistQuestions.length + sentences.length
+    const correct = gistCorrect + dictationCorrect
+    if (total > 0 && correct / total >= 0.6) {
+      await finishLesson(`listening-${current.id}`, correct / total, total)
+      advance()
+      return
+    }
+    setFailed({ correct, total })
+  }
+
+  function retryCurrent() {
+    setFailed(null)
+    resetCurrent()
+  }
+
+  function skipFailed() {
+    setFailed(null)
+    advance()
   }
 
   if (!queue) {
@@ -261,6 +290,29 @@ export default function ListeningScreen() {
           <Button className="mt-8 w-full" onClick={() => navigate('/')}>
             К занятиям
           </Button>
+        </main>
+      </>
+    )
+  }
+
+  if (failed) {
+    return (
+      <>
+        <AppBar title="Слушание" onBack={() => navigate('/')} />
+        <main className="px-5 pb-8 pt-8">
+          <h1 className="text-[30px] leading-tight">Пока не засчитано</h1>
+          <p className="mt-2 text-[15px] leading-snug text-ink-2">
+            Верно {failed.correct} из {failed.total}. Нужно хотя бы 60%, чтобы текст считался
+            разобранным. Он останется в библиотеке и вернётся позже.
+          </p>
+          <div className="mt-8 space-y-2.5">
+            <Button className="w-full" onClick={retryCurrent}>
+              Пройти заново
+            </Button>
+            <Button variant="secondary" className="w-full" onClick={skipFailed}>
+              Следующий текст
+            </Button>
+          </div>
         </main>
       </>
     )
@@ -325,7 +377,7 @@ export default function ListeningScreen() {
             </p>
 
             <div className="mt-6 space-y-6">
-              {current.questions.map((question, questionIndex) => {
+              {gistQuestions.map((question, questionIndex) => {
                 const prepared = preparedQuestions[questionIndex]
                 if (!prepared) return null
                 return (
@@ -363,17 +415,17 @@ export default function ListeningScreen() {
             {gistChecked && (
               <div
                 className={`mt-6 rounded-[10px] border-l-2 p-4 ${
-                  gistCorrect === current.questions.length
+                  gistCorrect === gistQuestions.length
                     ? 'border-accent bg-accent-soft'
                     : 'border-err bg-err-soft'
                 }`}
               >
                 <p
                   className={`text-[13px] font-medium ${
-                    gistCorrect === current.questions.length ? 'text-accent' : 'text-err'
+                    gistCorrect === gistQuestions.length ? 'text-accent' : 'text-err'
                   }`}
                 >
-                  Верно: {gistCorrect} из {current.questions.length}
+                  Верно: {gistCorrect} из {gistQuestions.length}
                 </p>
                 <div className="mt-3 space-y-2">
                   {current.paragraphs.map((paragraph, paragraphIndex) => (
@@ -427,19 +479,19 @@ export default function ListeningScreen() {
             {dictationChecked && sentence && (
               <div
                 className={`mt-4 rounded-[10px] border-l-2 p-4 ${
-                  normalizeAnswer(dictation) === normalizeAnswer(sentence)
+                  answersMatch(dictation, sentence)
                     ? 'border-accent bg-accent-soft'
                     : 'border-err bg-err-soft'
                 }`}
               >
                 <p
                   className={`text-[13px] font-medium ${
-                    normalizeAnswer(dictation) === normalizeAnswer(sentence)
+                    answersMatch(dictation, sentence)
                       ? 'text-accent'
                       : 'text-err'
                   }`}
                 >
-                  {normalizeAnswer(dictation) === normalizeAnswer(sentence) ? 'Верно' : 'Неверно'}
+                  {answersMatch(dictation, sentence) ? 'Верно' : 'Неверно'}
                 </p>
                 <div className="mt-1 flex items-start gap-1">
                   <SpeakButton text={sentence} size={14} compact />

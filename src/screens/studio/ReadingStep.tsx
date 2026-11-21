@@ -4,14 +4,20 @@ import type { StudioTask } from '@/content/studio'
 import { Button } from '@/components/Button'
 import { ReadView, type ExerciseViewHandle } from '@/screens/lesson/exercises'
 
+export interface StepScore {
+  correct: number
+  total: number
+}
+
 export function ReadingStep({
   task,
   onDone,
 }: {
   task: StudioTask
-  onDone: () => void
+  onDone: (score?: StepScore) => void
 }) {
   const ref = useRef<ExerciseViewHandle | null>(null)
+  const scoreRef = useRef<StepScore | null>(null)
   const [checked, setChecked] = useState(false)
   const [canCheck, setCanCheck] = useState(false)
 
@@ -39,9 +45,12 @@ export function ReadingStep({
           locked={checked}
           onResult={() => {
             setChecked(true)
-            onDone()
+            onDone(scoreRef.current ?? undefined)
           }}
           onCanCheck={setCanCheck}
+          onScore={(correct, total) => {
+            scoreRef.current = { correct, total }
+          }}
         />
       </div>
 

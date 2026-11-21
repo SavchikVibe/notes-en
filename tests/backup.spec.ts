@@ -28,11 +28,12 @@ test('backup round-trip: export, reset, import', async ({ page }, testInfo) => {
     progress: unknown[]
     writings: unknown[]
   }
-  expect(data.version).toBe(1)
+  expect(data.version).toBe(2)
   expect(typeof data.exportedAt).toBe('string')
   expect(data.settings.minutes['1']).toBe(45)
   expect(Array.isArray(data.progress)).toBe(true)
   expect(Array.isArray(data.writings)).toBe(true)
+  expect(Array.isArray(data.kv)).toBe(true)
 
   page.on('dialog', (dialog) => void dialog.accept())
 

@@ -29,10 +29,11 @@ export default function LessonScreen() {
   const [phase, setPhase] = useState<'answer' | 'feedback' | 'skipped'>('answer')
   const [canCheck, setCanCheck] = useState(false)
   const [answers, setAnswers] = useState<Record<string, boolean>>({})
+  const [firstAnswers, setFirstAnswers] = useState<Record<string, boolean>>({})
   const [skipped, setSkipped] = useState<Record<string, boolean>>({})
-  const [mistakes, setMistakes] = useState(0)
   const [lastCorrect, setLastCorrect] = useState(false)
   const [result, setResult] = useState<Result | null>(null)
+  const [resumeComplete, setResumeComplete] = useState(false)
   const [formulasOpen, setFormulasOpen] = useState(true)
   const viewRef = useRef<ExerciseViewHandle | null>(null)
   const requeued = useRef(new Set<number>())
@@ -77,23 +78,29 @@ export default function LessonScreen() {
         const savedFirst = progress.firstAnswers ?? savedAnswers
         const savedSkipped = progress.skipped ?? {}
         setAnswers(savedAnswers)
+        setFirstAnswers(savedFirst)
         setSkipped(savedSkipped)
-        setMistakes(Object.values(savedFirst).filter((value) => value === false).length)
 
         if (progress.status === 'in_progress') {
           const answered = new Set(Object.keys(savedAnswers))
-          const wrongIndices = core
-            .map((exercise, index) => (savedAnswers[exercise.id] === false ? index : -1))
+          const pending = core
+            .map((exercise, index) =>
+              !answered.has(exercise.id) && !savedSkipped[exercise.id] ? index : -1,
+            )
+            .filter((index) => index >= 0)
+          const repeats = core
+            .map((exercise, index) =>
+              savedAnswers[exercise.id] === false && !savedSkipped[exercise.id] ? index : -1,
+            )
             .filter((index) => index >= 0)
 
-          if (wrongIndices.length > 0) {
-            requeued.current = new Set(wrongIndices)
-            setQueue([...core.map((_, index) => index), ...wrongIndices])
+          if (pending.length === 0 && repeats.length === 0) {
+            setResumeComplete(true)
+          } else {
+            requeued.current = new Set(repeats)
+            setQueue([...pending, ...repeats])
+            setPosition(0)
           }
-
-          const firstUnanswered = core.findIndex((exercise) => !answered.has(exercise.id))
-          if (firstUnanswered !== -1) setPosition(firstUnanswered)
-          else if (wrongIndices.length > 0) setPosition(core.length)
         }
       }
       setReady(true)
@@ -114,6 +121,9 @@ export default function LessonScreen() {
       const firstAttempt = answers[exercise.id] === undefined && skipped[exercise.id] !== true
 
       setAnswers((currentAnswers) => ({ ...currentAnswers, [exercise.id]: correct }))
+      if (firstAttempt) {
+        setFirstAnswers((currentAnswers) => ({ ...currentAnswers, [exercise.id]: correct }))
+      }
       void saveAnswer(
         unit.id,
         exercise.id,
@@ -123,7 +133,6 @@ export default function LessonScreen() {
       )
 
       if (firstAttempt && !correct) {
-        setMistakes((value) => value + 1)
         if (isReviewable(exercise)) void saveError(unit.id, exercise.id)
         if (!requeued.current.has(exerciseIndex)) {
           requeued.current.add(exerciseIndex)
@@ -145,20 +154,34 @@ export default function LessonScreen() {
     void saveSkip(unit.id, exercise.id, Math.min(exerciseIndex + 1, core.length - 1))
   }, [unit, core, exerciseIndex])
 
+  async function completeLesson() {
+    if (!unit) return
+    const skippedIds = Object.keys(skipped)
+    const denominator = Math.max(0, total - skippedIds.length)
+    const firstMistakes = Object.entries(firstAnswers).filter(
+      ([exerciseId, ok]) => ok === false && !skipped[exerciseId],
+    ).length
+    const correct = Object.entries(firstAnswers).filter(
+      ([exerciseId, ok]) => ok && !skipped[exerciseId],
+    ).length
+    const score = denominator > 0 ? correct / denominator : 0
+    flushTime()
+    activeSince.current = null
+    await finishLesson(unit.id, score, denominator)
+    await addWordsToSrs(unit.words.map((word) => word.id))
+    setResult({
+      correct,
+      total: denominator,
+      score,
+      mistakes: firstMistakes,
+      skipped: skippedIds.length,
+    })
+  }
+
   async function handleNext() {
     if (!unit) return
     if (position >= queue.length - 1) {
-      const skippedIds = Object.keys(skipped)
-      const denominator = Math.max(0, total - skippedIds.length)
-      const correct = Object.entries(answers).filter(
-        ([exerciseId, ok]) => ok && !skipped[exerciseId],
-      ).length
-      const score = denominator > 0 ? correct / denominator : 0
-      flushTime()
-      activeSince.current = null
-      await finishLesson(unit.id, score, denominator)
-      await addWordsToSrs(unit.words.map((word) => word.id))
-      setResult({ correct, total: denominator, score, mistakes, skipped: skippedIds.length })
+      await completeLesson()
       return
     }
     setPosition((value) => value + 1)
@@ -169,11 +192,12 @@ export default function LessonScreen() {
 
   function restart() {
     setResult(null)
+    setResumeComplete(false)
     setPosition(0)
     setQueue(core.map((_, index) => index))
     setAnswers({})
+    setFirstAnswers({})
     setSkipped({})
-    setMistakes(0)
     setPhase('answer')
     setCanCheck(false)
     setFormulasOpen(true)
@@ -198,6 +222,28 @@ export default function LessonScreen() {
     return (
       <div className="mx-auto flex min-h-dvh w-full max-w-[560px] items-center justify-center px-5">
         <p className="text-[15px] text-ink-3">Загрузка…</p>
+      </div>
+    )
+  }
+
+  if (resumeComplete && !result) {
+    return (
+      <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col px-5 pb-8 pt-10">
+        <div className="flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">
+          <Check size={28} strokeWidth={1.5} />
+        </div>
+        <h1 className="mt-6 text-[30px] leading-tight">Все упражнения отвечены</h1>
+        <p className="mt-2 text-[15px] leading-snug text-ink-2">
+          Эта попытка уже пройдена. Можно завершить урок и увидеть итог или начать заново.
+        </p>
+        <div className="mt-auto space-y-2.5 pt-8">
+          <Button className="w-full" onClick={() => void completeLesson()}>
+            Завершить урок
+          </Button>
+          <Button variant="secondary" className="w-full" onClick={restart}>
+            Начать заново
+          </Button>
+        </div>
       </div>
     )
   }

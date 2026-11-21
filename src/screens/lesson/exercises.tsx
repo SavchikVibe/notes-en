@@ -430,14 +430,14 @@ export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
     useImperativeHandle(
       ref,
       () => ({
-        check: () => onResult(true),
+        check: () => onResult(audioUrl !== null),
       }),
-      [onResult],
+      [audioUrl, onResult],
     )
 
     useEffect(() => {
-      onCanCheck(audioUrl !== null || error !== null)
-    }, [audioUrl, error, onCanCheck])
+      onCanCheck(audioUrl !== null)
+    }, [audioUrl, onCanCheck])
 
     useEffect(() => {
       return () => {

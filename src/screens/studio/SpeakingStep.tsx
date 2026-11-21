@@ -10,7 +10,7 @@ export function SpeakingStep({
   onDone,
 }: {
   task: StudioTask
-  onDone: () => void
+  onDone: (status: 'recorded' | 'skipped') => void
 }) {
   const [phase, setPhase] = useState<Phase>('idle')
   const [secondsLeft, setSecondsLeft] = useState(0)
@@ -32,7 +32,7 @@ export function SpeakingStep({
   useEffect(() => {
     if (done && !doneCalled.current) {
       doneCalled.current = true
-      onDone()
+      onDone(audioUrl !== null ? 'recorded' : 'skipped')
     }
   }, [done, onDone])
 
@@ -107,7 +107,7 @@ export function SpeakingStep({
   function skip() {
     setSkipped(true)
     doneCalled.current = true
-    onDone()
+    onDone('skipped')
   }
 
   return (

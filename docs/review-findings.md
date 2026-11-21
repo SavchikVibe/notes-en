@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-21, version 0.97.0.
+Last updated: 2026-11-21, version 0.98.0.
 
 ## 1. What was reviewed
 
@@ -43,7 +43,7 @@ Confirmed content defects:
 - Ambiguous items (`a2-23-ex-02`, `b2-17-ex-04`), impossible distractors (`c1-14-ex-02`), the wrong `Not only` explanation, mechanical `withDistractors`/`buildWorkshop`, A1/A2 grammar inside B2 (`b2-49-ex-01`, `b2-17-ex-02`), and formula `note` duplicated in `choice`.
 - Library evidence quotes are incomplete in `reading-31`, `reading-40` and `reading-50`.
 
-Decision: fix P0 before any new content or the IELTS block; the IELTS block stays on hold. P1 content pass after P0. P2 (level gates, micro-production, 1–2 new units per day) is a design decision, not a bug fix.
+Decision: fix P0 before any new content or the IELTS block; the IELTS block stays on hold. P0 shipped in 0.98.0. P1 content pass next. P2 (level gates, micro-production, 1-2 new units per day) is a design decision, not a bug fix. The working route with checkboxes is `docs/review-2/ROADMAP.md`.
 
 ## 2. Verified facts from the audit
 
@@ -127,10 +127,10 @@ These are still the backbone of the roadmap.
 - **Storage.** Precache is about 17 MB: app shell plus Studio audio. Library audio (54 MP3) is excluded from precache and cached on demand in the `library-audio` Cache Storage bucket when a text is opened. Studio audio stays fully offline from the first launch.
 - **Validation semantics (0.59.0).** In-unit readings are short by design: the minimum is A1 40 / A2 55 / B1 70 / B2 60 words, and long reading lives in the library. The duplicate check only compares sentences across exercises, because reusing a word example as an exercise is intended scaffolding. The «all choice answers are A» check was removed: options are shuffled at runtime. Library length targets live in `npm run check:readings`.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
-- **Next phase (0.97.0).** All non-IELTS work is done: content revision, error bank, speaking block, reading library, portfolio, C1 hybrid, tests. Only the IELTS exam block remains, and it is on hold until the user settles the format questions (timed sections, Writing/Speaking scope, self-assessment without an automatic band).
+- **Next phase (0.98.0).** P0 trust fixes are shipped. Next is the P1 content pass: Studio model data, ambiguous items, `accept` lists, distractors/workshop, B2 grammar. The IELTS exam block remains on hold until the user settles the format questions (timed sections, Writing/Speaking scope, self-assessment without an automatic band).
 - **No code splitting (0.97.0).** The single JS bundle is 2.6 MB raw / 683 KB gzip. Measured on the built app with 4× CPU throttling: FCP 0.89 s, Today visible in 1.15 s. The bulk is course content, and Today needs all units to build the session, so route-level splitting would barely help. Revisit only if startup becomes slow on the phone.
 
-## 8. Current state (0.97.0)
+## 8. Current state (0.98.0)
 
 - 234 units: A1 40, A2 50, B1 60, B2 60, C1 24 (all C1 units written).
 - 1,792 words, 3,750 exercises: 12-14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -176,14 +176,14 @@ These are still the backbone of the roadmap.
 - Writing portfolio: drafts live in the IndexedDB `writings` store (DB version 4), with the first checked version and the current text; screen `/portfolio`, linked from Progress. Old localStorage drafts migrate on first open. Backup includes writings and does not erase them when an older backup lacks that section. A revision prompt appears after checking, and the detail view marks whether edits exist. Each work can be downloaded as a `.txt` file with the prompt, date and current text.
 - Backup reminder: Today shows a row after 10 finished lessons when the last export is missing or older than 14 days; exporting stamps `last-backup` in `kv`.
 - `npm run check` runs content validation, reading checks and logic checks (normalization, shuffle determinism, cloze, session building).
-- `npm run test:e2e` runs four Playwright flows in dev: the full A1-01 lesson (every core exercise answered, checked, advanced, result screen), the full studio A1-01 flow (reading, listening with notes, writing, speaking skip, portfolio export), the first A1 library text (all answers, «Засчитано», next text), and a backup round-trip (download JSON, reset, import, settings restored). A Pixel 7 project repeats the lesson and studio flows and checks the viewport: no horizontal scrolling, sticky button on screen, 44 px tap targets.
+- `npm run test:e2e` runs 12 Playwright flows in dev: the full A1-01 lesson (every core exercise answered), the first-attempt scoring case (wrong then correct repeat is not 100%), resume after a skipped exercise, the full studio A1-01 flow (reading, listening with notes, writing, speaking skip, portfolio export), the first A1 library text, a listening text that fails the 60% threshold, an error-bank retry that keeps the next-day schedule, and a backup round-trip (download JSON, reset, import, settings restored). A Pixel 7 project repeats the lesson (including first-attempt scoring) and studio flows and checks the viewport: no horizontal scrolling, sticky button on screen, 44 px tap targets.
 - `npm run test:e2e:offline` builds the app, serves `dist` on port 4174 and checks in Chromium on desktop and Pixel 7 that the service worker controls the page, Today and a lesson open with the network off, and «Проверить обновление» returns to a working Settings screen. A real version swap is not simulated — that is verified on deploy.
 - Translation matching expands common contractions, so «I'm» and «I am» are both accepted.
 - Reading and Listening have a level filter with unread counts and default to the learner’s current level.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.97.0.
+- Version 0.98.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
@@ -199,7 +199,7 @@ Priority order unless the user changes it:
 5. **American English audit.** Done for what the validator can see: US spelling (`dialog`), GA IPA false positives fixed. Re-check when new content is added.
 6. **Writing portfolio.** Done: IndexedDB `writings` store, first checked version and current text, `/portfolio` screen linked from Progress, backup support, a revision prompt after checking, an «есть правки» marker, and a «Скачать текст» button that saves one work as `.txt`.
 7. **C1 hybrid.** Complete: 24 short units + 8 project tasks (essay, report, debate, review). Review edits applied: US pragmatics and institutions (C1-23), logical fallacies (C1-18), spoken idiomaticity and connected speech (C1-19, C1-20), college composition and capstone (C1-24, studio-c1-06).
-8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. `npm run test:e2e` covers lesson, studio, library and backup flows on desktop and a phone viewport; `npm run test:e2e:offline` covers the built PWA offline on desktop and mobile. Still open: none planned.
+8. **Tests.** `npm run check:logic` covers normalization (contractions, quotes), shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup version 2 with `kv` and restore. `npm run test:e2e` covers lesson, first-attempt scoring, resume, studio, library, listening threshold, error retry and backup flows on desktop and a phone viewport; `npm run test:e2e:offline` covers the built PWA offline on desktop and mobile. Still open: none planned.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
 11. **Naturalness pass.** Done for all 210 A1–B2 units, the 54 library texts and the C1 units; audio is in sync (`program` in c1-06 fixed and regenerated).
