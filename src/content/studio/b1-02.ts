@@ -143,7 +143,7 @@ export const b1Studio02: StudioTask = {
       'Использованы past simple и present perfect.',
     ],
     modelAnswer:
-      'Hi Anna,\n\nI have just finished my first week at the new job, and I am tired but happy. On Monday, I met my team and learned about our projects. The office is on the fifth floor, and the people are friendly.\n\nThe most difficult part was the software. On Tuesday, I made a mistake in a report. I told my manager immediately, and he was very kind. He said it is better to ask than to hide a problem.\n\nBy Friday, I had learned the main program and joined two meetings. Next week, I am going to lead a short meeting. I am nervous, but I have prepared three questions.\n\nHow are you? Write soon!\n\nMaya',
+      'Hi Anna,\n\nI have just finished my first week at the new job, and I am tired but happy. On Monday, I met my team and learned about our projects. The office is on the fifth floor, and the people are friendly.\n\nThe most difficult part was the software. On Tuesday, I made a mistake in a report. I told my manager immediately, and he was very kind. He said it is better to ask than to hide a problem.\n\nBy Friday, I had learned the main program and joined two meetings. Next week, I am going to lead a short meeting. I am nervous, but I have prepared three questions.\n\nHow are you? Write soon! Wish me luck.\n\nMaya',
     usefulLanguage: ['I have just finished...', 'The most difficult part was...', 'By Friday, I had...', 'I am going to...'],
   },
   speaking: {

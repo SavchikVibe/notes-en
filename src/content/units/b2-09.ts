@@ -199,7 +199,7 @@ export const b209: Unit = {
       kind: 'translate',
       id: 'b2-09-ex-09',
       source: 'Киберпреступность растёт.',
-      accept: ['Cybercrime is increasing.'],
+      accept: ['Cybercrime is increasing.', 'Cybercrime is rising.', 'Cybercrime is growing.'],
       sample: 'Cybercrime is increasing.',
       explanation: 'Cybercrime — киберпреступность.',
     },

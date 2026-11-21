@@ -131,7 +131,7 @@ export const a1Studio04: StudioTask = {
       'Названо время возвращения.',
     ],
     modelAnswer:
-      'Hi Sam,\n\nNext weekend, I am going to visit my grandparents. They live in a small town near the mountains. On Saturday, I am going to work in the garden and walk to the lake. On Sunday, my parents are going to come for lunch. I am going to go home on Sunday evening.\n\nSee you on Monday,\nAlex',
+      'Hi Sam,\n\nNext weekend, I am going to visit my grandparents. They live in a small town near the mountains. On Saturday, I am going to work in the garden and walk to the lake. On Sunday, my parents are going to come for lunch. I am going to go home on Sunday evening. I am excited.\n\nSee you on Monday,\nAlex',
     usefulLanguage: ['I am going to...', 'On Saturday, I...', 'I am going to come home...', 'See you'],
   },
   speaking: {

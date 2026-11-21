@@ -131,7 +131,7 @@ export const a2Studio02: StudioTask = {
       'Сказано, что посоветовал врач.',
     ],
     modelAnswer:
-      'Hi Max,\n\nI am sorry, but I cannot come to school today. I have a bad cold. I have a headache, a sore throat, and a cough. I also have a temperature. I went to the doctor this morning. She said I should stay home for two days, drink a lot of water, and rest. I should not play football this week. I hope to see you on Thursday.\n\nGet well soon,\nLeo',
+      'Hi Max,\n\nI am sorry, but I cannot come to school today. I have a bad cold. I have a headache, a sore throat, and a cough. I also have a temperature. I went to the doctor this morning. She said I should stay home for two days, drink a lot of water, and rest. I should not play football this week. I hope to see you on Thursday. Thank you for your help. See you soon.\n\nGet well soon,\nLeo',
     usefulLanguage: ['I have a...', 'I feel...', 'The doctor said...', 'I hope to see you'],
   },
   speaking: {

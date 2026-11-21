@@ -1221,7 +1221,8 @@ export const readings: Reading[] = [
         question: 'What role did Leo get?',
         options: ['The father', 'The mother', 'A small part'],
         answer: 0,
-        evidence: 'I want you to take the main role.',
+        evidence:
+          'But when he read for the role of the father, the director, Ms. Chen, said, “You have a natural sense of timing. I want you to take the main role.”',
       },
       {
         question: 'What happened on stage?',
@@ -1790,7 +1791,8 @@ export const readings: Reading[] = [
           'A town built around one factory',
         ],
         answer: 0,
-        evidence: 'Local newspapers in the United States called these places “Zoom towns”.',
+        evidence:
+          'When employees could work from anywhere, some moved to smaller towns, mountain villages, and coastal areas. Local newspapers in the United States called these places “Zoom towns”.',
       },
       {
         question: 'All workers were able to move to smaller towns.',
@@ -2552,7 +2554,8 @@ export const readings: Reading[] = [
         options: ['Gaming the waiting-time target', 'The cobra effect', 'Quarterly earnings'],
         answer: 0,
         type: 'heading',
-        evidence: 'Health care offers a similar lesson.',
+        evidence:
+          'Waiting-time targets reduced long waits in several countries, and patients benefited. But hospitals also learned to game the measure: patients were kept in ambulances or in temporary beds so that the official clock had not started.',
       },
       {
         question: 'Value-added models are statistically stable from year to year.',

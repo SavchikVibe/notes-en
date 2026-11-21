@@ -199,7 +199,11 @@ export const b227: Unit = {
       kind: 'translate',
       id: 'b2-27-ex-09',
       source: 'Терпимость необходима в разнообразном обществе.',
-      accept: ['Tolerance is essential in a diverse society.'],
+      accept: [
+        'Tolerance is essential in a diverse society.',
+        'Tolerance is necessary in a diverse society.',
+        'Tolerance is vital in a diverse society.',
+      ],
       sample: 'Tolerance is essential in a diverse society.',
       explanation: 'Tolerance — терпимость.',
     },

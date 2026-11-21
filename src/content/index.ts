@@ -245,15 +245,20 @@ function sentenceKey(text: string): string {
 function buildWorkshop(unit: Unit, used: Set<string>): Exercise[] {
   const seen = new Set<string>()
   const picks: Word['examples'] = []
-  for (const word of unit.words) {
-    for (const example of word.examples) {
-      if (picks.length >= 3) break
+  // Сначала берём по одному примеру от разных слов, потом второй круг.
+  for (let round = 0; picks.length < 3; round += 1) {
+    let added = false
+    for (const word of unit.words) {
+      const example = word.examples[round]
+      if (!example) continue
       const key = sentenceKey(example.en)
       if (used.has(key) || seen.has(key)) continue
       seen.add(key)
       picks.push(example)
+      added = true
+      if (picks.length >= 3) break
     }
-    if (picks.length >= 3) break
+    if (!added) break
   }
 
   const workshop: Exercise[] = []
@@ -307,6 +312,24 @@ function pickDictation(unit: Unit, used: Set<string>) {
  * вроде двух «the»), убираем лишние дубликаты-ловушки и добираем ловушки
  * из слов юнита, чтобы в банке было хотя бы два лишних слова.
  */
+const META_TERMS = new Set([
+  'inversion',
+  'collocation',
+  'paraphrase',
+  'hedging',
+  'ellipsis',
+  'substitution',
+  'fronting',
+  'cleft',
+  'register',
+  'cohesion',
+  'coherence',
+  'discourse',
+  'syntax',
+  'clause',
+  'phrase',
+])
+
 function withDistractors(unit: Unit, exercise: Exercise): Exercise {
   if (exercise.kind !== 'assemble') return exercise
 
@@ -352,6 +375,7 @@ function withDistractors(unit: Unit, exercise: Exercise): Exercise {
     if (countDistractors() >= 2) break
     const key = term.toLowerCase()
     if (seenDistractors.has(key) || answerCounts.has(key) || term.includes(' ')) continue
+    if (META_TERMS.has(key)) continue
     seenDistractors.add(key)
     words.push(term)
   }

@@ -191,7 +191,11 @@ export const b206: Unit = {
       kind: 'translate',
       id: 'b2-06-ex-08',
       source: 'Плохой сон может способствовать стрессу.',
-      accept: ['Poor sleep can contribute to stress.'],
+      accept: [
+        'Poor sleep can contribute to stress.',
+        'Poor sleep may contribute to stress.',
+        'Poor sleep might contribute to stress.',
+      ],
       sample: 'Poor sleep can contribute to stress.',
       explanation: 'Contribute to — способствовать.',
     },

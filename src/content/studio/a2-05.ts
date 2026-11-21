@@ -128,7 +128,7 @@ export const a2Studio05: StudioTask = {
       'Сказано, что вы сделали.',
     ],
     modelAnswer:
-      'Hi Anna,\n\nLast Friday, my friend and I planned to go to London for a show. We had tickets for eight o’clock. Our train was late, so we arrived at eight fifteen. We missed the beginning of the show, but the theater let us in. We watched the second half and then ate dinner. It was not the evening we planned, but we still had fun. Next time, we will take the bus.\n\nMia',
+      'Hi Anna,\n\nLast Friday, my friend and I planned to go to London for a show. We had tickets for eight o’clock. Our train was late, so we arrived at eight fifteen. We missed the beginning of the show, but the theater let us in. We watched the second half and then ate dinner. It was not the evening we planned, but we still had fun. Next time, we will take the bus. We laughed about it later. See you.\n\nMia',
     usefulLanguage: ['We planned to...', 'Our train was late', 'We missed...', 'Next time, we will...'],
   },
   speaking: {

@@ -199,7 +199,7 @@ export const b221: Unit = {
       kind: 'translate',
       id: 'b2-21-ex-09',
       source: 'Я не могу найти предложение.',
-      accept: ['I cannot locate the sentence.'],
+      accept: ['I cannot locate the sentence.', 'I cannot find the sentence.'],
       sample: 'I cannot locate the sentence.',
       explanation: 'Locate — найти.',
     },

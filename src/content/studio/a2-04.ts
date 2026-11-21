@@ -129,7 +129,7 @@ export const a2Studio04: StudioTask = {
       'Сказано, что ещё нужно купить.',
     ],
     modelAnswer:
-      'Hi Ben,\n\nWe moved to a new apartment last week. It is on the third floor of a building near a park. It is bigger and quieter than our old home. I like the balcony because I can see trees and birds. We have already painted the living room and bought a sofa. We still need a table and four chairs for the kitchen.\n\nCome and visit us soon!\n\nDaniel',
+      'Hi Ben,\n\nWe moved to a new apartment last week. It is on the third floor of a building near a park. It is bigger and quieter than our old home. I like the balcony because I can see trees and birds. We have already painted the living room and bought a sofa. We still need a table and four chairs for the kitchen.\n\nCome and visit us soon! The neighbors are friendly too, and you can help me choose the table.\n\nDaniel',
     usefulLanguage: ['We moved to...', 'It is near...', 'I like... because...', 'We still need...'],
   },
   speaking: {

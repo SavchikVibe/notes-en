@@ -123,7 +123,7 @@ export const b138: Unit = {
       examples: [
         { en: 'The ending was surprising.', ru: 'Концовка была неожиданной.' },
         { en: 'I did not like the ending.', ru: 'Мне не понравилась концовка.' },
-        { en: 'The ending is open.', ru: 'Финал открытый.' },
+        { en: 'The ending is open-ended.', ru: 'Финал открытый, без однозначной развязки.' },
       ],
     },
   ],
@@ -199,7 +199,11 @@ export const b138: Unit = {
       kind: 'translate',
       id: 'b1-38-ex-09',
       source: 'В стихотворении сильная метафора.',
-      accept: ['The poem uses a strong metaphor.'],
+      accept: [
+        'The poem uses a strong metaphor.',
+        'The poem has a strong metaphor.',
+        'There is a strong metaphor in the poem.',
+      ],
       sample: 'The poem uses a strong metaphor.',
       explanation: 'A metaphor — метафора.',
     },

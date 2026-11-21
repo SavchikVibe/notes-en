@@ -141,7 +141,7 @@ export const b1Studio04: StudioTask = {
       'Есть вывод.',
     ],
     modelAnswer:
-      'I think it is very difficult to live completely without plastic, but we can reduce it. First, plastic is useful in medicine and food safety, so some plastic is necessary. For example, hospitals use plastic equipment that is hard to replace. However, most everyday plastic is not necessary. We can use reusable bags, glass bottles, and paper packaging. Second, small changes are easier to keep than a perfect plan. If every family starts with one product, the result will be big. In my opinion, we should not try to be perfect. We should try to be better than last year. That is a realistic goal, and it can make a real difference.',
+      'I think it is very difficult to live completely without plastic, but we can reduce it. First, plastic is useful in medicine and food safety, so some plastic is necessary. For example, hospitals use plastic equipment that is hard to replace. However, most everyday plastic is not necessary. We can use reusable bags, glass bottles, and paper packaging. Second, small changes are easier to keep than a perfect plan. If every family starts with one product, the result will be big. In my opinion, we should not try to be perfect. We should try to be better than last year. That is a realistic goal, and it can make a real difference. Small steps are easier to defend, and they add up.',
     usefulLanguage: ['I think...', 'First,...', 'For example,...', 'However,...', 'In my opinion,...'],
   },
   speaking: {

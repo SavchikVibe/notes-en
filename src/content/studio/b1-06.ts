@@ -143,7 +143,7 @@ export const b1Studio06: StudioTask = {
       'Использованы will и present perfect.',
     ],
     modelAnswer:
-      'Hi everyone,\n\nThe school festival will take place on the last Saturday of May, from eleven to four. This year’s theme is “Food from Around the World.” Each class will prepare one dish, and we will collect money for a local charity.\n\nWe still need help with two things. First, the music teacher is away, so we need someone to organize the performances. Second, we need more tables. If you can help, please write to me.\n\nThe next meeting is on Friday at four in the school hall. We will decide who will do these tasks and what to do if it rains.\n\nThank you,\nMia',
+      'Hi everyone,\n\nThe school festival will take place on the last Saturday of May, from eleven to four. This year’s theme is “Food from Around the World.” Each class will prepare one dish, and we will collect money for a local charity.\n\nWe still need help with two things. First, the music teacher is away, so we need someone to organize the performances. Second, we need more tables. If you can help, please write to me.\n\nThe next meeting is on Friday at four in the school hall. We will decide who will do these tasks and what to do if it rains. Please bring your ideas to the meeting, and ask a friend to come too.\n\nThank you,\nMia',
     usefulLanguage: ['The festival will take place...', 'We still need help with...', 'If you can help...', 'The next meeting is...'],
   },
   speaking: {

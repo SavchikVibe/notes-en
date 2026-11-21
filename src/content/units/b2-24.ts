@@ -191,7 +191,7 @@ export const b224: Unit = {
       kind: 'translate',
       id: 'b2-24-ex-08',
       source: 'Отчёт сбалансирован.',
-      accept: ['The report is unbiased.'],
+      accept: ['The report is unbiased.', 'The report is balanced.', 'The report is impartial.'],
       sample: 'The report is unbiased.',
       explanation: 'Unbiased — непредвзятый.',
     },

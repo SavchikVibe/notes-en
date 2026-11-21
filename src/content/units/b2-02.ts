@@ -191,7 +191,7 @@ export const b202: Unit = {
       kind: 'translate',
       id: 'b2-02-ex-08',
       source: 'Ты можешь обосновать это утверждение?',
-      accept: ['Can you justify this claim?'],
+      accept: ['Can you justify this claim?', 'Could you justify this claim?', 'Can you support this claim?'],
       sample: 'Can you justify this claim?',
       explanation: 'Justify a claim — обосновать утверждение.',
     },

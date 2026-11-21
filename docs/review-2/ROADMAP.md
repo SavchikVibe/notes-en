@@ -64,21 +64,26 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 - [x] `npm run check`, `tsc --noEmit`, `npm run test:e2e` (12), `npm run test:e2e:offline` (2).
 - [x] Version 0.98.0 in the 5 places, build, deploy, commit, update memory.
 
-## Stage 2 — P1a content correctness (2–3 days)
+## Stage 2 — P1a content correctness (2–3 days, in progress)
 
-- [ ] `studio-c1-07`: remove invented figures from the model or add them to the briefing; add a
+- [x] `studio-c1-07`: remove invented figures from the model or add them to the briefing; add a
       checklist item "every figure is in the source"; audit the other 28 Studio models.
-- [ ] Ambiguous items: `a2-23-ex-02`, `b2-17-ex-04`, `c1-14-ex-02`, the `Not only` explanation,
+      `c1-02`, `c1-06`, `c1-03`, `b1-01` models also aligned; all 29 models now meet their word range.
+- [x] Ambiguous items: `a2-23-ex-02`, `b2-17-ex-04`, `c1-14-ex-02`, the `Not only` explanation,
       `b1-38` ending.
-- [ ] `accept` lists: 2–4 curated variants for B2/C1 (target 90%), starting with
-      `c1-14-ex-08`, `b2-17-ex-09`, `b2-49-ex-09`, `b1-38-ex-09`.
-- [ ] Distractors: stop padding with unit terms that can replace the answer; fix `buildWorkshop`
-      to use different words; validator checks raw sources, not only runtime.
-- [ ] Evidence quotes: `reading-31`, `reading-40`, `reading-50`.
+- [x] Known `accept` false negatives: `c1-14-ex-08`, `b2-17-ex-09`, `b2-49-ex-09`,
+      `b1-38-ex-09`, plus 10 obvious B2 paraphrases.
+- [ ] Full `accept` pass: 2–4 curated variants for the remaining B2/C1 single-variant items
+      (about 240 exercises). Do not add variants mechanically; only real alternatives.
+- [x] `buildWorkshop` takes examples from different words; `withDistractors` skips meta-terms;
+      `c1-14-ex-04` no longer offers `barely` as a valid alternative.
+- [ ] Authored distractors for B1–C1 instead of runtime padding; validator checks raw sources.
+- [x] Evidence quotes: `reading-31`, `reading-40`, `reading-50`.
 
 ### Stage 2 exit
 
-- [ ] Version 0.99.0, full checks, deploy, commit, memory.
+- [ ] Version 0.99.0, full checks, deploy, commit, memory. Part 1 shipped in 0.98.1; exit waits
+      for the full `accept` pass and authored distractors.
 
 ## Stage 3 — P1b B2 depth (3–5 days)
 

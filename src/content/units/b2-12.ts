@@ -199,7 +199,11 @@ export const b212: Unit = {
       kind: 'translate',
       id: 'b2-12-ex-09',
       source: 'Город должен бороться с заторами.',
-      accept: ['The city must tackle congestion.'],
+      accept: [
+        'The city must tackle congestion.',
+        'The city has to tackle congestion.',
+        'The city needs to tackle congestion.',
+      ],
       sample: 'The city must tackle congestion.',
       explanation: 'Tackle congestion — бороться с заторами.',
     },

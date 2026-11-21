@@ -95,6 +95,28 @@ equal(
   90,
 )
 
+/* -------------------------------- мастерская ------------------------------ */
+
+const workshopUnit = units.find((unit) => unit.id === 'a2-23')!
+const workshopWords = workshopUnit.exercises
+  .filter((exercise) => exercise.optional)
+  .map((exercise) => {
+    const text =
+      exercise.kind === 'listen'
+        ? exercise.audio
+        : exercise.kind === 'translate'
+          ? exercise.sample
+          : exercise.kind === 'speak'
+            ? exercise.phrase
+            : ''
+    return workshopUnit.words.find((word) => word.examples.some((example) => example.en === text))
+      ?.id
+  })
+check(
+  'мастерская берёт примеры из разных слов',
+  new Set(workshopWords.filter(Boolean)).size >= 2,
+)
+
 /* --------------------------------- итог ----------------------------------- */
 
 console.log(`Проверок не пройдено: ${failures}.`)

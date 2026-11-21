@@ -123,7 +123,7 @@ export const a1Studio02: StudioTask = {
       'Названо время, когда ты ложишься спать.',
     ],
     modelAnswer:
-      'Hi Leo,\n\nOn Monday, I get up at seven o’clock. I have breakfast and go to school at eight. After school, I do my homework and help my mother. In the evening, I read a book or watch a film. I go to bed at ten o’clock. What about you?\n\nSee you,\nMia',
+      'Hi Leo,\n\nOn Monday, I get up at seven o’clock. I have breakfast and go to school at eight. After school, I do my homework and help my mother. In the evening, I read a book or watch a film. I go to bed at ten o’clock. What about you? School starts at nine, and I like Mondays.\n\nSee you,\nMia',
     usefulLanguage: ['I get up at...', 'After school, I...', 'In the evening, I...', 'I go to bed at...'],
   },
   speaking: {

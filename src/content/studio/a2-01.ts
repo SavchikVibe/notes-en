@@ -127,7 +127,7 @@ export const a2Studio01: StudioTask = {
       'Сказано, что понравилось больше всего.',
     ],
     modelAnswer:
-      'Hi Anna,\n\nLast month, I went to New York with my sister. We stayed in a small hotel near Central Park. On Saturday, we walked in the park and visited a museum. I bought a red scarf for my mother. In the evening, we saw a show on Broadway. The music was wonderful. On Sunday, it was rainy, so we wrote postcards in a café. I loved the trip and want to go back.\n\nSee you,\nSofia',
+      'Hi Anna,\n\nLast month, I went to New York with my sister. We stayed in a small hotel near Central Park. On Saturday, we walked in the park and visited a museum. I bought a red scarf for my mother. In the evening, we saw a show on Broadway. The music was wonderful. On Sunday, it was rainy, so we wrote postcards in a café. I loved the trip and want to go back. It was great.\n\nSee you,\nSofia',
     usefulLanguage: ['We stayed in...', 'On Saturday, we...', 'I liked... most', 'I want to go back'],
   },
   speaking: {

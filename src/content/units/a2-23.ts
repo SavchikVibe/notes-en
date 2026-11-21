@@ -139,10 +139,10 @@ export const a223: Unit = {
     {
       kind: 'choice',
       id: 'a2-23-ex-02',
-      question: 'I ___ with my brother.',
+      question: 'Last week I ___ with my brother.',
       options: ['argued', 'argue', 'arguing'],
       answer: 0,
-      explanation: 'Past Simple: argued.',
+      explanation: 'Past Simple: argued (last week).',
     },
     {
       kind: 'choice',

@@ -131,7 +131,7 @@ export const a2Studio03: StudioTask = {
       'Сказано, что ты хочешь от компании.',
     ],
     modelAnswer:
-      'Dear Customer Service,\n\nI ordered a pair of blue running shoes, size 38, last week. My order number is 4729. Today I received black shoes, size 36. This is the wrong size and color. I need the shoes for a race next month.\n\nI would like you to send the correct shoes as soon as possible. Please tell me how to return the black shoes. I hope the return is free.\n\nThank you for your help.\n\nBest regards,\nEmma',
+      'Dear Customer Service,\n\nI ordered a pair of blue running shoes, size 38, last week. My order number is 4729. Today I received black shoes, size 36. This is the wrong size and color. I need the shoes for a race next month.\n\nI would like you to send the correct shoes as soon as possible. Please tell me how to return the black shoes. I hope the return is free. I look forward to your reply.\n\nThank you for your help.\n\nBest regards,\nEmma',
     usefulLanguage: ['I ordered...', 'I received...', 'I would like you to...', 'Please tell me...'],
   },
   speaking: {

@@ -199,7 +199,11 @@ export const b249: Unit = {
       kind: 'translate',
       id: 'b2-49-ex-09',
       source: 'Обучающие данные могут содержать предвзятость.',
-      accept: ['Training data can contain bias.'],
+      accept: [
+        'Training data can contain bias.',
+        'Training data may contain bias.',
+        'Training data might contain bias.',
+      ],
       sample: 'Training data can contain bias.',
       explanation: 'Training data — обучающие данные.',
     },

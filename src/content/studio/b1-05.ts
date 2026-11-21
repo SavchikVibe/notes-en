@@ -141,7 +141,7 @@ export const b1Studio05: StudioTask = {
       'Есть вывод.',
     ],
     modelAnswer:
-      'Why We Should Check News Before Sharing It\n\nChecking news before sharing it is important for two reasons. First, a rumor can spread faster than a fact. For example, last week a post said our school was going to close. It was not true, but hundreds of people shared it. Parents were worried, and the school had to publish a statement. Second, sharing false information can hurt people and organizations. It can damage trust and create unnecessary fear. Before you share a story, ask three questions: Who wrote it? What is the evidence? Who else reports it? If you cannot answer these questions, wait. A few minutes of checking can save a lot of trouble.',
+      'Why We Should Check News Before Sharing It\n\nChecking news before sharing it is important for two reasons. First, a rumor can spread faster than a fact. For example, last week a post said our school was going to close. It was not true, but hundreds of people shared it. Parents were worried, and the school had to publish a statement. Second, sharing false information can hurt people and organizations. It can damage trust and create unnecessary fear. Before you share a story, ask three questions: Who wrote it? What is the evidence? Who else reports it? If you cannot answer these questions, wait. A few minutes of checking can save a lot of trouble. Wait before you share it.',
     usefulLanguage: ['First,...', 'For example,...', 'Second,...', 'Before you share...', 'If you cannot...'],
   },
   speaking: {

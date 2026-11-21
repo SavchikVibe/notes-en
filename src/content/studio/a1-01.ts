@@ -130,7 +130,7 @@ export const a1Studio01: StudioTask = {
       'Есть вежливое приглашение.',
     ],
     modelAnswer:
-      'Hi Ben,\n\nDo you want to go to the market with me on Saturday? I want to buy strawberries and bread. Let’s meet at ten o’clock near the market. My mother can take us. Write back and tell me if you can come.\n\nSee you,\nAnna',
+      'Hi Ben,\n\nDo you want to go to the market with me on Saturday? I want to buy strawberries and bread. Let’s meet at ten o’clock near the market. My mother can take us. It is near the park. Write back and tell me if you can come.\n\nSee you,\nAnna',
     usefulLanguage: ['Do you want to...', 'Let’s meet at...', 'Write back', 'See you'],
   },
   speaking: {
