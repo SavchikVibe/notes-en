@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-20, version 0.95.0.
+Last updated: 2026-11-21, version 0.96.0.
 
 ## 1. What was reviewed
 
@@ -99,7 +99,7 @@ These are still the backbone of the roadmap.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
 - **Next phase.** Content revision A1–B2: assemble banks with fewer than two distractors and single-variant translations. Then the IELTS exam block.
 
-## 8. Current state (0.95.0)
+## 8. Current state (0.96.0)
 
 - 234 units: A1 40, A2 50, B1 60, B2 60, C1 24 (all C1 units written).
 - 1,792 words, 3,750 exercises: 12-14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -138,19 +138,20 @@ These are still the backbone of the roadmap.
 - 54 standalone reading texts: 10 A1 (107–118 words), 10 A2 (200–213), 12 B1 (300–384), 12 B2 (702–718), 10 C1 (901–915). All texts are inside their target ranges.
 - 27 Studio audio files and 54 library audio files in `public/audio/`.
 - Error bank: IndexedDB store `errors` (DB version 3), due errors on Today, practice screen `/errors`. Backup includes errors.
-- Speaking block: 40 tasks (30 answers + 10 shadowing) in `src/content/speaking.ts`, screen `/speaking`, 2 per session, progress in `kv`. Fluency cycle: `/fluency`, 60 seconds without preparation, 3 prompts per level, recording and repeat, no checklist.
+- Speaking block: 43 tasks (30 answers + 10 shadowing + 3 minimal-pair drills for A2, B1, B2) in `src/content/speaking.ts`, screen `/speaking`, 2 per session, progress in `kv`. The pairs are rendered with a play button for each word and recorded like any answer. Fluency cycle: `/fluency`, 60 seconds without preparation, 3 prompts per level, recording and repeat, no checklist.
 - Reading retry list: weak results are stored in `kv` (`reading-results`) and shown as «Вернуться» above the level chips; tapping opens that text in repeat mode.
 - Studio step and done state live in IndexedDB (`kv` key `studio:<id>`); old localStorage state migrates once.
 - `npm run check` also runs `check:db` on `fake-indexeddb`: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset.
-- Writing portfolio: drafts live in the IndexedDB `writings` store (DB version 4), with the first checked version and the current text; screen `/portfolio`, linked from Progress. Old localStorage drafts migrate on first open. Backup includes writings and does not erase them when an older backup lacks that section. A revision prompt appears after checking, and the detail view marks whether edits exist.
+- Writing portfolio: drafts live in the IndexedDB `writings` store (DB version 4), with the first checked version and the current text; screen `/portfolio`, linked from Progress. Old localStorage drafts migrate on first open. Backup includes writings and does not erase them when an older backup lacks that section. A revision prompt appears after checking, and the detail view marks whether edits exist. Each work can be downloaded as a `.txt` file with the prompt, date and current text.
 - Backup reminder: Today shows a row after 10 finished lessons when the last export is missing or older than 14 days; exporting stamps `last-backup` in `kv`.
 - `npm run check` runs content validation, reading checks and logic checks (normalization, shuffle determinism, cloze, session building).
+- `npm run test:e2e` runs a Playwright smoke test of the full A1-01 lesson flow in Chromium: every core exercise answered, checked, advanced, result screen shown.
 - Translation matching expands common contractions, so «I'm» and «I am» are both accepted.
 - Reading and Listening have a level filter with unread counts and default to the learner’s current level.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.95.0.
+- Version 0.96.0.
 - `npm run validate:content` passes with 0 warnings. Assemble banks always contain every answer token plus at least two distractors; dictation picks a sentence not already used in the unit; the IPA check ignores GA diphthongs like /aɪə/ and /ɔɪə/.
 - `npm run check:readings` passes: no heading errors, all evidence quotes exact, all texts in range.
 - `npm run audit:content` prints the detailed audit table.
@@ -161,15 +162,15 @@ Priority order unless the user changes it:
 
 1. **Reading library.** Complete: 54 texts (10 A1, 10 A2, 12 B1, 12 B2, 10 C1) with evidence, TFNG/heading questions and neural audio. Keep `npm run check:readings` passing when texts change. Reading and Listening have level filters; weak results appear in «Вернуться».
 2. **Error bank and workshop.** Error bank is done: first-attempt mistakes in `choice`/`assemble`/`translate`/`listen` are stored in IndexedDB (`errors` store), returned the next day and then at 3, 7, 16, 35, 75 days, and practised from Today → «Ошибки». Workshop is done: each unit has 3 optional exercises, reachable from the lesson result, and up to 3 due errors are mixed into it.
-3. **Standalone speaking block.** 40 tasks: 30 answers (6 per level) plus 10 shadowing tasks (2 per level). Screen `/speaking`, 2 tasks per session (one answer + one shadow when available). Fluency cycle at `/fluency`: 60 seconds without preparation, record, listen, repeat the same topic. Still open: IELTS Part 2 structure and minimal pairs.
+3. **Standalone speaking block.** 43 tasks: 30 answers (6 per level), 10 shadowing tasks (2 per level), and 3 minimal-pair drills (A2, B1, B2). Screen `/speaking`, 2 tasks per session. Fluency cycle at `/fluency`: 60 seconds without preparation, record, listen, repeat the same topic. Still open: IELTS Part 2 structure (part of the IELTS block).
 4. **Content revision.** Done: assemble banks always have every answer token plus two distractors, dictation avoids duplicate sentences, validator is clean. Widening `accept` lists continues only where a real synonym exists.
 5. **American English audit.** Done for what the validator can see: US spelling (`dialog`), GA IPA false positives fixed. Re-check when new content is added.
-6. **Writing portfolio.** Done: IndexedDB `writings` store, first checked version and current text, `/portfolio` screen linked from Progress, backup support, a revision prompt after checking and an «есть правки» marker. Still open: exporting a single work as text.
-7. **C1 hybrid.** Decision: 24 short units + 8 project tasks (essay, report, debate, review); the 6 C1 Studios exist. Not started. Apply the review edits: merge, move earlier, replace academic job talk/mock panel, add US pragmatics, logical fallacies, US institutions, spoken idiomaticity, college composition, connected speech, capstone.
-8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. Still open: browser-level tests for the full lesson flow.
+6. **Writing portfolio.** Done: IndexedDB `writings` store, first checked version and current text, `/portfolio` screen linked from Progress, backup support, a revision prompt after checking, an «есть правки» marker, and a «Скачать текст» button that saves one work as `.txt`.
+7. **C1 hybrid.** Complete: 24 short units + 8 project tasks (essay, report, debate, review). Review edits applied: US pragmatics and institutions (C1-23), logical fallacies (C1-18), spoken idiomaticity and connected speech (C1-19, C1-20), college composition and capstone (C1-24, studio-c1-06).
+8. **Tests.** `npm run check:logic` covers normalization, shuffle determinism, cloze and session building. `npm run check:db` covers IndexedDB: resume, first-attempt scoring, finish, SRS boxes, error intervals, portfolio, backup and reset. `npm run test:e2e` is a Playwright smoke test of the full A1-01 lesson flow in Chromium. Still open: more e2e flows (studio, reading library, backup) if they are needed.
 9. **Backup reminder.** Done: Today shows a reminder after 10 lessons if the last export is missing or older than 14 days.
 10. **Lazy loading / code splitting.** Not urgent; do it only if startup time becomes a problem.
-11. **Naturalness pass.** Done for all 210 A1–B2 units and all 54 library texts; audio is in sync. Left: `programme` in the c1-06 Studio dialogue (needs that studio's audio regenerated).
+11. **Naturalness pass.** Done for all 210 A1–B2 units, the 54 library texts and the C1 units; audio is in sync (`program` in c1-06 fixed and regenerated).
 12. **C1 hybrid.** Complete: 24 short units (C1-01…24) and 8 project tasks (the 6 existing C1 Studios plus studio-c1-07 data report and studio-c1-08 review). Projects are marked `kind: 'project'` and shown with a badge in the Studio section.
 
 ## 10. What not to change
@@ -231,14 +232,14 @@ Every library text has 3–7 questions, evidence, and a neural audio version. Li
 
 ### Remaining stages, in recommended order
 
-1. **Reading library polish.** 54 texts pass `npm run check:readings`. Reading now has a level filter with unread counts, defaulting to the learner’s current level. Still open: the same filter for Listening, and a retry list for weak results. Effort S.
-2. **Error bank and workshop.** Save wrong exercises across lessons with due dates; mix old errors into optional practice; implement 12-core + workshop for new units. Effort M. Both reviews asked for this.
-3. **Standalone speaking block.** Replace the “Речь — скоро” placeholder with the Studio speaking format: prompt, preparation, recording, rubric, re-record. Add fluency cycle, shadowing, minimal pairs, IELTS Part 2. Effort M.
-4. **Content revision A1–B2.** Remove 739 duplicate sentences; add distractors to 517 `assemble` items; widen 349 `accept` lists; vary source answer positions; fix level fit; audit American English; review naturalness and translation quality. Effort L.
-5. **Writing portfolio.** Move drafts from localStorage to IndexedDB; keep first and final versions; add a revision view. Effort M.
-6. **C1 decision and content.** Decision (2026-11-15): hybrid — 24 short units (academic lexis, grammar, linking) plus 8 project tasks in the Studio format (essay, report, debate, review). Not started; do it after the core polish and when the learner is closer to C1. The 6 C1 Studios exist. Apply the review edits: merge, move earlier, replace academic job talk/mock panel, add US pragmatics, logical fallacies, US institutions, spoken idiomaticity, college composition, connected speech, capstone. Effort L/XL.
-7. **IELTS exam block.** Timed Reading/Listening sections, Writing tasks, Speaking test, self-assessment against descriptors; no automatic band score. Effort M/L.
-8. **Reliability and final QA.** Regression tests for scoring, skip/resume, SRS intervals, session building and cloze; backup reminder; code splitting only if startup becomes slow; full phone test of offline, update and restore. Effort M.
+1. **Reading library polish.** Done: 54 texts pass `npm run check:readings`, Reading and Listening both have level filters with unread counts, and weak results appear in «Вернуться». Effort S.
+2. **Error bank and workshop.** Done: wrong first attempts are stored with due dates, returned at 1/3/7/16/35/75 days, practised on `/errors`, and up to 3 due errors are mixed into each workshop. Effort M.
+3. **Standalone speaking block.** Done: 43 tasks (answers, shadowing, minimal pairs) with recording and self-assessment, plus the fluency cycle. IELTS Part 2 belongs to the IELTS block. Effort M.
+4. **Content revision A1–B2.** Done: assemble banks have two distractors, accept lists widened where a real synonym exists, American English and naturalness passes complete. Effort L.
+5. **Writing portfolio.** Done: IndexedDB storage, first and current versions, revision view, single-work `.txt` export. Effort M.
+6. **C1 decision and content.** Done: hybrid — 24 short units plus 8 project tasks. Review edits applied (US pragmatics and institutions, fallacies, spoken idiomaticity, composition, capstone). Effort L/XL.
+7. **IELTS exam block.** Not started, on hold by user request: timed Reading/Listening sections, Writing tasks, Speaking test, self-assessment against descriptors; no automatic band score. Effort M/L.
+8. **Reliability and final QA.** Done: logic and IndexedDB regression tests plus a Playwright full-lesson smoke test; backup reminder exists. Still open: more e2e flows and a full phone test of offline, update and restore. Effort M.
 
 Do not start stage 6 before stages 1–4: the reviews explicitly warned against mass-producing C1 before the learning core and content quality are fixed.
 

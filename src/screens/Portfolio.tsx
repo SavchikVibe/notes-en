@@ -17,6 +17,26 @@ function formatDate(timestamp: number): string {
   })
 }
 
+function exportWriting(writing: Writing) {
+  const date = formatDate(writing.updatedAt)
+  const text = [
+    writing.prompt,
+    '',
+    `Дата: ${date}`,
+    '',
+    writing.text,
+  ].join('\n')
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = `writing-${writing.id}.txt`
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+  URL.revokeObjectURL(url)
+}
+
 export default function PortfolioScreen() {
   const navigate = useNavigate()
   const [writings, setWritings] = useState<Writing[] | null>(null)
@@ -71,6 +91,17 @@ export default function PortfolioScreen() {
             {selected.firstText === selected.text
               ? 'Пока это первый вариант — правок ещё нет.'
               : 'Есть правки: сравни первый вариант и текущий.'}
+          </p>
+
+          <Button
+            className="mt-6 w-full"
+            variant="secondary"
+            onClick={() => exportWriting(selected)}
+          >
+            Скачать текст
+          </Button>
+          <p className="mt-2 text-[13px] leading-snug text-ink-3">
+            Файл .txt: задание, дата и текущий вариант. Работа остаётся на этом устройстве.
           </p>
         </main>
       </>

@@ -8,5 +8,9 @@ dev-dist
 .DS_Store
 Thumbs.db
 
+# Playwright
+test-results
+playwright-report
+
 # Local Netlify folder
 .netlify

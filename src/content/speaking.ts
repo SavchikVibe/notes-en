@@ -12,6 +12,8 @@ export interface SpeakingTask {
   /** shadow — повторение готовых фраз за образцом. */
   mode?: 'answer' | 'shadow'
   lines?: string[]
+  /** Пары звуков: два слова, которые различаются одним звуком. */
+  pairs?: Array<[string, string]>
 }
 
 /**
@@ -663,6 +665,72 @@ export const speakingTasks: SpeakingTask[] = [
       'Повторил(а) все три фразы.',
       'Сохранил(а) ударение на смысловых словах.',
       'Не потерял(а) окончания в быстрой речи.',
+    ],
+  },
+  {
+    id: 'speak-a2-pairs',
+    level: 'A2',
+    title: 'Пары звуков: долгий и краткий',
+    prompt:
+      'Listen to each pair, repeat both words, then record all six pairs without the text. The difference is the length of the vowel.',
+    preparationSeconds: 20,
+    speakingSeconds: 50,
+    pairs: [
+      ['ship', 'sheep'],
+      ['bit', 'beat'],
+      ['full', 'fool'],
+      ['live', 'leave'],
+      ['sit', 'seat'],
+      ['fill', 'feel'],
+    ],
+    checklist: [
+      'Повторил(а) обе пары в каждом ряду.',
+      'Краткий звук не растягивал(а).',
+      'Записал(а) все шесть пар без текста.',
+    ],
+  },
+  {
+    id: 'speak-b1-pairs',
+    level: 'B1',
+    title: 'Пары звуков: th, v и t',
+    prompt:
+      'Listen to each pair and repeat both words. Then record the pairs without the text, keeping the two sounds distinct.',
+    preparationSeconds: 20,
+    speakingSeconds: 55,
+    pairs: [
+      ['thin', 'tin'],
+      ['think', 'sink'],
+      ['west', 'vest'],
+      ['fan', 'van'],
+      ['three', 'tree'],
+      ['mouth', 'mouse'],
+    ],
+    checklist: [
+      'Повторил(а) обе пары в каждом ряду.',
+      'Не заменил(а) th на t или s.',
+      'Записал(а) все пары без текста.',
+    ],
+  },
+  {
+    id: 'speak-b2-pairs',
+    level: 'B2',
+    title: 'Пары звуков: гласные переднего ряда',
+    prompt:
+      'Listen to each pair and repeat both words. Then record the pairs without the text. Keep the vowel in each pair separate.',
+    preparationSeconds: 20,
+    speakingSeconds: 55,
+    pairs: [
+      ['bad', 'bed'],
+      ['man', 'men'],
+      ['sat', 'set'],
+      ['bag', 'beg'],
+      ['tan', 'ten'],
+      ['had', 'head'],
+    ],
+    checklist: [
+      'Повторил(а) обе пары в каждом ряду.',
+      'Различил(а) гласные в быстрой речи.',
+      'Записал(а) все пары без текста.',
     ],
   },
 ]

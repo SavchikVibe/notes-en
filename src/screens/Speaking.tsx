@@ -222,6 +222,30 @@ export default function SpeakingScreen() {
           </div>
         )}
 
+        {task.pairs && task.pairs.length > 0 && (
+          <div className="mt-4 border-l-2 border-accent pl-4">
+            <p className="text-[13px] font-medium text-ink-3">Пары звуков</p>
+            <ul className="mt-2 space-y-1.5">
+              {task.pairs.map(([left, right]) => (
+                <li key={`${left}-${right}`} className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <span className="flex items-center gap-1">
+                    <SpeakButton text={left} size={14} compact />
+                    <span className="font-serif text-[17px] leading-snug">{left}</span>
+                  </span>
+                  <span className="text-ink-3">—</span>
+                  <span className="flex items-center gap-1">
+                    <SpeakButton text={right} size={14} compact />
+                    <span className="font-serif text-[17px] leading-snug">{right}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-[13px] leading-snug text-ink-3">
+              Сначала прослушай оба слова, потом запиши все пары без текста.
+            </p>
+          </div>
+        )}
+
         {task.usefulLanguage && task.usefulLanguage.length > 0 && (
           <div className="mt-4 border-l-2 border-accent pl-4">
             <p className="text-[13px] font-medium text-ink-3">Можно использовать</p>
