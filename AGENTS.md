@@ -2,7 +2,7 @@
 
 Before changing this project, read **`docs/review-findings.md`**. It preserves the two independent reviews, the verified content audit, the decisions already made, the current state and the pending work. It is the long-term memory for this repository.
 
-Current state: version 0.96.0; 234 units (24 C1); 1,792 words; 3,750 exercises; 29 Studio tasks (4 A1, 5 A2, 6 B1, 6 B2, 8 C1 projects); 54 standalone reading texts, all inside target ranges; error bank with spaced review and workshop mixing; speaking block with 43 tasks (30 answers, 10 shadowing, 3 minimal-pair drills) and a fluency cycle; level filters in reading and listening; weak-text retry list; library audio on demand (precache ~18.4 MB); writing portfolio with single-work text export; Studio state in IndexedDB; backup reminder; `npm run check` includes DB tests; `npm run test:e2e` passes the full A1-01 lesson flow in Chromium; naturalness pass for all 210 A1–B2 units and the 54 library texts done; C1 units and 8 C1 projects written.
+Current state: version 0.97.0; 234 units (24 C1); 1,792 words; 3,750 exercises; 29 Studio tasks (4 A1, 5 A2, 6 B1, 6 B2, 8 C1 projects); 54 standalone reading texts, all inside target ranges; error bank with spaced review and workshop mixing; speaking block with 43 tasks (30 answers, 10 shadowing, 3 minimal-pair drills) and a fluency cycle; level filters in reading and listening; weak-text retry list; library audio on demand (precache ~18 MB); writing portfolio with single-work text export; Studio state in IndexedDB; backup reminder; `npm run check` includes DB tests; `npm run test:e2e` covers the full lesson flow, the full studio flow, the reading library, a backup round-trip and a Pixel 7 viewport; `npm run test:e2e:offline` checks the built PWA offline on desktop and mobile; naturalness pass for all 210 A1–B2 units and the 54 library texts done; C1 units and 8 C1 projects written.
 
 Next planned phase: only the IELTS block remains, and it is on hold by user request. Everything else in the roadmap is done.
 
@@ -13,6 +13,7 @@ Useful commands:
 ```bash
 npm run check
 npm run test:e2e
+npm run test:e2e:offline           # builds, then checks the PWA offline
 npx playwright install chromium   # once per machine, before test:e2e
 npm run validate:content
 npm run audit:content
@@ -20,4 +21,4 @@ node scripts/deploy-pages.mjs SavchikVibe/notes-en
 python scripts/generate-studio-audio.py
 ```
 
-`npm run test:e2e` starts the dev server on port 4173 itself and runs `tests/lesson.spec.ts`. `test-results/` and `playwright-report/` are gitignored.
+`npm run test:e2e` starts the dev server on port 4173 itself and runs the desktop suite plus a Pixel 7 project (lesson and studio flows, viewport checks). `npm run test:e2e:offline` builds the app, serves `dist` on port 4174 and checks offline startup and a lesson on desktop and mobile. `test-results/` and `playwright-report/` are gitignored.
