@@ -73,6 +73,20 @@ check(
   b138?.kind === 'translate' && matchesAny('The poem has a strong metaphor.', b138.accept),
 )
 
+const c114Assemble = units
+  .find((unit) => unit.id === 'c1-14')!
+  .exercises.find((exercise) => exercise.id === 'c1-14-ex-04')
+check(
+  'в банке c1-14 нет валидного barely',
+  c114Assemble?.kind === 'assemble' &&
+    !c114Assemble.words.some((word) => word.toLowerCase() === 'barely'),
+)
+check(
+  'мета-термины не попадают в банк',
+  c114Assemble?.kind === 'assemble' &&
+    !c114Assemble.words.some((word) => word.toLowerCase() === 'inversion'),
+)
+
 /* --------------------------------- варианты -------------------------------- */
 
 const base = ['am', 'is', 'are']

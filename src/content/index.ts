@@ -331,6 +331,42 @@ const META_TERMS = new Set([
   'phrase',
 ])
 
+/** Слова, которые могут заменить ответ и превратить ловушку в валидный вариант. */
+const SYNONYM_GROUPS: string[][] = [
+  ['hardly', 'scarcely', 'barely'],
+  ['can', 'may', 'might'],
+  ['big', 'large'],
+  ['small', 'little'],
+  ['start', 'begin'],
+  ['end', 'finish'],
+  ['buy', 'purchase'],
+  ['help', 'assist'],
+  ['show', 'demonstrate'],
+  ['need', 'require'],
+  ['use', 'employ'],
+  ['important', 'essential'],
+  ['difficult', 'hard'],
+  ['easy', 'simple'],
+  ['increase', 'rise', 'grow'],
+  ['decrease', 'fall', 'drop'],
+  ['say', 'tell'],
+  ['get', 'obtain'],
+  ['make', 'create'],
+  ['choose', 'select'],
+  ['keep', 'maintain'],
+  ['change', 'alter'],
+  ['wrong', 'incorrect'],
+  ['right', 'correct'],
+]
+
+const synonymOfAnswer = new Map<string, Set<string>>()
+for (const group of SYNONYM_GROUPS) {
+  for (const word of group) {
+    const others = new Set(group.filter((item) => item !== word))
+    synonymOfAnswer.set(word, others)
+  }
+}
+
 function withDistractors(unit: Unit, exercise: Exercise): Exercise {
   if (exercise.kind !== 'assemble') return exercise
 
@@ -372,11 +408,18 @@ function withDistractors(unit: Unit, exercise: Exercise): Exercise {
   const countDistractors = () =>
     words.filter((word) => !answerCounts.has(word.toLowerCase())).length
 
+  const forbidden = new Set<string>()
+  for (const token of exercise.answer) {
+    for (const synonym of synonymOfAnswer.get(token.toLowerCase()) ?? []) {
+      forbidden.add(synonym)
+    }
+  }
+
   for (const term of unit.words.map((word) => word.term)) {
     if (countDistractors() >= 2) break
     const key = term.toLowerCase()
     if (seenDistractors.has(key) || answerCounts.has(key) || term.includes(' ')) continue
-    if (META_TERMS.has(key)) continue
+    if (META_TERMS.has(key) || forbidden.has(key)) continue
     seenDistractors.add(key)
     words.push(term)
   }
