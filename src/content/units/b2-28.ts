@@ -147,10 +147,10 @@ export const b228: Unit = {
     {
       kind: 'choice',
       id: 'b2-28-ex-03',
-      question: 'Governments ___ invest in prevention.',
-      options: ['should', 'should to', 'are should'],
+      question: 'Governments are advised ___ invest in prevention.',
+      options: ['to', 'for', 'that'],
       answer: 0,
-      explanation: 'Should + глагол.',
+      explanation: 'Be advised to + verb — рекомендация.',
     },
     {
       kind: 'choice',

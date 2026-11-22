@@ -70,6 +70,8 @@ test('full lesson flow: answer every core exercise and finish', async ({ page })
 
   await page.goto('/#/lesson/a1-01')
   await expect(page.getByRole('button', { name: 'Проверить' })).toBeVisible()
+  // Формула свёрнута по умолчанию, чтобы не подсказывать ответ.
+  await expect(page.getByText('I + am', { exact: true })).toHaveCount(0)
 
   for (const exercise of core) {
     await answerCorrectly(page, exercise)

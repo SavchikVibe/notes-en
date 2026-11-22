@@ -131,10 +131,10 @@ export const b214: Unit = {
     {
       kind: 'choice',
       id: 'b2-14-ex-01',
-      question: 'It ___ be that people value time more now.',
-      options: ['might', 'might to', 'is might'],
+      question: 'It might ___ that people value time more now.',
+      options: ['be', 'to be', 'being'],
       answer: 0,
-      explanation: 'Might + глагол.',
+      explanation: 'It might be that... — осторожное предположение.',
     },
     {
       kind: 'choice',

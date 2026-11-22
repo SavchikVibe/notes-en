@@ -131,10 +131,10 @@ export const b240: Unit = {
     {
       kind: 'choice',
       id: 'b2-40-ex-01',
-      question: 'The essay ___ meet the criteria.',
-      options: ['must', 'must to', 'is must'],
+      question: 'The essay is required ___ meet the criteria.',
+      options: ['to', 'for', 'that'],
       answer: 0,
-      explanation: 'Must + глагол.',
+      explanation: 'Be required to + verb — требование.',
     },
     {
       kind: 'choice',

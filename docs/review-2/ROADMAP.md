@@ -77,7 +77,8 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
       intentionally single items are listed in `docs/review-2/ACCEPT-PASS.md` (0.98.3).
 - [x] `buildWorkshop` takes examples from different words; `withDistractors` skips meta-terms;
       `c1-14-ex-04` no longer offers `barely` as a valid alternative.
-- [ ] Authored distractors for B1–C1 instead of runtime padding; validator checks raw sources.
+- [ ] Full authored distractors for the 422 B1–C1 banks instead of runtime padding; validator
+      checks raw sources. Deferred as a separate content project.
 - [x] Evidence quotes: `reading-31`, `reading-40`, `reading-50`.
 
 ### Stage 2 exit
@@ -87,12 +88,11 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 
 ## Stage 3 — P1b B2 depth (3–5 days, in progress)
 
-- [ ] Replace A1/A2 grammar inside B1–B2 (`can / can to / is can`, `may / may to / is may`) with
+- [x] Replace A1/A2 grammar inside B1–B2 (`can / can to / is can`, `may / may to / is may`) with
       B2 syntax: complex passive, hedging, conditionals, relative/participial clauses.
-      Done for `b2-01`, `b2-17`, `b2-18`, `b2-34`, `b2-46`, `b2-49` in 0.98.2; the rest needs
-      a systematic pass.
-- [ ] Close the formula leak: do not repeat `formulas.note` verbatim in `choice`, or collapse the
-      formula while answering.
+      Done for `b2-01`, `b2-14`, `b2-17`, `b2-18`, `b2-28`, `b2-34`, `b2-40`, `b2-46`, `b2-49`.
+- [x] Close the formula leak: the formula card is collapsed by default (`Lesson.tsx`), so
+      `formulas.note` is not visible above the question.
 - [ ] Optional external audit of 20–30 random units and 5–6 Studio tasks.
 
 ## Stage 4 — P2 depth and load (1–2 weeks, needs owner decisions)

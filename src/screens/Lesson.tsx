@@ -34,7 +34,7 @@ export default function LessonScreen() {
   const [lastCorrect, setLastCorrect] = useState(false)
   const [result, setResult] = useState<Result | null>(null)
   const [resumeComplete, setResumeComplete] = useState(false)
-  const [formulasOpen, setFormulasOpen] = useState(true)
+  const [formulasOpen, setFormulasOpen] = useState(false)
   const viewRef = useRef<ExerciseViewHandle | null>(null)
   const requeued = useRef(new Set<number>())
   const activeSince = useRef<number | null>(Date.now())
@@ -200,7 +200,7 @@ export default function LessonScreen() {
     setSkipped({})
     setPhase('answer')
     setCanCheck(false)
-    setFormulasOpen(true)
+    setFormulasOpen(false)
     requeued.current.clear()
     pendingSeconds.current = 0
     activeSince.current = Date.now()
