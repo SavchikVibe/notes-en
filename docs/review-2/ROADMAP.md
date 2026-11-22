@@ -73,8 +73,8 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
       `b1-38` ending.
 - [x] Known `accept` false negatives: `c1-14-ex-08`, `b2-17-ex-09`, `b2-49-ex-09`,
       `b1-38-ex-09`, plus 10 obvious B2 paraphrases.
-- [ ] Full `accept` pass: 2–4 curated variants for the remaining B2/C1 single-variant items
-      (about 240 exercises). Do not add variants mechanically; only real alternatives.
+- [x] Full `accept` pass: 241 of 252 B2/C1 translations now have 2–4 curated variants; the 11
+      intentionally single items are listed in `docs/review-2/ACCEPT-PASS.md` (0.98.3).
 - [x] `buildWorkshop` takes examples from different words; `withDistractors` skips meta-terms;
       `c1-14-ex-04` no longer offers `barely` as a valid alternative.
 - [ ] Authored distractors for B1–C1 instead of runtime padding; validator checks raw sources.

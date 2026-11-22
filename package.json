@@ -1,7 +1,7 @@
 {
   "name": "english-app",
   "private": true,
-  "version": "0.98.2",
+  "version": "0.98.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,8 +12,9 @@
     "validate:content": "tsx scripts/validate-content.ts",
     "check:readings": "tsx scripts/check-readings.ts",
     "check:logic": "tsx scripts/check-logic.ts",
+    "check:accept": "tsx scripts/check-accept.ts",
     "check:db": "tsx scripts/check-db.ts",
-    "check": "tsx scripts/validate-content.ts && tsx scripts/check-readings.ts && tsx scripts/check-logic.ts && tsx scripts/check-db.ts",
+    "check": "tsx scripts/validate-content.ts && tsx scripts/check-readings.ts && tsx scripts/check-logic.ts && tsx scripts/check-accept.ts && tsx scripts/check-db.ts",
     "test:e2e": "playwright test",
     "test:e2e:offline": "npm run build && playwright test -c playwright.offline.config.ts",
     "audit:content": "tsx scripts/audit-content.ts",

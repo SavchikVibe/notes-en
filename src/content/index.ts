@@ -1,4 +1,5 @@
 import type { Exercise, Unit, Word } from './types'
+import { acceptVariants } from './accept-variants'
 import { extraExamples } from './extra-examples'
 import { extraExercises } from './extra-exercises'
 import { photos } from './photo-map'
@@ -383,6 +384,13 @@ function withDistractors(unit: Unit, exercise: Exercise): Exercise {
   return { ...exercise, words }
 }
 
+function withAcceptVariants(exercise: Exercise): Exercise {
+  if (exercise.kind !== 'translate') return exercise
+  const extra = acceptVariants[exercise.id]
+  if (!extra || extra.length === 0) return exercise
+  return { ...exercise, accept: [...new Set([...exercise.accept, ...extra])] }
+}
+
 function withContent(unit: Unit): Unit {
   const read = unit.exercises.filter((exercise) => exercise.kind === 'read')
   const base = unit.exercises.filter((exercise) => exercise.kind !== 'read')
@@ -427,7 +435,7 @@ function withContent(unit: Unit): Unit {
   return {
     ...unit,
     exercises: [...base, ...extra, ...derived, ...read, ...workshop].map((exercise) =>
-      withDistractors(unit, exercise),
+      withAcceptVariants(withDistractors(unit, exercise)),
     ),
   }
 }

@@ -47,6 +47,32 @@ check(
   !answersMatch("She's been busy.", 'She is busy.'),
 )
 
+const c104 = units.find((unit) => unit.id === 'c1-04')!.exercises.find(
+  (exercise) => exercise.id === 'c1-04-ex-07',
+)
+check(
+  'принимает generalized вместо extrapolated',
+  c104?.kind === 'translate' &&
+    matchesAny('The results cannot be generalized to all students.', c104.accept),
+)
+
+const c114 = units.find((unit) => unit.id === 'c1-14')!.exercises.find(
+  (exercise) => exercise.id === 'c1-14-ex-08',
+)
+check(
+  'принимает Hardly в инверсии',
+  c114?.kind === 'translate' &&
+    matchesAny('Hardly had the results appeared when critics responded.', c114.accept),
+)
+
+const b138 = units.find((unit) => unit.id === 'b1-38')!.exercises.find(
+  (exercise) => exercise.id === 'b1-38-ex-09',
+)
+check(
+  'принимает has вместо uses',
+  b138?.kind === 'translate' && matchesAny('The poem has a strong metaphor.', b138.accept),
+)
+
 /* --------------------------------- варианты -------------------------------- */
 
 const base = ['am', 'is', 'are']

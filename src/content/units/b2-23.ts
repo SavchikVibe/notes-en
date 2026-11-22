@@ -199,7 +199,7 @@ export const b223: Unit = {
       kind: 'translate',
       id: 'b2-23-ex-09',
       source: 'Средний возраст — 30.',
-      accept: ['The average age is 30.', 'The average age is thirty.'],
+      accept: ['The average age is 30.'],
       sample: 'The average age is 30.',
       explanation: 'Average age — средний возраст.',
     },
