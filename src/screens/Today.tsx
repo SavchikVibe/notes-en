@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Settings as SettingsIcon } from 'lucide-react'
 import { units, levelNumber } from '@/content'
+import { levelGates } from '@/content/gates'
 import { readings } from '@/content/readings'
 import { studioTasks } from '@/content/studio'
 import {
@@ -14,6 +15,7 @@ import {
   type LessonProgress,
   type Settings,
 } from '@/db/db'
+import { gateKey, isLevelUnlocked, type LevelGateState } from '@/lib/gates'
 import { buildSession } from '@/lib/session'
 import { formatDuration, formatTodayRu } from '@/lib/date'
 import { AppBar } from '@/components/AppBar'
@@ -29,11 +31,20 @@ export default function TodayScreen() {
     readingsLeft: number
     listeningLeft: number
     lastBackup: number | null
+    gates: Record<string, LevelGateState | undefined>
   } | null>(null)
 
   useEffect(() => {
     void (async () => {
-      const [progress, settings] = await Promise.all([getAllLessonProgress(), getSettings()])
+      const [progress, settings, ...gateEntries] = await Promise.all([
+        getAllLessonProgress(),
+        getSettings(),
+        ...levelGates.map(async (gate) => [
+          gate.level,
+          await getKv<LevelGateState>(gateKey(gate.level)),
+        ] as const),
+      ])
+      const gates = Object.fromEntries(gateEntries)
       const done = new Set(
         Object.values(progress)
           .filter((item) => item.status === 'done')
@@ -61,7 +72,7 @@ export default function TodayScreen() {
       const listeningLeft = readings.filter(
         (reading) => !doneListening.has(`listening-${reading.id}`),
       ).length
-      setState({ progress, settings, due, errorsDue, readingsLeft, listeningLeft, lastBackup })
+      setState({ progress, settings, due, errorsDue, readingsLeft, listeningLeft, lastBackup, gates })
     })()
   }, [])
 
@@ -76,8 +87,9 @@ export default function TodayScreen() {
     )
   }
 
+  const availableUnits = units.filter((unit) => isLevelUnlocked(unit.level, state.gates))
   const session = buildSession(
-    units,
+    availableUnits,
     state.progress,
     state.settings,
     new Date(),
@@ -87,6 +99,14 @@ export default function TodayScreen() {
   )
   const course = session.blocks[0]
   const others = session.blocks.slice(1)
+  const pendingGate = levelGates.find((gate) => {
+    const levelUnits = units.filter((unit) => unit.level === gate.level)
+    return (
+      levelUnits.length > 0 &&
+      levelUnits.every((unit) => state.progress[unit.id]?.status === 'done') &&
+      state.gates[gate.level]?.passed !== true
+    )
+  })
   const hasResume = course.units.some((unit) => state.progress[unit.id]?.status === 'in_progress')
   const doneLessons = units.filter((unit) => state.progress[unit.id]?.status === 'done').length
   const backupOld = state.lastBackup === null || Date.now() - state.lastBackup > 14 * 86_400_000
@@ -148,10 +168,27 @@ export default function TodayScreen() {
             </>
           ) : (
             <div className="mt-4 border-l-2 border-accent pl-4">
-              <p className="text-[17px]">Все уроки этого этапа пройдены.</p>
-              <p className="mt-1 text-[15px] text-ink-2">
-                Следующая партия появится вместе с обновлением контента.
-              </p>
+              {pendingGate ? (
+                <>
+                  <p className="text-[17px]">Уроки уровня {pendingGate.level} пройдены.</p>
+                  <p className="mt-1 text-[15px] text-ink-2">
+                    Осталась проверка: студия, два текста, письмо и речь.
+                  </p>
+                  <Button
+                    className="mt-4 w-full"
+                    onClick={() => navigate(`/gate/${pendingGate.level}`)}
+                  >
+                    Пройти проверку {pendingGate.level}
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <p className="text-[17px]">Все уроки этого этапа пройдены.</p>
+                  <p className="mt-1 text-[15px] text-ink-2">
+                    Следующая партия появится вместе с обновлением контента.
+                  </p>
+                </>
+              )}
             </div>
           )}
         </section>

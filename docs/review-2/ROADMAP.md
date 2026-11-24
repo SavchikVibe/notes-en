@@ -97,7 +97,9 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 
 ## Stage 4 — P2 depth and load (1–2 weeks, needs owner decisions)
 
-- [ ] Level gates every 10 units: Studio + 2 library texts + short production.
+- [x] Level gates at A1→A2, A2→B1, B1→B2, B2→C1: all units + last Studio + 2 library texts +
+      writing + recorded speaking; next level locked until passed. Shipped in 0.99.0.
+- [ ] Optional every-10-unit checkpoints if the owner wants denser gates.
 - [ ] Micro-production in units: 1–2 own sentences, saved to the portfolio, every 5th unit / B1+.
 - [ ] Daily load: 1–2 new units, the rest library/Studio/SRS; Studio replaces blocks.
 - [ ] Blind recall in speaking on B1+: hide the English text until after recording.

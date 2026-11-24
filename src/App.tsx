@@ -15,6 +15,7 @@ import ListeningScreen from '@/screens/Listening'
 import LevelScreen from '@/screens/Level'
 import StudioScreen from '@/screens/Studio'
 import StudioTaskScreen from '@/screens/StudioTask'
+import GateScreen from '@/screens/Gate'
 import SpeakingScreen from '@/screens/Speaking'
 import PortfolioScreen from '@/screens/Portfolio'
 import FluencyScreen from '@/screens/Fluency'
@@ -46,6 +47,7 @@ export default function App() {
       <Route path="listening" element={<ListeningScreen />} />
       <Route path="studio" element={<StudioScreen />} />
       <Route path="studio/:id" element={<StudioTaskScreen />} />
+      <Route path="gate/:level" element={<GateScreen />} />
       <Route path="level/:code" element={<LevelScreen />} />
       <Route path="settings" element={<SettingsScreen />} />
       <Route path="*" element={<Navigate to="/" replace />} />

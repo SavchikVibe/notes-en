@@ -2,7 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Check, ChevronDown, X } from 'lucide-react'
 import { getUnit } from '@/content'
-import { finishLesson, getLessonProgress, saveAnswer, saveError, saveSkip, restartLesson, addStudyTime, addWordsToSrs } from '@/db/db'
+import { finishLesson, getLessonProgress, getKv, saveAnswer, saveError, saveSkip, restartLesson, addStudyTime, addWordsToSrs } from '@/db/db'
+import { gateKey, isLevelUnlocked, previousLevel, type LevelGateState } from '@/lib/gates'
 import { isReviewable } from '@/lib/errors'
 import { Button } from '@/components/Button'
 import { SpeakButton } from '@/components/SpeakButton'
@@ -71,7 +72,18 @@ export default function LessonScreen() {
   useEffect(() => {
     if (!unit) return
     let alive = true
-    void getLessonProgress(unit.id).then((progress) => {
+    void (async () => {
+      const previous = previousLevel(unit.level)
+      if (previous) {
+        const gate = await getKv<LevelGateState>(gateKey(previous))
+        if (!alive) return
+        if (!isLevelUnlocked(unit.level, { [previous]: gate })) {
+          navigate(`/gate/${previous}`)
+          return
+        }
+      }
+
+      const progress = await getLessonProgress(unit.id)
       if (!alive) return
       if (progress) {
         const savedAnswers = progress.answers ?? {}
@@ -104,7 +116,7 @@ export default function LessonScreen() {
         }
       }
       setReady(true)
-    })
+    })()
     return () => {
       alive = false
     }

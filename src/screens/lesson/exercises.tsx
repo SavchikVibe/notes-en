@@ -801,12 +801,14 @@ export const WriteView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
               </div>
             )}
 
-            <div>
-              <p className="text-[13px] font-medium text-ink-3">Образец</p>
-              <p className="mt-2 whitespace-pre-line border-l-2 border-accent pl-3 text-[15px] leading-relaxed text-ink">
-                {ex.modelAnswer}
-              </p>
-            </div>
+            {ex.modelAnswer.trim().length > 0 && (
+              <div>
+                <p className="text-[13px] font-medium text-ink-3">Образец</p>
+                <p className="mt-2 whitespace-pre-line border-l-2 border-accent pl-3 text-[15px] leading-relaxed text-ink">
+                  {ex.modelAnswer}
+                </p>
+              </div>
+            )}
 
             <div className="border-l-2 border-accent pl-3">
               <p className="text-[13px] font-medium text-accent">Перепиши одну часть</p>

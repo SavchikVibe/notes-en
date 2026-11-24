@@ -80,9 +80,14 @@ async function openAppDb(page: Page): Promise<void> {
 
 /** Положить запись в стор приложения (например, ошибку или прогресс). */
 export async function putRecord(page: Page, store: string, value: unknown): Promise<void> {
+  await putRecords(page, store, [value])
+}
+
+/** Положить несколько записей одной транзакцией (например, 40 уроков). */
+export async function putRecords(page: Page, store: string, values: unknown[]): Promise<void> {
   await openAppDb(page)
   await page.evaluate(
-    async ({ storeName, record }) => {
+    async ({ storeName, records }) => {
       const database = await new Promise<IDBDatabase>((resolve, reject) => {
         const request = indexedDB.open('english')
         request.onsuccess = () => resolve(request.result)
@@ -90,12 +95,13 @@ export async function putRecord(page: Page, store: string, value: unknown): Prom
       })
       await new Promise<void>((resolve, reject) => {
         const tx = database.transaction(storeName, 'readwrite')
-        tx.objectStore(storeName).put(record)
+        const objectStore = tx.objectStore(storeName)
+        for (const record of records) objectStore.put(record)
         tx.oncomplete = () => resolve()
         tx.onerror = () => reject(tx.error)
       })
     },
-    { storeName: store, record: value },
+    { storeName: store, records: values },
   )
 }
 
