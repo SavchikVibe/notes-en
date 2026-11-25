@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 0.99.7 — 2026-11-25
+
+Accept-пасс A2: 136 из 150 переводов с вариантами.
+
+- Добавлены простые естественные перифразы: `hardly ever/almost never`, `once a week/weekly`, `reply/answer`, `degree in English/English degree`, `appointment/booked`, `bill/check`, `canceled/called off` и т.д.
+- 14 оставшихся одиночных вариантов проверены: климат/погода, британские `flat`/`CV`, фиксированные факты и короткие фразы (`I believe you`, `We decided to stay`). Список — в `docs/review-2/ACCEPT-PASS.md`.
+- Покрытие: A2 136/150, B1 165/180, B2 172/180, C1 69/72; A1 ещё не проходили.
+- IELTS не трогали.
+
 ## 0.99.6 — 2026-11-25
 
 Accept-пасс B1: 165 из 180 переводов теперь с вариантами.

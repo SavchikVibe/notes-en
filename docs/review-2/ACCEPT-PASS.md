@@ -1,7 +1,7 @@
-# Accept-list pass — B1–C1 translations
+# Accept-list pass — A2–C1 translations
 
-Date: 2026-11-22 (B2/C1) and 2026-11-25 (B1). Scope: every `translate` exercise in B1 (180),
-B2 (180) and C1 (72), 432 items.
+Date: 2026-11-22 (B2/C1), 2026-11-25 (B1, A2). Scope: every `translate` exercise in A2 (150),
+B1 (180), B2 (180) and C1 (72), 582 items. A1 is still pending.
 Method: each item was read against its Russian source; alternatives were added only when they
 are real, grammatical paraphrases (passive/active, may/might, has/there is, close verbs,
 word order). No fuzzy matching, no mechanical substitution.
@@ -14,13 +14,35 @@ reports coverage.
 
 | Level | Translations | With variants | Intentionally single |
 |---|---:|---:|---:|
+| A2 | 150 | 136 | 14 |
 | B1 | 180 | 165 | 15 |
 | B2 | 180 | 172 | 8 |
 | C1 | 72 | 69 | 3 |
-| **Total** | **432** | **406** | **26** |
+| **Total** | **582** | **542** | **40** |
 
 Before the pass, 13 B2/C1 items had variants (mostly the concrete fixes from the review). After
-the pass, 406 of 432 have at least two curated answers.
+the pass, 542 of 582 have at least two curated answers.
+
+## A2 pass (2026-11-25)
+
+14 A2 translations were left single after review:
+
+| Id | Source | Accepted | Why one |
+|---|---|---|---|
+| `a2-14-ex-07` | Климат здесь мягкий. | The climate here is mild. | “Weather” is not the same as climate. |
+| `a2-16-ex-06` | Ты был здесь раньше? | Have you been here before? | Changing the tense changes the question. |
+| `a2-20-workshop-translate` | Мы решили остаться. | We decided to stay. | Fixed decision; no honest paraphrase. |
+| `a2-29-workshop-translate` | Здесь река широкая. | The river is wide here. | Fixed description. |
+| `a2-31-ex-07` | Мой отец вышел на пенсию в прошлом году. | My father retired last year. | Fixed event. |
+| `a2-32-workshop-translate` | Он хочет похудеть. | He wants to lose weight. | “Slim down” is more informal and not identical. |
+| `a2-35-ex-07` | Я тебе верю. | I believe you. | Fixed short phrase. |
+| `a2-36-ex-07` | Они живут в современной квартире. | They live in a modern apartment. | “Flat” is British; US English needs apartment. |
+| `a2-36-workshop-translate` | У меня было счастливое детство. | I had a happy childhood. | Fixed phrase. |
+| `a2-37-ex-06` | Телефон был изобретён в 1876 году. | The telephone was invented in 1876. | Fixed historical fact. |
+| `a2-40-workshop-translate` | Достаточно тепло. | It is warm enough. | Fixed degree phrase. |
+| `a2-43-ex-06` | Возьмите номер и подождите. | Take a number and wait. | Fixed instruction at a counter. |
+| `a2-48-workshop-translate` | Пожалуйста, прикрепите резюме. | Please attach your resume. | “CV” is British; US English needs resume. |
+| `a2-49-ex-06` | Нам нужен электрик. | We need an electrician. | Fixed profession. |
 
 ## B1 pass (2026-11-25)
 

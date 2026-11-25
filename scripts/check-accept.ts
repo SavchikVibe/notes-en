@@ -21,7 +21,7 @@ for (const [id, variants] of Object.entries(acceptVariants)) {
   }
 }
 
-for (const level of ['B1', 'B2', 'C1'] as const) {
+for (const level of ['A1', 'A2', 'B1', 'B2', 'C1'] as const) {
   let total = 0
   let multi = 0
   for (const unit of units) {
