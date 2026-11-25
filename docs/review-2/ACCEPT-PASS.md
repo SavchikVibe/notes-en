@@ -1,6 +1,7 @@
-# Accept-list pass — B2/C1 translations
+# Accept-list pass — B1–C1 translations
 
-Date: 2026-11-22. Scope: every `translate` exercise in B2 (180) and C1 (72), 252 items.
+Date: 2026-11-22 (B2/C1) and 2026-11-25 (B1). Scope: every `translate` exercise in B1 (180),
+B2 (180) and C1 (72), 432 items.
 Method: each item was read against its Russian source; alternatives were added only when they
 are real, grammatical paraphrases (passive/active, may/might, has/there is, close verbs,
 word order). No fuzzy matching, no mechanical substitution.
@@ -13,14 +14,37 @@ reports coverage.
 
 | Level | Translations | With variants | Intentionally single |
 |---|---:|---:|---:|
+| B1 | 180 | 165 | 15 |
 | B2 | 180 | 172 | 8 |
 | C1 | 72 | 69 | 3 |
-| **Total** | **252** | **241** | **11** |
+| **Total** | **432** | **406** | **26** |
 
-Before the pass, 13 items had variants (mostly the concrete fixes from the review). After the
-pass, 241 of 252 have at least two curated answers.
+Before the pass, 13 B2/C1 items had variants (mostly the concrete fixes from the review). After
+the pass, 406 of 432 have at least two curated answers.
 
-## Intentionally single (reviewed, no honest paraphrase)
+## B1 pass (2026-11-25)
+
+15 B1 translations were left single after review:
+
+| Id | Source | Accepted | Why one |
+|---|---|---|---|
+| `b1-03-ex-09` | Медицинская страховка — это льгота. | Health insurance is a benefit. | “Perk” is more informal; “one of the benefits” changes the structure. |
+| `b1-15-workshop-translate` | Введение объясняет тему. | The introduction explains the topic. | “Introduces” is not the same claim. |
+| `b1-20-workshop-translate` | Общество меняется. | Society is changing. | “Society changes” loses the ongoing process. |
+| `b1-24-workshop-translate` | Диагноз был ясным. | The diagnosis was clear. | Fixed medical collocation; alternatives are vaguer. |
+| `b1-29-ex-09` | Это хорошая экранизация. | It is a good adaptation. | “Screen adaptation” is narrower; “version” is wrong. |
+| `b1-31-workshop-translate` | Страховое покрытие хорошее. | The insurance coverage is good. | “Covers a lot” changes the subject. |
+| `b1-35-ex-09` | Резолюция была единогласной. | The resolution was unanimous. | One legal collocation. |
+| `b1-38-ex-08` | Автор подписал книгу. | The author signed the book. | Fixed action; no honest paraphrase. |
+| `b1-38-workshop-translate` | Автор живёт в Бостоне. | The author lives in Boston. | “Is based in” is not the same as lives. |
+| `b1-45-workshop-translate` | Плакат был пропагандой. | The poster was propaganda. | Fixed classification. |
+| `b1-46-ex-09` | Они отреставрировали картину. | They restored the painting. | “Fixed” is narrower than restored. |
+| `b1-47-ex-08` | Брак — это обязательство. | Marriage is a commitment. | Fixed definition. |
+| `b1-54-workshop-translate` | Многие глаголы неправильные. | Many verbs are irregular. | Fixed grammatical term. |
+| `b1-56-ex-09` | Лондон — мультикультурный город. | London is a multicultural city. | Fixed description. |
+| `b1-59-ex-08` | Выборка была слишком маленькой. | The sample was too small. | Fixed research phrase. |
+
+## Intentionally single B2/C1 (reviewed, no honest paraphrase)
 
 | Id | Source | Accepted | Why one |
 |---|---|---|---|
