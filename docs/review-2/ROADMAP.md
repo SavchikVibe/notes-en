@@ -107,7 +107,7 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
       keeps its time for consolidation. Shipped in 0.99.2.
 - [x] Blind recall in speaking on B1+: hide the English text until after recording. Shipped in 0.99.3.
 - [x] Tutor export: one weekly `.md` with writings, top errors and topics. Shipped in 0.99.4.
-- [ ] Retry list for Listening.
+- [x] Retry list for Listening. Shipped in 0.99.5.
 
 ## Stage 5 — IELTS (on hold)
 

@@ -125,3 +125,24 @@ export async function getRecord<T>(page: Page, store: string, key: string): Prom
     { storeName: store, recordKey: key },
   )
 }
+
+/** Положить значение в kv-стор приложения (у него нет keyPath). */
+export async function putKv(page: Page, key: string, value: unknown): Promise<void> {
+  await openAppDb(page)
+  await page.evaluate(
+    async ({ recordKey, recordValue }) => {
+      const database = await new Promise<IDBDatabase>((resolve, reject) => {
+        const request = indexedDB.open('english')
+        request.onsuccess = () => resolve(request.result)
+        request.onerror = () => reject(request.error)
+      })
+      await new Promise<void>((resolve, reject) => {
+        const tx = database.transaction('kv', 'readwrite')
+        tx.objectStore('kv').put(recordValue, recordKey)
+        tx.oncomplete = () => resolve()
+        tx.onerror = () => reject(tx.error)
+      })
+    },
+    { recordKey: key, recordValue: value },
+  )
+}

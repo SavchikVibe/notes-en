@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import { readings } from '../src/content/readings'
+import { putKv } from './helpers'
 
 /** Слушание: 0 правильных не должно помечать текст как разобранный. */
 test('listening: a failed text stays in the library', async ({ page }) => {
@@ -39,4 +40,21 @@ test('listening: a failed text stays in the library', async ({ page }) => {
   await expect(page.getByText('Пока не засчитано')).toBeVisible()
   await expect(page.getByRole('button', { name: 'Пройти заново' })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Следующий текст' })).toBeVisible()
+})
+
+test('listening: weak text is in Вернуться and opens in repeat mode', async ({ page }) => {
+  const reading = readings.find((item) => item.level === 'A1')
+  expect(reading, 'an A1 reading must exist').toBeTruthy()
+
+  await page.goto('/')
+  await putKv(page, 'listening-results', {
+    [reading!.id]: { score: 0, total: 3, passed: false, at: Date.now() },
+  })
+
+  await page.goto('/#/listening')
+  await expect(page.getByText('Вернуться')).toBeVisible()
+  await page.getByRole('button').filter({ hasText: reading!.title }).first().click()
+
+  await expect(page.getByText('повтор', { exact: false })).toBeVisible()
+  await expect(page.getByText('Шаг 1 · Слушай')).toBeVisible()
 })

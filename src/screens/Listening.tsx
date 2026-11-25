@@ -4,7 +4,7 @@ import { Check, Play } from 'lucide-react'
 import { units, type Level } from '@/content'
 import { readings, type Reading } from '@/content/readings'
 import { readingAudio } from '@/content/reading-audio'
-import { addStudyTime, finishLesson, getAllLessonProgress } from '@/db/db'
+import { addStudyTime, finishLesson, getAllLessonProgress, getKv, setKv } from '@/db/db'
 import { answersMatch } from '@/lib/text'
 import { shuffleOptions } from '@/lib/options'
 import { speak, stopSpeaking } from '@/lib/speech'
@@ -14,6 +14,15 @@ import { LevelChips } from '@/components/LevelChips'
 import { SpeakButton } from '@/components/SpeakButton'
 
 type Step = 'gist' | 'dictation' | 'shadow'
+
+const RESULTS_KEY = 'listening-results'
+
+interface ListeningResult {
+  score: number
+  total: number
+  passed: boolean
+  at: number
+}
 
 function sentencesOf(reading: Reading): string[] {
   return reading.paragraphs
@@ -50,6 +59,8 @@ export default function ListeningScreen() {
   const [dictationCorrect, setDictationCorrect] = useState(0)
   const [finished, setFinished] = useState(false)
   const [failed, setFailed] = useState<{ correct: number; total: number } | null>(null)
+  const [results, setResults] = useState<Record<string, ListeningResult>>({})
+  const [focusId, setFocusId] = useState<string | null>(null)
   const startedAt = useRef(Date.now())
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [audioFailed, setAudioFailed] = useState(false)
@@ -62,13 +73,17 @@ export default function ListeningScreen() {
 
   useEffect(() => {
     void (async () => {
-      const progress = await getAllLessonProgress()
+      const [progress, storedResults] = await Promise.all([
+        getAllLessonProgress(),
+        getKv<Record<string, ListeningResult>>(RESULTS_KEY),
+      ])
       const finishedIds = new Set(
         Object.values(progress)
           .filter((item) => item.status === 'done')
           .map((item) => item.lessonId),
       )
       setDone(finishedIds)
+      setResults(storedResults ?? {})
 
       // По умолчанию открываем уровень, на котором сейчас идёт курс.
       const nextUnit = units.find((unit) => progress[unit.id]?.status !== 'done')
@@ -88,6 +103,7 @@ export default function ListeningScreen() {
     setDictationCorrect(0)
     setFinished(false)
     setFailed(null)
+    setFocusId(null)
     setAudioFailed(false)
   }, [level])
 
@@ -111,11 +127,38 @@ export default function ListeningScreen() {
 
   const queue = done ? unread : null
 
+  const weak = useMemo(
+    () => readings.filter((reading) => results[reading.id] && !results[reading.id].passed),
+    [results],
+  )
+  const focused = focusId ? readings.find((reading) => reading.id === focusId) ?? null : null
+
   useEffect(() => {
     return () => flushTime()
   }, [])
 
-  const current = queue?.[index]
+  const current = focused ?? queue?.[index]
+
+  const weakList =
+    weak.length > 0 && !focused ? (
+      <section className="mb-5 border-l-2 border-warn pl-4">
+        <p className="text-[13px] font-medium text-warn">Вернуться</p>
+        <ul className="mt-1 space-y-1">
+          {weak.slice(0, 3).map((reading) => (
+            <li key={reading.id}>
+              <button
+                type="button"
+                onClick={() => startFocus(reading.id)}
+                className="text-left text-[15px] leading-snug text-ink underline underline-offset-4"
+              >
+                {reading.title} · {Math.round((results[reading.id]?.score ?? 0) * (results[reading.id]?.total ?? 0))} из{' '}
+                {results[reading.id]?.total}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ) : null
   const audioSrc =
     current && readingAudio[current.id]
       ? `${import.meta.env.BASE_URL}${readingAudio[current.id]}`
@@ -228,6 +271,11 @@ export default function ListeningScreen() {
 
   function advance() {
     if (!queue) return
+    if (focused) {
+      setFocusId(null)
+      resetCurrent()
+      return
+    }
     if (index + 1 >= queue.length) {
       setFinished(true)
       return
@@ -241,7 +289,19 @@ export default function ListeningScreen() {
     flushTime()
     const total = gistQuestions.length + sentences.length
     const correct = gistCorrect + dictationCorrect
-    if (total > 0 && correct / total >= 0.6) {
+    const passed = total > 0 && correct / total >= 0.6
+    const nextResults = {
+      ...results,
+      [current.id]: {
+        score: total > 0 ? correct / total : 0,
+        total,
+        passed,
+        at: Date.now(),
+      },
+    }
+    setResults(nextResults)
+    void setKv(RESULTS_KEY, nextResults)
+    if (passed) {
       await finishLesson(`listening-${current.id}`, correct / total, total)
       advance()
       return
@@ -257,6 +317,14 @@ export default function ListeningScreen() {
   function skipFailed() {
     setFailed(null)
     advance()
+  }
+
+  function startFocus(id: string) {
+    setFocusId(id)
+    setFailed(null)
+    setFinished(false)
+    resetCurrent()
+    window.scrollTo({ top: 0 })
   }
 
   if (!queue) {
@@ -276,6 +344,7 @@ export default function ListeningScreen() {
         <AppBar title="Слушание" onBack={() => navigate('/')} />
         <main className="px-5 pb-8 pt-6">
           <LevelChips level={level} counts={counts} onChange={setLevel} />
+          {weakList}
           <div className="mt-4 flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">
             <Check size={28} strokeWidth={1.5} />
           </div>
@@ -310,7 +379,7 @@ export default function ListeningScreen() {
               Пройти заново
             </Button>
             <Button variant="secondary" className="w-full" onClick={skipFailed}>
-              Следующий текст
+              {focused ? 'К списку' : 'Следующий текст'}
             </Button>
           </div>
         </main>
@@ -324,12 +393,14 @@ export default function ListeningScreen() {
     <div className="mx-auto flex min-h-dvh w-full max-w-[560px] flex-col">
       <AppBar
         title="Слушание"
-        subtitle={`${current.level} · ${index + 1} из ${queue.length}`}
+        subtitle={focused ? `${focused.level} · повтор` : `${current.level} · ${index + 1} из ${queue.length}`}
         onBack={() => navigate('/')}
       />
 
       <main className="flex-1 px-5 pb-8 pt-6">
         <LevelChips level={level} counts={counts} onChange={setLevel} />
+
+        {weakList}
 
         {step === 'gist' && (
           <>
