@@ -1,7 +1,7 @@
-# Accept-list pass — A2–C1 translations
+# Accept-list pass — A1–C1 translations
 
-Date: 2026-11-22 (B2/C1), 2026-11-25 (B1, A2). Scope: every `translate` exercise in A2 (150),
-B1 (180), B2 (180) and C1 (72), 582 items. A1 is still pending.
+Date: 2026-11-22 (B2/C1), 2026-11-25 (B1, A2, A1). Scope: every `translate` exercise in A1
+(120), A2 (150), B1 (180), B2 (180) and C1 (72), 702 items.
 Method: each item was read against its Russian source; alternatives were added only when they
 are real, grammatical paraphrases (passive/active, may/might, has/there is, close verbs,
 word order). No fuzzy matching, no mechanical substitution.
@@ -14,14 +14,45 @@ reports coverage.
 
 | Level | Translations | With variants | Intentionally single |
 |---|---:|---:|---:|
+| A1 | 120 | 97 | 23 |
 | A2 | 150 | 136 | 14 |
 | B1 | 180 | 165 | 15 |
 | B2 | 180 | 172 | 8 |
 | C1 | 72 | 69 | 3 |
-| **Total** | **582** | **542** | **40** |
+| **Total** | **702** | **639** | **63** |
 
 Before the pass, 13 B2/C1 items had variants (mostly the concrete fixes from the review). After
-the pass, 542 of 582 have at least two curated answers.
+the pass, 639 of 702 have at least two curated answers.
+
+## A1 pass (2026-11-25)
+
+23 A1 translations were left single after review:
+
+| Id | Why one |
+|---|---|
+| `a1-03-workshop-translate` | `He is an engineer.` — fixed profession. |
+| `a1-07-workshop-translate` | `soccer` is the US term; `football` would mean a different sport. |
+| `a1-08-extra-03` | `Where does she work?` — fixed question. |
+| `a1-08-workshop-translate` | `Where do you live?` — fixed question. |
+| `a1-09-workshop-translate` | `I am at home today.` — contraction `I'm` handled by normalization. |
+| `a1-10-extra-03` | `My parents live in Moscow.` — fixed statement. |
+| `a1-14-workshop-translate` | `The price is on the box.` — fixed spatial phrase. |
+| `a1-19-workshop-translate` | `Turn right after the park.` — fixed direction. |
+| `a1-20-workshop-translate` | `I am waiting for the bus.` — contraction handled. |
+| `a1-21-workshop-translate` | `He is listening to music.` — contraction handled. |
+| `a1-22-ex-06` | `in the evening` is fixed; `at night` changes the time. |
+| `a1-23-workshop-translate` | `It is cold outside.` — contraction handled. |
+| `a1-24-ex-07` | `Her birthday was in May.` — fixed date. |
+| `a1-26-ex-07` | `didn't` is handled by normalization. |
+| `a1-26-workshop-translate` | `He answered the question.` — fixed action. |
+| `a1-28-ex-07` | `He took my pen.` — fixed action. |
+| `a1-30-ex-07` | `They moved to New York.` — fixed event. |
+| `a1-33-workshop-translate` | `The room is small.` — fixed description. |
+| `a1-34-ex-07` | `It is the worst day of the week.` — contraction handled. |
+| `a1-34-workshop-translate` | `movie` is the US term; `film` is British. |
+| `a1-35-workshop-translate` | `These shoes are new.` — fixed description. |
+| `a1-37-ex-06` | `He has a toothache.` — fixed collocation. |
+| `a1-40-ex-06` | `Describe your family.` — fixed instruction. |
 
 ## A2 pass (2026-11-25)
 
