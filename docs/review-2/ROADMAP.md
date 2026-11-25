@@ -100,7 +100,9 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 - [x] Level gates at A1→A2, A2→B1, B1→B2, B2→C1: all units + last Studio + 2 library texts +
       writing + recorded speaking; next level locked until passed. Shipped in 0.99.0.
 - [ ] Optional every-10-unit checkpoints if the owner wants denser gates.
-- [ ] Micro-production in units: 1–2 own sentences, saved to the portfolio, every 5th unit / B1+.
+- [x] Micro-production in units: every 5th unit gets a self-assessed `write` task in the workshop
+      (2–3 sentences, unit word + formula, portfolio). Shipped in 0.99.1.
+- [ ] Extend micro-production to more units / level gates if the owner wants.
 - [ ] Daily load: 1–2 new units, the rest library/Studio/SRS; Studio replaces blocks.
 - [ ] Blind recall in speaking on B1+: hide the English text until after recording.
 - [ ] Tutor export: one weekly `.txt`/`.md` with writings, top errors and topics.

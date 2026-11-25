@@ -285,7 +285,28 @@ function buildWorkshop(unit: Unit, used: Set<string>): Exercise[] {
       optional: true,
     })
   }
-  if (picks[2]) {
+  const microWord = unit.words[0]
+  const microFormula = unit.formulas[0]
+  const micro = unit.order % 5 === 0 && microWord && microFormula
+  if (micro) {
+    const minWords =
+      unit.level === 'A1' ? 12 : unit.level === 'A2' ? 18 : unit.level === 'B1' ? 25 : unit.level === 'B2' ? 35 : 45
+    workshop.push({
+      kind: 'write',
+      id: `${unit.id}-workshop-write`,
+      prompt: `Напиши 2–3 предложения по теме «${unit.title}». Используй слово «${microWord.term}» и конструкцию «${microFormula.pattern}».`,
+      minWords,
+      maxWords: minWords + 40,
+      checklist: [
+        `Использовал(а) слово «${microWord.term}».`,
+        `Использовал(а) конструкцию «${microFormula.pattern}».`,
+        'Написал(а) 2–3 предложения.',
+      ],
+      modelAnswer: '',
+      selfAssessed: true,
+      optional: true,
+    })
+  } else if (picks[2]) {
     workshop.push({
       kind: 'speak',
       id: `${unit.id}-workshop-speak`,

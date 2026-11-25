@@ -323,6 +323,7 @@ export default function LessonScreen() {
               onClick={() => navigate(`/workshop/${unit.id}`)}
             >
               Мастерская · {workshop.length} упр.
+              {workshop.some((exercise) => exercise.kind === 'write') ? ' · своя фраза' : ''}
             </Button>
           )}
           <Button variant="secondary" className="w-full" onClick={restart}>

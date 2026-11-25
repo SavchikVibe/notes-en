@@ -90,7 +90,7 @@ function americanIssues(unit: Unit): string[] {
     if (exercise.kind === 'speak') check(exercise.phrase)
     if (exercise.kind === 'write') {
       check(exercise.prompt)
-      check(exercise.modelAnswer)
+      if (!exercise.selfAssessed) check(exercise.modelAnswer)
       exercise.usefulLanguage?.forEach(check)
     }
     if (exercise.kind === 'read') {
@@ -207,7 +207,9 @@ function checkExercise(unit: Unit, exercise: Exercise, seen: Set<string>) {
         fail(`${path}: maxWords меньше minWords`)
       }
       if (exercise.checklist.length === 0) fail(`${path}: пустой чек-лист`)
-      if (!exercise.modelAnswer.trim()) fail(`${path}: нет образца`)
+      if (!exercise.selfAssessed && !exercise.modelAnswer.trim()) {
+        fail(`${path}: нет образца`)
+      }
       break
     case 'read':
       if (!exercise.title.trim()) fail(`${path}: нет заголовка текста`)

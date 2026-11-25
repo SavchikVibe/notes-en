@@ -157,6 +157,24 @@ check(
   new Set(workshopWords.filter(Boolean)).size >= 2,
 )
 
+const microUnit = units.find((unit) => unit.order % 5 === 0)!
+const plainUnit = units.find((unit) => unit.order % 5 !== 0)!
+const microWrite = microUnit.exercises.find(
+  (exercise) => exercise.optional && exercise.kind === 'write',
+)
+check(
+  'каждый 5-й юнит получает свою фразу в мастерской',
+  Boolean(microWrite),
+)
+check(
+  'микро-письмо использует слово урока',
+  microWrite?.kind === 'write' && microWrite.prompt.includes(microUnit.words[0].term),
+)
+check(
+  'обычный юнит не получает лишнюю письменную мастерскую',
+  !plainUnit.exercises.some((exercise) => exercise.optional && exercise.kind === 'write'),
+)
+
 /* --------------------------------- итог ----------------------------------- */
 
 console.log(`Проверок не пройдено: ${failures}.`)

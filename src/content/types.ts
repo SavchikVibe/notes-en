@@ -96,6 +96,8 @@ export interface WriteExercise extends ExerciseBase {
   /** Конкретные критерии самопроверки, а не общие слова. */
   checklist: string[]
   modelAnswer: string
+  /** Короткая продукция без образца: оценивается только по чек-листу. */
+  selfAssessed?: boolean
   usefulLanguage?: string[]
   sourceText?: string
 }

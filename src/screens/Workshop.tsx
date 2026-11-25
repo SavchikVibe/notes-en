@@ -58,6 +58,7 @@ export default function WorkshopScreen() {
   }, [unit])
 
   const current = queue?.[position]
+  const selfAssessed = current?.exercise.kind === 'write'
 
   const handleResult = useCallback(
     (correct: boolean) => {
@@ -167,11 +168,19 @@ export default function WorkshopScreen() {
         {phase === 'feedback' && (
           <div
             className={`mt-6 rounded-[10px] border-l-2 p-4 ${
-              lastCorrect ? 'border-accent bg-accent-soft' : 'border-err bg-err-soft'
+              selfAssessed
+                ? 'border-accent bg-accent-soft'
+                : lastCorrect
+                  ? 'border-accent bg-accent-soft'
+                  : 'border-err bg-err-soft'
             }`}
           >
-            <p className={`text-[13px] font-medium ${lastCorrect ? 'text-accent' : 'text-err'}`}>
-              {lastCorrect ? 'Верно' : 'Неверно'}
+            <p
+              className={`text-[13px] font-medium ${
+                selfAssessed ? 'text-accent' : lastCorrect ? 'text-accent' : 'text-err'
+              }`}
+            >
+              {selfAssessed ? 'Сохранено' : lastCorrect ? 'Верно' : 'Неверно'}
             </p>
             {current.exercise.explanation && (
               <p className="mt-1 text-[15px] leading-snug text-ink">
