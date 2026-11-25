@@ -103,7 +103,8 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 - [x] Micro-production in units: every 5th unit gets a self-assessed `write` task in the workshop
       (2–3 sentences, unit word + formula, portfolio). Shipped in 0.99.1.
 - [ ] Extend micro-production to more units / level gates if the owner wants.
-- [ ] Daily load: 1–2 new units, the rest library/Studio/SRS; Studio replaces blocks.
+- [x] Daily load: 2 new units on a normal day, 1 on the 90-minute tutor day; the course block
+      keeps its time for consolidation. Shipped in 0.99.2.
 - [ ] Blind recall in speaking on B1+: hide the English text until after recording.
 - [ ] Tutor export: one weekly `.txt`/`.md` with writings, top errors and topics.
 - [ ] Retry list for Listening.

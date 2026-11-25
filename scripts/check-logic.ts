@@ -119,6 +119,7 @@ equal(
 )
 check('первый блок — курс', session.blocks[0].key === 'course')
 check('курс содержит уроки', session.blocks[0].units.length > 0)
+equal('в обычный день два новых урока', session.blocks[0].units.length, 2)
 check('чтение и слушание готовы при наличии текстов', session.blocks.every((block) => block.key === 'srs' || block.status === 'ready'))
 equal('первый урок — a1-01', session.firstUnit?.id, 'a1-01')
 
@@ -134,6 +135,7 @@ equal(
   smallDay.blocks.reduce((sum, block) => sum + block.minutes, 0),
   90,
 )
+equal('в день с репетитором один новый урок', smallDay.blocks[0].units.length, 1)
 
 /* -------------------------------- мастерская ------------------------------ */
 

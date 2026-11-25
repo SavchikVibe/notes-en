@@ -89,8 +89,17 @@ export function buildSession(
       .map((item) => item.lessonId),
   )
 
-  const lessonsCount = Math.min(5, Math.max(1, Math.round(courseMinutes / 12)))
+  // 1–2 новых юнита в день: 90-минутный день с репетитором — один,
+  // обычный день — два. Остальное время блока — закрепление и ошибки.
+  const lessonsCount = total <= 90 ? 1 : 2
   const nextLessons = units.filter((unit) => !doneIds.has(unit.id)).slice(0, lessonsCount)
+
+  const lessonsNote =
+    nextLessons.length === 0
+      ? 'Все уроки этого этапа пройдены'
+      : nextLessons.length === 1
+        ? '1 урок · остальное — закрепление'
+        : '2 урока · остальное — закрепление'
 
   const blocks: SessionBlock[] = [
     {
@@ -98,7 +107,7 @@ export function buildSession(
       title: 'Курс',
       minutes: courseMinutes,
       status: nextLessons.length > 0 ? 'ready' : 'soon',
-      note: nextLessons.length > 0 ? '10–12 минут на урок' : 'Все уроки этого этапа пройдены',
+      note: lessonsNote,
       units: nextLessons,
     },
     {
