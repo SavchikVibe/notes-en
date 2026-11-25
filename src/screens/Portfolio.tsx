@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, Check } from 'lucide-react'
-import { listWritings, type Writing } from '@/db/db'
+import { ArrowLeft, Check, Download } from 'lucide-react'
+import {
+  getAllErrors,
+  getAllLessonProgress,
+  listWritings,
+  type Writing,
+} from '@/db/db'
+import { todayKey } from '@/lib/date'
+import { buildTutorPack } from '@/lib/tutor-pack'
 import { AppBar } from '@/components/AppBar'
 import { Button } from '@/components/Button'
 
@@ -31,6 +38,20 @@ function exportWriting(writing: Writing) {
   const link = document.createElement('a')
   link.href = url
   link.download = `writing-${writing.id}.txt`
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+  URL.revokeObjectURL(url)
+}
+
+async function exportTutorPack(writings: Writing[]) {
+  const [errors, progress] = await Promise.all([getAllErrors(), getAllLessonProgress()])
+  const text = buildTutorPack({ writings, errors, progress: Object.values(progress) })
+  const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' })
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = `tutor-pack-${todayKey()}.md`
   document.body.appendChild(link)
   link.click()
   link.remove()
@@ -112,6 +133,21 @@ export default function PortfolioScreen() {
     <>
       <AppBar title="Портфолио" onBack={() => navigate('/')} />
       <main className="px-5 pb-10 pt-6">
+        <Button
+          variant="secondary"
+          className="w-full"
+          onClick={() => void exportTutorPack(writings)}
+        >
+          <Download size={19} strokeWidth={1.5} />
+          Пакет для репетитора
+        </Button>
+        <p className="mt-2 text-[13px] leading-snug text-ink-3">
+          Один .md: письма за неделю, топ-10 ошибок и пройденные темы. Файл собирается на
+          устройстве.
+        </p>
+
+        <div className="mt-8" />
+
         {writings.length === 0 ? (
           <>
             <div className="flex size-14 items-center justify-center rounded-full bg-accent-soft text-accent">

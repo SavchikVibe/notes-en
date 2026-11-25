@@ -106,7 +106,7 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 - [x] Daily load: 2 new units on a normal day, 1 on the 90-minute tutor day; the course block
       keeps its time for consolidation. Shipped in 0.99.2.
 - [x] Blind recall in speaking on B1+: hide the English text until after recording. Shipped in 0.99.3.
-- [ ] Tutor export: one weekly `.txt`/`.md` with writings, top errors and topics.
+- [x] Tutor export: one weekly `.md` with writings, top errors and topics. Shipped in 0.99.4.
 - [ ] Retry list for Listening.
 
 ## Stage 5 — IELTS (on hold)

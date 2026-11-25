@@ -390,6 +390,10 @@ export async function countDueErrors(): Promise<number> {
   return all.filter((item) => item.dueAt <= now).length
 }
 
+export async function getAllErrors(): Promise<ErrorItem[]> {
+  return (await db()).getAll('errors')
+}
+
 /* -------------------------------- portfolio -------------------------------- */
 
 export async function getWriting(id: string): Promise<Writing | undefined> {
