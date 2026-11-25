@@ -455,6 +455,12 @@ function withAcceptVariants(exercise: Exercise): Exercise {
   return { ...exercise, accept: [...new Set([...exercise.accept, ...extra])] }
 }
 
+function withBlindSpeaking(unit: Unit, exercise: Exercise): Exercise {
+  if (exercise.kind !== 'speak') return exercise
+  if (unit.level === 'A1' || unit.level === 'A2') return exercise
+  return { ...exercise, blind: true }
+}
+
 function withContent(unit: Unit): Unit {
   const read = unit.exercises.filter((exercise) => exercise.kind === 'read')
   const base = unit.exercises.filter((exercise) => exercise.kind !== 'read')
@@ -499,7 +505,7 @@ function withContent(unit: Unit): Unit {
   return {
     ...unit,
     exercises: [...base, ...extra, ...derived, ...read, ...workshop].map((exercise) =>
-      withAcceptVariants(withDistractors(unit, exercise)),
+      withBlindSpeaking(unit, withAcceptVariants(withDistractors(unit, exercise))),
     ),
   }
 }

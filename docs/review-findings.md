@@ -2,7 +2,7 @@
 
 This file preserves the independent reviews of the project and the decisions made after them. Read it at the start of a new session, before changing content or architecture. It is the long-term memory for the project.
 
-Last updated: 2026-11-25, version 0.99.2.
+Last updated: 2026-11-25, version 0.99.3.
 
 ## 1. What was reviewed
 
@@ -127,10 +127,10 @@ These are still the backbone of the roadmap.
 - **Storage.** Precache is about 17 MB: app shell plus Studio audio. Library audio (54 MP3) is excluded from precache and cached on demand in the `library-audio` Cache Storage bucket when a text is opened. Studio audio stays fully offline from the first launch.
 - **Validation semantics (0.59.0).** In-unit readings are short by design: the minimum is A1 40 / A2 55 / B1 70 / B2 60 words, and long reading lives in the library. The duplicate check only compares sentences across exercises, because reusing a word example as an exercise is intended scaffolding. The «all choice answers are A» check was removed: options are shuffled at runtime. Library length targets live in `npm run check:readings`.
 - **Current learner level.** The learner is at A1, about 15 of 40 lessons. Do not assume B2. A1-01 is available now; A1-02 after unit 20; A1-03 after 30; A1-04 after 40. A2/B1/B2/C1 are future goals.
-- **Next phase (0.99.2).** P0 trust fixes are shipped. P1a part 1: Studio models aligned with their sources, all 29 models inside their word range, ambiguous items fixed, evidence quotes fixed, workshop/distractor generator improved, known `accept` false negatives fixed. P1b: A1/A2 modal items in B2 replaced with B2 structures; formula card collapsed by default; all remaining B2 `might to` / `must to` / `should to` items replaced. Full B2/C1 accept pass: 241 of 252 translations have 2+ curated variants; the 11 intentionally single items are listed in `docs/review-2/ACCEPT-PASS.md`. P2 step 1: level gates at A1→A2, A2→B1, B1→B2, B2→C1; each requires the last Studio, two library texts, writing and recorded speaking, and locks the next level. P2 step 2: every 5th unit has a self-assessed micro-writing task in the workshop. P2 step 3: the daily plan takes 2 new units (1 on the 90-minute tutor day). Next: P2 step 4, blind recall in speaking on B1+. Remaining P1 if wanted: full authored distractors, optional B1/A2/A1 accept, broader B2 grammar audit. The IELTS exam block remains on hold until the user settles the format questions (timed sections, Writing/Speaking scope, self-assessment without an automatic band).
+- **Next phase (0.99.3).** P0 trust fixes are shipped. P1a part 1: Studio models aligned with their sources, all 29 models inside their word range, ambiguous items fixed, evidence quotes fixed, workshop/distractor generator improved, known `accept` false negatives fixed. P1b: A1/A2 modal items in B2 replaced with B2 structures; formula card collapsed by default; all remaining B2 `might to` / `must to` / `should to` items replaced. Full B2/C1 accept pass: 241 of 252 translations have 2+ curated variants; the 11 intentionally single items are listed in `docs/review-2/ACCEPT-PASS.md`. P2 step 1: level gates at A1→A2, A2→B1, B1→B2, B2→C1; each requires the last Studio, two library texts, writing and recorded speaking, and locks the next level. P2 step 2: every 5th unit has a self-assessed micro-writing task in the workshop. P2 step 3: the daily plan takes 2 new units (1 on the 90-minute tutor day). P2 step 4: B1+ `speak` exercises hide the English phrase until the first recording. Next: P2 step 5, tutor export. Remaining P1 if wanted: full authored distractors, optional B1/A2/A1 accept, broader B2 grammar audit. The IELTS exam block remains on hold until the user settles the format questions (timed sections, Writing/Speaking scope, self-assessment without an automatic band).
 - **No code splitting (0.97.0).** The single JS bundle is 2.6 MB raw / 683 KB gzip. Measured on the built app with 4× CPU throttling: FCP 0.89 s, Today visible in 1.15 s. The bulk is course content, and Today needs all units to build the session, so route-level splitting would barely help. Revisit only if startup becomes slow on the phone.
 
-## 8. Current state (0.99.2)
+## 8. Current state (0.99.3)
 
 - 234 units: A1 40, A2 50, B1 60, B2 60, C1 24 (all C1 units written).
 - 1,792 words, 3,750 exercises: 12-14 core per unit plus 3 optional workshop exercises generated from unused word examples.
@@ -183,7 +183,8 @@ These are still the backbone of the roadmap.
 - Precache is about 17 MB. Library audio lives in the on-demand `library-audio` cache; Studio audio is precached.
 - Live app: https://savchikvibe.github.io/notes-en/
 - Repo: `SavchikVibe/notes-en`.
-- Version 0.99.2.
+- Version 0.99.3.
+- Blind recall (0.99.3): B1+ `speak` exercises carry `blind: true`; the English phrase is hidden until the first recording or «Показать текст». Russian translation and model audio stay visible; after recording the phrase opens automatically. A1/A2 unchanged.
 - Daily load (0.99.2): `buildSession` gives 2 new units on a normal day and 1 on the 90-minute tutor day; the course block keeps its time and is labelled «2 урока · остальное — закрепление». Tests assert 2/1 units.
 - Micro-production (0.99.1): every 5th unit (`order % 5 === 0`) gets a `write` task in the workshop: 2–3 sentences, one unit word and one unit formula, no model answer (`selfAssessed`), saved to the portfolio. Workshop feedback says «Сохранено»; lesson result button says «· своя фраза». 46 units, A1 12 / A2 18 / B1 25 / B2 35 / C1 45 words minimum.
 - Level gates (0.99.0): A1→A2, A2→B1, B1→B2, B2→C1. Each gate requires all level units, the last Studio, two library texts, a short writing task (saved to the portfolio) and a recorded spoken answer. State lives in `kv` (`gate:<level>`); the next level is locked in Path, Level, Today and a direct lesson URL until the gate is passed. `src/content/gates.ts`, `src/lib/gates.ts`, `src/screens/Gate.tsx`; `npm run check:gates` validates references and order. Tests: 14 e2e including the full A1 gate.

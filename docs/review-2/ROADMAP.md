@@ -105,7 +105,7 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 - [ ] Extend micro-production to more units / level gates if the owner wants.
 - [x] Daily load: 2 new units on a normal day, 1 on the 90-minute tutor day; the course block
       keeps its time for consolidation. Shipped in 0.99.2.
-- [ ] Blind recall in speaking on B1+: hide the English text until after recording.
+- [x] Blind recall in speaking on B1+: hide the English text until after recording. Shipped in 0.99.3.
 - [ ] Tutor export: one weekly `.txt`/`.md` with writings, top errors and topics.
 - [ ] Retry list for Listening.
 

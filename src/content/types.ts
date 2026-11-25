@@ -69,6 +69,8 @@ export interface SpeakExercise extends ExerciseBase {
   kind: 'speak'
   phrase: string
   translation: string
+  /** B1+: английский текст скрыт до первой записи. */
+  blind?: boolean
 }
 
 export interface ReadQuestion {

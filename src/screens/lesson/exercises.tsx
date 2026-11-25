@@ -419,6 +419,8 @@ export const ListenView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
 export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
   function SpeakView({ exercise, locked, onResult, onCanCheck, onSkip }, ref) {
     const ex = exercise as SpeakExercise
+    const blind = Boolean(ex.blind)
+    const [revealed, setRevealed] = useState(!blind)
     const [recording, setRecording] = useState(false)
     const [audioUrl, setAudioUrl] = useState<string | null>(null)
     const [error, setError] = useState<string | null>(null)
@@ -426,6 +428,10 @@ export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
     const chunksRef = useRef<Blob[]>([])
     const streamRef = useRef<MediaStream | null>(null)
     const audioRef = useRef<HTMLAudioElement | null>(null)
+
+    useEffect(() => {
+      if (audioUrl) setRevealed(true)
+    }, [audioUrl])
 
     useImperativeHandle(
       ref,
@@ -482,8 +488,26 @@ export const SpeakView = forwardRef<ExerciseViewHandle, ExerciseViewProps>(
     return (
       <div className="space-y-5">
         <div>
-          <p className="text-[13px] font-medium text-ink-3">Повтори за диктором</p>
-          <Stem>{ex.phrase}</Stem>
+          <p className="text-[13px] font-medium text-ink-3">
+            {blind ? 'Скажи по-английски' : 'Повтори за диктором'}
+          </p>
+          {revealed ? (
+            <Stem>{ex.phrase}</Stem>
+          ) : (
+            <div className="mt-2 rounded-[10px] border border-dashed border-line-strong bg-surface px-4 py-3">
+              <p className="text-[15px] leading-snug text-ink-2">
+                Сначала скажи по памяти. Английский текст появится после записи — или открой его
+                сам(а).
+              </p>
+              <button
+                type="button"
+                onClick={() => setRevealed(true)}
+                className="mt-2 text-[15px] text-ink-3 underline underline-offset-4"
+              >
+                Показать текст
+              </button>
+            </div>
+          )}
           <p className="mt-1 text-[17px] text-ink-2">{ex.translation}</p>
         </div>
 

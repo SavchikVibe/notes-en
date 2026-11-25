@@ -177,6 +177,18 @@ check(
   !plainUnit.exercises.some((exercise) => exercise.optional && exercise.kind === 'write'),
 )
 
+const b1Speak = units
+  .find((unit) => unit.id === 'b1-01')!
+  .exercises.find((exercise) => exercise.kind === 'speak' && !exercise.optional)
+const a1Speak = units
+  .find((unit) => unit.id === 'a1-01')!
+  .exercises.find((exercise) => exercise.kind === 'speak' && !exercise.optional)
+check('B1+ speak скрывает текст до записи', b1Speak?.kind === 'speak' && b1Speak.blind === true)
+check(
+  'A1 speak не скрывает текст',
+  a1Speak?.kind === 'speak' && a1Speak.blind !== true,
+)
+
 /* --------------------------------- итог ----------------------------------- */
 
 console.log(`Проверок не пройдено: ${failures}.`)
