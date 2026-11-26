@@ -139,10 +139,10 @@ export const b216: Unit = {
     {
       kind: 'choice',
       id: 'b2-16-ex-02',
-      question: 'If trade falls, jobs ___ be lost.',
-      options: ['will', 'would', 'are'],
+      question: 'If trade ___, jobs would be lost.',
+      options: ['fell', 'falls', 'will fall'],
       answer: 0,
-      explanation: 'First Conditional: will + verb.',
+      explanation: 'Second Conditional: if + Past, would.',
     },
     {
       kind: 'choice',

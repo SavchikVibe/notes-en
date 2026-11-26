@@ -131,10 +131,10 @@ export const b219: Unit = {
     {
       kind: 'choice',
       id: 'b2-19-ex-01',
-      question: 'The gig economy is likely ___ grow.',
-      options: ['to', 'for', 'that'],
+      question: 'The gig economy ___ to grow in the next decade.',
+      options: ['is expected', 'expects', 'is expecting'],
       answer: 0,
-      explanation: 'Be likely to + глагол.',
+      explanation: 'Passive reporting: is expected to grow.',
     },
     {
       kind: 'choice',

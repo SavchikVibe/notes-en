@@ -131,10 +131,10 @@ export const b210: Unit = {
     {
       kind: 'choice',
       id: 'b2-10-ex-01',
-      question: 'The evidence ___ that the plan works.',
-      options: ['suggests', 'suggest', 'suggesting'],
+      question: 'The evidence ___ to support the claim.',
+      options: ['appears', 'appear', 'appearing'],
       answer: 0,
-      explanation: 'The evidence — неисчисляемое, suggests.',
+      explanation: 'Hedging: the evidence appears to support.',
     },
     {
       kind: 'choice',

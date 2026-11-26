@@ -131,10 +131,10 @@ export const b248: Unit = {
     {
       kind: 'choice',
       id: 'b2-48-ex-01',
-      question: 'Culture is ___ by trade.',
-      options: ['shaped', 'shape', 'shaping'],
+      question: 'Trade ___ culture over centuries.',
+      options: ['has shaped', 'shaped', 'has shaping'],
       answer: 0,
-      explanation: 'Passive: is shaped.',
+      explanation: 'Present Perfect: has shaped — влияние к настоящему.',
     },
     {
       kind: 'choice',

@@ -139,10 +139,10 @@ export const b246: Unit = {
     {
       kind: 'choice',
       id: 'b2-46-ex-02',
-      question: 'The report said that trust ___.',
-      options: ['had fallen', 'has fallen', 'will fall'],
+      question: 'Trust is reported ___ fallen.',
+      options: ['to have', 'to be', 'having'],
       answer: 0,
-      explanation: 'Косвенная речь: Past Perfect.',
+      explanation: 'Passive reporting: is reported to have fallen.',
     },
     {
       kind: 'choice',

@@ -131,10 +131,10 @@ export const b203: Unit = {
     {
       kind: 'choice',
       id: 'b2-03-ex-01',
-      question: 'Sales increased ___ ten percent.',
-      options: ['by', 'to', 'in'],
+      question: 'Sales ___ by ten percent.',
+      options: ['rose', 'raised', 'risen'],
       answer: 0,
-      explanation: 'Increase by — на сколько.',
+      explanation: 'Rise — расти (rose); raise — поднимать что-то.',
     },
     {
       kind: 'choice',

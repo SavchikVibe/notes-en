@@ -139,10 +139,10 @@ export const b214: Unit = {
     {
       kind: 'choice',
       id: 'b2-14-ex-02',
-      question: '___ general, younger people move more often.',
-      options: ['In', 'On', 'At'],
+      question: 'Generally ___, younger people move more often.',
+      options: ['speaking', 'spoken', 'speak'],
       answer: 0,
-      explanation: 'In general — в целом.',
+      explanation: 'Generally speaking — устойчивая вводная фраза.',
     },
     {
       kind: 'choice',

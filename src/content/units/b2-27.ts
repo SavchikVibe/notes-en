@@ -139,10 +139,10 @@ export const b227: Unit = {
     {
       kind: 'choice',
       id: 'b2-27-ex-02',
-      question: 'People ___ move often adapt quickly.',
-      options: ['who', 'which', 'where'],
+      question: 'People ___ abroad often adapt quickly.',
+      options: ['who move', 'who moves', 'which move'],
       answer: 0,
-      explanation: 'Who — для людей.',
+      explanation: 'Relative clause: who + множественное число — who move.',
     },
     {
       kind: 'choice',

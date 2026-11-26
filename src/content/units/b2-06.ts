@@ -147,10 +147,10 @@ export const b206: Unit = {
     {
       kind: 'choice',
       id: 'b2-06-ex-03',
-      question: 'Many problems ___ from inequality.',
-      options: ['stem', 'stems', 'stemming'],
+      question: 'Inequality ___ many problems.',
+      options: ['gives rise to', 'gives rise', 'give rise to'],
       answer: 0,
-      explanation: 'Stem from — происходить из.',
+      explanation: 'Give rise to — вызывать, порождать.',
     },
     {
       kind: 'choice',

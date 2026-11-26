@@ -131,10 +131,10 @@ export const b229: Unit = {
     {
       kind: 'choice',
       id: 'b2-29-ex-01',
-      question: 'Automation is likely ___ change the workforce.',
-      options: ['to', 'for', 'that'],
+      question: 'Automation is expected ___ the workforce.',
+      options: ['to change', 'change', 'changing'],
       answer: 0,
-      explanation: 'Be likely to + глагол.',
+      explanation: 'Passive reporting: is expected to change.',
     },
     {
       kind: 'choice',

@@ -147,10 +147,10 @@ export const b237: Unit = {
     {
       kind: 'choice',
       id: 'b2-37-ex-03',
-      question: 'The line is being ___.',
-      options: ['extended', 'extend', 'extending'],
+      question: 'The line ___ by 2028.',
+      options: ['will have been extended', 'will be extending', 'extends'],
       answer: 0,
-      explanation: 'Passive: is being extended.',
+      explanation: 'Future Perfect Passive: will have been extended.',
     },
     {
       kind: 'choice',

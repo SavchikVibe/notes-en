@@ -147,10 +147,10 @@ export const b260: Unit = {
     {
       kind: 'choice',
       id: 'b2-60-ex-03',
-      question: 'If I use deliberate practice, I ___ improve.',
-      options: ['will', 'would', 'am'],
+      question: 'If I ___ deliberate practice, I would improve.',
+      options: ['used', 'use', 'will use'],
       answer: 0,
-      explanation: 'First Conditional: will + verb.',
+      explanation: 'Second Conditional: if + Past, would.',
     },
     {
       kind: 'choice',

@@ -131,10 +131,10 @@ export const b211: Unit = {
     {
       kind: 'choice',
       id: 'b2-11-ex-01',
-      question: 'The water is ___ to 100 degrees.',
-      options: ['heated', 'heat', 'heating'],
+      question: 'The water must ___ to 100 degrees.',
+      options: ['be heated', 'heat', 'be heating'],
       answer: 0,
-      explanation: 'Passive: is heated.',
+      explanation: 'Модальный пассив: must be heated.',
     },
     {
       kind: 'choice',
@@ -147,10 +147,10 @@ export const b211: Unit = {
     {
       kind: 'choice',
       id: 'b2-11-ex-03',
-      question: 'The diagram ___ the process.',
-      options: ['shows', 'show', 'showing'],
+      question: 'The process ___ in the diagram.',
+      options: ['is shown', 'shows', 'is showing'],
       answer: 0,
-      explanation: 'The diagram — it, поэтому shows.',
+      explanation: 'Пассив: is shown.',
     },
     {
       kind: 'choice',

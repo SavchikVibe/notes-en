@@ -139,10 +139,10 @@ export const b249: Unit = {
     {
       kind: 'choice',
       id: 'b2-49-ex-02',
-      question: 'The model is ___ on data.',
-      options: ['trained', 'train', 'training'],
+      question: 'The model is said ___ on biased data.',
+      options: ['to have been trained', 'to train', 'training'],
       answer: 0,
-      explanation: 'Passive: is trained.',
+      explanation: 'Passive reporting + perfect infinitive: is said to have been trained.',
     },
     {
       kind: 'choice',

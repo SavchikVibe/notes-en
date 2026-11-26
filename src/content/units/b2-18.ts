@@ -131,10 +131,10 @@ export const b218: Unit = {
     {
       kind: 'choice',
       id: 'b2-18-ex-01',
-      question: 'The story was ___ as a crisis.',
-      options: ['framed', 'frame', 'framing'],
+      question: 'The story, ___ as a crisis, spread quickly.',
+      options: ['framed', 'framing', 'frame'],
       answer: 0,
-      explanation: 'Passive: was framed.',
+      explanation: 'Причастный оборот: the story framed as a crisis.',
     },
     {
       kind: 'choice',

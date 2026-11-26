@@ -139,10 +139,10 @@ export const b255: Unit = {
     {
       kind: 'choice',
       id: 'b2-55-ex-02',
-      question: 'If trust is low, cooperation ___ be difficult.',
-      options: ['will', 'would', 'is'],
+      question: 'If trust were low, cooperation ___ be difficult.',
+      options: ['would', 'will', 'is'],
       answer: 0,
-      explanation: 'First Conditional: will + verb.',
+      explanation: 'Second Conditional: if + Past, would.',
     },
     {
       kind: 'choice',

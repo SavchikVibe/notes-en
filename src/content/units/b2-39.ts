@@ -139,10 +139,10 @@ export const b239: Unit = {
     {
       kind: 'choice',
       id: 'b2-39-ex-02',
-      question: 'The grid is being ___.',
-      options: ['modernized', 'modernize', 'modernizing'],
+      question: 'The grid ___ by the end of the decade.',
+      options: ['will have been modernized', 'will be modernizing', 'modernizes'],
       answer: 0,
-      explanation: 'Passive: is being modernized.',
+      explanation: 'Future Perfect Passive: will have been modernized.',
     },
     {
       kind: 'choice',

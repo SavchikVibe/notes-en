@@ -131,10 +131,10 @@ export const b247: Unit = {
     {
       kind: 'choice',
       id: 'b2-47-ex-01',
-      question: 'A good manager should ___ the team.',
-      options: ['empower', 'empowers', 'empowering'],
+      question: 'A good manager is expected ___ the team.',
+      options: ['to empower', 'empower', 'empowering'],
       answer: 0,
-      explanation: 'Should + глагол: empower.',
+      explanation: 'Passive reporting: is expected to empower.',
     },
     {
       kind: 'choice',

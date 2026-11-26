@@ -139,10 +139,10 @@ export const b205: Unit = {
     {
       kind: 'choice',
       id: 'b2-05-ex-02',
-      question: 'Grammatical accuracy ___.',
-      options: ['matters', 'matter', 'mattering'],
+      question: 'Grammatical accuracy ___ in speaking tests.',
+      options: ['is assessed', 'assesses', 'is assessing'],
       answer: 0,
-      explanation: 'Accuracy — it, поэтому matters.',
+      explanation: 'Пассив: is assessed — оценивается.',
     },
     {
       kind: 'choice',

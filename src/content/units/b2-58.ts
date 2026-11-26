@@ -131,10 +131,10 @@ export const b258: Unit = {
     {
       kind: 'choice',
       id: 'b2-58-ex-01',
-      question: 'Workers will need ___ retrain.',
-      options: ['to', 'for', 'that'],
+      question: 'Workers will be required ___.',
+      options: ['to retrain', 'retrain', 'retraining'],
       answer: 0,
-      explanation: 'Need to + глагол.',
+      explanation: 'Be required to + verb — требование.',
     },
     {
       kind: 'choice',

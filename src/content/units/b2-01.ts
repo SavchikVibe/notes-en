@@ -139,10 +139,10 @@ export const b201: Unit = {
     {
       kind: 'choice',
       id: 'b2-01-ex-02',
-      question: 'The claim is supported ___ evidence.',
-      options: ['by', 'of', 'with'],
+      question: 'The claim rests ___ evidence.',
+      options: ['on', 'of', 'with'],
       answer: 0,
-      explanation: 'Supported by — подтверждается чем-то.',
+      explanation: 'Rest on — опираться на.',
     },
     {
       kind: 'choice',

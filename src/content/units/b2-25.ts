@@ -131,10 +131,10 @@ export const b225: Unit = {
     {
       kind: 'choice',
       id: 'b2-25-ex-01',
-      question: 'Today I will ___ three points.',
-      options: ['cover', 'covers', 'covering'],
+      question: 'Three points ___ today.',
+      options: ['will be covered', 'will cover', 'are covering'],
       answer: 0,
-      explanation: 'Will + глагол: cover.',
+      explanation: 'Future Passive: will be covered.',
     },
     {
       kind: 'choice',

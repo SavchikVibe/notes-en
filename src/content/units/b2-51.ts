@@ -131,10 +131,10 @@ export const b251: Unit = {
     {
       kind: 'choice',
       id: 'b2-51-ex-01',
-      question: 'Which paragraph ___ the cost?',
-      options: ['mentions', 'mention', 'mentioning'],
+      question: 'The paragraph ___ mentions the cost is C.',
+      options: ['that', 'what', 'who'],
       answer: 0,
-      explanation: 'Which paragraph — it, mentions.',
+      explanation: 'Relative clause: the paragraph that mentions…',
     },
     {
       kind: 'choice',

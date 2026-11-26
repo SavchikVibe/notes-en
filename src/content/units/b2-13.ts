@@ -131,10 +131,10 @@ export const b213: Unit = {
     {
       kind: 'choice',
       id: 'b2-13-ex-01',
-      question: 'She said that the plan ___ ready.',
-      options: ['was', 'is', 'will be'],
+      question: 'She said that the plan ___ ready by Friday.',
+      options: ['would be', 'was', 'will be'],
       answer: 0,
-      explanation: 'Косвенная речь: сдвиг в прошлое.',
+      explanation: 'Косвенная речь: would be для будущего в прошлом.',
     },
     {
       kind: 'choice',

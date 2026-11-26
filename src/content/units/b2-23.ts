@@ -131,10 +131,10 @@ export const b223: Unit = {
     {
       kind: 'choice',
       id: 'b2-23-ex-01',
-      question: 'The percentage ___ students rose.',
-      options: ['of', 'from', 'in'],
+      question: 'The proportion of students ___ risen.',
+      options: ['has', 'have', 'having'],
       answer: 0,
-      explanation: 'The percentage of — доля чего-то.',
+      explanation: 'The proportion — единственное число: has risen.',
     },
     {
       kind: 'choice',

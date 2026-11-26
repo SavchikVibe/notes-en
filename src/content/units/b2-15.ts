@@ -131,10 +131,10 @@ export const b215: Unit = {
     {
       kind: 'choice',
       id: 'b2-15-ex-01',
-      question: 'The area is being ___.',
-      options: ['redeveloped', 'redevelop', 'redeveloping'],
+      question: 'The area ___ redeveloped since 2020.',
+      options: ['has been', 'is being', 'was being'],
       answer: 0,
-      explanation: 'Passive: is being redeveloped.',
+      explanation: 'Present Perfect Passive: has been redeveloped.',
     },
     {
       kind: 'choice',

@@ -147,10 +147,10 @@ export const b207: Unit = {
     {
       kind: 'choice',
       id: 'b2-07-ex-03',
-      question: 'Chemicals can ___ the river.',
-      options: ['contaminate', 'contaminates', 'contaminated'],
+      question: 'The river ___ by chemicals.',
+      options: ['was contaminated', 'contaminated', 'was contaminating'],
       answer: 0,
-      explanation: 'Can + глагол: contaminate.',
+      explanation: 'Пассив: was contaminated.',
     },
     {
       kind: 'choice',

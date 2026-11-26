@@ -131,10 +131,10 @@ export const b220: Unit = {
     {
       kind: 'choice',
       id: 'b2-20-ex-01',
-      question: 'One of the biggest challenges ___ inequality.',
-      options: ['is', 'are', 'be'],
+      question: 'Addressing inequality ___ one of the biggest challenges.',
+      options: ['remains', 'remain', 'remaining'],
       answer: 0,
-      explanation: 'One of — единственное число, is.',
+      explanation: 'Gerund subject — единственное число: remains.',
     },
     {
       kind: 'choice',

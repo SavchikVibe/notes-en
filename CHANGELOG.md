@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 0.99.9 — 2026-11-26
+
+B2-грамматика: расширенный аудит и 39 замен.
+
+- Прочитаны все 60 B2-юнитов; заменены 39 `choice`-заданий, где главным был не B2-синтаксис, а A1/A2: bare infinitive после модального, простое согласование/время, базовые предлоги, First Conditional.
+- Новые задания тренируют пассив и модальный пассив, perfect passive, passive reporting, Second Conditional, причастные и относительные обороты, gerund subject, nominal relative, hedging и B2-коллокации (`rise/raise`, `give rise to`, `rest on`).
+- Добавлен `npm run check:grammar`: падает, если в B2 снова появится `can to` / `may to` / `is can` / `should to`; количество простых choice печатает информационно.
+- Аудит и список того, что оставлено осознанно (лексические word-form, предлоги-коллокации, короткие assemble) — `docs/review-2/B2-GRAMMAR-AUDIT.md`.
+- IELTS не трогали.
+
 ## 0.99.8 — 2026-11-25
 
 Accept-пасс A1: 97 из 120 переводов с вариантами. Пасс закрыт для всех уровней.

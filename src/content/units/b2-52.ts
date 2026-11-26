@@ -147,10 +147,10 @@ export const b252: Unit = {
     {
       kind: 'choice',
       id: 'b2-52-ex-03',
-      question: 'Demand is projected ___ rise.',
-      options: ['to', 'for', 'that'],
+      question: 'Demand ___ to rise.',
+      options: ['is projected', 'projects', 'is projecting'],
       answer: 0,
-      explanation: 'Be projected to + глагол.',
+      explanation: 'Passive reporting: is projected to rise.',
     },
     {
       kind: 'choice',

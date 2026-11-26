@@ -131,10 +131,10 @@ export const b232: Unit = {
     {
       kind: 'choice',
       id: 'b2-32-ex-01',
-      question: 'The factory was ___.',
-      options: ['demolished', 'demolish', 'demolishing'],
+      question: 'The factory ___ to make way for a park.',
+      options: ['was demolished', 'demolished', 'was demolishing'],
       answer: 0,
-      explanation: 'Passive: was demolished.',
+      explanation: 'Пассив: was demolished.',
     },
     {
       kind: 'choice',

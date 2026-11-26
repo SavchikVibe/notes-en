@@ -131,10 +131,10 @@ export const b245: Unit = {
     {
       kind: 'choice',
       id: 'b2-45-ex-01',
-      question: 'The outbreak was ___ quickly.',
-      options: ['controlled', 'control', 'controlling'],
+      question: 'The outbreak ___ quickly.',
+      options: ['was controlled', 'controlled', 'was controlling'],
       answer: 0,
-      explanation: 'Passive: was controlled.',
+      explanation: 'Пассив: was controlled.',
     },
     {
       kind: 'choice',

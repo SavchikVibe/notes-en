@@ -139,10 +139,10 @@ export const b202: Unit = {
     {
       kind: 'choice',
       id: 'b2-02-ex-02',
-      question: 'The essay must ___ the position.',
-      options: ['justify', 'justifies', 'justified'],
+      question: 'The position ___ by the evidence.',
+      options: ['is supported', 'supports', 'is supporting'],
       answer: 0,
-      explanation: 'Must + глагол: justify.',
+      explanation: 'Пассив: is supported.',
     },
     {
       kind: 'choice',

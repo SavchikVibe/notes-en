@@ -131,10 +131,10 @@ export const b221: Unit = {
     {
       kind: 'choice',
       id: 'b2-21-ex-01',
-      question: 'The evidence ___ his claim.',
-      options: ['contradicts', 'contradict', 'contradicting'],
+      question: 'His claim ___ by the evidence.',
+      options: ['is contradicted', 'contradicts', 'is contradicting'],
       answer: 0,
-      explanation: 'The evidence — неисчисляемое, contradicts.',
+      explanation: 'Пассив: is contradicted.',
     },
     {
       kind: 'choice',

@@ -131,10 +131,10 @@ export const b217: Unit = {
     {
       kind: 'choice',
       id: 'b2-17-ex-01',
-      question: 'The study was ___ twice.',
-      options: ['replicated', 'replicate', 'replicating'],
+      question: 'The study ___ twice before it was published.',
+      options: ['had been replicated', 'was replicated', 'has been replicated'],
       answer: 0,
-      explanation: 'Passive: was replicated.',
+      explanation: 'Past Perfect Passive: had been replicated.',
     },
     {
       kind: 'choice',

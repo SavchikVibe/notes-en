@@ -90,7 +90,7 @@ Done when: each P0 bug can be reproduced by a test, and the suite is not left re
 
 - [x] Replace A1/A2 grammar inside B1–B2 (`can / can to / is can`, `may / may to / is may`) with
       B2 syntax: complex passive, hedging, conditionals, relative/participial clauses.
-      Done for `b2-01`, `b2-14`, `b2-17`, `b2-18`, `b2-28`, `b2-34`, `b2-40`, `b2-46`, `b2-49`.
+      39 `choice` items across all 60 B2 units were reviewed and rewritten in 0.99.9.
 - [x] Close the formula leak: the formula card is collapsed by default (`Lesson.tsx`), so
       `formulas.note` is not visible above the question.
 - [ ] Optional external audit of 20–30 random units and 5–6 Studio tasks.

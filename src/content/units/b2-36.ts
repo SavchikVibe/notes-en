@@ -131,10 +131,10 @@ export const b236: Unit = {
     {
       kind: 'choice',
       id: 'b2-36-ex-01',
-      question: 'The population is likely ___ age.',
-      options: ['to', 'for', 'that'],
+      question: 'The population is expected ___.',
+      options: ['to age', 'age', 'aging'],
       answer: 0,
-      explanation: 'Be likely to + глагол.',
+      explanation: 'Passive reporting: is expected to age.',
     },
     {
       kind: 'choice',

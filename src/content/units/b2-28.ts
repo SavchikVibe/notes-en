@@ -139,10 +139,10 @@ export const b228: Unit = {
     {
       kind: 'choice',
       id: 'b2-28-ex-02',
-      question: 'The disease can be ___.',
-      options: ['prevented', 'prevent', 'preventing'],
+      question: 'The disease ___ by vaccination.',
+      options: ['can be prevented', 'can prevent', 'can be preventing'],
       answer: 0,
-      explanation: 'Passive: can be prevented.',
+      explanation: 'Модальный пассив: can be prevented.',
     },
     {
       kind: 'choice',

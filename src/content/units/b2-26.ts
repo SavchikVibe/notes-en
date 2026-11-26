@@ -139,10 +139,10 @@ export const b226: Unit = {
     {
       kind: 'choice',
       id: 'b2-26-ex-02',
-      question: 'What I remember most ___ the atmosphere.',
-      options: ['is', 'are', 'be'],
+      question: 'The atmosphere is ___ I remember most.',
+      options: ['what', 'that', 'which'],
       answer: 0,
-      explanation: 'What I remember most — it, is.',
+      explanation: 'Nominal relative: what I remember most.',
     },
     {
       kind: 'choice',

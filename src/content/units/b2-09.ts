@@ -139,10 +139,10 @@ export const b209: Unit = {
     {
       kind: 'choice',
       id: 'b2-09-ex-02',
-      question: 'If we regulate data, privacy ___ improve.',
-      options: ['will', 'would', 'is'],
+      question: 'If we regulated data, privacy ___ improve.',
+      options: ['would', 'will', 'is'],
       answer: 0,
-      explanation: 'First Conditional: will + verb.',
+      explanation: 'Second Conditional: if + Past, would.',
     },
     {
       kind: 'choice',
